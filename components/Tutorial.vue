@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-center min-h-screen bg-gray-100"
+    class="flex items-center justify-center min-h-screen"
   >
     {{ $t('home.title') }}
   </div>

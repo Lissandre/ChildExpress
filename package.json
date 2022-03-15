@@ -14,8 +14,11 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/i18n": "^7.2.0",
+    "@tweakpane/plugin-camerakit": "^0.2.1",
+    "@tweakpane/plugin-essentials": "^0.1.4",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
+    "three": "^0.138.3",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
