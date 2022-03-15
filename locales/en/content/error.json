@@ -1,4 +1,5 @@
 {
   "notfound": "Page not found",
-  "else": "An error occured"
+  "else": "An error occured",
+  "backlink": "Go back to homepage"
 }
