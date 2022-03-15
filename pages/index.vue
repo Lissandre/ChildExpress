@@ -1,9 +1,12 @@
 <template>
-  <Tutorial />
+  <div>
+    <LocaleSwitcher />
+    <Tutorial />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'Home',
 }
 </script>
