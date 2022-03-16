@@ -12,5 +12,13 @@
   export default {
     props: ['error'],
     layout: 'default',
+    mounted() {
+      if(this.$store.getters['scene/isHealthy']) {
+        this.$store.commit('scene/toggleIsHealthy', false)
+      }
+    },
+    beforeDestroy() {
+      this.$store.commit('scene/toggleIsHealthy', true)
+    },
   }
 </script>

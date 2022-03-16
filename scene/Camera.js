@@ -1,4 +1,5 @@
-import { Object3D, PerspectiveCamera } from 'three'
+import { Object3D, PerspectiveCamera, Vector3 } from 'three'
+import gsap from 'gsap'
 
 export default class Camera {
   constructor(options) {
@@ -44,6 +45,32 @@ export default class Camera {
     this.camera.position.x = 0
     this.camera.position.y = 0
     this.camera.position.z = 5
+  }
+  changeScene(options) {
+    this.isHealthy = options.isHealthy
+    const vec = new Vector3(this.camera.position.x, this.camera.position.y, this.camera.position.z)
+
+    if(this.isHealthy) {
+      gsap.to(vec, {
+        x: 0,
+        y: 0,
+        z: 5,
+        duration: 1,
+        onUpdate: () => {
+          this.camera.position.set(vec.x, vec.y, vec.z)
+        },
+      })
+    } else {
+      gsap.to(vec, {
+        x: -2,
+        y: 0,
+        z: 3,
+        duration: 1,
+        onUpdate: () => {
+          this.camera.position.set(vec.x, vec.y, vec.z)
+        },
+      })
+    }
   }
   setDebug() {
     this.debugFolder
