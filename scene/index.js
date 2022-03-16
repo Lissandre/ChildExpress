@@ -13,10 +13,11 @@ import World from './World'
 export default class App {
   constructor(options) {
     // Set options
-    this.canvas = options.canvas
     this.time = new Time()
     this.sizes = new Sizes()
-
+  }
+  init(element) {
+    this.elementApp = element
     // Set up
     this.setConfig()
     this.setRenderer()
@@ -28,11 +29,12 @@ export default class App {
     this.scene = new Scene()
     // Set renderer
     this.renderer = new WebGLRenderer({
-      canvas: this.canvas,
+      canvas: this.elementApp,
       alpha: true,
       antialias: true,
       powerPreference: 'high-performance',
     })
+    // this.elementApp.append(this.renderer.domElement)
     this.renderer.outputEncoding = sRGBEncoding
     // this.renderer.gammaFactor = 2.2
     // Set background color
