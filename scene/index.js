@@ -13,6 +13,7 @@ import World from './World'
 export default class App {
   constructor(options) {
     // Set options
+    this.debug = true
     this.time = new Time()
     this.sizes = new Sizes()
   }
@@ -90,11 +91,12 @@ export default class App {
     this.scene.add(this.world.container)
   }
   setConfig() {
-    if (window.location.hash === '#debug') {
+    if (this.debug === true) {
       this.debug = new Pane({
         title: 'DEBUG',
         expanded: false,
       })
+      this.debug.containerElem_.classList.add('z-50')
 
       this.debug.registerPlugin(EssentialsPlugin)
       this.debug.registerPlugin(CamerakitPlugin)
