@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute p-4">
+  <div class="absolute p-4 z-50">
     <nuxt-link :to="switchLocalePath(locale[0].code)" class="uppercase">{{ locale[0].code }}</nuxt-link>
   </div>
 </template>
