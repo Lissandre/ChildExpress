@@ -21,6 +21,16 @@ export default class Cube {
       })
     )
     this.container.add(this.cube)
+
+    this.cube2 = new Mesh(
+      new BoxGeometry(4, 4, 4),
+      new MeshLambertMaterial({
+        color: 0xAAAAAA,
+      })
+    )
+    this.cube2.position.set(0, 4, 0)
+    this.container.add(this.cube2)
+    
   }
   setMovement() {
     this.time.on('tick', () => {
