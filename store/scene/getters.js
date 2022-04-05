@@ -4,5 +4,8 @@ export default {
   },
   isFace(state) {
     return state.isFace
+  },
+  getRange(state) {
+    return state.range
   }
 }

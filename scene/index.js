@@ -120,6 +120,20 @@ export default class App {
     }
   }
 
+  changeRange(options) {
+    const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
+
+    gsap.to(
+      this.world.cube.cube.scale, {
+        x: options.range / 10,
+        y: options.range / 10,
+        z: options.range / 10,
+        duration: 1,
+        ease: Power3.easeInOut,
+      }
+    )
+  }
+
   setConfig() {
     if (this.debug === true) {
       this.debug = new Pane({
