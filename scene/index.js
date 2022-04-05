@@ -1,4 +1,6 @@
-import { Scene, sRGBEncoding, WebGLRenderer } from 'three'
+import { Scene, sRGBEncoding, WebGLRenderer, Vector3 } from 'three'
+
+import gsap, { Power3 } from 'gsap'
 
 import { Pane } from 'tweakpane'
 import * as EssentialsPlugin from '@tweakpane/plugin-essentials';
@@ -54,9 +56,12 @@ export default class App {
     this.time.on('tick', () => {
       this.debug && this.fpsGraph.begin()
 
+      this.camera.camera.controls.update();
+
       this.renderer.render(this.scene, this.camera.camera)
     
       this.debug && this.fpsGraph.end()
+      
     })
 
     if (this.debug) {
@@ -90,6 +95,45 @@ export default class App {
     // Add world to scene
     this.scene.add(this.world.container)
   }
+
+  changeFocus(options) {
+    this.isFace = options.isFace
+    //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
+
+    console.log(this.world.cube.cube2.position, this.world.cube.cube2.position)
+    if(this.isFace) {
+      gsap.to(this.camera.camera.controls.target, {
+        x: this.world.cube.cube.position.x,
+        y: this.world.cube.cube.position.y,
+        z: this.world.cube.cube.position.z,
+        duration: 1,
+        ease: Power3.easeInOut,
+      })
+    } else {
+      gsap.to(this.camera.camera.controls.target, {
+        x: this.world.cube.cube2.position.x,
+        y: this.world.cube.cube2.position.y,
+        z: this.world.cube.cube2.position.z,
+        duration: 1,
+        ease: Power3.easeInOut,
+      })
+    }
+  }
+
+  changeRange(options) {
+    const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
+
+    gsap.to(
+      this.world.cube.cube.scale, {
+        x: options.range / 10,
+        y: options.range / 10,
+        z: options.range / 10,
+        duration: 1,
+        ease: Power3.easeInOut,
+      }
+    )
+  }
+
   setConfig() {
     if (this.debug === true) {
       this.debug = new Pane({

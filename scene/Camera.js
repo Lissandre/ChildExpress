@@ -1,4 +1,5 @@
 import { Object3D, PerspectiveCamera, Vector3 } from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import gsap from 'gsap'
 
 export default class Camera {
@@ -14,6 +15,7 @@ export default class Camera {
 
     this.setCamera()
     this.setPosition()
+    this.setOrbitControls()
 
     if (this.debug) {
       this.debugFolder = this.debug.addFolder({
@@ -45,6 +47,17 @@ export default class Camera {
     this.camera.position.x = 0
     this.camera.position.y = 0
     this.camera.position.z = 5
+  }
+  setOrbitControls() {
+    this.camera.controls = new OrbitControls( this.camera, this.renderer.domElement );
+
+    this.camera.controls.minDistance = 5;
+    this.camera.controls.maxDistance = 5;
+
+    this.camera.controls.minPolarAngle = Math.PI / 3;
+    this.camera.controls.maxPolarAngle = 2 * Math.PI / 3;
+
+    this.camera.controls.update();
   }
   changeScene(options) {
     this.isHealthy = options.isHealthy

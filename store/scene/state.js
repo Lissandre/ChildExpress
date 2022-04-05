@@ -1,3 +1,5 @@
 export default () => ({
-  isHealthy: true
+  isHealthy: true,
+  isFace: true,
+  range: 2
 })
