@@ -121,6 +121,7 @@ export default class App {
   }
 
   changeRange(options) {
+    console.log(options)
     const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
 
     gsap.to(

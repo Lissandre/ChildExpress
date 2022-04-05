@@ -2,7 +2,7 @@
   <div>
     <LocaleSwitcher />
     <Tutorial />
-    <Range />
+    <Form1 />
   </div>
 </template>
 
@@ -14,7 +14,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.range)
   },
   methods: {
   },
