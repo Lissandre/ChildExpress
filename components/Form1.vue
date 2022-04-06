@@ -6,29 +6,33 @@
     >
       Changer focus
     </button>
-    <p>{{ scale }}</p>
-    <p>{{ translate }}</p>
-    <input
-      class="absolute bottom-px pb-4 text-gray-500 left-1/2 pointer-events-auto"
+    <div class="absolute bottom-px pb-4 text-gray-500 left-1/2 pointer-events-auto">
+      <p>{{ store.constants.SCALE}} </p>
+      <input
       type="range"
       id="scale"
       name="scale"
       min="0"
-      max="10"
-      @change="(e) => changeRange(store.constants.SCALE, e)"
+      max="2"
+      step="0.1"
+      @input="(e) => changeRange(store.constants.SCALE, e)"
       value="scale"
     />
+    </div>
+
+<div class="absolute bottom-px pb-4 text-gray-500 left-1/4 pointer-events-auto">
+    <p>{{ store.constants.POSITION}} </p>
     <input
-      class="absolute bottom-px pb-4 text-gray-500 left-1/4 pointer-events-auto"
       type="range"
       id="scale"
       name="scale"
       min="0"
       max="10"
-      @change="(e) => changeRange(store.constants.TRANSLATE, e)"
-      value="translate"
+      @input="(e) => changeRange(store.constants.POSITION, e)"
+      value="position"
     />
   </div>
+</div>
 </template>
 
 <script>
@@ -39,7 +43,7 @@ export default {
   data() {
     return {
       name: 'form1',
-      translate: '',
+      position: '',
       scale: ''
     }
   },
@@ -51,7 +55,7 @@ export default {
     return { store }
   },
   mounted() {
-    this.translate = this.store.getRange(this.store.constants.TRANSLATE)
+    this.position = this.store.getRange(this.store.constants.POSITION)
     this.scale = this.store.getRange(this.store.constants.SCALE)
   },
   /*

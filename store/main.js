@@ -6,10 +6,10 @@ export const useStore = defineStore('main', {
     return {
       ranges: [
         { id: 'scale', value: 2 },
-        { id: 'translate', value: 5}
+        { id: 'position', value: 5}
       ],
       constants: {
-        TRANSLATE: 'translate',
+        POSITION: 'position',
         SCALE: 'scale'
       }
     }

@@ -107,7 +107,7 @@ export default class App {
         y: this.world.cube.cube.position.y,
         z: this.world.cube.cube.position.z,
         duration: 1,
-        ease: Power3.easeInOut,
+        ease: Power3.easeOut,
       })
     } else {
       gsap.to(this.camera.camera.controls.target, {
@@ -115,7 +115,7 @@ export default class App {
         y: this.world.cube.cube2.position.y,
         z: this.world.cube.cube2.position.z,
         duration: 1,
-        ease: Power3.easeInOut,
+        ease: Power3.easeOut,
       })
     }
   }
@@ -126,11 +126,11 @@ export default class App {
 
     gsap.to(
       this.world.cube.cube[options.propertyToChange], {
-        x: options.range / 10,
-        y: options.range / 10,
-        z: options.range / 10,
+        x: options.range,
+        y: options.range,
+        z: options.range,
         duration: 1,
-        ease: Power3.easeInOut,
+        ease: Power3.easeOut,
       }
     )
   }
