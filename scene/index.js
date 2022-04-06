@@ -125,7 +125,7 @@ export default class App {
     const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
 
     gsap.to(
-      this.world.cube.cube.scale, {
+      this.world.cube.cube[options.propertyToChange], {
         x: options.range / 10,
         y: options.range / 10,
         z: options.range / 10,

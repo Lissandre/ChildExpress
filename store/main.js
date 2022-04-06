@@ -5,16 +5,20 @@ export const useStore = defineStore('main', {
   state: () => {
     return {
       ranges: [
-        { id: 'scale', value: 2 }
+        { id: 'scale', value: 2 },
+        { id: 'translate', value: 5}
       ],
+      constants: {
+        TRANSLATE: 'translate',
+        SCALE: 'scale'
+      }
     }
   },
   actions: {
     changeRange(id, newValue, scene) {
       const range = this.ranges.find(range => range.id === id)
-
       range.value = newValue
-      scene?.changeRange({ range: newValue })
+      scene?.changeRange({ propertyToChange: id, range: newValue })
     }
   },
 
