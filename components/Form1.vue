@@ -1,38 +1,43 @@
 <template>
-  <div>
+  <div class="flex flex-col absolute bottom-1/2 left-20">
+    <h1 class="text-3xl">Form 1</h1>
     <button
       @click="changeFocus"
-      class="absolute bottom-0 pb-4 text-gray-500 left-50 pointer-events-auto"
+      class="bottom-0 left-0 pb-4 text-gray-500 pointer-events-auto"
     >
       Changer focus
     </button>
-    <div class="absolute bottom-px pb-4 text-gray-500 left-1/2 pointer-events-auto">
-      <p>{{ store.constants.SCALE}} </p>
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/2 pointer-events-auto">
+      <p>{{ store.constants.SCALE }}</p>
       <input
-      type="range"
-      id="scale"
-      name="scale"
-      min="0"
-      max="2"
-      step="0.1"
-      @input="(e) => changeRange(store.constants.SCALE, e)"
-      value="scale"
-    />
+        type="range"
+        id="scale"
+        name="scale"
+        min="0"
+        max="2"
+        step="0.1"
+        @input="(e) => changeRange(store.constants.SCALE, e)"
+        value="scale"
+      />
     </div>
 
-<div class="absolute bottom-px pb-4 text-gray-500 left-1/4 pointer-events-auto">
-    <p>{{ store.constants.POSITION}} </p>
-    <input
-      type="range"
-      id="scale"
-      name="scale"
-      min="0"
-      max="10"
-      @input="(e) => changeRange(store.constants.POSITION, e)"
-      value="position"
-    />
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <p>{{ store.constants.POSITION }}</p>
+      <input
+        type="range"
+        id="scale"
+        name="scale"
+        min="0"
+        max="10"
+        @input="(e) => changeRange(store.constants.POSITION, e)"
+        value="position"
+      />
+    </div>
+
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <button @click="changeActiveForm">Valider</button>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -44,7 +49,7 @@ export default {
     return {
       name: 'form1',
       position: '',
-      scale: ''
+      scale: '',
     }
   },
   setup() {
@@ -67,7 +72,7 @@ export default {
     }
   },*/
 
-/*
+  /*
   computed: {
     scale: {
       get() {
@@ -99,6 +104,10 @@ export default {
       } else {
         this.$store.commit('scene/toggleIsFace', true)
       }
+    },
+    changeActiveForm() {
+      console.log('etest')
+      this.store.changeActiveForm(2)
     },
   },
 }

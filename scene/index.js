@@ -135,6 +135,18 @@ export default class App {
     )
   }
 
+  changeRadio(options) {
+    gsap.to(
+      this.world.cube.cube[options.propertyToChange], {
+        x: options.range,
+        y: options.range,
+        z: options.range,
+        duration: 1,
+        ease: Power3.easeOut,
+      }
+    )
+  }
+
   setConfig() {
     if (this.debug === true) {
       this.debug = new Pane({
