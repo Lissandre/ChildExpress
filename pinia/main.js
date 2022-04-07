@@ -15,7 +15,9 @@ export const useStore = defineStore('main', {
         ROTATION: 'rotation',
       },
       activeForm: 1,
-      totalForms: 2
+      totalForms: 2,
+      isHealthy: true,
+      isFace: true,
     }
   },
   actions: {
@@ -23,10 +25,19 @@ export const useStore = defineStore('main', {
       console.log(newValue)
       this.activeForm = newValue
     },
-    changeRange(id, newValue, scene) {
+    changeRange(id, newValue) {
       const range = this.ranges.find(range => range.id === id)
       range.value = newValue
-      scene?.changeRange({ propertyToChange: id, range: newValue })
+      this.$nuxt.$scene?.changeRange({ propertyToChange: id, range: newValue })
+    },
+    toggleIsHealthy(newValue) {
+      this.isHealthy = newValue
+      this.$nuxt.$scene.camera?.changeScene({isHealthy: newValue})
+    },
+  
+    toggleIsFace(newValue) {
+      this.isFace = newValue
+      this.$nuxt.$scene?.changeFocus({isFace: newValue})
     }
   },
 
@@ -39,6 +50,12 @@ export const useStore = defineStore('main', {
     },
     getRange(state) {
       return (id) => state.ranges.find(range => range.id === id).value
+    },
+    isHealthy(state) {
+      return state.isHealthy
+    },
+    isFace(state) {
+      return state.isFace
     }
   }
 })

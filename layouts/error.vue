@@ -9,16 +9,22 @@
 </template>
 
 <script>
+  import { useStore } from '../pinia/main'
+
   export default {
     props: ['error'],
     layout: 'default',
+    setup() {
+      const store = useStore()
+      return { store }
+    },
     mounted() {
-      if(this.$store.getters['scene/isHealthy']) {
-        this.$store.commit('scene/toggleIsHealthy', false)
+     if(this.store.isFace) {
+        this.store.toggleIsHealthy(false)
       }
     },
     beforeDestroy() {
-      this.$store.commit('scene/toggleIsHealthy', true)
+        this.store.toggleIsHealthy(true)
     },
   }
 </script>

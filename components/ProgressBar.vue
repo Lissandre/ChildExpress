@@ -25,7 +25,7 @@ export default {
   methods: {
     changeRange(id, e) {
       console.log(id, e.target.value)
-      this.store.changeRange(id, e.target.value, this.$scene)
+      this.store.changeRange(id, e.target.value)
     },
   },
 }
