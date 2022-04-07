@@ -19,14 +19,13 @@ export default {
     return { store }
   },
   methods: {
-      /*
     changeFocus() {
       if (this.store.isFace) {
         this.store.toggleIsFace(false)
       } else {
         this.store.toggleIsFace(true)
       }
-    },*/
+    },
   },
 }
 </script>
