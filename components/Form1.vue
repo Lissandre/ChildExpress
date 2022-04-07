@@ -27,9 +27,8 @@
         value="earsSize"
       />
     </div>
-
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form1.rangeNoseSize') }}</p>
+      <p>{{ $t('form1.rangeHandsSize') }}</p>
       <input
         type="range"
         id="scale"
@@ -37,8 +36,21 @@
         min="0"
         max="1"
         step="0.01"
-        @input="(e) => changeRange(store.constants.NOSESIZE, e)"
-        value="noseSize"
+        @input="(e) => changeRange(store.constants.HANDSSIZE, e)"
+        value="handsSize"
+      />
+    </div>
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <p>{{ $t('form1.rangeOverallSize') }}</p>
+      <input
+        type="range"
+        id="scale"
+        name="scale"
+        min="0"
+        max="1"
+        step="0.01"
+        @input="(e) => changeRange(store.constants.OVERALLSIZE, e)"
+        value="overallSize"
       />
     </div>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">

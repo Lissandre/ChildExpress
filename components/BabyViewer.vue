@@ -12,7 +12,7 @@ export default {
   setup() {},
   mounted() {
     this.$scene.assets.on('ressourcesReady', () => {
-      console.log('sa grand mère suce de')
+      console.log(this.$refs.canvas)
       this.$scene.init({ canvas: this.$refs.canvas })
     })
   },
