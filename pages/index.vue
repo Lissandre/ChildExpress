@@ -3,6 +3,7 @@
     <LocaleSwitcher />
     <Tutorial />
     <Form1 />
+    <BabyViewer/>
   </div>
 </template>
 
