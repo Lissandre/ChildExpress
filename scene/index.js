@@ -97,7 +97,7 @@ export default class App {
   }
 
   changeFocus(options) {
-    this.isFace = options.isFace
+    this.isFace = options.face
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
 
     console.log(this.world.cube.cube2.position, this.world.cube.cube2.position)

@@ -92,8 +92,8 @@ export default {
       }*/
     },
     changeActiveForm() {
-      console.log('etest')
       this.store.changeActiveForm(2)
+      this.store.toggleIsFace(false)
     },
   },
 }

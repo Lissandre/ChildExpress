@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl">Form 2</h1>
+    <h1 class="text-3xl mb-3">{{ $t('form2.name') }}</h1>
     <div class="bottom-px pb-4 text-gray-500 left-1/2 pointer-events-auto">
-      <p>{{ store.constants.ROTATION}} </p>
+      <p>{{ $t('form2.rangeRotation') }}</p>
       <input
       type="range"
       id="rotation"
