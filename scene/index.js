@@ -118,22 +118,23 @@ export default class App {
   }
 
   changeFocus(options) {
-    this.isFace = options.isFace
+    console.log(options)
+    this.isFace = options.face
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
 
     if (this.isFace) {
       gsap.to(this.camera.camera.controls.target, {
-        x: this.world.cube.cube.position.x,
-        y: this.world.cube.cube.position.y,
-        z: this.world.cube.cube.position.z,
+        x: 0,
+        y: 0,
+        z: 0,
         duration: 1,
         ease: Power3.easeOut,
       })
     } else {
       gsap.to(this.camera.camera.controls.target, {
-        x: this.world.cube.cube2.position.x,
-        y: this.world.cube.cube2.position.y,
-        z: this.world.cube.cube2.position.z,
+        x: 0,
+        y: 3,
+        z: -3,
         duration: 1,
         ease: Power3.easeOut,
       })

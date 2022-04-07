@@ -1,5 +1,5 @@
 <template>
-  <div class="baby-container absolute left-1/2 top-1/2" style="width: 75%; height: 50%; transform: translate3d(-50%, -50%, 0)">
+  <div class="baby-container absolute left-1/2 top-1/2 pointer-events-auto" style="width: 60%; height: 50%; transform: translate3d(-50%, -50%, 0)">
     <canvas id="_canvas" ref="canvas"></canvas>
   </div>
 </template>
