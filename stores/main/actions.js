@@ -3,10 +3,10 @@ export const actions = {
     console.log(newValue)
     this.activeForm = newValue
   },
-  changeRange(id, newValue, scene) {
+  changeRange(id, newValue) {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
-    scene?.changeRange({ propertyToChange: id, range: newValue })
+    this.$nuxt.$scene?.changeRange({ propertyToChange: id, range: newValue })
   },
   toggleIsHealthy(newValue) {
     this.health = newValue

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl">{{ $t('form1.name') }}</h1>
+    <h1 class="text-3xl mb-3">{{ $t('form1.name') }}</h1>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/2 pointer-events-auto">
       <p>{{ $t('form1.rangeScale') }}</p>
       <input
@@ -92,8 +92,8 @@ export default {
       }*/
     },
     changeActiveForm() {
-      console.log('etest')
       this.store.changeActiveForm(2)
+      this.store.toggleIsFace(false)
     },
   },
 }
