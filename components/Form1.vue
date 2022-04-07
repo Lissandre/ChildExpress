@@ -1,46 +1,48 @@
 <template>
-  <div>
-    <button
-      @click="changeFocus"
-      class="absolute bottom-0 pb-4 text-gray-500 left-50 pointer-events-auto"
-    >
-      Changer focus
-    </button>
-    <p>{{ scale }}</p>
-    <p>{{ translate }}</p>
-    <input
-      class="absolute bottom-px pb-4 text-gray-500 left-1/2 pointer-events-auto"
-      type="range"
-      id="scale"
-      name="scale"
-      min="0"
-      max="10"
-      @change="(e) => changeRange(store.constants.SCALE, e)"
-      value="scale"
-    />
-    <input
-      class="absolute bottom-px pb-4 text-gray-500 left-1/4 pointer-events-auto"
-      type="range"
-      id="scale"
-      name="scale"
-      min="0"
-      max="10"
-      @change="(e) => changeRange(store.constants.TRANSLATE, e)"
-      value="translate"
-    />
+  <div class="flex flex-col absolute bottom-1/2 left-20">
+    <h1 class="text-3xl">{{ $t('form1.name') }}</h1>
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/2 pointer-events-auto">
+      <p>{{ $t('form1.rangeScale') }}</p>
+      <input
+        type="range"
+        id="scale"
+        name="scale"
+        min="0"
+        max="2"
+        step="0.1"
+        @input="(e) => changeRange(store.constants.SCALE, e)"
+        value="scale"
+      />
+    </div>
+
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <p>{{ $t('form1.rangePosition')  }}</p>
+      <input
+        type="range"
+        id="scale"
+        name="scale"
+        min="0"
+        max="10"
+        @input="(e) => changeRange(store.constants.POSITION, e)"
+        value="position"
+      />
+    </div>
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <button @click="changeActiveForm">{{ $t('form1.submitButton')}}</button>
+    </div>
   </div>
 </template>
 
 <script>
-import { useStore } from '../store/main'
+import { useStore } from '@/stores/'
 
 export default {
   name: 'Form1',
   data() {
     return {
       name: 'form1',
-      translate: '',
-      scale: ''
+      position: '',
+      scale: '',
     }
   },
   setup() {
@@ -51,7 +53,7 @@ export default {
     return { store }
   },
   mounted() {
-    this.translate = this.store.getRange(this.store.constants.TRANSLATE)
+    this.position = this.store.getRange(this.store.constants.POSITION)
     this.scale = this.store.getRange(this.store.constants.SCALE)
   },
   /*
@@ -63,7 +65,7 @@ export default {
     }
   },*/
 
-/*
+  /*
   computed: {
     scale: {
       get() {
@@ -83,18 +85,15 @@ export default {
     changeRange(id, e) {
       // console.log(this.$store.getters['form1/getRange', 'scale'])
       console.log(id, e.target.value)
-      this.store.changeRange(id, e.target.value, this.$scene)
+      this.store.changeRange(id, e.target.value)
 
       /*if(this.$store.getters[`${this.name}/get${id}`, id]) {
         this.$store.commit(`${this.name}/change${id}`, id, e.target.value)
       }*/
     },
-    changeFocus() {
-      if (this.$store.getters['scene/isFace'] === true) {
-        this.$store.commit('scene/toggleIsFace', false)
-      } else {
-        this.$store.commit('scene/toggleIsFace', true)
-      }
+    changeActiveForm() {
+      console.log('etest')
+      this.store.changeActiveForm(2)
     },
   },
 }
