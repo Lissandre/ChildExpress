@@ -4,7 +4,5 @@
     "rangePosition": "Position",
     "submitButton": "Submit",
     "rangeNoseSize": "Nose Size",
-    "rangeEarsSize": "Ears Size",
-    "rangeHandsSize": "Hands Size",
-    "rangeOverallSize": "Overall Size"
+    "rangeEarsSize": "Ears Size"
 }

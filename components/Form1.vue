@@ -28,32 +28,6 @@
       />
     </div>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form1.rangeHandsSize') }}</p>
-      <input
-        type="range"
-        id="scale"
-        name="scale"
-        min="0"
-        max="1"
-        step="0.01"
-        @input="(e) => changeRange(store.constants.HANDSSIZE, e)"
-        value="handsSize"
-      />
-    </div>
-    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form1.rangeOverallSize') }}</p>
-      <input
-        type="range"
-        id="scale"
-        name="scale"
-        min="0"
-        max="1"
-        step="0.01"
-        @input="(e) => changeRange(store.constants.OVERALLSIZE, e)"
-        value="overallSize"
-      />
-    </div>
-    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
       <button @click="changeActiveForm">{{ $t('form1.submitButton') }}</button>
     </div>
   </div>
@@ -81,45 +55,12 @@ export default {
   mounted() {
     this.noseSize = this.store.getRange(this.store.constants.NOSESIZE)
     this.earsSize = this.store.getRange(this.store.constants.EARSSIZE)
-    this.handsSize = this.store.getRange(this.store.constants.HANDSSIZE)
-    this.overallSize = this.store.getRange(this.store.constants.OVERALLSIZE)
   },
-  /*
-  computed: {
-    getRange () {
-      return id => {
-        return this.$store.getters[`${this.name}/get${id}`, id]
-      }
-    }
-  },*/
-
-  /*
-  computed: {
-    scale: {
-      get() {
-        console.log(this.store)
-        const yes = this.store.getRange('scale')
-        return yes
-      },
-      set(e) {
-        console.log(e)
-        this.changeRange('scale', e)
-      },
-    },
-  },
-  */
   methods: {
-    //changeRange: id => e => {
     changeRange(id, e) {
-      // console.log(this.$store.getters['form1/getRange', 'scale'])
       this.store.changeRange(id, e.target.value)
-
-      /*if(this.$store.getters[`${this.name}/get${id}`, id]) {
-        this.$store.commit(`${this.name}/change${id}`, id, e.target.value)
-      }*/
     },
     changeActiveForm() {
-      console.log('etest')
       this.store.changeActiveForm(2)
     },
   },

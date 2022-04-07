@@ -4,7 +4,5 @@
     "rangePosition": "Position",
     "submitButton": "Valider",
     "rangeNoseSize": "Taille Nez",
-    "rangeEarsSize": "Taille Oreilles",
-    "rangeHandsSize": "Taille Mains",
-    "rangeOverallSize": "Taille Globale"
+    "rangeEarsSize": "Taille Oreilles"
 }
