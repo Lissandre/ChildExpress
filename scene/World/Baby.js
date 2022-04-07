@@ -1,4 +1,5 @@
 import { Object3D, RepeatWrapping } from 'three'
+import gsap, { Power3 } from 'gsap'
 
 export default class Baby {
     constructor(options) {
@@ -72,10 +73,19 @@ export default class Baby {
 
             this.shader = s
         }
-    }
 
-    updateUniform(uniform, value) {
-        this.shader.uniforms[uniform].value = value;
+
+
+        this.updateUniform = (uniform, value) => {
+            gsap.to(
+                this.shader.uniforms[uniform], {
+                value,
+                duration: 1,
+                ease: Power3.easeOut,
+            }
+            )
+
+        }
     }
 
     setMovement() {

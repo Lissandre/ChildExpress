@@ -16,7 +16,7 @@
     </div>
 
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form1.rangePosition')  }}</p>
+      <p>{{ $t('form1.rangePosition') }}</p>
       <input
         type="range"
         id="scale"
@@ -27,8 +27,22 @@
         value="position"
       />
     </div>
+
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <button @click="changeActiveForm">{{ $t('form1.submitButton')}}</button>
+      <p>{{ $t('form1.rangeNoseSize') }}</p>
+      <input
+        type="range"
+        id="scale"
+        name="scale"
+        min="0"
+        max="1"
+        step="0.01"
+        @input="(e) => changeRange(store.constants.NOSESIZE, e)"
+        value="noseSize"
+      />
+    </div>
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <button @click="changeActiveForm">{{ $t('form1.submitButton') }}</button>
     </div>
   </div>
 </template>
@@ -55,6 +69,7 @@ export default {
   mounted() {
     this.position = this.store.getRange(this.store.constants.POSITION)
     this.scale = this.store.getRange(this.store.constants.SCALE)
+    this.noseSize = this.store.getRange(this.store.constants.NOSESIZE)
   },
   /*
   computed: {
