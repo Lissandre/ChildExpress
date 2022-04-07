@@ -64,11 +64,11 @@ export default class App {
     // Set renderer pixel ratio & sizes
     this.renderer.setPixelRatio(window.devicePixelRatio)
 
-    this.renderer.setSize(this.elementApp.parentNode.offsetWidth, this.elementApp.parentNode.offsetWidth)
+    this.renderer.setSize(this.elementApp.parentNode.offsetWidth, this.elementApp.parentNode.offsetHeight)
 
     // Resize renderer on resize event
     this.sizes.on('resize', () => {
-      this.renderer.setSize(this.elementApp.parentNode.offsetWidth, this.elementApp.parentNode.offsetWidth)
+      this.renderer.setSize(this.elementApp.parentNode.offsetWidth, this.elementApp.parentNode.offsetHeight)
     })
 
     this.time.on('tick', () => {
@@ -100,6 +100,7 @@ export default class App {
       sizes: this.sizes,
       renderer: this.renderer,
       debug: this.debug,
+      parentNode: this.elementApp.parentNode
     })
     // Add camera to scene
     this.scene.add(this.camera.container)
