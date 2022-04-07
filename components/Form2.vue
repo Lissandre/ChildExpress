@@ -38,14 +38,7 @@ export default {
   methods: {
     changeRange(id, e) {
       console.log(id, e.target.value)
-      this.store.changeRange(id, e.target.value, this.$scene)
-    },
-    changeFocus() {
-      if (this.$store.getters['scene/isFace'] === true) {
-        this.$store.commit('scene/toggleIsFace', false)
-      } else {
-        this.$store.commit('scene/toggleIsFace', true)
-      }
+      this.store.changeRange(id, e.target.value)
     },
   },
 }

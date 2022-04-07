@@ -12,5 +12,7 @@ export const state = () => {
     },
     activeForm: 1,
     totalForms: 2,
+    isHealthy: true,
+    isFace: true,
   }
 }

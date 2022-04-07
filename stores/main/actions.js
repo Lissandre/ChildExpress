@@ -8,4 +8,12 @@ export const actions = {
     range.value = newValue
     scene?.changeRange({ propertyToChange: id, range: newValue })
   },
+  toggleIsHealthy(newValue) {
+    this.isHealthy = newValue
+    this.$nuxt.$scene.camera?.changeScene({ isHealthy: newValue })
+  },
+  toggleIsFace(newValue) {
+    this.isFace = newValue
+    this.$nuxt.$scene?.changeFocus({ isFace: newValue })
+  },
 }

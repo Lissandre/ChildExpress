@@ -8,4 +8,10 @@ export const getters = {
   getRange(state) {
     return (id) => state.ranges.find((range) => range.id === id).value
   },
+  isHealthy(state) {
+    return state.isHealthy
+  },
+  isFace(state) {
+    return state.isFace
+  },
 }
