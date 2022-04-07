@@ -1,18 +1,32 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl mb-3">{{ $t('form2.name') }}</h1>
-    <div class="bottom-px pb-4 text-gray-500 left-1/2 pointer-events-auto">
-      <p>{{ $t('form2.rangeRotation') }}</p>
+    <h1 class="text-3xl">{{ $t('form2.name') }}</h1>
+
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <p>{{ $t('form2.rangeHandsSize') }}</p>
       <input
-      type="range"
-      id="rotation"
-      name="rotation"
-      min="0"
-      max="2"
-      step="0.1"
-      @input="(e) => changeRange(store.constants.ROTATION, e)"
-      value="rotation"
-    />
+        type="range"
+        id="scale"
+        name="scale"
+        min="0"
+        max="1"
+        step="0.01"
+        @input="(e) => changeRange(store.constants.HANDSSIZE, e)"
+        value="handsSize"
+      />
+    </div>
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <p>{{ $t('form2.rangeOverallSize') }}</p>
+      <input
+        type="range"
+        id="scale"
+        name="scale"
+        min="0"
+        max="1"
+        step="0.01"
+        @input="(e) => changeRange(store.constants.OVERALLSIZE, e)"
+        value="overallSize"
+      />
     </div>
 </div>
 </template>
@@ -33,11 +47,11 @@ export default {
     return { store }
   },
   mounted() {
-    this.rotation = this.store.getRange(this.store.constants.ROTATION)
+    this.handsSize = this.store.getRange(this.store.constants.HANDSSIZE)
+    this.overallSize = this.store.getRange(this.store.constants.OVERALLSIZE)
   },
   methods: {
     changeRange(id, e) {
-      console.log(id, e.target.value)
       this.store.changeRange(id, e.target.value)
     },
   },

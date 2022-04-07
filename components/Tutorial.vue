@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-center min-h-screen flex-col"
+    class="flex items-center justify-center min-h-screen flex-col pointer-events-auto bottom-0"
   >
     {{ $t('home.title') }}
     <NuxtLink :to="localePath('/asdf')" class="block uppercase pointer-events-auto">> go to 404 </NuxtLink>
