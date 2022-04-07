@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { useStore } from '../store/main'
+import { useStore } from '../pinia/main'
 
 export default {
   name: 'Home',

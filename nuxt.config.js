@@ -18,12 +18,15 @@ export default {
   },
   css: [],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~plugins/scene.client.js', mode: 'client' }],
+  plugins: [
+    { src: '~plugins/scene.client.js', mode: 'client' },
+    { src: '~plugins/pinia.js', mode: 'both' },
+  ],
   components: true,
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
-    '@pinia/nuxt',
+    ['@pinia/nuxt', { disableVuex: false }],
   ],
   modules: ['@nuxtjs/axios', '@nuxtjs/i18n'],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
