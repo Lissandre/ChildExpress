@@ -2,7 +2,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   generate: {
-    fallback: true
+    fallback: true,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -24,12 +24,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: '~plugins/scene.client.js', mode: 'client' }
-  ],
+  plugins: [{ src: '~plugins/scene.client.js', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -52,24 +50,29 @@ export default {
     baseURL: '/',
   },
 
+  tailwindcss: {
+    exposeConfig: false,
+    viewer: false,
+  },
+
   // i18n module configuration
   i18n: {
     locales: [
       {
         code: 'en',
         name: 'English',
-        file: 'en/index.js'
+        file: 'en/index.js',
       },
       {
         code: 'fr',
         name: 'Français',
-        file: 'fr/index.js'
-      }
+        file: 'fr/index.js',
+      },
     ],
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root',  // recommended
+      redirectOn: 'root', // recommended
     },
     langDir: '~/locales/',
     strategy: 'prefix',
@@ -77,20 +80,23 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: [
-      'three',
-    ],
+    loaders: {
+      vue: {
+        prettify: false,
+      },
+    },
+    transpile: ['three'],
     extend(config) {
       config.module.rules.push({
         test: /\.(glsl|vs|fs|frag|vert)$/,
         exclude: /node_modules/,
-        use: ["raw-loader", "glslify-loader"]
+        use: ['raw-loader', 'glslify-loader'],
       }),
-      config.module.rules.push({
-        test: /\.(fbx|glb|obj|3ds|gltf)$/,
-        exclude: /node_modules/,
-        use: ["file-loader"]
-      })
-    }
+        config.module.rules.push({
+          test: /\.(fbx|glb|obj|3ds|gltf)$/,
+          exclude: /node_modules/,
+          use: ['file-loader'],
+        })
+    },
   },
 }
