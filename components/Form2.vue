@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { useStore } from '../pinia/main'
+import { useStore } from '@/stores/'
 
 export default {
   name: 'Form2',
