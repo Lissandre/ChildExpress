@@ -14,7 +14,8 @@ export const useStore = defineStore('main', {
         SCALE: 'scale',
         ROTATION: 'rotation',
       },
-      activeForm: 1
+      activeForm: 1,
+      totalForms: 2
     }
   },
   actions: {
@@ -32,6 +33,9 @@ export const useStore = defineStore('main', {
   getters: {
     getActiveForm() {
       return this.activeForm
+    },
+    getTotalForms() {
+      return this.totalForms
     },
     getRange(state) {
       return (id) => state.ranges.find(range => range.id === id).value

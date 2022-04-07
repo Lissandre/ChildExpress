@@ -1,12 +1,6 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
     <h1 class="text-3xl">Form 1</h1>
-    <button
-      @click="changeFocus"
-      class="bottom-0 left-0 pb-4 text-gray-500 pointer-events-auto"
-    >
-      Changer focus
-    </button>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/2 pointer-events-auto">
       <p>{{ store.constants.SCALE }}</p>
       <input
@@ -33,6 +27,12 @@
         value="position"
       />
     </div>
+    <button
+      @click="changeFocus"
+      class="bottom-0 left-0 pb-4 text-gray-500 pointer-events-auto"
+    >
+      Changer focus
+    </button>
 
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
       <button @click="changeActiveForm">Valider</button>

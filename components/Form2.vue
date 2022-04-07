@@ -1,12 +1,6 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
     <h1 class="text-3xl">Form 2</h1>
-    <button
-      @click="changeFocus"
-      class="bottom-0 pb-4 text-gray-500 left-50 pointer-events-auto"
-    >
-      Changer focus
-    </button>
     <div class="bottom-px pb-4 text-gray-500 left-1/2 pointer-events-auto">
       <p>{{ store.constants.ROTATION}} </p>
       <input
@@ -27,10 +21,10 @@
 import { useStore } from '../store/main'
 
 export default {
-  name: 'Form1',
+  name: 'Form2',
   data() {
     return {
-      name: 'form1',
+      name: 'form2',
       rotation: ''
     }
   },
