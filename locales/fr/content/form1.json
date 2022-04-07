@@ -3,5 +3,8 @@
     "rangeScale": "Échelle",
     "rangePosition": "Position",
     "submitButton": "Valider",
-    "rangeNoseSize": "Taille Nez"
+    "rangeNoseSize": "Taille Nez",
+    "rangeEarsSize": "Taille Oreilles",
+    "rangeHandsSize": "Taille Mains",
+    "rangeOverallSize": "Taille Globale"
 }

@@ -3,5 +3,8 @@
     "rangeScale": "Scale",
     "rangePosition": "Position",
     "submitButton": "Submit",
-    "rangeNoseSize": "Nose Size"
+    "rangeNoseSize": "Nose Size",
+    "rangeEarsSize": "Ears Size",
+    "rangeHandsSize": "Hands Size",
+    "rangeOverallSize": "Overall Size"
 }
