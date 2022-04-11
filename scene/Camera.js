@@ -8,6 +8,7 @@ export default class Camera {
     this.sizes = options.sizes
     this.renderer = options.renderer
     this.debug = options.debug
+    this.parentNode = options.parentNode
 
     // Set up
     this.container = new Object3D()
@@ -29,7 +30,7 @@ export default class Camera {
     // Create camera
     this.camera = new PerspectiveCamera(
       75,
-      this.sizes.viewport.width / this.sizes.viewport.height,
+      this.parentNode.offsetWidth / this.parentNode.offsetHeight,
       0.1,
       1000
     )
@@ -37,7 +38,7 @@ export default class Camera {
     // Change camera aspect on resize
     this.sizes.on('resize', () => {
       this.camera.aspect =
-        this.sizes.viewport.width / this.sizes.viewport.height
+        this.parentNode.offsetWidth / this.parentNode.offsetHeight
       // Call this method because of the above change
       this.camera.updateProjectionMatrix()
     })
@@ -49,10 +50,10 @@ export default class Camera {
     this.camera.position.z = 5
   }
   setOrbitControls() {
-    this.camera.controls = new OrbitControls( this.camera, this.renderer.domElement );
+    this.camera.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
-    this.camera.controls.minDistance = 5;
-    this.camera.controls.maxDistance = 5;
+    this.camera.controls.minDistance = 8;
+    this.camera.controls.maxDistance = 8;
 
     this.camera.controls.minPolarAngle = Math.PI / 3;
     this.camera.controls.maxPolarAngle = 2 * Math.PI / 3;
@@ -63,7 +64,7 @@ export default class Camera {
     this.isHealthy = options.isHealthy
     const vec = new Vector3(this.camera.position.x, this.camera.position.y, this.camera.position.z)
 
-    if(this.isHealthy) {
+    if (this.isHealthy) {
       gsap.to(vec, {
         x: 0,
         y: 0,
@@ -98,9 +99,9 @@ export default class Camera {
     this.debugFolder
       .addInput(this.camera, 'position', {
         label: 'x, y, z',
-        x: {min: -5, max: 5},
-        y: {min: -5, max: 5},
-        z: {min: -5, max: 5},
+        x: { min: -5, max: 5 },
+        y: { min: -5, max: 5 },
+        z: { min: -5, max: 5 },
       })
   }
 }

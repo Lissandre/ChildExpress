@@ -2,5 +2,7 @@
     "name": "Formulaire 1",
     "rangeScale": "Échelle",
     "rangePosition": "Position",
-    "submitButton": "Valider"
+    "submitButton": "Valider",
+    "rangeNoseSize": "Taille Nez",
+    "rangeEarsSize": "Taille Oreilles"
 }

@@ -1,34 +1,34 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl mb-3">{{ $t('form1.name') }}</h1>
-    <div class="bottom-1/2 pb-4 text-gray-500 left-1/2 pointer-events-auto">
-      <p>{{ $t('form1.rangeScale') }}</p>
+    <h1 class="text-3xl">{{ $t('form1.name') }}</h1>
+    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+      <p>{{ $t('form1.rangeNoseSize') }}</p>
       <input
         type="range"
         id="scale"
         name="scale"
         min="0"
-        max="2"
-        step="0.1"
-        @input="(e) => changeRange(store.constants.SCALE, e)"
-        value="scale"
+        max="1"
+        step="0.01"
+        @input="(e) => changeRange(store.constants.NOSESIZE, e)"
+        value="noseSize"
       />
     </div>
-
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form1.rangePosition')  }}</p>
+      <p>{{ $t('form1.rangeEarsSize') }}</p>
       <input
         type="range"
         id="scale"
         name="scale"
         min="0"
-        max="10"
-        @input="(e) => changeRange(store.constants.POSITION, e)"
-        value="position"
+        max="1"
+        step="0.01"
+        @input="(e) => changeRange(store.constants.EARSSIZE, e)"
+        value="earsSize"
       />
     </div>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <button @click="changeActiveForm">{{ $t('form1.submitButton')}}</button>
+      <button @click="changeActiveForm">{{ $t('form1.submitButton') }}</button>
     </div>
   </div>
 </template>
@@ -53,47 +53,16 @@ export default {
     return { store }
   },
   mounted() {
-    this.position = this.store.getRange(this.store.constants.POSITION)
-    this.scale = this.store.getRange(this.store.constants.SCALE)
+    this.noseSize = this.store.getRange(this.store.constants.NOSESIZE)
+    this.earsSize = this.store.getRange(this.store.constants.EARSSIZE)
   },
-  /*
-  computed: {
-    getRange () {
-      return id => {
-        return this.$store.getters[`${this.name}/get${id}`, id]
-      }
-    }
-  },*/
-
-  /*
-  computed: {
-    scale: {
-      get() {
-        console.log(this.store)
-        const yes = this.store.getRange('scale')
-        return yes
-      },
-      set(e) {
-        console.log(e)
-        this.changeRange('scale', e)
-      },
-    },
-  },
-  */
   methods: {
-    //changeRange: id => e => {
     changeRange(id, e) {
-      // console.log(this.$store.getters['form1/getRange', 'scale'])
-      console.log(id, e.target.value)
       this.store.changeRange(id, e.target.value)
-
-      /*if(this.$store.getters[`${this.name}/get${id}`, id]) {
-        this.$store.commit(`${this.name}/change${id}`, id, e.target.value)
-      }*/
     },
     changeActiveForm() {
       this.store.changeActiveForm(2)
-      this.store.toggleIsFace(false)
+      // this.store.toggleIsFace(false)
     },
   },
 }

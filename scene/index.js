@@ -8,6 +8,7 @@ import * as CamerakitPlugin from '@tweakpane/plugin-camerakit';
 
 import Sizes from './Tools/Sizes'
 import Time from './Tools/Time'
+import Loader from './Tools/Loader'
 
 import Camera from './Camera'
 import World from './World'
@@ -18,14 +19,32 @@ export default class App {
     this.debug = true
     this.time = new Time()
     this.sizes = new Sizes()
+    this.assets = new Loader({
+      template: `
+        <div class="loaderScreen">
+        <div class="loaderScreen__progressBar">
+            <div class="loaderScreen__progress"></div>
+        </div>
+        <h1 class="loaderScreen__load">0%</h1>
+        <div class="loaderScreen__progressBar">
+            <div class="loaderScreen__progress"></div>
+        </div>
+        </div>
+    `
+    })
+
+
   }
-  init(element) {
-    this.elementApp = element
+  init(options) {
+
+    this.elementApp = options.canvas
     // Set up
     this.setConfig()
     this.setRenderer()
     this.setCamera()
     this.setWorld()
+
+
   }
   setRenderer() {
     // Set scene
@@ -44,13 +63,12 @@ export default class App {
     this.renderer.setClearColor(0x000000, 0)
     // Set renderer pixel ratio & sizes
     this.renderer.setPixelRatio(window.devicePixelRatio)
-    this.renderer.setSize(this.sizes.viewport.width, this.sizes.viewport.height)
+
+    this.renderer.setSize(this.elementApp.parentNode.offsetWidth, this.elementApp.parentNode.offsetHeight)
+
     // Resize renderer on resize event
     this.sizes.on('resize', () => {
-      this.renderer.setSize(
-        this.sizes.viewport.width,
-        this.sizes.viewport.height
-      )
+      this.renderer.setSize(this.elementApp.parentNode.offsetWidth, this.elementApp.parentNode.offsetHeight)
     })
 
     this.time.on('tick', () => {
@@ -59,9 +77,9 @@ export default class App {
       this.camera.camera.controls.update();
 
       this.renderer.render(this.scene, this.camera.camera)
-    
+
       this.debug && this.fpsGraph.end()
-      
+
     })
 
     if (this.debug) {
@@ -82,6 +100,7 @@ export default class App {
       sizes: this.sizes,
       renderer: this.renderer,
       debug: this.debug,
+      parentNode: this.elementApp.parentNode
     })
     // Add camera to scene
     this.scene.add(this.camera.container)
@@ -90,30 +109,31 @@ export default class App {
     // Create world instance
     this.world = new World({
       time: this.time,
+      assets: this.assets,
       debug: this.debug,
     })
     // Add world to scene
     this.scene.add(this.world.container)
+
   }
 
   changeFocus(options) {
     this.isFace = options.face
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
 
-    console.log(this.world.cube.cube2.position, this.world.cube.cube2.position)
-    if(this.isFace) {
+    if (this.isFace) {
       gsap.to(this.camera.camera.controls.target, {
-        x: this.world.cube.cube.position.x,
-        y: this.world.cube.cube.position.y,
-        z: this.world.cube.cube.position.z,
+        x: 0,
+        y: 0,
+        z: 0,
         duration: 1,
         ease: Power3.easeOut,
       })
     } else {
       gsap.to(this.camera.camera.controls.target, {
-        x: this.world.cube.cube2.position.x,
-        y: this.world.cube.cube2.position.y,
-        z: this.world.cube.cube2.position.z,
+        x: 0,
+        y: 3,
+        z: 0,
         duration: 1,
         ease: Power3.easeOut,
       })
@@ -121,29 +141,28 @@ export default class App {
   }
 
   changeRange(options) {
-    console.log(options)
     const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
 
     gsap.to(
       this.world.cube.cube[options.propertyToChange], {
-        x: options.range,
-        y: options.range,
-        z: options.range,
-        duration: 1,
-        ease: Power3.easeOut,
-      }
+      x: options.range,
+      y: options.range,
+      z: options.range,
+      duration: 1,
+      ease: Power3.easeOut,
+    }
     )
   }
 
   changeRadio(options) {
     gsap.to(
       this.world.cube.cube[options.propertyToChange], {
-        x: options.range,
-        y: options.range,
-        z: options.range,
-        duration: 1,
-        ease: Power3.easeOut,
-      }
+      x: options.range,
+      y: options.range,
+      z: options.range,
+      duration: 1,
+      ease: Power3.easeOut,
+    }
     )
   }
 

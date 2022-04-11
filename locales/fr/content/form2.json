@@ -1,4 +1,5 @@
 {
     "name": "Formulaire 2",
-    "rangeRotation": "Rotation"
+    "rangeHandsSize": "Taille Mains",
+    "rangeOverallSize": "Taille Globale"
 }

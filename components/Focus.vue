@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     changeFocus() {
-      if (this.store.isFace) {
+      if (this.store.face) {
         this.store.toggleIsFace(false)
       } else {
         this.store.toggleIsFace(true)

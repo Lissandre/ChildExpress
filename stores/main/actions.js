@@ -6,7 +6,7 @@ export const actions = {
   changeRange(id, newValue) {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
-    this.$nuxt.$scene?.changeRange({ propertyToChange: id, range: newValue })
+    this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   toggleIsHealthy(newValue) {
     this.health = newValue

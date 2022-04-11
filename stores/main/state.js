@@ -1,14 +1,16 @@
 export const state = () => {
   return {
     ranges: [
-      { id: 'scale', value: 2 },
-      { id: 'position', value: 5 },
-      { id: 'rotation', value: 2 },
+      { id: 'noseSize', value: 0 },
+      { id: 'earsSize', value: 0 },
+      { id: 'handsSize', value: 0 },
+      { id: 'overallSize', value: 0 },
     ],
     constants: {
-      POSITION: 'position',
-      SCALE: 'scale',
-      ROTATION: 'rotation',
+      NOSESIZE: 'noseSize',
+      EARSSIZE: 'earsSize',
+      HANDSSIZE: 'handsSize',
+      OVERALLSIZE: 'overallSize',
     },
     activeForm: 1,
     totalForms: 2,
