@@ -4,6 +4,7 @@ export const actions = {
     this.activeForm = newValue
   },
   changeRange(id, newValue) {
+    console.log(id)
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
     this.$nuxt.$scene.world.baby.updateUniform(id, newValue)

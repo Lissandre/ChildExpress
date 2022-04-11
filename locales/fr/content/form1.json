@@ -1,6 +1,6 @@
 {
   "title": "Formulaire 1",
-  "range_nose_size": "Taille Nez",
-  "range_ears_size": "Taille Oreilles",
+  "range_nosesize": "Taille Nez",
+  "range_earssize": "Taille Oreilles",
   "button_submit": "Envoyer"
 }

@@ -23,9 +23,9 @@ for (const form in forms) {
       for (const input in _form) {
         if (Object.hasOwnProperty.call(_form, input)) {
           const element = _form[input]
-          if (element.locales && element.type) {
+          if (element.locales && element.type && element.name) {
             content[
-              slugify(`${element.type}_${element.locales.en}`, {
+              slugify(`${element.type}_${element.name}`, {
                 replacement: '_',
                 lower: true,
               })

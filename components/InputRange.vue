@@ -1,21 +1,33 @@
 <template>
-  <div class="absolute bottom-2 p-4 z-50 pointer-events-auto">
-    <button
-      class="left-0 pb-4 text-gray-500 pointer-events-auto"
-    >
-    Test
-    </button>
+  <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+    <p>{{ locale }}</p>
+    <input
+      type="range"
+      :id="input.name"
+      :name="input.name"
+      :min="input.from"
+      :max="input.to"
+      :step="input.step"
+      @input="(e) => update(e)"
+      :value="input.value"
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: 'InputRange',
+  props: ['input', 'locale'],
+
   data() {
-      return {}
+    return {}
+  },
+  mounted() {
   },
   methods: {
-      
+    update(e) {
+      this.$emit('update', this.input.type, this.input.name, e.target.value)
+    },
   },
 }
 </script>

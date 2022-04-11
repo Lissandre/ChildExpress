@@ -1,6 +1,6 @@
 {
   "title": "Formulaire 1",
-  "range_nose_size": "Nose Size",
-  "range_ears_size": "Ears Size",
+  "range_nosesize": "Nose Size",
+  "range_earssize": "Ears Size",
   "button_submit": "Submit"
 }

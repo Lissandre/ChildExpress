@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
     <h1 class="text-3xl">{{ $t('form1.title') }}</h1>
-    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+    <!--<div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
       <p>{{ $t('form1.range_nose_size') }}</p>
       <input
         type="range"
@@ -26,17 +26,27 @@
         @input="(e) => changeRange(store.constants.EARSSIZE, e)"
         value="earsSize"
       />
-    </div>
+    </div> -->
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
       <button @click="changeActiveForm">{{ $t('form1.button_submit') }}</button>
     </div>
 
+    <component
+      v-for="input in inputs"
+      :key="input.name"
+      :is="input.component"
+      :input="input"
+      v-on:update="update"
+      :locale="$t(`form1.${slugify(`${input.type}_${input.name}`, { replacement: '_', lower: true})}`)"
 
+    ></component>
   </div>
 </template>
 
 <script>
 import { useStore } from '@/stores/'
+import { form1 } from '@/data/forms.json'
+import slugify from 'slugify'
 
 export default {
   name: 'Form1',
@@ -45,29 +55,32 @@ export default {
       name: 'form1',
       position: '',
       scale: '',
-      inputs: [
-
-      ]
+      inputs: [],
+      slugify: slugify
     }
   },
-  computed: {
-
-  },
+  computed: {},
   setup() {
     const store = useStore()
     return { store }
   },
   mounted() {
-    this.noseSize = this.store.getRange(this.store.constants.NOSESIZE)
-    this.earsSize = this.store.getRange(this.store.constants.EARSSIZE)
+    this.inputs = form1
   },
   methods: {
-    changeRange(id, e) {
-      this.store.changeRange(id, e.target.value)
-    },
     changeActiveForm() {
       this.store.changeActiveForm(2)
       // this.store.toggleIsFace(false)
+    },
+    update(type, name, value) {
+      switch (type) {
+        case 'range':
+          console.log(name)
+          this.store.changeRange(this.store.constants[name.toUpperCase()], value)
+          break;
+        default :
+          break;
+      }
     },
   },
 }
