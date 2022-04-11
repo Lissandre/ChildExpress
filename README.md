@@ -24,12 +24,12 @@ $ npm run generate
 
 ### `Three.js`
 
-We use it to create babys
+We use Three.js a graphic 
 
 
 ### `GLSL`
 
-This is for the customization and deformation of babys
+This is for the customization and deformation of babies
 
 
 ### `Nuxt`
@@ -45,7 +45,39 @@ Finally, our store to put in an box every datas that we create and modify
 ## Global Architecture
 
 
-![Architecture](https://i.imgur.com/rEfQcnJ.jpg)
+![Architecture](https://i.imgur.com/2LOpG8T.png)
+
+
+
+## Technical schemes
+
+...
+
+
+## Datas stock
+
+
+In our MVP : 
+
+We create and update every datas in our Store `Pinia`
+
+
+Out of MVP :
+
+Database/API
+
+
+## Nomenclature
+
+
+
+
+
+
+
+
+
+
 
 
 ## Special Directories

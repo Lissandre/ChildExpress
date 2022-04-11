@@ -37,6 +37,7 @@
 
 <script>
 import { useStore } from '@/stores/'
+import datas from ""
 
 export default {
   name: 'Form1',
