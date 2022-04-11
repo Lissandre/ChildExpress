@@ -52,8 +52,8 @@ export default class Camera {
   setOrbitControls() {
     this.camera.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
-    this.camera.controls.minDistance = 5;
-    this.camera.controls.maxDistance = 5;
+    this.camera.controls.minDistance = 8;
+    this.camera.controls.maxDistance = 8;
 
     this.camera.controls.minPolarAngle = Math.PI / 3;
     this.camera.controls.maxPolarAngle = 2 * Math.PI / 3;
