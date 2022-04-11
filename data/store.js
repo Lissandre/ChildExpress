@@ -1,18 +1,18 @@
 const fs = require('fs')
-const slugify = require('slugify')
 const forms = require('./forms.json')
 const stores = {
   path: 'stores/main/generated/content/',
   types: ['constants', 'ranges'],
 }
 
+const content = {
+  constants: [],
+  ranges: [],
+}
+
 for (const form in forms) {
   if (Object.hasOwnProperty.call(forms, form)) {
     const _form = forms[form]
-    const content = {
-      constants: [],
-      ranges: [],
-    }
 
     for (const input in _form) {
       if (Object.hasOwnProperty.call(_form, input)) {
@@ -26,24 +26,24 @@ for (const form in forms) {
         }
       }
     }
-
-    content.constants = `export default {\n${content.constants
-      .map(function (elem) {
-        return `  ${elem.name}: '${elem.value}'`
-      })
-      .join(',\n')}\n}`
-    content.ranges = `export default [\n${content.ranges
-      .map(function (elem) {
-        return `  { id: '${elem.id}', value: ${elem.value} }`
-      })
-      .join(',\n')}\n]`
-    stores.types.forEach((type) => {
-      fs.writeFile(`${stores.path}${type}.js`, content[type], (err) => {
-        if (err) console.log(err)
-        else {
-          console.log(`${stores.path}${type}.js written successfully`)
-        }
-      })
-    })
   }
 }
+
+content.constants = `export default {\n${content.constants
+  .map(function (elem) {
+    return `  ${elem.name}: '${elem.value}'`
+  })
+  .join(',\n')}\n}`
+content.ranges = `export default [\n${content.ranges
+  .map(function (elem) {
+    return `  { id: '${elem.id}', value: ${elem.value} }`
+  })
+  .join(',\n')}\n]`
+stores.types.forEach((type) => {
+  fs.writeFile(`${stores.path}${type}.js`, content[type], (err) => {
+    if (err) console.log(err)
+    else {
+      console.log(`${stores.path}${type}.js written successfully`)
+    }
+  })
+})
