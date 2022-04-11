@@ -20,7 +20,33 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+## Technologies
+
+### `Three.js`
+
+We use it to create babys
+
+
+### `GLSL`
+
+This is for the customization and deformation of babys
+
+
+### `Nuxt`
+
+Our UI, and internationalisation system
+
+
+### `Pinia`
+
+Finally, our store to put in an box every datas that we create and modify
+
+
+## Global Architecture
+
+
+![Architecture](https://i.imgur.com/rEfQcnJ.jpg)
+
 
 ## Special Directories
 
@@ -62,10 +88,5 @@ This directory contains your static files. Each file inside this directory is ma
 
 Example: `/static/robots.txt` is mapped as `/robots.txt`.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static)..
 
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
