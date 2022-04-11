@@ -3,8 +3,8 @@ import { Scene, sRGBEncoding, WebGLRenderer, Vector3 } from 'three'
 import gsap, { Power3 } from 'gsap'
 
 import { Pane } from 'tweakpane'
-import * as EssentialsPlugin from '@tweakpane/plugin-essentials';
-import * as CamerakitPlugin from '@tweakpane/plugin-camerakit';
+import * as EssentialsPlugin from '@tweakpane/plugin-essentials'
+import * as CamerakitPlugin from '@tweakpane/plugin-camerakit'
 
 import Sizes from './Tools/Sizes'
 import Time from './Tools/Time'
@@ -30,21 +30,16 @@ export default class App {
             <div class="loaderScreen__progress"></div>
         </div>
         </div>
-    `
+    `,
     })
-
-
   }
   init(options) {
-
     this.elementApp = options.canvas
     // Set up
     this.setConfig()
     this.setRenderer()
     this.setCamera()
     this.setWorld()
-
-
   }
   setRenderer() {
     // Set scene
@@ -64,34 +59,38 @@ export default class App {
     // Set renderer pixel ratio & sizes
     this.renderer.setPixelRatio(window.devicePixelRatio)
 
-    this.renderer.setSize(this.elementApp.parentNode.offsetWidth, this.elementApp.parentNode.offsetHeight)
+    this.renderer.setSize(
+      this.elementApp.parentNode.offsetWidth,
+      this.elementApp.parentNode.offsetHeight
+    )
 
     // Resize renderer on resize event
     this.sizes.on('resize', () => {
-      this.renderer.setSize(this.elementApp.parentNode.offsetWidth, this.elementApp.parentNode.offsetHeight)
+      this.renderer.setSize(
+        this.elementApp.parentNode.offsetWidth,
+        this.elementApp.parentNode.offsetHeight
+      )
     })
 
     this.time.on('tick', () => {
       this.debug && this.fpsGraph.begin()
 
-      this.camera.camera.controls.update();
+      this.camera.camera.controls.update()
 
       this.renderer.render(this.scene, this.camera.camera)
 
       this.debug && this.fpsGraph.end()
-
     })
 
     if (this.debug) {
       this.renderOnBlur = { activated: true }
       const folder = this.debug.addFolder({
         title: 'Renderer',
-        expanded: false
+        expanded: false,
       })
-      folder
-        .addInput(this.renderOnBlur, 'activated', {
-          label: 'Opti'
-        })
+      folder.addInput(this.renderOnBlur, 'activated', {
+        label: 'Opti',
+      })
     }
   }
   setCamera() {
@@ -100,7 +99,7 @@ export default class App {
       sizes: this.sizes,
       renderer: this.renderer,
       debug: this.debug,
-      parentNode: this.elementApp.parentNode
+      parentNode: this.elementApp.parentNode,
     })
     // Add camera to scene
     this.scene.add(this.camera.container)
@@ -114,7 +113,6 @@ export default class App {
     })
     // Add world to scene
     this.scene.add(this.world.container)
-
   }
 
   changeFocus(options) {
@@ -144,15 +142,13 @@ export default class App {
     // const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
 
     console.log(options)
-    gsap.to(
-      this.world.cube.cube[options.propertyToChange], {
+    gsap.to(this.world.cube.cube[options.propertyToChange], {
       x: options.range / 10,
       y: options.range / 10,
       z: options.range / 10,
       duration: 1,
       ease: Power3.easeInOut,
-    }
-    )
+    })
   }
 
   setConfig() {

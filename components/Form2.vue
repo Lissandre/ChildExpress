@@ -28,7 +28,7 @@
         value="overallSize"
       />
     </div>
-</div>
+  </div>
 </template>
 
 <script>
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       name: 'form2',
-      rotation: ''
+      rotation: '',
     }
   },
   setup() {

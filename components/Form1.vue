@@ -66,7 +66,6 @@ export default {
       this.store.changeRange(id, e.target.value)
     },
     changeActiveForm() {
-      // this.store.toggleIsFace(true)
       this.store.changeActiveForm(2)
       // this.store.toggleIsFace(false)
     },
