@@ -1,0 +1,2 @@
+require('./translations')
+require('./store')

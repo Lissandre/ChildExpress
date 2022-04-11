@@ -1,6 +1,7 @@
 {
-    "name": "Form 1",
-    "rangeScale": "Scale",
-    "rangePosition": "Position",
-    "submitButton": "Submit"
+  "title": "Formulaire 1",
+  "range_baby_scale": "Baby scale",
+  "range_baby_position": "Baby position",
+  "range_baby_transition": "Baby transition",
+  "button_submit": "Submit"
 }

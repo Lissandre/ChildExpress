@@ -1,0 +1,52 @@
+{
+  "form1": {
+    "title": "Formulaire 1",
+    "scale": {
+      "locales": {
+        "fr": "Échelle du bébé",
+        "en": "Baby scale"
+      },
+      "type": "range",
+      "name": "scale",
+      "value": 2,
+      "from": 0, 
+      "to": 1,
+      "step": 0.01,
+      "class": ""
+    },
+    "position": {
+      "locales": {
+        "fr": "Position du bébé",
+        "en": "Baby position"
+      },
+      "type": "range",
+      "name": "position",
+      "value": 5,
+      "from": 0, 
+      "to": 1,
+      "step": 0.01,
+      "class": ""
+    },
+    "translate": {
+      "locales": {
+        "fr": "Transition du bébé",
+        "en": "Baby transition"
+      },
+      "type": "range",
+      "name": "transition",
+      "value": 2,
+      "from": 0, 
+      "to": 1,
+      "step": 0.01,
+      "class": ""
+    },
+    "submit": {
+      "locales": {
+        "fr": "Envoyer",
+        "en": "Submit"
+      },
+      "type": "button",
+      "name": "submit"
+    }
+  }
+}
