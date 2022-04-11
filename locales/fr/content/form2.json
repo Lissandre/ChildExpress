@@ -1,5 +1,5 @@
 {
-    "name": "Formulaire 2",
-    "rangeHandsSize": "Taille Mains",
-    "rangeOverallSize": "Taille Globale"
+  "title": "Formulaire 2",
+  "range_hands_size": "Taille Mains",
+  "range_overall_size": "Taille Globale"
 }

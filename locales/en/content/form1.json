@@ -1,8 +1,6 @@
 {
-    "name": "Form 1",
-    "rangeScale": "Scale",
-    "rangePosition": "Position",
-    "submitButton": "Submit",
-    "rangeNoseSize": "Nose Size",
-    "rangeEarsSize": "Ears Size"
+  "title": "Formulaire 1",
+  "range_nose_size": "Nose Size",
+  "range_ears_size": "Ears Size",
+  "button_submit": "Submit"
 }

@@ -1,0 +1,68 @@
+{
+  "form1": {
+    "title": "Formulaire 1",
+    "noseSize": {
+      "locales": {
+        "fr": "Taille Nez",
+        "en": "Nose Size"
+      },
+      "type": "range",
+      "name": "noseSize",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": ""
+    },
+    "earsSize": {
+      "locales": {
+        "fr": "Taille Oreilles",
+        "en": "Ears Size"
+      },
+      "type": "range",
+      "name": "earsSize",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": ""
+    },
+    "submit": {
+      "locales": {
+        "fr": "Envoyer",
+        "en": "Submit"
+      },
+      "type": "button",
+      "name": "submit"
+    }
+  },
+  "form2": {
+    "title": "Formulaire 2",
+    "handsSize": {
+      "locales": {
+        "fr": "Taille Mains",
+        "en": "Hands Size"
+      },
+      "type": "range",
+      "name": "handsSize",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": ""
+    },
+    "overallSize": {
+      "locales": {
+        "fr": "Taille Globale",
+        "en": "Overall Size"
+      },
+      "type": "range",
+      "name": "overallSize",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": ""
+    }
+  }
+}

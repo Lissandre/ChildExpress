@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl">{{ $t('form1.name') }}</h1>
+    <h1 class="text-3xl">{{ $t('form1.title') }}</h1>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form1.rangeNoseSize') }}</p>
+      <p>{{ $t('form1.range_nose_size') }}</p>
       <input
         type="range"
         id="scale"
@@ -15,7 +15,7 @@
       />
     </div>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form1.rangeEarsSize') }}</p>
+      <p>{{ $t('form1.range_ears_size') }}</p>
       <input
         type="range"
         id="position"
@@ -28,10 +28,9 @@
       />
     </div>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <button @click="changeActiveForm">{{ $t('form1.submitButton') }}</button>
+      <button @click="changeActiveForm">{{ $t('form1.button_submit') }}</button>
     </div>
 
-    <InputRange />
 
   </div>
 </template>

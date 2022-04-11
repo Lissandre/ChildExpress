@@ -1,5 +1,5 @@
 {
-    "name": "Form 2",
-    "rangeHandsSize": "Hands Size",
-    "rangeOverallSize": "Overall Size"
+  "title": "Formulaire 2",
+  "range_hands_size": "Hands Size",
+  "range_overall_size": "Overall Size"
 }
