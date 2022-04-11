@@ -3,11 +3,13 @@ import { AxesHelper, Object3D } from 'three'
 import AmbientLightSource from './AmbientLight'
 import PointLightSource from './PointLight'
 import Cube from './Cube'
+import Baby from './Baby'
 
 export default class World {
   constructor(options) {
     // Set options
     this.time = options.time
+    this.assets = options.assets
     this.debug = options.debug
 
     // Set up
@@ -27,7 +29,8 @@ export default class World {
   init() {
     this.setAmbientLight()
     this.setPointLight()
-    this.setCube()
+    // this.setCube()
+    this.setBaby()
   }
   setAmbientLight() {
     this.ambientlight = new AmbientLightSource({
@@ -46,5 +49,12 @@ export default class World {
       time: this.time,
     })
     this.container.add(this.cube.container)
+  }
+  setBaby() {
+    this.baby = new Baby({
+      time: this.time,
+      assets: this.assets
+    })
+    this.container.add(this.baby.container)
   }
 }

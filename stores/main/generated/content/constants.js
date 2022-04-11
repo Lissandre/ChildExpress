@@ -1,5 +1,6 @@
 export default {
-  SCALE: 'scale',
-  POSITION: 'position',
-  TRANSITION: 'transition'
+  NOSESIZE: 'noseSize',
+  EARSSIZE: 'earsSize',
+  HANDSSIZE: 'handsSize',
+  OVERALLSIZE: 'overallSize'
 }

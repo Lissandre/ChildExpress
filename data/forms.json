@@ -1,41 +1,28 @@
 {
   "form1": {
     "title": "Formulaire 1",
-    "scale": {
+    "noseSize": {
       "locales": {
-        "fr": "Échelle du bébé",
-        "en": "Baby scale"
+        "fr": "Taille Nez",
+        "en": "Nose Size"
       },
       "type": "range",
-      "name": "scale",
-      "value": 2,
-      "from": 0, 
+      "name": "noseSize",
+      "value": 0.5,
+      "from": 0,
       "to": 1,
       "step": 0.01,
       "class": ""
     },
-    "position": {
+    "earsSize": {
       "locales": {
-        "fr": "Position du bébé",
-        "en": "Baby position"
+        "fr": "Taille Oreilles",
+        "en": "Ears Size"
       },
       "type": "range",
-      "name": "position",
-      "value": 5,
-      "from": 0, 
-      "to": 1,
-      "step": 0.01,
-      "class": ""
-    },
-    "translate": {
-      "locales": {
-        "fr": "Transition du bébé",
-        "en": "Baby transition"
-      },
-      "type": "range",
-      "name": "transition",
-      "value": 2,
-      "from": 0, 
+      "name": "earsSize",
+      "value": 0.5,
+      "from": 0,
       "to": 1,
       "step": 0.01,
       "class": ""
@@ -47,6 +34,35 @@
       },
       "type": "button",
       "name": "submit"
+    }
+  },
+  "form2": {
+    "title": "Formulaire 2",
+    "handsSize": {
+      "locales": {
+        "fr": "Taille Mains",
+        "en": "Hands Size"
+      },
+      "type": "range",
+      "name": "handsSize",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": ""
+    },
+    "overallSize": {
+      "locales": {
+        "fr": "Taille Globale",
+        "en": "Overall Size"
+      },
+      "type": "range",
+      "name": "overallSize",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": ""
     }
   }
 }

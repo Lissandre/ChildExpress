@@ -1,7 +1,6 @@
 {
   "title": "Formulaire 1",
-  "range_baby_scale": "Baby scale",
-  "range_baby_position": "Baby position",
-  "range_baby_transition": "Baby transition",
+  "range_nose_size": "Nose Size",
+  "range_ears_size": "Ears Size",
   "button_submit": "Submit"
 }

@@ -1,7 +1,6 @@
 {
   "title": "Formulaire 1",
-  "range_baby_scale": "Échelle du bébé",
-  "range_baby_position": "Position du bébé",
-  "range_baby_transition": "Transition du bébé",
+  "range_nose_size": "Taille Nez",
+  "range_ears_size": "Taille Oreilles",
   "button_submit": "Envoyer"
 }
