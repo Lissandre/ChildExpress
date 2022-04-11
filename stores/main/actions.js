@@ -4,10 +4,15 @@ export const actions = {
     this.activeForm = newValue
   },
   changeRange(id, newValue) {
-    console.log(id)
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
     this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+  },
+  changePicker(id, newValue) {
+    // const picker = this.pickers.find((picker) => picker.id === id)
+    // picker.value = newValue
+    console.log(newValue)
+    // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   toggleIsHealthy(newValue) {
     this.health = newValue

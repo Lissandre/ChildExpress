@@ -19,8 +19,9 @@ export default {
   css: [],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~plugins/scene.client.js', mode: 'client' },
+    { src: '~plugins/scene.js', mode: 'client' },
     { src: '~plugins/pinia.js', mode: 'all' },
+    { src: '~plugins/helpers.js', mode: 'all' },
   ],
   components: true,
   buildModules: [
