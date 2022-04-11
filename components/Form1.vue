@@ -28,7 +28,7 @@
       />
     </div>
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <button @click="changeActiveForm">{{ $t('form1.submitButton') }}</button>
+      <button @click="changeActiveForm">{{ $t('form1.button_submit') }}</button>
     </div>
 
 
