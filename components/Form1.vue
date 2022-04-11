@@ -18,8 +18,8 @@
       <p>{{ $t('form1.rangeEarsSize') }}</p>
       <input
         type="range"
-        id="scale"
-        name="scale"
+        id="position"
+        name="position"
         min="0"
         max="1"
         step="0.01"
@@ -30,11 +30,15 @@
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
       <button @click="changeActiveForm">{{ $t('form1.submitButton') }}</button>
     </div>
+
+    <InputRange />
+
   </div>
 </template>
 
 <script>
 import { useStore } from '@/stores/'
+import datas from ""
 
 export default {
   name: 'Form1',
@@ -43,13 +47,16 @@ export default {
       name: 'form1',
       position: '',
       scale: '',
+      inputs: [
+
+      ]
     }
+  },
+  computed: {
+
   },
   setup() {
     const store = useStore()
-    // `name` and `doubleCount` are reactive refs
-    // This will also create refs for properties added by plugins
-    // but skip any action or non reactive (non ref/reactive) property
     return { store }
   },
   mounted() {
