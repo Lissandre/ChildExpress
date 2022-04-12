@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-full flex items-center justify-center absolute top-0">
-    <div class="baby-container w-2/3 h-4/5 pointer-events-auto relative">
+    <div class="baby-container w-2/3 h-4/5 relative">
       <canvas id="_canvas" ref="canvas"></canvas>
       <div class="h-full w-full flex justify-center items-center flex-col absolute top-0" v-if="isLoading">
         <div class="loader"></div>

@@ -1,12 +1,11 @@
 <template>
   <div>
     <LocaleSwitcher />
-    <Tutorial />
+    <!-- <Tutorial /> -->
     <Focus />
     <ProgressBar />
     <Form1 v-if="store.activeForm === 1" />
     <Form2 v-if="store.activeForm === 2" />
-    <BabyViewer />
   </div>
 </template>
 
