@@ -22,13 +22,8 @@ export default class App {
     this.assets = new Loader({
       template: `
         <div class="loaderScreen">
-        <div class="loaderScreen__progressBar">
-            <div class="loaderScreen__progress"></div>
-        </div>
-        <h1 class="loaderScreen__load">0%</h1>
-        <div class="loaderScreen__progressBar">
-            <div class="loaderScreen__progress"></div>
-        </div>
+          <div class="loader"></div>
+          <h1 class="loaderScreen__load">0%</h1>
         </div>
     `,
     })

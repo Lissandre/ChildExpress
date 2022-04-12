@@ -204,9 +204,6 @@ export default class Loader extends EventEmitter {
       document.body.innerHTML += this.template
       this.loadDiv = document.querySelector('.loaderScreen')
       this.loadModels = this.loadDiv.querySelector('.loaderScreen__load')
-      this.progressBar = this.loadDiv.querySelectorAll(
-        '.loaderScreen__progress'
-      )
 
       this.loadRessources(this.ressourcesList)
     } else {
@@ -244,12 +241,10 @@ export default class Loader extends EventEmitter {
     )
 
     this.trigger('ressourceLoad', [ressource, loaded])
-    this.progressBar.forEach((el) => {
-      el.style.width = this.loadModels.innerHTML = `${
-        Math.floor((this.done / this.total) * 100) +
-        Math.floor((1 / this.total) * this.currentPercent)
-      }%`
-    })
+    this.loadModels.innerHTML = `${
+      Math.floor((this.done / this.total) * 100) +
+      Math.floor((1 / this.total) * this.currentPercent)
+    }%`
 
     if (this.total === this.done) {
       setTimeout(() => {
