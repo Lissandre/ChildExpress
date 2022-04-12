@@ -3,5 +3,6 @@ export default {
   EARSSIZE: 'earsSize',
   SKINCOLOR: 'skinColor',
   HANDSSIZE: 'handsSize',
-  OVERALLSIZE: 'overallSize'
+  OVERALLSIZE: 'overallSize',
+  HANDSSIZE: 'handsSize'
 }

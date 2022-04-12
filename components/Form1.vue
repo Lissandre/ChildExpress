@@ -15,6 +15,7 @@
     <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
       <button @click="changeActiveForm">{{ $t('form1.button_submit') }}</button>
     </div>
+
   </div>
 </template>
 
@@ -41,7 +42,7 @@ export default {
   },
   methods: {
     changeActiveForm() {
-      this.store.changeActiveForm(2)
+      this.store.changeActiveForm(3)
       // this.store.toggleIsFace(false)
     },
   },

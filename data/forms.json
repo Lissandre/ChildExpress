@@ -83,5 +83,26 @@
         "class": ""
       }
     }
+  },
+  "form3": {
+    "title": "Formulaire 3",
+    "eloquentHonest": {
+      "locales": {
+        "fr": [
+          "Éloquent",
+          "Honnête"
+        ],
+        "en": [
+          "Eloquent",
+          "Honest"
+        ]
+      },
+      "type": "radio",
+      "name": "handsSize",
+      "component": "InputRadio",
+      "value": 0.5,
+      "length": 6,
+      "class": ""
+    }
   }
 }
