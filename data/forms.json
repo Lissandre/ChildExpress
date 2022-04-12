@@ -1,83 +1,87 @@
 {
   "form1": {
     "title": "Formulaire 1",
-    "noseSize": {
-      "locales": {
-        "fr": "Taille Nez",
-        "en": "Nose Size"
+    "inputs": {
+      "noseSize": {
+        "locales": {
+          "fr": "Taille Nez",
+          "en": "Nose Size"
+        },
+        "type": "range",
+        "name": "noseSize",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": ""
       },
-      "type": "range",
-      "name": "noseSize",
-      "component": "InputRange",
-      "value": 0.5,
-      "from": 0,
-      "to": 1,
-      "step": 0.01,
-      "class": ""
-    },
-    "earsSize": {
-      "locales": {
-        "fr": "Taille Oreilles",
-        "en": "Ears Size"
+      "earsSize": {
+        "locales": {
+          "fr": "Taille Oreilles",
+          "en": "Ears Size"
+        },
+        "type": "range",
+        "name": "earsSize",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": ""
       },
-      "type": "range",
-      "name": "earsSize",
-      "component": "InputRange",
-      "value": 0.5,
-      "from": 0,
-      "to": 1,
-      "step": 0.01,
-      "class": ""
-    },
-    "skinColor": {
-      "locales": {
-        "fr": "Couleur de la peau",
-        "en": "Skin Color"
+      "skinColor": {
+        "locales": {
+          "fr": "Couleur de la peau",
+          "en": "Skin Color"
+        },
+        "type": "picker",
+        "name": "skinColor",
+        "component": "InputColorPicker",
+        "value": "#e66465",
+        "class": ""
       },
-      "type": "color",
-      "name": "Skin Color",
-      "component": "InputColorPicker",
-      "value": "#e66465",
-      "class": ""
-    },
-    "submit": {
-      "locales": {
-        "fr": "Envoyer",
-        "en": "Submit"
-      },
-      "type": "button",
-      "name": "submit"
+      "submit": {
+        "locales": {
+          "fr": "Envoyer",
+          "en": "Submit"
+        },
+        "type": "button",
+        "name": "submit"
+      }
     }
   },
   "form2": {
     "title": "Formulaire 2",
-    "handsSize": {
-      "locales": {
-        "fr": "Taille Mains",
-        "en": "Hands Size"
+    "inputs": {
+      "handsSize": {
+        "locales": {
+          "fr": "Taille Mains",
+          "en": "Hands Size"
+        },
+        "type": "range",
+        "name": "handsSize",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": ""
       },
-      "type": "range",
-      "name": "handsSize",
-      "component": "InputRange",
-      "value": 0.5,
-      "from": 0,
-      "to": 1,
-      "step": 0.01,
-      "class": ""
-    },
-    "overallSize": {
-      "locales": {
-        "fr": "Taille Globale",
-        "en": "Overall Size"
-      },
-      "type": "range",
-      "name": "overallSize",
-      "component": "InputRange",
-      "value": 0.5,
-      "from": 0,
-      "to": 1,
-      "step": 0.01,
-      "class": ""
+      "overallSize": {
+        "locales": {
+          "fr": "Taille Globale",
+          "en": "Overall Size"
+        },
+        "type": "range",
+        "name": "overallSize",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": ""
+      }
     }
   }
 }

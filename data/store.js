@@ -1,49 +1,78 @@
+const { constants } = require('buffer')
 const fs = require('fs')
 const forms = require('./forms.json')
 const stores = {
   path: 'stores/main/generated/content/',
-  types: ['constants', 'ranges'],
+  types: ['constant', 'radio', 'picker', 'range'],
 }
 
 const content = {
-  constants: [],
-  ranges: [],
+  constant: [],
+  radio: [],
+  picker: [],
+  range: [],
 }
 
 for (const form in forms) {
   if (Object.hasOwnProperty.call(forms, form)) {
     const _form = forms[form]
 
-    for (const input in _form) {
-      if (Object.hasOwnProperty.call(_form, input)) {
-        const element = _form[input]
-        if (element.name && element.value) {
-          content.constants.push({
-            name: element.name.toUpperCase(),
-            value: element.name,
-          })
-          content.ranges.push({ id: element.name, value: element.value })
+    for (const _content in _form) {
+      if (Object.hasOwnProperty.call(_form, _content)) {
+        const element = _form[_content]
+
+        for (const input in element) {
+          if (Object.hasOwnProperty.call(element, input)) {
+            if (element[input].name && element[input].value) {
+              content.constant.push({
+                name: element[input].name.toUpperCase(),
+                value: element[input].name,
+              })
+              content[element[input].type].push({
+                id: element[input].name,
+                value: element[input].value,
+              })
+            }
+          }
         }
       }
     }
   }
 }
 
-content.constants = `export default {\n${content.constants
-  .map(function (elem) {
-    return `  ${elem.name}: '${elem.value}'`
-  })
-  .join(',\n')}\n}`
-content.ranges = `export default [\n${content.ranges
-  .map(function (elem) {
-    return `  { id: '${elem.id}', value: ${elem.value} }`
-  })
-  .join(',\n')}\n]`
 stores.types.forEach((type) => {
-  fs.writeFile(`${stores.path}${type}.js`, content[type], (err) => {
+  switch (type) {
+    case 'constant':
+      content[type] = `export default {\n${content[type]
+        .map(function (elem) {
+          return `  ${elem.name}: '${elem.value}'`
+        })
+        .join(',\n')}\n}`
+      break
+    case 'range':
+    case 'radio':
+      content[type] = `export default [\n${content[type]
+        .map(function (elem) {
+          return `  { id: '${elem.id}', value: ${elem.value} }`
+        })
+        .join(',\n')}\n]`
+      break
+    case 'picker':
+      content[type] = `export default [\n${content[type]
+        .map(function (elem) {
+          return `  { id: '${elem.id}', value: '${elem.value}' }`
+        })
+        .join(',\n')}\n]`
+    default:
+      break
+  }
+})
+
+stores.types.forEach((type) => {
+  fs.writeFile(`${stores.path}${type}s.js`, content[type], (err) => {
     if (err) console.log(err)
     else {
-      console.log(`${stores.path}${type}.js written successfully`)
+      console.log(`${stores.path}${type}s.js written successfully`)
     }
   })
 })
