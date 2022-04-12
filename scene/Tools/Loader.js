@@ -8,12 +8,11 @@ import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import { AudioLoader, TextureLoader } from 'three'
 
 export default class Loader extends EventEmitter {
-  constructor(options) {
+  constructor() {
     // Get parent methods
     super()
-    this.template = options.template
-
     // Set up
+    this.needsLoad = false
     this.ressourcesList = []
     this.total = 0
     this.done = 0
@@ -201,12 +200,10 @@ export default class Loader extends EventEmitter {
     // })
 
     if (this.ressourcesList.length > 0) {
-      document.body.innerHTML += this.template
-      this.loadDiv = document.querySelector('.loaderScreen')
-      this.loadModels = this.loadDiv.querySelector('.loaderScreen__load')
-
+      this.needsLoad = true
       this.loadRessources(this.ressourcesList)
     } else {
+      this.needsLoad = false
       this.trigger('ressourcesReady')
     }
   }
@@ -241,19 +238,10 @@ export default class Loader extends EventEmitter {
     )
 
     this.trigger('ressourceLoad', [ressource, loaded])
-    this.loadModels.innerHTML = `${
-      Math.floor((this.done / this.total) * 100) +
-      Math.floor((1 / this.total) * this.currentPercent)
-    }%`
 
     if (this.total === this.done) {
-      setTimeout(() => {
-        this.trigger('ressourcesReady')
-        this.loadDiv.style.opacity = 0
-        setTimeout(() => {
-          this.loadDiv.remove()
-        }, 550)
-      }, 1000)
+      this.trigger('ressourcesReady')
+      this.needsLoad = false
     }
   }
   createNestedObject(base, names, value) {
