@@ -1,3 +1,7 @@
 {
-  "title": "Formulaire 1"
+  "title": "Formulaire 1",
+  "range_nosesize": "Taille Nez",
+  "range_earssize": "Taille Oreilles",
+  "picker_skincolor": "Couleur de la peau",
+  "button_submit": "Envoyer"
 }
