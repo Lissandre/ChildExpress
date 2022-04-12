@@ -1,7 +1,19 @@
 {
   "title": "Formulaire 3",
-  "radio_eloquenthonest": [
-    "Eloquent",
-    "Honest"
-  ]
+  "radio_eloquenthonest": {
+    "label1": "Eloquent",
+    "label2": "Honest"
+  },
+  "radio_creativelogic": {
+    "label1": "Creative",
+    "label2": "Logic"
+  },
+  "radio_courageousgreedy": {
+    "label1": "Courageous",
+    "label2": "Greedy"
+  },
+  "radio_hyperactivesensitive": {
+    "label1": "Hyperactive",
+    "label2": "Sensitive"
+  }
 }

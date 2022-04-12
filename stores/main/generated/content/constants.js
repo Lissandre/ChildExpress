@@ -4,5 +4,8 @@ export default {
   SKINCOLOR: 'skinColor',
   HANDSSIZE: 'handsSize',
   OVERALLSIZE: 'overallSize',
-  ELOQUENTHONEST: 'eloquentHonest'
+  ELOQUENTHONEST: 'eloquentHonest',
+  CREATIVELOGIC: 'creativeLogic',
+  COURAGEOUSGREEDY: 'courageousGreedy',
+  HYPERACTIVESENSITIVE: 'hyperactiveSensitive'
 }

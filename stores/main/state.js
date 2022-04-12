@@ -23,5 +23,6 @@ export const state = () => {
     totalForms: 3,
     health: true,
     face: true,
+    job: ''
   }
 }

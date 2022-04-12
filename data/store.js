@@ -3,7 +3,7 @@ const fs = require('fs')
 const forms = require('./forms.json')
 const stores = {
   path: 'stores/main/generated/content/',
-  types: ['constant', 'radio', 'picker', 'range'],
+  types: ['constant', 'radio', 'picker', 'range', 'job'],
 }
 
 const content = {
@@ -11,27 +11,37 @@ const content = {
   radio: [],
   picker: [],
   range: [],
+  job: []
 }
 
 for (const form in forms) {
   if (Object.hasOwnProperty.call(forms, form)) {
     const _form = forms[form]
 
-    for (const _content in _form) {
-      if (Object.hasOwnProperty.call(_form, _content)) {
-        const element = _form[_content]
+    if (form === 'job') {
+      const element = _form['inputs']
+      for (const input in element) {
+        content.job.push({
+          name: input
+        })
+      }
+    } else {
+      for (const _content in _form) {
+        if (Object.hasOwnProperty.call(_form, _content)) {
+          const element = _form[_content]
 
-        for (const input in element) {
-          if (Object.hasOwnProperty.call(element, input)) {
-            if (element[input].name && element[input].value) {
-              content.constant.push({
-                name: element[input].name.toUpperCase(),
-                value: element[input].name,
-              })
-              content[element[input].type].push({
-                id: element[input].name,
-                value: element[input].value,
-              })
+          for (const input in element) {
+            if (Object.hasOwnProperty.call(element, input)) {
+              if (element[input].name && element[input].value) {
+                content.constant.push({
+                  name: element[input].name.toUpperCase(),
+                  value: element[input].name,
+                })
+                content[element[input].type].push({
+                  id: element[input].name,
+                  value: element[input].value,
+                })
+              }
             }
           }
         }
@@ -63,6 +73,15 @@ stores.types.forEach((type) => {
           return `  { id: '${elem.id}', value: '${elem.value}' }`
         })
         .join(',\n')}\n]`
+      break
+    case 'job':
+      content[type] = `export default [\n${content[type]
+        .map(function (elem) {
+            console.log(elem.name)
+          return `  { id: '${elem.name}' }`
+        })
+        .join(',\n')}\n]`
+      break
     default:
       break
   }

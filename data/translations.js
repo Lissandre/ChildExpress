@@ -37,6 +37,8 @@ for (const form in forms) {
                     lower: true,
                   })
                 ] = element[input].locales[type]
+              } else if (element[input].locales) {
+                content[`${input}`] = element[input].locales[type]
               }
             }
           }
@@ -50,5 +52,7 @@ for (const form in forms) {
         }
       })
     })
+  } else {
+
   }
 }
