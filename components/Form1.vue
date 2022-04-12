@@ -38,7 +38,7 @@ export default {
     return { store }
   },
   mounted() {
-    this.inputs = form1
+    this.inputs = form1.inputs
   },
   methods: {
     changeActiveForm() {

@@ -99,8 +99,8 @@
           ]
         },
         "type": "radio",
-        "name": "handsSize",
-        "component": "InputRadio",
+        "name": "eloquentHonest",
+        "component": "InputRadios",
         "value": 0.5,
         "length": 6,
         "class": ""

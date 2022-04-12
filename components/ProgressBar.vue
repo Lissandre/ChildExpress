@@ -1,8 +1,7 @@
 <template>
   <div class="absolute top-2 max-w-screen-md left-1/2 h-20"  style="transform: translate3d(-50%, 0%, 0)">
     <ul class="flex flex-row absolute top-2 flex flex-row justify-around items-center w-60 left-1/2" style="transform: translate3d(-50%, 0, 0)">
-      <li class="border border-black rounded-full w-10 h-10 flex justify-center items-center" :class="{ active : store.getActiveForm === 1}">1</li>
-      <li class="border border-black rounded-full w-10 h-10 flex justify-center items-center" :class="{ active : store.getActiveForm === 2}">2</li>
+      <li class="border border-black rounded-full w-10 h-10 flex justify-center items-center" :class="{ active : store.getActiveForm === (index)}" v-for="index in getTotalForms" :key="index">{{ index }}</li>
     </ul>
 </div>
 </template>
@@ -21,6 +20,12 @@ export default {
     return { store }
   },
   mounted() {
+  },
+
+  computed: {
+    getTotalForms: function() {
+      return this.store.getTotalForms
+    }
   },
   methods: {
     changeRange(id, e) {

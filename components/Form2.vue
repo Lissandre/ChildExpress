@@ -1,21 +1,24 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl">{{ $t('form2.name') }}</h1>
+    <h1 class="text-3xl">{{ $t('form2.title') }}</h1>
 
     <component
       v-for="input in inputs"
       :key="input.name"
       :is="input.component"
       :input="input"
-      v-on:update="update"
-      :locale="$t(`form1.${slugify(`${input.type}_${input.name}`, { replacement: '_', lower: true})}`)"
+      v-on:updateInput="(a, b ,c ) => $helpers.updateInput(a, b, c)"
+      :locale="$t(`form2.${slugify(`${input.type}_${input.name}`, { replacement: '_', lower: true})}`)"
     ></component>
-    
+
   </div>
 </template>
 
 <script>
 import { useStore } from '@/stores/'
+import { form2 } from '@/data/forms.json'
+import slugify from 'slugify'
+
 
 export default {
   name: 'Form2',
@@ -31,6 +34,7 @@ export default {
     return { store }
   },
   mounted() {
+    this.inputs = form2.inputs
   },
   methods: {
     changeRange(id, e) {

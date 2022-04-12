@@ -1,3 +1,3 @@
 export default [
-  { id: 'handsSize', value: 0.5 }
+  { id: 'eloquentHonest', value: 0.5 }
 ]

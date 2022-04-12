@@ -1,24 +1,23 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl">{{ $t('form2.name') }}</h1>
+    <h1 class="text-3xl">{{ $t('form3.title') }}</h1>
 
-
-    <fieldset id="group1">
-        <component
-        v-for="input in inputs"
-        :key="input.name"
-        :is="input.component"
-        :input="input"
-        v-on:update="update"
-        :locale="$t(`form1.${slugify(`${input.type}_${input.name}`, { replacement: '_', lower: true})}`)"
-        ></component>
-    <fieldset>
-
+    <component
+    v-for="input in inputs"
+    :key="input.name"
+    :is="input.component"
+    :input="input"
+    v-on:updateInput="(a, b ,c ) => $helpers.updateInput(a, b, c)"
+    :locale="$t(`form3.${slugify(`${input.type}_${input.name}`, { replacement: '_', lower: true})}`)"
+    ></component>
   </div>
 </template>
 
 <script>
 import { useStore } from '@/stores/'
+import { form3 } from '@/data/forms.json'
+import slugify from 'slugify'
+
 
 export default {
   name: 'Form3',
@@ -33,7 +32,9 @@ export default {
     const store = useStore()
     return { store }
   },
-  mounted() {},
+  mounted() {
+    this.inputs = form3.inputs
+  },
   methods: {
     changeRange(id, e) {
       this.store.changeRange(id, e.target.value)

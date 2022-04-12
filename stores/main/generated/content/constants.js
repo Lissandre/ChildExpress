@@ -4,5 +4,5 @@ export default {
   SKINCOLOR: 'skinColor',
   HANDSSIZE: 'handsSize',
   OVERALLSIZE: 'overallSize',
-  HANDSSIZE: 'handsSize'
+  ELOQUENTHONEST: 'eloquentHonest'
 }
