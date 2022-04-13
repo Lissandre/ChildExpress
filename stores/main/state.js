@@ -1,20 +1,28 @@
+import generatedValues from './generated'
+
 export const state = () => {
   return {
-    ranges: [
-      { id: 'noseSize', value: 0 },
-      { id: 'earsSize', value: 0 },
-      { id: 'handsSize', value: 0 },
-      { id: 'overallSize', value: 0 },
-    ],
-    constants: {
-      NOSESIZE: 'noseSize',
-      EARSSIZE: 'earsSize',
-      HANDSSIZE: 'handsSize',
-      OVERALLSIZE: 'overallSize',
-    },
+    ...generatedValues,
+    // ranges: [
+    //   { id: 'scale', value: 2 },
+    //   { id: 'position', value: 5 },
+    //   { id: 'rotation', value: 2 },
+    //   // << BEGIN RANGES >>
+
+    //   // << END RANGES >>
+    // ],
+    // constants: {
+    //   POSITION: 'position',
+    //   SCALE: 'scale',
+    //   ROTATION: 'rotation',
+    //   // << BEGIN CONSTANTS >>
+
+    //   // << END CONSTANTS >>
+    // },
     activeForm: 1,
-    totalForms: 2,
+    totalForms: 3,
     health: true,
     face: true,
+    job: ''
   }
 }

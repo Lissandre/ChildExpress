@@ -1,8 +1,9 @@
 {
-    "name": "Formulaire 1",
-    "rangeScale": "Échelle",
-    "rangePosition": "Position",
-    "submitButton": "Valider",
-    "rangeNoseSize": "Taille Nez",
-    "rangeEarsSize": "Taille Oreilles"
+  "radio_gender": {
+    "label1": "Genre"
+  },
+  "radio_lifequality": {
+    "label1": "Niveau de vie"
+  },
+  "submit_submit": "Suivant"
 }

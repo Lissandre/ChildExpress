@@ -1,0 +1,18 @@
+{
+  "radio_eloquenthonest": {
+    "label1": "Éloquent",
+    "label2": "Honnête"
+  },
+  "radio_creativelogic": {
+    "label1": "Créatif",
+    "label2": "Logique"
+  },
+  "radio_courageousgreedy": {
+    "label1": "Courageux",
+    "label2": "Avare"
+  },
+  "radio_hyperactivesensitive": {
+    "label1": "Hyperactif",
+    "label2": "Hypersensible"
+  }
+}

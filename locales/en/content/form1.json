@@ -1,8 +1,9 @@
 {
-    "name": "Form 1",
-    "rangeScale": "Scale",
-    "rangePosition": "Position",
-    "submitButton": "Submit",
-    "rangeNoseSize": "Nose Size",
-    "rangeEarsSize": "Ears Size"
+  "radio_gender": {
+    "label1": "Gender"
+  },
+  "radio_lifequality": {
+    "label1": "Life quality"
+  },
+  "submit_submit": "Submit"
 }
