@@ -12,6 +12,8 @@ import Loader from './Tools/Loader'
 
 import Camera from './Camera'
 import World from './World'
+import Plane from './World/Plane'
+
 
 export default class App {
   constructor(options) {
@@ -39,7 +41,12 @@ export default class App {
     this.setConfig()
     this.setRenderer()
     this.setCamera()
-    this.setWorld()
+    console.log(this.elementApp)
+    if (this.elementApp.id === '_canvas1') {
+      this.setWorld()
+    } else {
+      this.setBackgroundShader()
+    }
   }
   setRenderer() {
     // Set scene
@@ -113,6 +120,12 @@ export default class App {
     })
     // Add world to scene
     this.scene.add(this.world.container)
+  }
+  setBackgroundShader() {
+    this.plane = new Plane({
+      time: this.time,
+    })
+    this.scene.add(this.plane.container)
   }
 
   changeFocus(options) {

@@ -1,4 +1,4 @@
-import { Mesh, MeshLambertMaterial, Object3D, BoxGeometry } from 'three'
+import { Mesh, MeshBasicMaterial, Object3D, BoxGeometry } from 'three'
 
 export default class Cube {
   constructor(options) {
@@ -16,16 +16,16 @@ export default class Cube {
   createCube() {
     this.cube = new Mesh(
       new BoxGeometry(2, 2, 2),
-      new MeshLambertMaterial({
-        color: 0x565656,
+      new MeshBasicMaterial({
+        color: 0x00aa00,
       })
     )
     this.container.add(this.cube)
 
     this.cube2 = new Mesh(
       new BoxGeometry(4, 4, 4),
-      new MeshLambertMaterial({
-        color: 0xAAAAAA,
+      new MeshBasicMaterial({
+        color: 0x00aa00,
       })
     )
     this.cube2.position.set(0, 4, 0)
