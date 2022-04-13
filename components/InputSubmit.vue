@@ -5,7 +5,7 @@
       :name="input.name"
       :value="locale"
       :key="input.name"
-      class="w-10 z-[1]"
+      class="w-20 z-[1]"
     />
   </div>
 </template>

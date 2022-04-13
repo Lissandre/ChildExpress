@@ -11,13 +11,12 @@ const content = {
   radio: [],
   picker: [],
   range: [],
-  job: []
+  job: [],
 }
 
 for (const form in forms) {
   if (Object.hasOwnProperty.call(forms, form)) {
     const _form = forms[form]
-
     if (form === 'job') {
       const element = _form['inputs']
       for (const input in element) {
@@ -77,7 +76,6 @@ stores.types.forEach((type) => {
     case 'job':
       content[type] = `export default [\n${content[type]
         .map(function (elem) {
-            console.log(elem.name)
           return `  { id: '${elem.name}' }`
         })
         .join(',\n')}\n]`

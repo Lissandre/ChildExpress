@@ -1,7 +1,5 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl">{{ $t('form1.title') }}</h1>
-
     <form @submit.prevent="prevent">
       <component
         v-for="input in inputs"

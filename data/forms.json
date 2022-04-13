@@ -1,6 +1,5 @@
 {
   "form1": {
-    "title": "Formulaire 1",
     "inputs": {
       "gender": {
         "locales": {
@@ -48,7 +47,6 @@
     }
   },
   "form2": {
-    "title": "Formulaire 2",
     "inputs": {
       "noseSize": {
         "locales": {
@@ -130,7 +128,6 @@
     }
   },
   "form3": {
-    "title": "Formulaire 3",
     "inputs": {
       "eloquentHonest": {
         "locales": {
@@ -207,6 +204,28 @@
         "value": 0.5,
         "length": 6,
         "class": ""
+      }
+    }
+  },
+  "step": {
+    "inputs": {
+      "1": {
+        "locales": {
+          "fr": "Identité",
+          "en": "Identity"
+        }
+      },
+      "2": {
+        "locales": {
+          "fr": "Physique",
+          "en": "Physic"
+        }
+      },
+      "3": {
+        "locales": {
+          "fr": "Personnalité",
+          "en": "Personnality"
+        }
       }
     }
   },

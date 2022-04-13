@@ -33,7 +33,6 @@ export default {
     return {}
   },
   mounted() {
-    this.value
   },
   methods: {
     update(e) {
