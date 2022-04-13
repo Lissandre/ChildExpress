@@ -1,5 +1,8 @@
 {
-  "title": "Formulaire 2",
-  "range_hands_size": "Hands Size",
-  "range_overall_size": "Overall Size"
+  "range_nosesize": "Nose Size",
+  "range_earssize": "Ears Size",
+  "picker_skincolor": "Skin Color",
+  "range_handssize": "Hands Size",
+  "range_overallsize": "Overall Size",
+  "submit_submit": "Submit"
 }

@@ -1,45 +1,38 @@
 <template>
   <div class="flex flex-col absolute bottom-1/2 left-20">
-    <h1 class="text-3xl">{{ $t('form2.name') }}</h1>
 
-    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form2.rangeHandsSize') }}</p>
-      <input
-        type="range"
-        id="scale"
-        name="scale"
-        min="0"
-        max="1"
-        step="0.01"
-        @input="(e) => changeRange(store.constants.HANDSSIZE, e)"
-        value="handsSize"
-      />
-    </div>
-    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <p>{{ $t('form2.rangeOverallSize') }}</p>
-      <input
-        type="range"
-        id="scale"
-        name="scale"
-        min="0"
-        max="1"
-        step="0.01"
-        @input="(e) => changeRange(store.constants.OVERALLSIZE, e)"
-        value="overallSize"
-      />
-    </div>
+    <form @submit.prevent="prevent">
+      <component
+        v-for="input in inputs"
+        :key="input.name"
+        :is="input.component"
+        :input="input"
+        v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
+        :locale="
+          $t(
+            `form2.${slugify(`${input.type}_${input.name}`, {
+              replacement: '_',
+              lower: true,
+            })}`
+          )
+        "
+      ></component>
+    </form>
   </div>
 </template>
 
 <script>
 import { useStore } from '@/stores/'
+import { form2 } from '@/data/forms.json'
+import slugify from 'slugify'
 
 export default {
   name: 'Form2',
   data() {
     return {
       name: 'form2',
-      rotation: '',
+      inputs: [],
+      slugify: slugify,
     }
   },
   setup() {
@@ -47,12 +40,15 @@ export default {
     return { store }
   },
   mounted() {
-    this.handsSize = this.store.getRange(this.store.constants.HANDSSIZE)
-    this.overallSize = this.store.getRange(this.store.constants.OVERALLSIZE)
+    this.inputs = form2.inputs
   },
   methods: {
     changeRange(id, e) {
       this.store.changeRange(id, e.target.value)
+    },
+    prevent(e) {
+      e.preventDefault()
+      this.$helpers.updateInput(e.type, e.type, e.type)
     },
   },
 }

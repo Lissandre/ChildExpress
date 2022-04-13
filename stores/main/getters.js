@@ -5,6 +5,9 @@ export const getters = {
   getTotalForms() {
     return this.totalForms
   },
+  getJobs() {
+    return this.job
+  },
   getRange(state) {
     return (id) => state.ranges.find((range) => range.id === id).value
   },
