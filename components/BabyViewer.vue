@@ -3,7 +3,8 @@
     class="baby-container absolute left-1/2 top-1/2 pointer-events-auto"
     style="width: 60%; height: 80%; transform: translate3d(-50%, -50%, 0)"
   >
-    <canvas id="_canvas" ref="canvas"></canvas>
+    <canvas id="_canvas1" ref="canvas1" class="absolute z-[2]"></canvas>
+    <canvas id="_canvas2" ref="canvas2" class="absolute z-0" style="width: 100vw; height: 100vh;"></canvas>
   </div>
 </template>
 
@@ -12,8 +13,10 @@ export default {
   setup() {},
   mounted() {
     this.$scene.assets.on('ressourcesReady', () => {
-      console.log(this.$refs.canvas)
-      this.$scene.init({ canvas: this.$refs.canvas })
+      this.$scene.init({ canvas: this.$refs.canvas1 })
+    })
+    this.$backgroundScene.assets.on('ressourcesReady', () => {
+      this.$backgroundScene.init({ canvas: this.$refs.canvas2 })
     })
   },
 }
