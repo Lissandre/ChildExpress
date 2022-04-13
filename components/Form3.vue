@@ -2,28 +2,31 @@
   <div class="flex flex-col absolute bottom-1/2 left-20">
     <h1 class="text-3xl">{{ $t('form3.title') }}</h1>
 
-    <p v-if="this.newJob"> {{ $t(`job.${this.newJob}`)}} </p>
-    <component
-      v-for="(input, name, fieldsetIndex) in inputs"
-      :key="input.name"
-      :fieldsetIndex="fieldsetIndex"
-      :is="input.component"
-      :input="input"
-      v-on:updateInput="
-        (type, name, value) => $helpers.updateInput(type, name, value)
-      "
-      v-on:updateJob="
-        (value, fieldsetToUpdate) => updateJob(value, fieldsetToUpdate)
-      "
-      :locale="
-        $t(
-          `form3.${slugify(`${input.type}_${input.name}`, {
-            replacement: '_',
-            lower: true,
-          })}`
-        )
-      "
-    ></component>
+    <form @submit.prevent="prevent">
+      <component
+        v-for="(input, name, fieldsetIndex) in inputs"
+        :key="input.name"
+        :fieldsetIndex="fieldsetIndex"
+        :is="input.component"
+        :input="input"
+        v-on:updateInput="
+          (type, name, value) => $helpers.updateInput(type, name, value)
+        "
+        v-on:updateJob="
+          (value, fieldsetToUpdate) => updateJob(value, fieldsetToUpdate)
+        "
+        :locale="
+          $t(
+            `form3.${slugify(`${input.type}_${input.name}`, {
+              replacement: '_',
+              lower: true,
+            })}`
+          )
+        "
+      ></component>
+    </form>
+
+    <p v-if="this.newJob">{{ $t(`job.${this.newJob}`) }}</p>
   </div>
 </template>
 
@@ -40,7 +43,7 @@ export default {
       inputs: [],
       slugify: slugify,
       jobs: new Array(4),
-      newJob: undefined
+      newJob: undefined,
     }
   },
   setup() {
@@ -60,9 +63,13 @@ export default {
       this.jobs[fieldsetToUpdate] = value
 
       if (!this.jobs.includes(undefined)) {
-          this.newJob = this.jobs.join('')
-          console.log(this.newJob)
+        this.newJob = this.jobs.join('')
+        console.log(this.newJob)
       }
+    },
+    prevent(e) {
+      e.preventDefault()
+      this.$helpers.updateInput(e.type, e.type, e.type)
     },
   },
 }

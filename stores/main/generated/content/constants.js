@@ -1,4 +1,6 @@
 export default {
+  GENDER: 'gender',
+  LIFEQUALITY: 'lifeQuality',
   NOSESIZE: 'noseSize',
   EARSSIZE: 'earsSize',
   SKINCOLOR: 'skinColor',

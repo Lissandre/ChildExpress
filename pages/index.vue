@@ -23,7 +23,6 @@ export default {
     return { store }
   },
   mounted() {
-    // this.activeForm = getActiveForm()
   },
   methods: {},
 }

@@ -10,6 +10,7 @@
       :step="input.step"
       @input="(e) => update(e)"
       :value="input.value"
+      required="required"
     />
   </div>
 </template>

@@ -1,5 +1,9 @@
 {
   "title": "Formulaire 2",
+  "range_nosesize": "Taille Nez",
+  "range_earssize": "Taille Oreilles",
+  "picker_skincolor": "Couleur de la peau",
   "range_handssize": "Taille Mains",
-  "range_overallsize": "Taille Globale"
+  "range_overallsize": "Taille Globale",
+  "submit_submit": "Suivant"
 }

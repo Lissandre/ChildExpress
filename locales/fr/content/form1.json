@@ -1,7 +1,10 @@
 {
   "title": "Formulaire 1",
-  "range_nosesize": "Taille Nez",
-  "range_earssize": "Taille Oreilles",
-  "picker_skincolor": "Couleur de la peau",
-  "button_submit": "Envoyer"
+  "radio_gender": {
+    "label1": "Genre"
+  },
+  "radio_lifequality": {
+    "label1": "Niveau de vie"
+  },
+  "submit_submit": "Suivant"
 }

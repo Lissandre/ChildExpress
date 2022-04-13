@@ -6,7 +6,7 @@ export default class Helpers {
     }
 
     updateInput(type, name, value) {
-        // console.log(type, name, value)
+        console.log(type, name, value)
         switch (type) {
             case 'range':
                 this.store.changeRange(this.store.constants[name.toUpperCase()], value)
@@ -18,6 +18,9 @@ export default class Helpers {
                 this.store.changeRadio(this.store.constants[name.toUpperCase()], value)
                 console.log(this.store.constants[name.toUpperCase()])
                 // this.store.changeJob()
+                break;
+            case 'submit':
+                this.store.changeActiveForm()
             default:
                 break;
         }

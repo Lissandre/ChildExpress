@@ -1,7 +1,7 @@
 export const actions = {
-  changeActiveForm(newValue) {
-    console.log(newValue)
-    this.activeForm = newValue
+  changeActiveForm() {
+    this.activeForm++
+    console.log(this.activeForm)
   },
   changeRange(id, newValue) {
     const range = this.ranges.find((range) => range.id === id)

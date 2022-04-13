@@ -2,6 +2,54 @@
   "form1": {
     "title": "Formulaire 1",
     "inputs": {
+      "gender": {
+        "locales": {
+          "fr": {
+            "label1": "Genre"
+          },
+          "en": {
+            "label1": "Gender"
+          }
+        },
+        "type": "radio",
+        "name": "gender",
+        "component": "InputRadios",
+        "value": 0.5,
+        "length": 2,
+        "class": ""
+      },
+      "lifeQuality": {
+        "locales": {
+          "fr": {
+            "label1": "Niveau de vie"
+          },
+          "en": {
+            "label1": "Life quality"
+          }
+        },
+        "type": "radio",
+        "name": "lifeQuality",
+        "effect": "mouthSize",
+        "component": "InputRadios",
+        "value": 0.5,
+        "length": 5,
+        "class": ""
+      },
+      "submit": {
+        "locales": {
+          "fr": "Suivant",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submit",
+        "component": "InputSubmit",
+        "class": ""
+      }
+    }
+  },
+  "form2": {
+    "title": "Formulaire 2",
+    "inputs": {
       "noseSize": {
         "locales": {
           "fr": "Taille Nez",
@@ -41,19 +89,6 @@
         "value": "#e66465",
         "class": ""
       },
-      "submit": {
-        "locales": {
-          "fr": "Envoyer",
-          "en": "Submit"
-        },
-        "type": "button",
-        "name": "submit"
-      }
-    }
-  },
-  "form2": {
-    "title": "Formulaire 2",
-    "inputs": {
       "handsSize": {
         "locales": {
           "fr": "Taille Mains",
@@ -80,6 +115,16 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
+        "class": ""
+      },
+      "submit": {
+        "locales": {
+          "fr": "Suivant",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submit",
+        "component": "InputSubmit",
         "class": ""
       }
     }

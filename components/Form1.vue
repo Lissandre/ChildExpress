@@ -2,20 +2,23 @@
   <div class="flex flex-col absolute bottom-1/2 left-20">
     <h1 class="text-3xl">{{ $t('form1.title') }}</h1>
 
-    <component
-      v-for="input in inputs"
-      :key="input.name"
-      :is="input.component"
-      :input="input"
-      v-on:updateInput="(a, b ,c ) => $helpers.updateInput(a, b, c)"
-      :locale="$t(`form1.${slugify(`${input.type}_${input.name}`, { replacement: '_', lower: true})}`)"
-
-    ></component>
-
-    <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
-      <button @click="changeActiveForm">{{ $t('form1.button_submit') }}</button>
-    </div>
-
+    <form @submit.prevent="prevent">
+      <component
+        v-for="input in inputs"
+        :key="input.name"
+        :is="input.component"
+        :input="input"
+        v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
+        :locale="
+          $t(
+            `form1.${slugify(`${input.type}_${input.name}`, {
+              replacement: '_',
+              lower: true,
+            })}`
+          )
+        "
+      ></component>
+    </form>
   </div>
 </template>
 
@@ -41,9 +44,9 @@ export default {
     this.inputs = form1.inputs
   },
   methods: {
-    changeActiveForm() {
-      this.store.changeActiveForm(3)
-      // this.store.toggleIsFace(false)
+    prevent(e) {
+      e.preventDefault()
+      this.$helpers.updateInput(e.type, e.type, e.type)
     },
   },
 }

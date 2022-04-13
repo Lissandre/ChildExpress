@@ -14,8 +14,9 @@
         :name="input.name"
         @input="(e) => update(e)"
         :value="(index - 1) / (input.length - 1)"
-        v-for="index in 6"
+        v-for="index in input.length"
         :key="index"
+        required="required"
         class="w-10 z-[1]"
       />
       <p class="w-20">{{ locale.label2 }}</p>
@@ -36,20 +37,18 @@ export default {
   },
   methods: {
     update(e) {
+      console.log(this.input.name)
       this.$emit(
         'updateInput',
         this.input.type,
         this.input.name,
-        e.target.value
+        e.target.value,
       )
     },
     emitJob(e, fieldsetIndex) {
+      if(e.target.value === undefined) return
       const value = Math.round(e.target.value)
-      this.$emit(
-        'updateJob',
-        value,
-        fieldsetIndex
-      )
+      this.$emit('updateJob', value, fieldsetIndex)
     },
   },
 }
