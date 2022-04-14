@@ -84,9 +84,17 @@ Database/API
 
 ## Nomenclature
 
+### Forms.json
 
 
 
+<img src="https://i.imgur.com/NJhBRWq.png" alt="Components" width="200"/>
+ 
+<img src="https://i.imgur.com/Gc9bds6.png" alt="Locales" width="200"/>
+
+<img src="https://i.imgur.com/p9BAvrY.png" alt="Store" width="200"/>
+
+<img src="https://i.imgur.com/LVmFhQn.png" alt="Three scene" width="200"/>
 
 
 
