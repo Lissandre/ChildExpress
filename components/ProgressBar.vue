@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute top-2 max-w-screen-md left-1/2 h-20"
+    class="absolute top-2 max-w-screen-md left-1/2 h-20 z-[1]"
     style="transform: translate3d(-50%, 0%, 0)"
   >
     <ul

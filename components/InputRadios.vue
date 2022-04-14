@@ -1,8 +1,8 @@
 <template>
-  <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+  <div :class="`pb-4 text-gray-500 left-1/4 pointer-events-auto absolute ${input.class}`">
     <fieldset
       :id="input.name"
-      class="flex justify-around items-center"
+      class="flex justify-around items-center "
       @click="(e) => emitJob(e, fieldsetIndex)"
       :key="fieldsetIndex"
     >
@@ -33,6 +33,7 @@ export default {
     return {}
   },
   mounted() {
+    console.log('')
   },
   methods: {
     update(e) {
@@ -41,11 +42,11 @@ export default {
         'updateInput',
         this.input.type,
         this.input.name,
-        e.target.value,
+        e.target.value
       )
     },
     emitJob(e, fieldsetIndex) {
-      if(e.target.value === undefined) return
+      if (e.target.value === undefined) return
       const value = Math.round(e.target.value)
       this.$emit('updateJob', value, fieldsetIndex)
     },
