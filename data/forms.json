@@ -15,7 +15,7 @@
         "component": "InputRadios",
         "value": 0.5,
         "length": 2,
-        "class": ""
+        "class": "top-[10]"
       },
       "lifeQuality": {
         "locales": {
@@ -32,7 +32,7 @@
         "component": "InputRadios",
         "value": 0.5,
         "length": 5,
-        "class": ""
+        "class": "top-[20]"
       },
       "submit": {
         "locales": {
