@@ -62,15 +62,15 @@ In other words, we now just have to describe our inputs in a file, then press a 
 
 It's also future-change-friendly ! If something change during conception, it's easy to write it without filling 8 different files.
 
+<img src="https://i.imgur.com/GnwPIf0.png" alt="Forms" width="500"/>
+
+
 
 ## Datas stock
 
 In our MVP : 
 
 We create and update every datas in our Store `Pinia`
-
-Thanks to scripts everything is written
-
 
 Out of MVP :
 
