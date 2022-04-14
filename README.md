@@ -84,7 +84,7 @@ Database/API
 
 ## Nomenclature
 
-<img src="https://i.imgur.com/vydeS1N.png" alt="Components"/>
+<img src="https://i.imgur.com/pCm237y.png" alt="Components"/>
 
 
 ## Special Directories
