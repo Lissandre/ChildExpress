@@ -51,15 +51,25 @@ Finally, our store to put in an box every datas that we create and modify
 
 ## Technical schemes
 
-...
+### Automation
+
+In order to save time and never do a work that is repetitive, we optimize intelligence through scripts.
+
+Based on a simple forms.json that contains everything about our inputs, we fullfill our Store (values of those inputs), and the translations files.
+We have create Nuxt components for each Input types, and adapt every datas that goes through each of them.
+
+In other words, we now just have to describe our inputs in a file, then press a button, and everything build itself correctly !
+
+It's also future-change-friendly ! If something change during conception, it's easy to write it without filling 8 different files.
 
 
 ## Datas stock
 
-
 In our MVP : 
 
 We create and update every datas in our Store `Pinia`
+
+Thanks to scripts everything is written
 
 
 Out of MVP :
