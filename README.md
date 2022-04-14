@@ -62,6 +62,11 @@ In other words, we now just have to describe our inputs in a file, then press a 
 
 It's also future-change-friendly ! If something change during conception, it's easy to write it without filling 8 different files.
 
+
+<img src="https://i.imgur.com/hGk8jKY.png" alt="Forms"/>
+
+
+
 <img src="https://i.imgur.com/GnwPIf0.png" alt="Forms" width="500"/>
 
 
