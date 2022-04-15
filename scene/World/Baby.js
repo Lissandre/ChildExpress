@@ -156,7 +156,7 @@ export default class Baby {
             `)
             // console.log(s.fragmentShader)
             this.shader = s
-            this.appear()
+            // this.appear()
         }
 
 
@@ -178,6 +178,8 @@ export default class Baby {
         this.time.on('tick', () => {
             if (!this.shader) return
             this.shader.uniforms.time.value = this.time.current * 100.;
+
+            this.shader.uniforms.startAnimation.value = Math.sin(this.time.current * 0.0008) / 2. + 0.5
         })
     }
 
