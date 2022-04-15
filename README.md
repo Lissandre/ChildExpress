@@ -24,7 +24,15 @@ $ npm run generate
 
 ### `Three.js`
 
-We use Three.js a graphic 
+THREE JS
+We use Three.js as a Javascript WEBGL 3D library. 
+This allows us to create a three dimensional render of the baby during its creation. We modify the appearance of the baby model by using vertex and fragment. 
+By using textures as maps, we can isolate different parts of the body so our modifications are only affecting the correct parts. 
+Each texture is used to locate four areas only, this limitation comes from the fact that the PNG format has four channels (RGBA).
+
+Like this :
+
+<img src="https://i.imgur.com/bZCS9QX.png" alt="Textures"/>
 
 
 ### `GLSL`
