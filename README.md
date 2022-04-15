@@ -42,7 +42,7 @@ This is for the customization and deformation of babies
 
 ### `Nuxt`
 
-Our UI, and internationalisation system
+Our UI, and internationalisation Framework
 
 
 ### `Pinia`
