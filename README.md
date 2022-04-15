@@ -32,7 +32,7 @@ Each texture is used to locate four areas only, this limitation comes from the f
 
 Like this :
 
-<img src="https://i.imgur.com/bZCS9QX.png" alt="Textures"/>
+<img src="https://i.imgur.com/bZCS9QX.png" alt="Textures" width="300"/>
 
 
 ### `GLSL`
