@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col absolute bottom-1/2 left-20">
+  <div class="flex flex-col relative h-full w-full ">
 
     <form @submit.prevent="prevent">
       <component
@@ -25,7 +25,7 @@
       ></component>
     </form>
 
-    <p v-if="this.newJob">{{ $t(`job.${this.newJob}`) }}</p>
+    <p v-if="newJob && (newJob.length > 3)">{{ $t(`job.${this.newJob}`) }}</p>
   </div>
 </template>
 
@@ -61,6 +61,7 @@ export default {
       // console.log(this.inputs[name], this.inputs[name].value)
       this.jobs[fieldsetToUpdate] = value
 
+      console.log(this.jobs.length)
       if (!this.jobs.includes(undefined)) {
         this.newJob = this.jobs.join('')
         console.log(this.newJob)

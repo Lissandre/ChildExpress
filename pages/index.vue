@@ -1,7 +1,7 @@
 <template>
   <div>
     <LocaleSwitcher />
-    <Tutorial />
+    <!--<Tutorial />-->
     <Focus />
     <ProgressBar />
     <component :is="`Form${store.activeForm}`"/>
@@ -53,18 +53,5 @@ div fieldset:hover {
   transform:  rotate3d(0, 1, 0, 0) scale3d(1, 1, 1);
 }
 
-div:nth-child(1) fieldset {
-  top: 100px;
-}
 
-div:nth-child(2) fieldset {
-  top: 200px;
-}
-div:nth-child(3) fieldset {
-  top: 300px;
-}
-
-div:nth-child(4) fieldset {
-  top: 400px;
-}
 </style>

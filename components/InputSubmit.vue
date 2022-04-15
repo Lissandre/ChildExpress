@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom-0 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+  <div class="pb-4 text-gray-500 pointer-events-auto  absolute right-[100px] bottom-[100px]">
     <input
       :type="input.type"
       :name="input.name"

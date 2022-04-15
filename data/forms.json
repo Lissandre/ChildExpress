@@ -15,7 +15,7 @@
         "component": "InputRadios",
         "value": 0.5,
         "length": 2,
-        "class": "top-[10]"
+        "class": ""
       },
       "lifeQuality": {
         "locales": {
@@ -32,7 +32,7 @@
         "component": "InputRadios",
         "value": 0.5,
         "length": 5,
-        "class": "top-[20]"
+        "class": ""
       },
       "submit": {
         "locales": {
@@ -81,7 +81,7 @@
           "fr": "Couleur de la peau",
           "en": "Skin Color"
         },
-        "type": "picker",
+        "type": "color",
         "name": "skinColor",
         "component": "InputColorPicker",
         "value": "#e66465",

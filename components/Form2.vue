@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col absolute bottom-1/2 left-20">
+  <div class="flex flex-col relative h-full w-full ">
 
     <form @submit.prevent="prevent">
       <component
