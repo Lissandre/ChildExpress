@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col absolute bottom-1/2 left-20">
+  <div class="flex flex-col relative h-full w-full ">
     <form
       @submit.prevent="prevent"
       id="form1"
-      class="left-40 absolute"
+      class="absolute h-full w-full flex flex-col justify-center"
     >
       <component
         v-for="input in inputs"

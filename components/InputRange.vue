@@ -1,5 +1,6 @@
 <template>
-  <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+  <div class="pb-4 text-gray-500 pointer-events-auto relative left-1/4  mt-[100px]">
+  <fieldset>
     <p>{{ locale }}</p>
     <input
       :type="input.type"
@@ -12,6 +13,7 @@
       :value="input.value"
       required="required"
     />
+    </fieldset>
   </div>
 </template>
 

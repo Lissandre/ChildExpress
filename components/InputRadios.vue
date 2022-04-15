@@ -1,8 +1,8 @@
 <template>
-  <div :class="`pb-4 text-gray-500 left-1/4 pointer-events-auto absolute ${input.class}`">
+  <div class="pb-4 text-gray-500 pointer-events-auto relative left-1/4  mt-[100px]">
     <fieldset
       :id="input.name"
-      class="flex justify-around items-center "
+      :class="`flex justify-around items-center ${input.class}`"
       @click="(e) => emitJob(e, fieldsetIndex)"
       :key="fieldsetIndex"
     >

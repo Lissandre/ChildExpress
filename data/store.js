@@ -3,13 +3,13 @@ const fs = require('fs')
 const forms = require('./forms.json')
 const stores = {
   path: 'stores/main/generated/content/',
-  types: ['constant', 'radio', 'picker', 'range', 'job'],
+  types: ['constant', 'radio', 'color', 'range', 'job'],
 }
 
 const content = {
   constant: [],
   radio: [],
-  picker: [],
+  color: [],
   range: [],
   job: [],
 }
@@ -66,7 +66,7 @@ stores.types.forEach((type) => {
         })
         .join(',\n')}\n]`
       break
-    case 'picker':
+    case 'color':
       content[type] = `export default [\n${content[type]
         .map(function (elem) {
           return `  { id: '${elem.id}', value: '${elem.value}' }`

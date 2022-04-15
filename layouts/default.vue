@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <Nuxt class="w-screen absolute pointer-events-none"/>
+    <Nuxt class="w-screen h-screen absolute pointer-events-none"/>
   </div>
 </template>
 
