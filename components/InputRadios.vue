@@ -1,6 +1,6 @@
 <template>
   <div
-    class="pb-4 text-gray-500 pointer-events-auto relative left-1/4 mt-[100px] test"
+    class="pb-4 text-gray-500 pointer-events-auto relative left-1/3 mt-[100px] test"
   >
     <fieldset
       :id="input.name"
@@ -58,6 +58,9 @@ export default {
 </script>
 
 <style scoped>
+ p{
+   width: max-content;
+ }
 /* Customize the label (the container)
 .container {
   display: block;

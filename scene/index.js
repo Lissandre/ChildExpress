@@ -24,7 +24,11 @@ export default class App {
     this.assets = new Loader()
   }
   init(options) {
-    this.elementApp = options.canvas
+    if (this.canvas) {
+      this.elementApp = this.canvas
+    } else {
+      this.elementApp = options.canvas
+    }
     // Set up
     this.setConfig()
     this.setRenderer()
@@ -35,6 +39,10 @@ export default class App {
     } else {
       this.setBackgroundShader()
     }
+
+  }
+  setCanvas(canvas = this.renderer?.canvas) {
+    this.canvas = canvas
   }
   setRenderer() {
     // Set scene

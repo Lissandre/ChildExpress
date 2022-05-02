@@ -5,6 +5,7 @@
       id="form1"
       class="absolute h-full w-full flex flex-col justify-center"
     >
+      <h1 class="absolute left-1/3 top-1/4 text-white z-[1] text-3xl">Quelques infos sur vous</h1>
       <component
         v-for="input in inputs"
         :key="input.name"

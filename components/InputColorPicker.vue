@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom-1/2 pb-4 text-gray-500 left-1/4 pointer-events-auto">
+  <div class="bottom-1/2 pb-4 text-gray-500 left-1/3 pointer-events-auto">
   <fieldset>
     <p>{{ locale }}</p>
     <input
