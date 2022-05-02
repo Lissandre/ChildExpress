@@ -55,7 +55,7 @@ It's also future-change-friendly ! If something change during conception, it's e
 
 <img src="https://i.imgur.com/hGk8jKY.png" alt="Forms"/>
 
-
+Here is an example of our JSON datas that will be translate.
 
 <img src="https://i.imgur.com/GnwPIf0.png" alt="Forms" width="500"/>
 
