@@ -74,9 +74,16 @@ Database/API
 
 ## Nomenclature
 
+Here is the list of our Folders, and how files sould be named.
+
 <img src="https://i.imgur.com/pCm237y.png" alt="Components"/>
 
-
+Models: (guess what ?)
+Components : All our Inputs, forms, and UI pieces.
+Data: The Scripts and JSON, 
+Locales: Our text for every part of the app. Split into two folder : French and English one, 
+Scene : Our scene and every item of it. Like lights, Camera. Also Tools (containing loader, Time etc)
+Store : Contains the generated values from each input types. And all the methods for get and set in the Actions/Getter files.
 
 ## Roadmap
 
