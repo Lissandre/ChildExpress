@@ -16,22 +16,10 @@ import World from './World'
 export default class App {
   constructor(options) {
     // Set options
-    this.debug = true
+    this.debug = false
     this.time = new Time()
     this.sizes = new Sizes()
-    this.assets = new Loader({
-      template: `
-        <div class="loaderScreen">
-        <div class="loaderScreen__progressBar">
-            <div class="loaderScreen__progress"></div>
-        </div>
-        <h1 class="loaderScreen__load">0%</h1>
-        <div class="loaderScreen__progressBar">
-            <div class="loaderScreen__progress"></div>
-        </div>
-        </div>
-    `,
-    })
+    this.assets = new Loader()
   }
   init(options) {
     this.elementApp = options.canvas

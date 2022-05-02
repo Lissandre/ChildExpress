@@ -1,6 +1,7 @@
 <template>
   <div class="body">
-    <Nuxt class="z-10 w-screen absolute pointer-events-none"/>
+    <BabyViewer />
+    <Nuxt class="z-10 w-screen h-screen absolute pointer-events-none"/>
   </div>
 </template>
 
