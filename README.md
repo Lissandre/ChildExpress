@@ -95,6 +95,11 @@ Database/API
 <img src="https://i.imgur.com/pCm237y.png" alt="Components"/>
 
 
+
+## Roadmap
+
+<img src="https://i.imgur.com/TezPN7m.jpg" alt="Components"/>
+
 ## Special Directories
 
 You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
