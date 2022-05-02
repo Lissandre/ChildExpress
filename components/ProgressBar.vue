@@ -30,7 +30,7 @@
             w-10
             h-10
             border border-black
-            rounded-full
+            rounded
           "
         >
           <h2>{{ index }}</h2>

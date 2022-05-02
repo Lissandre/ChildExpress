@@ -7,8 +7,8 @@
       <canvas id="_canvas1" ref="canvas1" class="absolute "></canvas>
     </div>
     <div
-      class="background-container absolute left-1/2 top-1/2 pointer-events-auto"
-      style="width: 60%; height: 80%; transform: translate3d(-50%, -50%, 0)"
+      class="background-container absolute left-1/2 top-1/2 pointer-events-auto w-screen h-screen"
+      style=" transform: translate3d(-50%, -50%, 0)"
     >
       <canvas
         id="_canvas2"
