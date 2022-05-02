@@ -2,6 +2,8 @@
 
 ## Technologies
 
+The main subject of our project is to deform babies. Basically, they are Blender 3D Models. To achieve that, we are going to use a mix of technos such as :
+
 ### `Three.js`
 
 THREE JS
@@ -53,7 +55,7 @@ It's also future-change-friendly ! If something change during conception, it's e
 
 <img src="https://i.imgur.com/hGk8jKY.png" alt="Forms"/>
 
-
+Here is an example of our JSON datas that will be translate.
 
 <img src="https://i.imgur.com/GnwPIf0.png" alt="Forms" width="500"/>
 
@@ -72,9 +74,23 @@ Database/API
 
 ## Nomenclature
 
+Here is the list of our Folders, and how files should be named.
+
 <img src="https://i.imgur.com/pCm237y.png" alt="Components"/>
 
+<ul>
+  <li>Models: (guess what ?)</li>
 
+<li>Components : All our Inputs, forms, and UI pieces.</li>
+
+<li>Data: The Scripts and JSON file</li>
+
+<li>Locales: Our text for every part of the app. Split into two folder : French and English one</li>
+
+<li>Scene : Our scene and every item of it. Like lights, Camera. Also Tools (containing loader, Time etc)</li>
+
+<li>Store : Contains the generated values from each input types. And all the methods for get and set in the Actions/Getter files.</li>
+</ul>
 
 ## Roadmap
 
