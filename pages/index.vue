@@ -4,7 +4,7 @@
     <!--<Tutorial />-->
     <Focus />
     <ProgressBar />
-    <component :is="`Form${store.activeForm}`"/>
+    <component :is="`Form${store.activeForm}`" />
     <BabyViewer />
   </div>
 </template>
@@ -22,19 +22,19 @@ export default {
 
     return { store }
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {},
 }
 </script>
 
 <style>
 fieldset {
-  background: rgb(255, 255, 255);
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.6));
   background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(210, 223, 238, 1) 100%
+    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.8)
   );
   transition: all ease-out 0.5s;
   filter: blur(2px);
@@ -50,8 +50,23 @@ fieldset {
 div fieldset:hover {
   filter: blur(0px);
   z-index: 3;
-  transform:  rotate3d(0, 1, 0, 0) scale3d(1, 1, 1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+/*
+.test:hover fieldset {
+  animation: linear 0.4s forwards translateX;
 }
 
-
+@keyframes translateX {
+  0% {
+    transform: translate3d(0%, 0, 0)  scale3d(0.9, 0.9 ,0.9);
+  }
+  50% {
+    transform: translate3d(-25%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0)  scale3d(1, 1, 1);
+  }
+} */
 </style>

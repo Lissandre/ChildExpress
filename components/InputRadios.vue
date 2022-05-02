@@ -1,5 +1,7 @@
 <template>
-  <div class="pb-4 text-gray-500 pointer-events-auto relative left-1/4  mt-[100px]">
+  <div
+    class="pb-4 text-gray-500 pointer-events-auto relative left-1/4 mt-[100px] test"
+  >
     <fieldset
       :id="input.name"
       :class="`flex justify-around items-center ${input.class}`"
@@ -17,8 +19,9 @@
         v-for="index in input.length"
         :key="index"
         required="required"
-        class="w-10 z-[1]"
+        class="w-10 z-[1] cursor-pointer"
       />
+      <span class="checkmark"></span>
       <p class="w-20">{{ locale.label2 }}</p>
     </fieldset>
   </div>
@@ -53,3 +56,65 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+/* Customize the label (the container)
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
+.checkmark {
+  position: absolute;
+  /*top: 0;
+  left: 0;*/
+  /*
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+} */
+</style>

@@ -1,11 +1,11 @@
 <template>
-  <div class="pb-4 text-gray-500 pointer-events-auto  absolute right-[100px] bottom-[100px]">
+  <div class="pb-4 text-gray-500 pointer-events-auto absolute right-[100px] bottom-[100px] text-white z-[1] ">
     <input
       :type="input.type"
       :name="input.name"
       :value="locale"
       :key="input.name"
-      class="w-20 z-[1]"
+      class="w-20 z-[1] bg-blue px-20 py-4 flex justify-center rounded shadow cursor-pointer hover:shadow-hoverState transition"
     />
   </div>
 </template>
