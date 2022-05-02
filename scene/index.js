@@ -1,4 +1,4 @@
-import { Scene, sRGBEncoding, WebGLRenderer, Vector3 } from 'three'
+import { Scene, sRGBEncoding, WebGLRenderer } from 'three'
 
 import gsap, { Power3 } from 'gsap'
 
