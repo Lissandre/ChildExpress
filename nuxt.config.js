@@ -93,9 +93,9 @@ export default {
       esbuildMinifier: true,
       imageFileLoader: true,
       webpackOptimisations: true,
-      cacheLoader: true,
-      hardSourcePlugin: true,
-      parallelPlugin: true,
+      //cacheLoader: true,
+      //hardSourcePlugin: true,
+      //parallelPlugin: true,
     },
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
