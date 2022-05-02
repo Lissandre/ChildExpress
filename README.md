@@ -34,6 +34,8 @@ Finally, our store to put in an box every datas that we create and modify
 
 ## Global Architecture
 
+Inside our Nuxt environnement, every Form is built around our store. So they can communicate with it (get and update values).
+Also the store is connected to our Three JS scene, which get instantly the values from the store, and pass it to the shader though values called uniform. It allows us to deform those babies.
 
 ![Architecture](https://i.imgur.com/2LOpG8T.png)
 
