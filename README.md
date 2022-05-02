@@ -1,25 +1,5 @@
 # ChildExpress
 
-## Build Setup
-
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# create forms store & forms translations from data/forms.json
-$ npm run forms
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
 ## Technologies
 
 ### `Three.js`
@@ -99,6 +79,28 @@ Database/API
 ## Roadmap
 
 <img src="https://i.imgur.com/TezPN7m.jpg" alt="Components"/>
+
+
+
+## Build Setup
+
+```bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# create forms store & forms translations from data/forms.json
+$ npm run forms
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
+```
 
 ## Special Directories
 
