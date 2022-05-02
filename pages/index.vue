@@ -4,8 +4,8 @@
     <!-- <Tutorial /> -->
     <Focus />
     <ProgressBar />
-    <Form1 v-if="store.activeForm === 1" />
-    <Form2 v-if="store.activeForm === 2" />
+    <component :is="`Form${store.activeForm}`"/>
+    <BabyViewer />
   </div>
 </template>
 
@@ -23,7 +23,6 @@ export default {
     return { store }
   },
   mounted() {
-    // this.activeForm = getActiveForm()
   },
   methods: {},
 }

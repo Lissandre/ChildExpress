@@ -20,16 +20,31 @@ for (const form in forms) {
 
       const content = {}
       content.title = _form.title
-      for (const input in _form) {
-        if (Object.hasOwnProperty.call(_form, input)) {
-          const element = _form[input]
-          if (element.locales && element.type) {
-            content[
-              slugify(`${element.type}_${element.locales.en}`, {
-                replacement: '_',
-                lower: true,
-              })
-            ] = element.locales[type]
+      for (const _content in _form) {
+        if (Object.hasOwnProperty.call(_form, _content)) {
+          const element = _form[_content]
+
+          if ((_content === 'title')) {
+            content[`${_content}`] = element.locales[type]
+          }
+          
+          for (const input in element) {
+            if (Object.hasOwnProperty.call(element, input)) {
+              if (
+                element[input].locales &&
+                element[input].type &&
+                element[input].name
+              ) {
+                content[
+                  slugify(`${element[input].type}_${element[input].name}`, {
+                    replacement: '_',
+                    lower: true,
+                  })
+                ] = element[input].locales[type]
+              } else if (element[input].locales) {
+                content[`${input}`] = element[input].locales[type]
+              }
+            }
           }
         }
       }
@@ -41,5 +56,7 @@ for (const form in forms) {
         }
       })
     })
+  } else {
+
   }
 }
