@@ -2,6 +2,8 @@
 
 ## Technologies
 
+The main subject of our project is to deform babies. Basically, they are Blender 3D Models. To achieve that, we are going to use a mix of technos such as :
+
 ### `Three.js`
 
 THREE JS
