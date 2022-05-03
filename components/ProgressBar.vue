@@ -18,7 +18,7 @@
     >
       <li
         class="w-10 h-10 relative flex flex-col justify-center items-center"
-        :class="{ active: store.getActiveForm === index }"
+        :class="{ active: $route.params.step == index }"
         v-for="index in getTotalForms"
         :key="index"
       >
@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     changeRange(id, e) {
-      console.log(id, e.target.value)
+      // console.log(id, e.target.value)
       this.store.changeRange(id, e.target.value)
     },
   },

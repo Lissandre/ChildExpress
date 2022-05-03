@@ -1,7 +1,12 @@
 <template>
-  <div>
+  <div class="h-screen w-screen fixed">
+    <canvas
+      id="_canvas2"
+      ref="canvas2"
+      class="absolute z-0 h-screen w-screen pointer-events-none"
+    ></canvas>
     <div
-      class="baby-container absolute left-1/2 top-1/2 z-[2] pointer-events-none"
+      class="baby-container absolute left-1/2 top-1/2 z-[2]"
       style="width: 60%; height: 80%; transform: translate3d(-50%, -50%, 0)"
     >
       <canvas id="_canvas1" ref="canvas1" class="absolute"></canvas>
@@ -18,12 +23,6 @@
       "
       style="transform: translate3d(-50%, -50%, 0)"
     >
-      <canvas
-        id="_canvas2"
-        ref="canvas2"
-        class="absolute z-0"
-        style="width: 100vw; height: 100vh"
-      ></canvas>
       <div
         class="
           h-full

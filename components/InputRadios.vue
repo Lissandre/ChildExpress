@@ -36,11 +36,11 @@ export default {
     return {}
   },
   mounted() {
-    console.log('')
+    // console.log('')
   },
   methods: {
     update(e) {
-      console.log(this.input.name)
+      // console.log(this.input.name)
       this.$emit(
         'updateInput',
         this.input.type,

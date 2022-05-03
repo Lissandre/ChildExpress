@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col relative h-full w-full ">
+  <div class="flex flex-col relative h-full w-full overflow-x-hidden">
 
     <form @submit.prevent="prevent">
       <component
@@ -57,14 +57,14 @@ export default {
       this.store.changeRange(id, e.target.value)
     },
     updateJob(value, fieldsetToUpdate) {
-      console.log(value, fieldsetToUpdate)
+      // console.log(value, fieldsetToUpdate)
       // console.log(this.inputs[name], this.inputs[name].value)
       this.jobs[fieldsetToUpdate] = value
 
-      console.log(this.jobs.length)
+      // console.log(this.jobs.length)
       if (!this.jobs.includes(undefined)) {
         this.newJob = this.jobs.join('')
-        console.log(this.newJob)
+        // console.log(this.newJob)
       }
     },
     prevent(e) {
