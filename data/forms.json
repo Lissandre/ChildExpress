@@ -14,7 +14,7 @@
         "name": "gender",
         "component": "InputRadios",
         "value": 0.5,
-        "length": 2,
+        "length": 3,
         "class": ""
       },
       "lifeQuality": {
