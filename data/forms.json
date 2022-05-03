@@ -60,7 +60,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": ""
+        "class": "range"
       },
       "earsSize": {
         "locales": {
@@ -74,7 +74,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": ""
+        "class": "range"
       },
       "skinColor": {
         "locales": {
@@ -99,7 +99,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": ""
+        "class": "range"
       },
       "overallSize": {
         "locales": {
@@ -113,7 +113,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": ""
+        "class": "bubble-range"
       },
       "submit": {
         "locales": {

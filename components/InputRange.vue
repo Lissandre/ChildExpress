@@ -2,8 +2,8 @@
   <div
     class="pb-4 text-gray-500 pointer-events-auto relative left-1/3 mt-[100px]"
   >
-    <fieldset class="animate-bounce-in">
-      <p>{{ locale }}</p>
+    <fieldset :class="`animate-bounce-in ${input.class}`">
+      <p v-if='input.class != "bubble-range"'>{{ locale }}</p>
       <input
         :type="input.type"
         :id="input.name"
@@ -17,6 +17,7 @@
         class="test"
       />
     </fieldset>
+    <span v-if='input.class === "bubble-range"' ref="bubble" class="bubble"></span>
   </div>
 </template>
 
@@ -37,6 +38,15 @@ export default {
         this.input.name,
         e.target.value
       )
+      if (this.input.class.includes('bubble-range')) this.moveDialogue(e.target)
+    },
+    moveDialogue(el) {
+      const val = el.value
+      const min = el.min ? el.min : 0
+      const max = el.max ? el.max : 100
+      const newVal = Number(((val - min) * 100) / (max - min))
+      this.$refs.bubble.style.bottom = `calc(${newVal / 2}% + 15px)`
+      this.$refs.bubble.innerHTML = newVal
     },
   },
 }
@@ -44,7 +54,7 @@ export default {
 
 
 <style scoped>
-input[type='range'] {
+.range input {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
   width: 10em;
   height: inherit; /* s'adapte à la hauteur de l'input */
@@ -53,8 +63,21 @@ input[type='range'] {
   background: black; /* pris en compte sur Webkit only */
   height: 2px;
 }
+.range span {
+  display: none;
+}
 
-input[type='range'].test::-webkit-slider-thumb {
+.bubble-range input {
+  -webkit-appearance: slider-vertical; /* WebKit */
+  width: 50px;
+  height: 200px;
+  padding: 0 24px;
+  outline: none;
+  background: transparent;
+}
+
+.range input::-webkit-slider-thumb, .bubble-range input::-webkit-slider-thumb {
+  appearance: none;
   -webkit-appearance: none; /* également nécessaire sur le curseur */
   height: 2em;
   padding: 0.5em; /* largeur du bord */
@@ -67,7 +90,7 @@ input[type='range'].test::-webkit-slider-thumb {
   cursor: pointer;
 }
 
-input[type='range'].test::-moz-range-thumb {
+.range input::-moz-range-thumb, .bubble-range input::-moz-range-thumb {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
   height: 2em;
   padding: 0.5em; /* largeur du bord */
@@ -79,7 +102,7 @@ input[type='range'].test::-moz-range-thumb {
   background: #0f54e4;
   cursor: pointer;
 }
-input[type='range'].test::-ms-thumb {
+.range input::-ms-thumb, .bubble-range input::-ms-thumb {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
   height: 2em;
   padding: 0.5em; /* largeur du bord */
@@ -90,5 +113,34 @@ input[type='range'].test::-ms-thumb {
   height: inherit; /* s'adapte à la hauteur de l'input */
   background: #0f54e4;
   cursor: pointer;
+}
+
+.bubble-range {
+  height: 14em;
+  width: 2em;
+  position: relative;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bubble {
+  display: flex;
+  left: 60px;
+  bottom: 50px;
+  z-index: 3;
+  background: radial-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.8)
+  );
+  z-index: 1;
+  perspective-origin: 500% 200%;
+  /*transform: perspective(800px) rotate3d(0, 1, 0, -45deg) scale3d(0.9, 0.9, 0.9);*/
+  border-radius: 20px;
+  position: absolute;
+  padding: 15px;
 }
 </style>
