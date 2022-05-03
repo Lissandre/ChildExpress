@@ -29,13 +29,14 @@
             items-center
             w-10
             h-10
-            border border-black
+            border border-white
             rounded
+            text-white
           "
         >
           <h2>{{ index }}</h2>
         </div>
-        <h3 class="absolute top-16 w-20 text-center">
+        <h3 class="absolute top-16 w-20 text-center text-white">
           {{ $t(`step.${index}`) }}
         </h3>
       </li>

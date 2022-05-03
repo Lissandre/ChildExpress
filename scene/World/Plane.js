@@ -33,7 +33,7 @@ export default class Plane {
         gl_FragColor.r = 0.4;
         gl_FragColor.g = 0.4;
         gl_FragColor.b = 0.5 + 0.3 * cos(vUv.x + uTime) + uColor.b;
-        gl_FragColor.a = 0.5;
+        gl_FragColor.a = 0.6;
     }
     `;
     this.material = new RawShaderMaterial({

@@ -2,7 +2,7 @@
   <div
     class="pb-4 text-gray-500 pointer-events-auto relative left-1/3 mt-[100px]"
   >
-    <fieldset>
+    <fieldset class="animate-bounce-in">
       <p>{{ locale }}</p>
       <input
         :type="input.type"

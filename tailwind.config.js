@@ -14,7 +14,39 @@ module.exports = {
       DEFAULT: '9px 25px 30px rgba(15, 84, 228, 0.38)',
       'hoverState': '4px 15px 30px rgba(15, 84, 228, 0.38)',
     },
-    extend: {},
+    extend: {
+      animation: {
+        'bounce-in': 'bounceIn 1s ease forwards',
+        'bounce-out': 'bounceOut 1s ease forwards'
+      },
+      keyframes: {
+        bounceIn: {
+          '0%': {
+            opacity: 0,
+            transform: 'scale3d(0.3, 0.3, 0.3)'
+          },
+          '50%': {
+            opacity: 1,
+            transform: 'scale3d(0.95, 0.95, 0.95)'
+          },
+          '70%': { transform: 'scale3d(0.8, 0.8, 0.8)' },
+          '100%': { opacity: 1, transform: 'scale3d(0.9, 0.9, 0.9)' }
+        },
+        bounceOut: {
+          '0%': { transform: 'scale3d(0.9, 0.9, 0.9)' },
+          '25%': { transform: 'scale3d(0.85, 0.85, 0.85)' },
+          '50%': {
+            opacity: 1,
+            transform: 'scale3d(1, 1, 1)'
+          },
+          '100%': {
+            opacity: 0,
+            transform: 'scale3d(0.3, 0.3, 0.3)'
+          } 
+        }
+      }
+      
+    },
   },
   variants: {
     extend: {},

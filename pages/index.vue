@@ -52,7 +52,6 @@ div fieldset:hover {
   z-index: 3;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  transform: scale3d(1, 1, 1);
 }
 /*
 .test:hover fieldset {

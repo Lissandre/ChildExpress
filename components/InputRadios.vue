@@ -4,7 +4,7 @@
   >
     <fieldset
       :id="input.name"
-      :class="`flex justify-around items-center ${input.class}`"
+      :class="`flex justify-around items-center animate-bounce-in ${input.class}`"
       @click="(e) => emitJob(e, fieldsetIndex)"
       :key="fieldsetIndex"
     >
@@ -60,6 +60,9 @@ export default {
 <style scoped>
  p{
    width: max-content;
+ }
+ fieldset {
+   opacity: 0;
  }
 /* Customize the label (the container)
 .container {
