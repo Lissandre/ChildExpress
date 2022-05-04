@@ -1,6 +1,14 @@
 <template>
   <div
-    class="pb-4 text-gray-500 pointer-events-auto relative left-1/3 mt-[100px] test"
+    class="
+      pb-4
+      text-gray-500
+      pointer-events-auto
+      relative
+      left-1/3
+      mt-[100px]
+      test
+    "
   >
     <fieldset
       :id="input.name"
@@ -23,6 +31,20 @@
       />
       <span class="checkmark"></span>
       <p class="w-20">{{ locale.label2 }}</p>
+
+        <div class="star-rating__stars" v-if="input.class.includes('rating')">
+        <input class="star-rating__input" type="radio" name="rating" value="1" id="rating-1" />
+        <label class="star-rating__label" for="rating-1" aria-label="One"></label>
+        <input class="star-rating__input" type="radio" name="rating" value="2" id="rating-2" />
+        <label class="star-rating__label" for="rating-2" aria-label="Two"></label>
+        <input class="star-rating__input" type="radio" name="rating" value="3" id="rating-3" />
+        <label class="star-rating__label" for="rating-3" aria-label="Three"></label>
+        <input class="star-rating__input" type="radio" name="rating" value="4" id="rating-4" />
+        <label class="star-rating__label" for="rating-4" aria-label="Four"></label>
+        <input class="star-rating__input" type="radio" name="rating" value="5" id="rating-5" />
+        <label class="star-rating__label" for="rating-5" aria-label="Five"></label>
+        <div class="star-rating__focus"></div>
+      </div>
     </fieldset>
   </div>
 </template>
@@ -36,7 +58,6 @@ export default {
     return {}
   },
   mounted() {
-    console.log('')
   },
   methods: {
     update(e) {
@@ -58,69 +79,97 @@ export default {
 </script>
 
 <style scoped>
- p{
-   width: max-content;
- }
- fieldset {
-   opacity: 0;
- }
-/* Customize the label (the container)
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+p {
+  width: max-content;
 }
-
-input {
-  position: absolute;
+fieldset {
   opacity: 0;
-  cursor: pointer;
-  height: 20px;
-  width: 20px;
 }
 
-.checkmark {
-  position: absolute;
-  /*top: 0;
-  left: 0;*/
-  /*
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
+fieldset input[type='radio'] {
+  appearance: none;
+  background-color: transparent;
+  font: inherit;
+  box-shadow: inset 3px 3px 4px rgba(15, 84, 228, 0.75), inset -1px -1px 10px white;
   border-radius: 50%;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
 }
-
-:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-input:checked ~ .checkmark {
-  background-color: #2196f3;
-}
-
-.checkmark:after {
+fieldset input[type='radio']::before {
   content: '';
+  border-radius: 50%;
+  transition: 120ms transform ease-in-out;
+  background-color: #0F54E4;
   position: absolute;
+  transform: translate3d(-50%, -50%, 0) scale(0);
+  left: 50%;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  box-shadow: 1px 5px 5px rgb(15 84 228 / 56%);
+}
+fieldset input[type='radio']:checked::before {
+  transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+.star-rating__stars {
+  position: relative;
+  height: 5rem;
+  width: 25rem;
+}
+.star-rating__label {
+  position: absolute;
+  height: 100%;
+  background-size: 5rem 5rem;
+  background-size: 5rem 5rem;
+  background-image: url('@/assets/images/StarEmpty.png');
+}
+.star-rating__input {
+  margin: 0;
+  position: absolute;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
   display: none;
 }
+.star-rating__stars .star-rating__label:nth-of-type(1) {
+  z-index: 5;
+  width: 20%;
+}
+.star-rating__stars .star-rating__label:nth-of-type(2) {
+  z-index: 4;
+  width: 40%;
+}
+.star-rating__stars .star-rating__label:nth-of-type(3) {
+  z-index: 3;
+  width: 60%;
+}
+.star-rating__stars .star-rating__label:nth-of-type(4) {
+  z-index: 2;
+  width: 80%;
+}
+.star-rating__stars .star-rating__label:nth-of-type(5) {
+  z-index: 1;
+  width: 100%;
+}
+.star-rating__input:checked + .star-rating__label,
+.star-rating__input:focus + .star-rating__label,
+.star-rating__label:hover {
+  background-image: url('@/assets/images/StarFilled.png');
 
-input:checked ~ .checkmark:after {
-  display: block;
 }
 
-.checkmark:after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-} */
+.star-rating__input:focus ~ .star-rating__focus {
+  position: absolute;
+  top: -.25em;
+  right: -.25em;
+  bottom: -.25em;
+  left: -.25em;
+  outline: 0.25rem solid lightblue;
+}
+input#stars {
+  display: none;
+}
 </style>

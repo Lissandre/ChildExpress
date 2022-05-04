@@ -9,8 +9,6 @@ export const actions = {
     } else if (this.activeForm === 2 && !this.$nuxt.$scene.assets.needsLoad) {
         this.$nuxt.$scene.init()
     }
- 
-
   },
   changeRange(id, newValue) {
     const range = this.ranges.find((range) => range.id === id)
@@ -28,6 +26,9 @@ export const actions = {
     // picker.value = newValue
     // console.log(newValue)
     // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+  },
+  changeCounter(id, newValue) {
+
   },
   toggleIsHealthy(newValue) {
     this.health = newValue

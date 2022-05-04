@@ -19,6 +19,9 @@ export default class Helpers {
                 console.log(this.store.constants[name.toUpperCase()])
                 // this.store.changeJob()
                 break;
+            case 'counter':
+                this.store.changeCounter(this.store.constants[name.toUpperCase()], value)
+                break;
             case 'submit':
                 this.store.changeActiveForm()
             default:

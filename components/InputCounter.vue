@@ -1,0 +1,68 @@
+<template>
+  <div class="bottom-1/2 pb-4 text-gray-500 left-1/3 pointer-events-auto">
+    <fieldset :class="`${input.class}`">
+      <button @click="(e) => update(e, 'plus')" class="text-blue">+</button>
+      <div class="content">
+        <h2>{{ counterValue }}</h2>
+        <p>{{ input.unit }}</p>
+      </div>
+      <button @click="(e) => update(e, 'minus')" class="text-blue">-</button>
+        <p>{{ locale.label1 }}</p>
+    </fieldset>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'InputCounter',
+  props: ['input', 'locale'],
+
+  data() {
+    return {
+      counterValue: this.input.value,
+    }
+  },
+  mounted() {},
+  methods: {
+    update(e, way) {
+      e.preventDefault()
+      if (way === 'plus') {
+        this.counterValue++
+      } else {
+        this.counterValue--
+      }
+      this.$emit(
+        'updateInput',
+        this.input.type,
+        this.input.name,
+        this.counterValue
+      )
+    },
+  },
+}
+</script>
+
+<style scoped>
+fieldset button {
+  background: radial-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.8)
+  );
+  transition: all ease-out 0.5s;
+  z-index: 1;
+  perspective-origin: 500% 200%;
+  /*transform: perspective(800px) rotate3d(0, 1, 0, -45deg) scale3d(0.9, 0.9, 0.9);*/
+  transform: scale3d(0.9, 0.9, 0.9);
+  border-radius: 34px;
+  height: 60px;
+  width: 60px;
+}
+fieldset .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>

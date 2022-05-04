@@ -2,8 +2,14 @@
   "radio_gender": {
     "label1": "Genre"
   },
-  "radio_lifequality": {
+  "radio_stars": {
     "label1": "Niveau de vie"
+  },
+  "checkbox_courageux": {
+    "label1": "Courageux"
+  },
+  "counter_weight": {
+    "label1": "Poids"
   },
   "submit_submit": "Suivant"
 }

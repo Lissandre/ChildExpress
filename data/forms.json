@@ -27,12 +27,43 @@
           }
         },
         "type": "radio",
-        "name": "lifeQuality",
-        "effect": "mouthSize",
+        "name": "stars",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 5,
+        "class": "rating"
+      },
+      "courageux": {
+        "locales": {
+          "fr": {
+            "label1": "Courageux"
+          },
+          "en": {
+            "label1": "brave"
+          }
+        },
+        "type": "checkbox",
+        "name": "courageux",
+        "component": "InputCheckbox",
+        "value": 0,
         "class": ""
+      },
+      "weight": {
+        "locales": {
+          "fr": {
+            "label1": "Poids"
+          },
+          "en": {
+            "label1": "Weight"
+          }
+        },
+        "type": "counter",
+        "name": "weight",
+        "component": "InputCounter",
+        "value": 1,
+        "length": 3,
+        "unit": "kg",
+        "class": "flex flex-col justify-center text-2xl"
       },
       "submit": {
         "locales": {
@@ -114,6 +145,15 @@
         "to": 1,
         "step": 0.01,
         "class": "bubble-range"
+      },
+      "babyWeight": {
+        "type": "counter",
+        "name": "babyWeight",
+        "component": "InputCounter",
+        "value": 1,
+        "length": 3,
+        "unit": "kg",
+        "class": "flex flex-row-reverse justify-center text-2xl"
       },
       "submit": {
         "locales": {
