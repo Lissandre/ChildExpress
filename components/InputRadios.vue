@@ -18,6 +18,7 @@
     >
       <p class="w-20">{{ locale.label1 }}</p>
       <input
+        v-if="!input.class.includes('rating')"
         :type="input.type"
         :id="input.name"
         :length="input.length"
@@ -32,18 +33,12 @@
       <span class="checkmark"></span>
       <p class="w-20">{{ locale.label2 }}</p>
 
-        <div class="star-rating__stars" v-if="input.class.includes('rating')">
-        <input class="star-rating__input" type="radio" name="rating" value="1" id="rating-1" />
-        <label class="star-rating__label" for="rating-1" aria-label="One"></label>
-        <input class="star-rating__input" type="radio" name="rating" value="2" id="rating-2" />
-        <label class="star-rating__label" for="rating-2" aria-label="Two"></label>
-        <input class="star-rating__input" type="radio" name="rating" value="3" id="rating-3" />
-        <label class="star-rating__label" for="rating-3" aria-label="Three"></label>
-        <input class="star-rating__input" type="radio" name="rating" value="4" id="rating-4" />
-        <label class="star-rating__label" for="rating-4" aria-label="Four"></label>
-        <input class="star-rating__input" type="radio" name="rating" value="5" id="rating-5" />
-        <label class="star-rating__label" for="rating-5" aria-label="Five"></label>
-        <div class="star-rating__focus"></div>
+      <div class="star-rating star-5" v-if="input.class.includes('rating')">
+        <input type="radio" name="rating" value="1" /><i></i>
+        <input type="radio" name="rating" value="2" /><i></i>
+        <input type="radio" name="rating" value="3" /><i></i>
+        <input type="radio" name="rating" value="4" /><i></i>
+        <input type="radio" name="rating" value="5" /><i></i>
       </div>
     </fieldset>
   </div>
@@ -57,8 +52,7 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     update(e) {
       console.log(this.input.name)
@@ -90,7 +84,8 @@ fieldset input[type='radio'] {
   appearance: none;
   background-color: transparent;
   font: inherit;
-  box-shadow: inset 3px 3px 4px rgba(15, 84, 228, 0.75), inset -1px -1px 10px white;
+  box-shadow: inset 3px 3px 4px rgba(15, 84, 228, 0.75),
+    inset -1px -1px 10px white;
   border-radius: 50%;
   position: relative;
   width: 30px;
@@ -101,7 +96,7 @@ fieldset input[type='radio']::before {
   content: '';
   border-radius: 50%;
   transition: 120ms transform ease-in-out;
-  background-color: #0F54E4;
+  background-color: #0f54e4;
   position: absolute;
   transform: translate3d(-50%, -50%, 0) scale(0);
   left: 50%;
@@ -114,62 +109,98 @@ fieldset input[type='radio']:checked::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
 
-.star-rating__stars {
-  position: relative;
-  height: 5rem;
-  width: 25rem;
-}
-.star-rating__label {
-  position: absolute;
-  height: 100%;
-  background-size: 5rem 5rem;
-  background-size: 5rem 5rem;
-  background-image: url('@/assets/images/StarEmpty.png');
-}
-.star-rating__input {
-  margin: 0;
-  position: absolute;
-  height: 1px; width: 1px;
+.star-rating {
+  font-size: 0;
+  white-space: nowrap;
+  display: inline-block;
+  /* width: 250px; remove this */
   overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  display: none;
+  position: relative;
+  background: url('@/assets/images/StarEmpty.svg');
+  background-size: contain;
+  height: 47.5px;
 }
-.star-rating__stars .star-rating__label:nth-of-type(1) {
-  z-index: 5;
-  width: 20%;
+.star-rating i {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  /* width: 20%; remove this */
+  z-index: 1;
+  background: url('@/assets/images/StarFilled.svg');
+  background-size: contain;
 }
-.star-rating__stars .star-rating__label:nth-of-type(2) {
-  z-index: 4;
+.star-rating input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  opacity: 0;
+  display: inline-block;
+  /* width: 20%; remove this */
+  height: 100% !important;
+  padding: 0;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+  margin: 0 !important;
+}
+.star-rating input:hover + i,
+.star-rating input:checked + i {
+  opacity: 1;
+}
+.star-rating i ~ i {
   width: 40%;
 }
-.star-rating__stars .star-rating__label:nth-of-type(3) {
-  z-index: 3;
+.star-rating i ~ i ~ i {
   width: 60%;
 }
-.star-rating__stars .star-rating__label:nth-of-type(4) {
-  z-index: 2;
+.star-rating i ~ i ~ i ~ i {
   width: 80%;
 }
-.star-rating__stars .star-rating__label:nth-of-type(5) {
-  z-index: 1;
+.star-rating i ~ i ~ i ~ i ~ i {
   width: 100%;
 }
-.star-rating__input:checked + .star-rating__label,
-.star-rating__input:focus + .star-rating__label,
-.star-rating__label:hover {
-  background-image: url('@/assets/images/StarFilled.png');
-
+::after,
+::before {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.star-rating__input:focus ~ .star-rating__focus {
-  position: absolute;
-  top: -.25em;
-  right: -.25em;
-  bottom: -.25em;
-  left: -.25em;
-  outline: 0.25rem solid lightblue;
+.star-rating.star-5 {
+  width: 250px;
 }
-input#stars {
-  display: none;
+.star-rating.star-5 input,
+.star-rating.star-5 i {
+  width: 20%;
+}
+.star-rating.star-5 i ~ i {
+  width: 40%;
+}
+.star-rating.star-5 i ~ i ~ i {
+  width: 60%;
+}
+.star-rating.star-5 i ~ i ~ i ~ i {
+  width: 80%;
+}
+.star-rating.star-5 i ~ i ~ i ~ i ~ i {
+  width: 100%;
+}
+
+.star-rating.star-3 {
+  width: 150px;
+}
+.star-rating.star-3 input,
+.star-rating.star-3 i {
+  width: 33.33%;
+}
+.star-rating.star-3 i ~ i {
+  width: 66.66%;
+}
+.star-rating.star-3 i ~ i ~ i {
+  width: 100%;
 }
 </style>
