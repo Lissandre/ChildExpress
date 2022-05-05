@@ -65,6 +65,24 @@
         "unit": "kg",
         "class": "flex flex-col justify-center text-2xl"
       },
+      "skinRange": {
+        "locales": {
+          "fr": {
+            "label1": "Couleu po"
+          },
+          "en": {
+            "label1": "Skin colo"
+          }
+        },
+        "type": "roundSlider",
+        "name": "skinColor",
+        "component": "InputRoundSlider",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "color-range"
+      },
       "submit": {
         "locales": {
           "fr": "Suivant",

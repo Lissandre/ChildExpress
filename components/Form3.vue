@@ -25,7 +25,7 @@
       ></component>
     </form>
 
-    <p v-if="newJob && (newJob.length > 3)">{{ $t(`job.${this.newJob}`) }}</p>
+    <p class="text-5xl text-white font-semibold z-[1]" v-if="newJob && (newJob.length > 3)">{{ $t(`job.${this.newJob}`) }}</p>
   </div>
 </template>
 

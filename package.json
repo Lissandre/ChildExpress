@@ -30,6 +30,7 @@
     "three": "^0.138.3",
     "tweakpane": "^3.0.8",
     "vue": "^2.6.14",
+    "vue-circle-slider": "^1.0.2",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"

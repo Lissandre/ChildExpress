@@ -11,5 +11,8 @@
   "counter_weight": {
     "label1": "Weight"
   },
+  "roundslider_skincolor": {
+    "label1": "Skin colo"
+  },
   "submit_submit": "Submit"
 }

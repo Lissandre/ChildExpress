@@ -2,6 +2,7 @@ export default {
   GENDER: 'gender',
   STARS: 'stars',
   WEIGHT: 'weight',
+  SKINCOLOR: 'skinColor',
   NOSESIZE: 'noseSize',
   EARSSIZE: 'earsSize',
   SKINCOLOR: 'skinColor',

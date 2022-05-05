@@ -3,7 +3,7 @@
     class="pb-4 text-gray-500 pointer-events-auto relative left-1/3 mt-[100px]"
   >
     <fieldset :class="`animate-bounce-in ${input.class}`">
-      <p v-if='input.class != "bubble-range"'>{{ locale }}</p>
+      <p v-if="input.class != 'bubble-range'">{{ locale }}</p>
       <input
         :type="input.type"
         :id="input.name"
@@ -17,7 +17,11 @@
         class="test"
       />
     </fieldset>
-    <span v-if='input.class === "bubble-range"' ref="bubble" class="bubble"></span>
+    <span
+      v-if="input.class === 'bubble-range'"
+      ref="bubble"
+      class="bubble"
+    ></span>
   </div>
 </template>
 
@@ -29,7 +33,9 @@ export default {
   data() {
     return {}
   },
-  mounted() {},
+  mounted() {
+    if (this.$refs.bubble) this.$refs.bubble.innerHTML = 10
+  },
   methods: {
     update(e) {
       this.$emit(
@@ -76,7 +82,8 @@ export default {
   background: transparent;
 }
 
-.range input::-webkit-slider-thumb, .bubble-range input::-webkit-slider-thumb {
+.range input::-webkit-slider-thumb,
+.bubble-range input::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none; /* également nécessaire sur le curseur */
   height: 2em;
@@ -90,7 +97,8 @@ export default {
   cursor: pointer;
 }
 
-.range input::-moz-range-thumb, .bubble-range input::-moz-range-thumb {
+.range input::-moz-range-thumb,
+.bubble-range input::-moz-range-thumb {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
   height: 2em;
   padding: 0.5em; /* largeur du bord */
@@ -102,7 +110,8 @@ export default {
   background: #0f54e4;
   cursor: pointer;
 }
-.range input::-ms-thumb, .bubble-range input::-ms-thumb {
+.range input::-ms-thumb,
+.bubble-range input::-ms-thumb {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
   height: 2em;
   padding: 0.5em; /* largeur du bord */
@@ -123,6 +132,26 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.color-range input {
+  -webkit-appearance: none; /* également nécessaire sur le curseur */
+  width: 10em;
+  height: inherit; /* s'adapte à la hauteur de l'input */
+  border: none;
+  border-radius: 20px; /* pris en compte sur Webkit et Edge */
+  background: black; /* pris en compte sur Webkit only */
+  height: 10px;
+  /*transform: rotate3d(0, 0, 1, 90deg);*/
+
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(252, 237, 235, 1) 22%,
+    rgba(226, 207, 189, 1) 51%,
+    rgba(52, 15, 9, 1) 100%
+  );
 }
 
 .bubble {

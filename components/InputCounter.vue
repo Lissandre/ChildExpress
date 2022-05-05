@@ -50,14 +50,17 @@ fieldset button {
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.8)
   );
-  transition: all ease-out 0.5s;
+  transition: all ease-out 0.2s;
   z-index: 1;
   perspective-origin: 500% 200%;
   /*transform: perspective(800px) rotate3d(0, 1, 0, -45deg) scale3d(0.9, 0.9, 0.9);*/
-  transform: scale3d(0.9, 0.9, 0.9);
+  transform: scale3d(0.8, 0.8, 0.8);
   border-radius: 34px;
   height: 60px;
   width: 60px;
+}
+fieldset button:hover {
+  transform: scale3d(1, 1, 1)
 }
 fieldset .content {
   display: flex;

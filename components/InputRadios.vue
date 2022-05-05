@@ -16,7 +16,7 @@
       @click="(e) => emitJob(e, fieldsetIndex)"
       :key="fieldsetIndex"
     >
-      <p class="w-20">{{ locale.label1 }}</p>
+      <label class="w-20 mr-3 w-max text-white">{{ locale.label1 }}</label>
       <input
         v-if="!input.class.includes('rating')"
         :type="input.type"
@@ -31,7 +31,7 @@
         class="w-10 z-[1] cursor-pointer"
       />
       <span class="checkmark"></span>
-      <p class="w-20">{{ locale.label2 }}</p>
+      <p class="w-20 w-max text-white">{{ locale.label2 }}</p>
 
       <div class="star-rating star-5" v-if="input.class.includes('rating')">
         <input type="radio" name="rating" value="1" /><i></i>
@@ -130,6 +130,7 @@ fieldset input[type='radio']:checked::before {
   z-index: 1;
   background: url('@/assets/images/StarFilled.svg');
   background-size: contain;
+  transition: 120ms all ease-in-out;
 }
 .star-rating input {
   -moz-appearance: none;
@@ -143,6 +144,7 @@ fieldset input[type='radio']:checked::before {
   position: relative;
   cursor: pointer;
   margin: 0 !important;
+  transition: 120ms all ease-in-out;
 }
 .star-rating input:hover + i,
 .star-rating input:checked + i {
