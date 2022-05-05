@@ -20,6 +20,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~plugins/scene.js', mode: 'client' },
+    { src: '~plugins/notion.js', mode: 'all' },
     { src: '~plugins/pinia.js', mode: 'all' },
     { src: '~plugins/helpers.js', mode: 'all' },
   ],
