@@ -14,5 +14,8 @@
   "roundslider_skincolor": {
     "label1": "Skin colo"
   },
+  "roundslider_health": {
+    "label1": "Health"
+  },
   "submit_submit": "Submit"
 }

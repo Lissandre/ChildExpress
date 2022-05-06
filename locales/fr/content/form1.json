@@ -14,5 +14,8 @@
   "roundslider_skincolor": {
     "label1": "Couleu po"
   },
+  "roundslider_health": {
+    "label1": "Santé"
+  },
   "submit_submit": "Suivant"
 }

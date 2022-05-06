@@ -7,6 +7,7 @@
         :key="input.name"
         :is="input.component"
         :input="input"
+        ref="inputs"
         v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
         :locale="
           $t(
@@ -48,7 +49,16 @@ export default {
     },
     prevent(e) {
       e.preventDefault()
-      this.$helpers.updateInput(e.type, e.type, e.type)
+      this.$refs.inputs.forEach((input) => {
+        const fieldset = input.$el.getElementsByTagName('fieldset')[0]
+        if (fieldset) {
+        fieldset.classList.remove('animate-bounce-in')
+        fieldset.classList.add('animate-bounce-out')
+        }
+      })
+      setTimeout(() => {
+        this.$helpers.updateInput(e.type, e.type, e.type)
+      }, 1000)
     },
   },
 }

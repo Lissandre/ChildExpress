@@ -14,7 +14,7 @@
         :is="input.component"
         :input="input"
         v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
-        ref="inputes"
+        ref="inputs"
         :locale="
           $t(
             `form1.${slugify(`${input.type}_${input.name}`, {
@@ -52,17 +52,16 @@ export default {
   methods: {
     prevent(e) {
       e.preventDefault()
-      this.$refs.inputes.forEach((input) => {
+      this.$refs.inputs.forEach((input) => {
         const fieldset = input.$el.getElementsByTagName('fieldset')[0]
         if (fieldset) {
-          console.log(fieldset.classList)
         fieldset.classList.remove('animate-bounce-in')
         fieldset.classList.add('animate-bounce-out')
         }
       })
       setTimeout(() => {
         this.$helpers.updateInput(e.type, e.type, e.type)
-      }, 2000)
+      }, 1000)
     },
 
     /*changeZindex(e) {

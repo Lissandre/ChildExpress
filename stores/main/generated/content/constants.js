@@ -3,6 +3,7 @@ export default {
   STARS: 'stars',
   WEIGHT: 'weight',
   SKINCOLOR: 'skinColor',
+  HEALTH: 'health',
   NOSESIZE: 'noseSize',
   EARSSIZE: 'earsSize',
   SKINCOLOR: 'skinColor',

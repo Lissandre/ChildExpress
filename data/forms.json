@@ -81,7 +81,26 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
+        "skinColor": true,
         "class": "color-range"
+      },
+      "health": {
+        "locales": {
+          "fr": {
+            "label1": "Santé"
+          },
+          "en": {
+            "label1": "Health"
+          }
+        },
+        "type": "roundSlider",
+        "name": "health",
+        "component": "InputRoundSlider",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": ""
       },
       "submit": {
         "locales": {
