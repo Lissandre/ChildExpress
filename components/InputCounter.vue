@@ -1,6 +1,6 @@
 <template>
   <div class="bottom-1/2 pb-4 text-gray-500 left-1/3 pointer-events-auto">
-    <fieldset :class="`${input.class}`">
+    <fieldset :class="`animate-bounce-in ${input.class}`">
       <button @click="(e) => update(e, 'plus')" class="text-blue">+</button>
       <div class="content">
         <h2>{{ counterValue }}</h2>

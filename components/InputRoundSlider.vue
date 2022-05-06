@@ -1,6 +1,6 @@
 <template>
-  <div class="bottom-1/2 pb-4 text-gray-500 left-1/ pointer-events-auto">
-    <fieldset class="circle-slider">
+  <div class="bottom-1/2 pb-4 text-gray-500  pointer-events-auto">
+    <fieldset class="circle-slider animate-bounce-in left-1/2 bottom-1/8">
       <circle-slider
         v-model="sliderValue"
         :side="150"
@@ -49,6 +49,7 @@ export default {
 .circle-slider svg g path {
   stroke: #0f54e4 !important;
   stroke-linecap: round;
+  background: red;
 }
 .circle-slider svg  {
   -webkit-filter: drop-shadow(5px 4px 7px rgba(15, 84, 228, 63%));

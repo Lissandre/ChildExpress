@@ -1,6 +1,6 @@
 <template>
   <div class="bottom-1/2 pb-4 text-gray-500 left-1/3 pointer-events-auto">
-  <fieldset>
+  <fieldset class="animate-bounce-in">
     <p>{{ locale }}</p>
     <input
       :type="input.type"

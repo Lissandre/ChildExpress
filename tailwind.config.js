@@ -25,16 +25,20 @@ module.exports = {
             opacity: 0,
             transform: 'scale3d(0.3, 0.3, 0.3)'
           },
-          '50%': {
+          '25%': {
             opacity: 1,
             transform: 'scale3d(0.95, 0.95, 0.95)'
           },
-          '70%': { transform: 'scale3d(0.8, 0.8, 0.8)' },
+          '50%': { transform: 'scale3d(0.8, 0.8, 0.8)' },
           '100%': { opacity: 1, transform: 'scale3d(0.9, 0.9, 0.9)' }
         },
         bounceOut: {
-          '0%': { transform: 'scale3d(0.9, 0.9, 0.9)' },
-          '25%': { transform: 'scale3d(0.85, 0.85, 0.85)' },
+          '0%': {
+            transform: 'scale3d(0.9, 0.9, 0.9)', opacity: 1,
+          },
+          '25%': {
+            transform: 'scale3d(0.85, 0.85, 0.85)', opacity: 1,
+          },
           '50%': {
             opacity: 1,
             transform: 'scale3d(1, 1, 1)'
@@ -42,10 +46,10 @@ module.exports = {
           '100%': {
             opacity: 0,
             transform: 'scale3d(0.3, 0.3, 0.3)'
-          } 
+          }
         }
       }
-      
+
     },
   },
   variants: {
