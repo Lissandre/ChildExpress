@@ -144,6 +144,17 @@
         "step": 0.01,
         "class": "range"
       },
+      "skinColor": {
+        "locales": {
+          "fr": "Couleur de la peau",
+          "en": "Skin Color"
+        },
+        "type": "color",
+        "name": "skinColor",
+        "component": "InputColorPicker",
+        "value": "#e66465",
+        "class": ""
+      },
       "handsSize": {
         "locales": {
           "fr": "Taille Mains",

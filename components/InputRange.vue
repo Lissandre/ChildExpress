@@ -1,6 +1,6 @@
 <template>
   <div
-    class="pb-4 text-gray-500 pointer-events-auto relative left-1/3 mt-[100px]"
+    class="pb-4 text-gray-500 pointer-events-auto relative left-60 mt-[100px]"
   >
     <fieldset :class="`animate-bounce-in ${input.class}`">
       <p v-if="input.class != 'bubble-range'">{{ locale }}</p>
