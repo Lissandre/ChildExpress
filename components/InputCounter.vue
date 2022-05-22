@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom-1/2 pb-4 text-gray-500 left-1/3 pointer-events-auto">
+  <div class="mt-20 pb-4 text-gray-500 left-1/3 pointer-events-auto">
     <fieldset :class="`animate-bounce-in left-60 ${input.class}`">
       <button @click="(e) => update(e, 'plus')" class="text-blue">+</button>
       <div class="content">
@@ -31,11 +31,11 @@ export default {
       } else {
         this.counterValue--
       }
-      this.$emit(
+      this.$emit( 
         'updateInput',
         this.input.type,
         this.input.name,
-        this.counterValue
+        this.counterValue / 4
       )
     },
   },

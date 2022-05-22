@@ -163,23 +163,13 @@
           "fr": "Taille Globale",
           "en": "Overall Size"
         },
-        "type": "range",
-        "name": "overallSize",
-        "component": "InputRange",
-        "value": 0.5,
-        "from": 0,
-        "to": 1,
-        "step": 0.01,
-        "class": "bubble-range"
-      },
-      "babyWeight": {
         "type": "counter",
-        "name": "babyWeight",
+        "name": "overallSize",
         "component": "InputCounter",
-        "value": 1,
+        "value": 0.5,
         "length": 3,
         "unit": "kg",
-        "class": "flex flex-row-reverse justify-center text-2xl"
+        "class": "flex flex-col justify-center text-2xl"
       },
       "submit": {
         "locales": {

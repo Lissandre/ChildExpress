@@ -28,7 +28,7 @@ export const actions = {
     // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeCounter(id, newValue) {
-
+    this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   toggleIsHealthy(newValue) {
     this.health = newValue

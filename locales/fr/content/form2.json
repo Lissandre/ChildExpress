@@ -1,8 +1,7 @@
 {
   "range_nosesize": "Taille Nez",
   "range_earssize": "Taille Oreilles",
-  "color_skincolor": "Couleur de la peau",
   "range_handssize": "Taille Mains",
-  "range_overallsize": "Taille Globale",
+  "counter_overallsize": "Taille Globale",
   "submit_submit": "Suivant"
 }
