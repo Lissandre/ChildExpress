@@ -110,6 +110,7 @@ export default class App {
       time: this.time,
       assets: this.assets,
       debug: this.debug,
+      renderer: this.renderer
     })
     // Add world to scene
     this.scene.add(this.world.container)

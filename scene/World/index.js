@@ -11,6 +11,7 @@ export default class World {
     this.time = options.time
     this.assets = options.assets
     this.debug = options.debug
+    this.renderer = options.renderer
 
     // Set up
     this.container = new Object3D()
@@ -53,6 +54,7 @@ export default class World {
   setBaby() {
     this.baby = new Baby({
       time: this.time,
+      renderer: this.renderer,
       assets: this.assets
     })
     this.container.add(this.baby.container)

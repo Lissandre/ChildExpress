@@ -1,11 +1,17 @@
-import { Object3D, RepeatWrapping, Vector2 } from 'three'
+import { Object3D, RepeatWrapping, BufferAttribute } from 'three'
+import { GPUComputationRenderer } from 'three/examples/jsm/misc/GPUComputationRenderer.js';
+
 import gsap, { Power3 } from 'gsap'
+import { Mesh } from 'three';
+import { PlaneBufferGeometry } from 'three';
+import { MeshBasicMaterial } from 'three';
 
 export default class Baby {
     constructor(options) {
         // Options
         this.time = options.time
         this.assets = options.assets
+        this.renderer = options.renderer
 
         // Set up
         this.container = new Object3D()
@@ -19,11 +25,62 @@ export default class Baby {
         this.overallSize = 0
 
         this.createBaby()
+        this.initGPGPU()
+        this.initGPGPUDebug()
         this.modifyShader()
         this.setMovement()
     }
+
+    initGPGPU() {
+        this.gpuCompute = new GPUComputationRenderer(this.bufferWidth, this.bufferWidth, this.renderer)
+
+        this.dtPosition = this.gpuCompute.createTexture();
+
+        this.fillPositions()
+
+        this.positionVariable = this.gpuCompute.addVariable("positionTexture", this.positionShader(), this.dtPosition);
+
+        this.gpuCompute.setVariableDependencies(this.positionVariable, [this.positionVariable]);
+
+        this.positionVariable.wrapS = RepeatWrapping
+        this.positionVariable.wrapT = RepeatWrapping
+
+        let error = this.gpuCompute.init()
+
+        if (error) {
+            console.error(error)
+        } else {
+            console.warn('GPGPU is on :)')
+        }
+    }
+
+    initGPGPUDebug() {
+        let plane = new Mesh(new PlaneBufferGeometry(10, 10, 1, 1), new MeshBasicMaterial({ map: this.dtPosition }))
+        this.container.add(plane)
+    }
+
+    fillPositions() {
+        let data = this.dtPosition.image.data
+        let pos = this.baby.geometry.getAttribute('position')
+
+        for (let i = 0; i < data.length; i += 4) {
+            data[i + 0] = pos.array[i + 0]
+            data[i + 1] = pos.array[i + 1]
+            data[i + 2] = pos.array[i + 2]
+            data[i + 3] = 1
+            console.log({
+                x: pos.array[i + 0],
+                y: pos.array[i + 1],
+                z: pos.array[i + 2]
+            })
+        }
+
+    }
+
+
     createBaby() {
         this.baby = this.assets.models.baby.scene.children[1]
+
         this.babyMin = this.baby.geometry.boundingBox.min.z
         this.babyMax = this.baby.geometry.boundingBox.max.z
         this.baby.material.transparent = true
@@ -31,6 +88,26 @@ export default class Baby {
         this.map1 = this.assets.textures.map1
         this.map1.wrapS = RepeatWrapping;
         this.map1.wrapT = RepeatWrapping;
+
+        this.babyGeo = this.baby.geometry
+        this.babyPositions = this.babyGeo.attributes.position
+
+        this.bufferWidth = Math.ceil(Math.sqrt(this.babyPositions.count))
+
+        let reference = new Float32Array(this.bufferWidth * this.bufferWidth * 2)
+
+
+
+        for (let i = 0; i < this.bufferWidth; i++) {
+            let xx = (i % this.bufferWidth) / this.bufferWidth
+            let yy = ~~(i / this.bufferWidth) / this.bufferWidth
+
+            reference.set([xx, yy], i * 2)
+
+        }
+
+        this.babyGeo.setAttribute('reference', new BufferAttribute(reference, 2))
+
 
         this.container.add(this.baby)
     }
@@ -48,8 +125,13 @@ export default class Baby {
             s.uniforms.startAnimation = { value: 0 }
             s.uniforms.babyMin = { value: this.babyMin }
             s.uniforms.babyMax = { value: this.babyMax }
+            s.uniforms.positionTex = { value: this.dtPosition }
+
             s.vertexShader = `
-        uniform sampler2D map1;
+            attribute vec2 reference;
+            
+            uniform sampler2D map1;
+            uniform sampler2D positionTex;
         uniform float noseSize;
         uniform float earsSize;
         uniform float handsSize;
@@ -115,8 +197,9 @@ export default class Baby {
                 vec3 pos = position;
                 pos.xy *=  1. + effect/length(pos.xy);
                 
-                vec3 transformed = pos + transformation * normal;
+                vec3 posTex = texture2D(positionTex, reference).xyz;
                 
+                vec3 transformed = posTex + transformation * normal;
 
             `)
 
@@ -154,9 +237,9 @@ export default class Baby {
 
                 vec4 diffuseColor = vec4(diff*startProgress, grid);
             `)
-            // console.log(s.fragmentShader)
+
             this.shader = s
-            // this.appear()
+            this.appear()
         }
 
 
@@ -174,12 +257,29 @@ export default class Baby {
         }
     }
 
+    positionShader() {
+        return /*glsl*/`
+
+		void main() {
+			vec2 uv = gl_FragCoord.xy / resolution.xy;
+
+			vec4 tmpPos = texture2D( positionTexture, uv );
+
+			vec3 pos = tmpPos.xyz;
+
+			gl_FragColor = vec4( pos, 1.0 );
+
+		}
+        `
+    }
+
     setMovement() {
         this.time.on('tick', () => {
             if (!this.shader) return
             this.shader.uniforms.time.value = this.time.current * 100.;
 
-            this.shader.uniforms.startAnimation.value = Math.sin(this.time.current * 0.0008) / 2. + 0.5
+            // this.shader.uniforms.startAnimation.value = Math.sin(this.time.current * 0.0008) / 2. + 0.5
+            // this.gpuCompute.compute()
         })
     }
 
