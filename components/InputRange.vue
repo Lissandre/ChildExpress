@@ -15,6 +15,7 @@
         :value="input.value"
         required="required"
         class="test"
+        ref="input"
       />
     </fieldset>
     <span
@@ -26,15 +27,36 @@
 </template>
 
 <script>
+let three = null
+if (process.client) {
+  three = require('three')
+}
 export default {
   name: 'InputRange',
   props: ['input', 'locale'],
 
   data() {
-    return {}
+    return {
+      finalColor: new three.Color('#FF0000'),
+      color1: new three.Color('#FDDCD2'),
+      color2: new three.Color('#FCE9D0'),
+      color3: new three.Color('#DBB387'),
+      color4: new three.Color('#B25C20'),
+      sliderTint: '',
+      sliderType: '',
+    }
   },
   mounted() {
     if (this.$refs.bubble) this.$refs.bubble.innerHTML = 10
+    if (this.input.class.includes('skinTint')) {
+      this.sliderTint = document.querySelector('.skinTint input')
+      console.log(this.sliderTint)
+      this.sliderTint.style.setProperty('--background1', '#FF00FF')
+    }
+    if (this.input.class.includes('skinType')) {
+      this.sliderType = document.querySelector('.skinType input')
+      this.sliderType.style.setProperty('--background2', '#FF00FF')
+    }
   },
   methods: {
     update(e) {
@@ -45,6 +67,7 @@ export default {
         e.target.value
       )
       if (this.input.class.includes('bubble-range')) this.moveDialogue(e.target)
+      else if (this.input.class.includes('color-range')) this.updateThumb(e)
     },
     moveDialogue(el) {
       const val = el.value
@@ -53,6 +76,33 @@ export default {
       const newVal = Number(((val - min) * 100) / (max - min))
       this.$refs.bubble.style.bottom = `calc(${newVal / 2}% + 15px)`
       this.$refs.bubble.innerHTML = newVal
+    },
+
+    updateThumb(e) {
+      console.log(e.target)
+
+      let v = e.target.value
+      if (v < 1 / 3) this.finalColor.lerpColors(this.color1, this.color2, v * 3)
+      else if (v < 2 / 3)
+        this.finalColor.lerpColors(this.color2, this.color3, v * 3 - 1 / 3)
+      else if (v < 1)
+        this.finalColor.lerpColors(this.color1, this.color2, v * 3 - 2 / 3)
+
+      console.log(this.finalColor)
+      console.log(this.sliderColor)
+
+      e.target.style.setProperty(
+        '--background1',
+        `rgba(${this.finalColor.r * 255}, ${this.finalColor.g * 255}, ${
+          this.finalColor.b * 255
+        }, 1)`
+      )
+      e.target.style.setProperty(
+        '--background2',
+        `rgba(${this.finalColor.r * 255}, ${this.finalColor.g * 255}, ${
+          this.finalColor.b * 255
+        }, 1)`
+      )
     },
   },
 }
@@ -134,6 +184,12 @@ export default {
   justify-content: center;
 }
 
+.color-range {
+  position: relative;
+  width: 20px !important;
+  height: 200px;
+}
+
 .color-range input {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
   width: 10em;
@@ -142,7 +198,11 @@ export default {
   border-radius: 20px; /* pris en compte sur Webkit et Edge */
   background: black; /* pris en compte sur Webkit only */
   height: 10px;
-  transform: rotate3d(0, 0, 1, 90deg);
+
+  transform: rotate3d(0, 0, 1, 90deg) translate3d(50%, 50%, 0);
+  position: absolute;
+  left: -140%;
+  top: 8%;
 
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -171,5 +231,29 @@ export default {
   border-radius: 20px;
   position: absolute;
   padding: 15px;
+}
+
+#skinTint,
+#skinType {
+  box-shadow: none;
+}
+#skinTint::-webkit-slider-thumb {
+  background: var(--background1);
+}
+#skinTint::-moz-range-thumb {
+  background: var(--background1);
+}
+#skinTint::-ms-thumb {
+  background: var(--background1);
+}
+
+#skinType::-webkit-slider-thumb {
+  background: var(--background2);
+}
+#skinType::-moz-range-thumb {
+  background: var(--background2);
+}
+#skinType::-ms-thumb {
+  background: var(--background2);
 }
 </style>
