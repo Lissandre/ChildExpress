@@ -6,6 +6,7 @@ export default {
   HEALTH: 'health',
   NOSESIZE: 'noseSize',
   EARSSIZE: 'earsSize',
+  SCALE: 'scale',
   HANDSSIZE: 'handsSize',
   OVERALLSIZE: 'overallSize',
   ELOQUENTHONEST: 'eloquentHonest',

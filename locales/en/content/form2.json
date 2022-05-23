@@ -1,6 +1,7 @@
 {
   "range_nosesize": "Nose Size",
   "range_earssize": "Ears Size",
+  "range_scale": "Baby Size",
   "range_handssize": "Hands Size",
   "counter_overallsize": "Overall Size",
   "submit_submit": "Submit"

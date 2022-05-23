@@ -48,6 +48,7 @@ export default class Baby {
             s.uniforms.startAnimation = { value: 0 }
             s.uniforms.babyMin = { value: this.babyMin }
             s.uniforms.babyMax = { value: this.babyMax }
+            s.uniforms.scale = { value: 0 }
             s.vertexShader = `
         uniform sampler2D map1;
         uniform float noseSize;
@@ -58,6 +59,7 @@ export default class Baby {
         uniform float startAnimation;
         uniform float babyMin;
         uniform float babyMax;
+        uniform float scale;
 
         varying float normHeight;
         varying float startProgress;
@@ -112,7 +114,7 @@ export default class Baby {
                 startProgress += smoothstep(0.,0.4,startAnimation*2.-normHeight)*0.02;
                 
                 float effect = smoothstep(0.9,1.,1.-distance(startAnimation*2.-normHeight+0.1,1.));
-                vec3 pos = position;
+                vec3 pos = position * (0.8 + scale * 0.4);
                 pos.xy *=  1. + effect/length(pos.xy);
                 
                 vec3 transformed = pos + transformation * normal;

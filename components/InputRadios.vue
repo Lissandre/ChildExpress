@@ -1,14 +1,7 @@
 <template>
   <div
-    class="
-      pb-4
-      text-gray-500
-      pointer-events-auto
-      relative
-      left-1/3
-      mt-[100px]
-      test
-    "
+    class="pb-4 text-gray-500 pointer-events-auto flex left-1/3 mt-[100px] test"
+    style="justify-content: right"
   >
     <fieldset
       :id="input.name"

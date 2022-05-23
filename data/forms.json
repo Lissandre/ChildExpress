@@ -158,6 +158,20 @@
         "step": 0.01,
         "class": "range"
       },
+      "scale": {
+        "locales": {
+          "fr": "Taille Bebe",
+          "en": "Baby Size"
+        },
+        "type": "range",
+        "name": "scale",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "range"
+      },
       "overallSize": {
         "locales": {
           "fr": "Taille Globale",
