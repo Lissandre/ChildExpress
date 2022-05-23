@@ -10,20 +10,7 @@
         skin-color
       "
       v-if="input.skinColor"
-    >
-      <circle-slider
-        v-model="sliderValue"
-        :side="150"
-        :min="0"
-        :max="10000"
-        :step-size="10"
-        :circle-width-rel="20"
-        :progress-width-rel="10"
-        :progressColor="'transparent'"
-        :knobColor="'red'"
-        @click="checkValue"
-      ></circle-slider>
-    </fieldset>
+    ></fieldset>
 
     <fieldset
       class="
@@ -83,6 +70,7 @@
 <script>
 import Vue from 'vue'
 import VueCircleSlider from 'vue-circle-slider'
+
 Vue.use(VueCircleSlider)
 
 export default {
@@ -96,27 +84,7 @@ export default {
   },
   mounted() {
     if (this.input.skinColor) {
-      let template = `
-            <linearGradient id="skinGradient">              
-              <stop offset="9%" stop-color="transparent"></stop>
-              <stop offset="10%" stop-color="rgba(255,255,255,1)"></stop>
-              <stop offset="20%" stop-color="rgba(252,237,235,1)"></stop>
-              <stop offset="45%" stop-color="rgba(226,207,189,1)"></stop>
-              <stop offset="60%" stop-color="rgba(52,15,9,1)"></stop>
-
-              <stop offset="79%" stop-color="rgba(52,15,9,1)"></stop>
-              <stop offset="80%" stop-color="transparent"></stop>
-              <stop offset="100%" stop-color="transparent"></stop>
-            </linearGradient>`
-      const svg = this.$el.getElementsByTagName('svg')[0]
-      const g = svg.getElementsByTagName('g')[0]
-      const circle = g.getElementsByTagName('circle')[0]
-      const knob = g.getElementsByTagName('circle')[1]
-      const defs = document.createElement('defs')
-      g.insertAdjacentHTML('afterBegin', template)
-      g.prepend(defs)
-      circle.setAttribute('stroke', 'url(#skinGradient)')
-      knob.setAttribute('fill', 'blue')
+      console.log('proudz')
     }
   },
   methods: {
@@ -159,9 +127,9 @@ export default {
   backdrop-filter: none;
 }
 
-.skin-color circle{
-    transform: rotate3d(0, 0, 1 , -90deg);
-    transform-origin: center;
+.skin-color circle {
+  transform: rotate3d(0, 0, 1, -90deg);
+  transform-origin: center;
 }
 
 .center-slider {

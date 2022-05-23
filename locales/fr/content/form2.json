@@ -1,8 +1,10 @@
 {
   "range_nosesize": "Taille Nez",
   "range_earssize": "Taille Oreilles",
-  "range_scale": "Taille Bebe",
   "range_handssize": "Taille Mains",
+  "range_skintint": "",
+  "range_skintype": "",
+  "range_scale": "Taille Bebe",
   "counter_overallsize": "Taille Globale",
   "submit_submit": "Suivant"
 }

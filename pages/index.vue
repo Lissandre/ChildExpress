@@ -23,7 +23,7 @@ export default {
     return { store }
   },
   mounted() {
-    this.store.changeActiveForm()
+    // this.store.changeActiveForm()
   },
   methods: {},
 }

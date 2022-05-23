@@ -7,12 +7,13 @@ export const actions = {
         this.$nuxt.$scene.init()
       })
     } else if (this.activeForm === 2 && !this.$nuxt.$scene.assets.needsLoad) {
-        this.$nuxt.$scene.init()
+      this.$nuxt.$scene.init()
     }
   },
   changeRange(id, newValue) {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
+
     this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changePicker(id, newValue) {

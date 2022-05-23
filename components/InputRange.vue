@@ -142,7 +142,7 @@ export default {
   border-radius: 20px; /* pris en compte sur Webkit et Edge */
   background: black; /* pris en compte sur Webkit only */
   height: 10px;
-  /*transform: rotate3d(0, 0, 1, 90deg);*/
+  transform: rotate3d(0, 0, 1, 90deg);
 
   background: rgb(255, 255, 255);
   background: linear-gradient(
