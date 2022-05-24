@@ -1,7 +1,6 @@
 <template>
-  <div class="body overflow-x-hidden">
-    <BabyViewer />
-    <Nuxt class="z-10 w-screen h-screen absolute pointer-events-none"/>
+  <div class="body">
+    <Nuxt class="z-10 w-full h-screen absolute"/>
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 <template>
   <div>
     <LocaleSwitcher />
-    <!--<Tutorial />-->
     <Focus />
     <ProgressBar />
     <component :is="`Form${store.activeForm}`" />

@@ -1,5 +1,5 @@
 import { Object3D, PerspectiveCamera, Vector3 } from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import gsap from 'gsap'
 
 export default class Camera {
@@ -8,7 +8,8 @@ export default class Camera {
     this.sizes = options.sizes
     this.renderer = options.renderer
     this.debug = options.debug
-    this.parentNode = options.parentNode
+    this.controlElement = options.controlElement || this.renderer.domElement
+    console.log(this.controlElement)
 
     // Set up
     this.container = new Object3D()
@@ -30,7 +31,8 @@ export default class Camera {
     // Create camera
     this.camera = new PerspectiveCamera(
       75,
-      this.parentNode.offsetWidth / this.parentNode.offsetHeight,
+      this.renderer.domElement.parentElement.offsetWidth /
+        this.renderer.domElement.parentElement.offsetHeight,
       0.1,
       1000
     )
@@ -38,7 +40,8 @@ export default class Camera {
     // Change camera aspect on resize
     this.sizes.on('resize', () => {
       this.camera.aspect =
-        this.parentNode.offsetWidth / this.parentNode.offsetHeight
+        this.renderer.domElement.parentElement.offsetWidth /
+        this.renderer.domElement.parentElement.offsetHeight
       // Call this method because of the above change
       this.camera.updateProjectionMatrix()
     })
@@ -50,21 +53,25 @@ export default class Camera {
     this.camera.position.z = 5
   }
   setOrbitControls() {
-    this.camera.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls = new OrbitControls(this.camera, this.controlElement)
 
-    this.camera.controls.minDistance = 8;
-    this.camera.controls.maxDistance = 8;
+    this.controls.minDistance = 8
+    this.controls.maxDistance = 8
 
-    this.camera.controls.minPolarAngle = Math.PI / 3;
-    this.camera.controls.maxPolarAngle = 2 * Math.PI / 3;
+    this.controls.minPolarAngle = Math.PI / 3
+    this.controls.maxPolarAngle = (2 * Math.PI) / 3
 
-    this.camera.controls.autoRotate = true
+    this.controls.autoRotate = true
 
-    this.camera.controls.update();
+    this.controls.update()
   }
   changeScene(options) {
     this.isHealthy = options.isHealthy
-    const vec = new Vector3(this.camera.position.x, this.camera.position.y, this.camera.position.z)
+    const vec = new Vector3(
+      this.camera.position.x,
+      this.camera.position.y,
+      this.camera.position.z
+    )
 
     if (this.isHealthy) {
       gsap.to(vec, {
@@ -98,12 +105,11 @@ export default class Camera {
       .on('change', () => {
         this.camera.updateProjectionMatrix()
       })
-    this.debugFolder
-      .addInput(this.camera, 'position', {
-        label: 'x, y, z',
-        x: { min: -5, max: 5 },
-        y: { min: -5, max: 5 },
-        z: { min: -5, max: 5 },
-      })
+    this.debugFolder.addInput(this.camera, 'position', {
+      label: 'x, y, z',
+      x: { min: -5, max: 5 },
+      y: { min: -5, max: 5 },
+      z: { min: -5, max: 5 },
+    })
   }
 }

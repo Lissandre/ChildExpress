@@ -14,7 +14,6 @@ import Camera from './Camera'
 import World from './World'
 import Plane from './World/Plane'
 
-
 export default class App {
   constructor(options) {
     // Set options
@@ -30,23 +29,37 @@ export default class App {
       this.elementApp = options.canvas
     }
     // Set up
-    this.setConfig()
-    this.setRenderer()
-    this.setCamera()
-    console.log(this.elementApp)
     if (this.elementApp.id === '_canvas1') {
+      this.setConfig()
+      this.setScene()
+      this.setRenderer()
+      this.setRAF()
+      this.setCamera()
       this.setWorld()
-    } else {
+    } else if (this.elementApp.id === '_canvas2') {
+      this.setConfig()
+      this.setScene()
+      this.setRenderer()
+      this.setRAF()
+      this.setCamera()
       this.setBackgroundShader()
+    } else {
+      this.DOMElements = options.DOMElements.querySelectorAll('.viewer')
+      this.setMultipleScenes()
+      this.setRenderer()
+      this.setRAFs()
+      this.setCameras()
+      this.setWorlds()
     }
-
   }
   setCanvas(canvas = this.renderer?.canvas) {
     this.canvas = canvas
   }
-  setRenderer() {
+  setScene() {
     // Set scene
     this.scene = new Scene()
+  }
+  setRenderer() {
     // Set renderer
     this.renderer = new WebGLRenderer({
       canvas: this.elementApp,
@@ -63,26 +76,16 @@ export default class App {
     this.renderer.setPixelRatio(window.devicePixelRatio)
 
     this.renderer.setSize(
-      this.elementApp.parentNode.offsetWidth,
-      this.elementApp.parentNode.offsetHeight
+      this.renderer.domElement.parentElement.offsetWidth,
+      this.renderer.domElement.parentElement.offsetHeight
     )
 
     // Resize renderer on resize event
     this.sizes.on('resize', () => {
       this.renderer.setSize(
-        this.elementApp.parentNode.offsetWidth,
-        this.elementApp.parentNode.offsetHeight
+        this.renderer.domElement.parentElement.offsetWidth,
+        this.renderer.domElement.parentElement.offsetHeight
       )
-    })
-
-    this.time.on('tick', () => {
-      this.debug && this.fpsGraph.begin()
-
-      this.camera.camera.controls.update()
-
-      this.renderer.render(this.scene, this.camera.camera)
-
-      this.debug && this.fpsGraph.end()
     })
 
     if (this.debug) {
@@ -96,16 +99,26 @@ export default class App {
       })
     }
   }
+  setRAF() {
+    this.time.on('tick', () => {
+      this.debug && this.fpsGraph.begin()
+
+      this.cameraInstance.camera.controls.update()
+
+      this.renderer.render(this.scene, this.cameraInstance.camera)
+
+      this.debug && this.fpsGraph.end()
+    })
+  }
   setCamera() {
     // Create camera instance
-    this.camera = new Camera({
+    this.cameraInstance = new Camera({
       sizes: this.sizes,
       renderer: this.renderer,
       debug: this.debug,
-      parentNode: this.elementApp.parentNode,
     })
     // Add camera to scene
-    this.scene.add(this.camera.container)
+    this.scene.add(this.cameraInstance.container)
   }
   setWorld() {
     // Create world instance
@@ -126,10 +139,10 @@ export default class App {
 
   changeFocus(options) {
     this.isFace = options.face
-    //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
+    //const vec = new Vector3(this.cameraInstance.camera.position, this.cameraInstance.camera.position, this.cameraInstance.camera.position)
 
     if (this.isFace) {
-      gsap.to(this.camera.camera.controls.target, {
+      gsap.to(this.cameraInstance.camera.controls.target, {
         x: 0,
         y: 0,
         z: 0,
@@ -137,7 +150,7 @@ export default class App {
         ease: Power3.easeOut,
       })
     } else {
-      gsap.to(this.camera.camera.controls.target, {
+      gsap.to(this.cameraInstance.camera.controls.target, {
         x: 0,
         y: 3,
         z: 0,
@@ -146,7 +159,6 @@ export default class App {
       })
     }
   }
-
   changeRange(options) {
     // const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
 
@@ -159,7 +171,6 @@ export default class App {
       ease: Power3.easeInOut,
     })
   }
-
   setConfig() {
     if (this.debug === true) {
       this.debug = new Pane({
@@ -177,5 +188,74 @@ export default class App {
         lineCount: 2,
       })
     }
+  }
+  setRAFs() {
+    this.time.on('tick', () => {
+      this.renderer.setClearColor(0x000000)
+      this.renderer.setScissorTest(false)
+      this.renderer.clear()
+
+      this.renderer.setClearColor(0xe0e0e0)
+      this.renderer.setScissorTest(true)
+
+      this.scenes.forEach((scene) => {
+        const element = scene.userData.element
+        const rect = element.getBoundingClientRect()
+
+        if (
+          rect.bottom < 0 ||
+          rect.top > this.renderer.domElement.offsetHeight ||
+          rect.right < 0 ||
+          rect.left > this.renderer.domElement.offsetWidth
+        ) {
+          return // it's off screen
+        }
+
+        const width = rect.right - rect.left
+        const height = rect.bottom - rect.top
+        const left = rect.left
+        const bottom = this.renderer.domElement.offsetHeight - rect.bottom
+
+        this.renderer.setViewport(left, bottom, width, height)
+        this.renderer.setScissor(left, bottom, width, height)
+
+        const camera = scene.userData.camera
+
+        scene.userData.controls.update()
+
+        this.renderer.render(scene, camera)
+      })
+    })
+  }
+  setMultipleScenes() {
+    this.scenes = []
+    this.DOMElements.forEach((element) => {
+      const scene = new Scene()
+      scene.userData.element = element
+
+      this.scenes.push(scene)
+    })
+  }
+  setCameras() {
+    this.scenes.forEach((scene) => {
+      const cameraInstance = new Camera({
+        sizes: this.sizes,
+        renderer: this.renderer,
+        debug: this.debug,
+        controlElement: scene.userData.element,
+      })
+      scene.userData.camera = cameraInstance.camera
+      scene.userData.controls = cameraInstance.controls
+    })
+  }
+  setWorlds() {
+    this.scenes.forEach((scene) => {
+      const world = new World({
+        time: this.time,
+        assets: this.assets,
+        debug: this.debug,
+      })
+      scene.add(world.container)
+    })
   }
 }
