@@ -1,9 +1,10 @@
 <template>
   <div class="w-full h-full">
     <canvas ref="gallery" id="_gallery" class="fixed top-0 w-full h-full"></canvas>
-    <div ref="DOMContainer" class="absolute w-full z-50 gallery">
-      <GalleryViewer v-for="(baby, index) in 100" :key="index" :index="index" :isLoading="isLoading"/>
+    <div ref="DOMContainer" class="absolute w-full z-40 gallery">
+      <GalleryViewer v-for="(baby, index) in babies" :key="index" :index="index" :isLoading="isLoading"/>
     </div>
+    <button @click="addBabies()" class="fixed bottom-0 z-50 p-3 bg-black text-white">Load More Babies</button>
   </div>
 </template>
 
@@ -12,8 +13,18 @@ export default {
   name: 'GalleryContainer',
   data() {
     return {
-      babies: ["","","","","","",""],
+      babies: 8,
       isLoading: false,
+    }
+  },
+  methods: {
+    addBabies() {
+      this.babies += 8
+      this.$nextTick(() => {
+        const viewers = [...this.$refs.DOMContainer.querySelectorAll('.viewer')]
+        const newViewers = viewers.splice(viewers.length - 8, viewers.length - 1)
+        this.$scene.addScenes(newViewers)
+      })
     }
   },
   mounted() {

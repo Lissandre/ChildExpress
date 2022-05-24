@@ -230,7 +230,27 @@ export default class App {
     this.DOMElements.forEach((element) => {
       const scene = new Scene()
       scene.userData.element = element
-
+      this.scenes.push(scene)
+    })
+  }
+  addScenes(elements) {
+    elements.forEach((element) => {
+      const scene = new Scene()
+      scene.userData.element = element
+      const cameraInstance = new Camera({
+        sizes: this.sizes,
+        renderer: this.renderer,
+        debug: this.debug,
+        controlElement: scene.userData.element,
+      })
+      scene.userData.camera = cameraInstance.camera
+      scene.userData.controls = cameraInstance.controls
+      const world = new World({
+        time: this.time,
+        assets: this.assets,
+        debug: this.debug,
+      })
+      scene.add(world.container)
       this.scenes.push(scene)
     })
   }

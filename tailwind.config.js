@@ -22,6 +22,7 @@ module.exports = {
       screen: 'calc(var(--vh, 1vh) * 100)',
     }),
     colors: {
+      black: '#000000',
       blue: '#0F54E4',
       white: '#FFFFFF',
     },
