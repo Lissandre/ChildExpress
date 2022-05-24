@@ -50,7 +50,6 @@ export default {
     if (this.$refs.bubble) this.$refs.bubble.innerHTML = 10
     if (this.input.class.includes('skinTint')) {
       this.sliderTint = document.querySelector('.skinTint input')
-      console.log(this.sliderTint)
       this.sliderTint.style.setProperty('--background1', '#FF00FF')
     }
     if (this.input.class.includes('skinType')) {
@@ -86,19 +85,13 @@ export default {
       else if (v < 2 / 3)
         this.finalColor.lerpColors(this.color2, this.color3, v * 3 - 1 / 3)
       else if (v < 1)
-        this.finalColor.lerpColors(this.color1, this.color2, v * 3 - 2 / 3)
+        this.finalColor.lerpColors(this.color3, this.color4, v * 3 - 2 / 3)
 
       console.log(this.finalColor)
       console.log(this.sliderColor)
 
       e.target.style.setProperty(
-        '--background1',
-        `rgba(${this.finalColor.r * 255}, ${this.finalColor.g * 255}, ${
-          this.finalColor.b * 255
-        }, 1)`
-      )
-      e.target.style.setProperty(
-        '--background2',
+        this.input.class.includes('skinTint') ? '--background1' : '--background2',
         `rgba(${this.finalColor.r * 255}, ${this.finalColor.g * 255}, ${
           this.finalColor.b * 255
         }, 1)`
@@ -211,6 +204,16 @@ export default {
     rgba(252, 237, 235, 1) 22%,
     rgba(226, 207, 189, 1) 51%,
     rgba(52, 15, 9, 1) 100%
+  );
+}
+
+.skinType input {
+    background: linear-gradient(
+    90deg,
+    #FDDCD2,
+    #FCE9D0,
+    #DBB387,
+    #B25C20
   );
 }
 
