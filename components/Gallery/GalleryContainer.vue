@@ -1,8 +1,8 @@
 <template>
   <div class="w-full h-full">
     <canvas ref="gallery" id="_gallery" class="fixed top-0 w-full h-full"></canvas>
-    <div ref="DOMContainer" class="absolute w-full flex flex-wrap justify-evenly z-50">
-      <GalleryViewer v-for="(baby, index) in babies" :key="index" :index="index" :isLoading="isLoading"/>
+    <div ref="DOMContainer" class="absolute w-full z-50 gallery">
+      <GalleryViewer v-for="(baby, index) in 100" :key="index" :index="index" :isLoading="isLoading"/>
     </div>
   </div>
 </template>
@@ -35,3 +35,12 @@ export default {
   },
 }
 </script>
+
+<style lang"scss">
+.gallery {
+  display: grid; /* 1 */
+  grid-template-columns: repeat(auto-fill, 100px); /* 2 */
+  grid-gap: 1rem; /* 3 */
+  justify-content: space-between; /* 4 */
+}
+</style>

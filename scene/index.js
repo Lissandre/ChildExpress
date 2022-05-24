@@ -161,8 +161,6 @@ export default class App {
   }
   changeRange(options) {
     // const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
-
-    console.log(options)
     gsap.to(this.world.cube.cube[options.propertyToChange], {
       x: options.range / 10,
       y: options.range / 10,

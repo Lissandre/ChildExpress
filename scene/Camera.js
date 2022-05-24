@@ -9,7 +9,6 @@ export default class Camera {
     this.renderer = options.renderer
     this.debug = options.debug
     this.controlElement = options.controlElement || this.renderer.domElement
-    console.log(this.controlElement)
 
     // Set up
     this.container = new Object3D()
@@ -31,8 +30,7 @@ export default class Camera {
     // Create camera
     this.camera = new PerspectiveCamera(
       75,
-      this.renderer.domElement.parentElement.offsetWidth /
-        this.renderer.domElement.parentElement.offsetHeight,
+      this.controlElement.offsetWidth / this.controlElement.offsetHeight,
       0.1,
       1000
     )
@@ -40,8 +38,7 @@ export default class Camera {
     // Change camera aspect on resize
     this.sizes.on('resize', () => {
       this.camera.aspect =
-        this.renderer.domElement.parentElement.offsetWidth /
-        this.renderer.domElement.parentElement.offsetHeight
+        this.controlElement.offsetWidth / this.controlElement.offsetHeight
       // Call this method because of the above change
       this.camera.updateProjectionMatrix()
     })
@@ -62,6 +59,9 @@ export default class Camera {
     this.controls.maxPolarAngle = (2 * Math.PI) / 3
 
     this.controls.autoRotate = true
+    this.controls.enableDamping = false
+    this.controls.enableZoom = false
+    this.controls.enablePan = false
 
     this.controls.update()
   }

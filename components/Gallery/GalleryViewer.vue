@@ -1,5 +1,5 @@
 <template>
-  <div class="viewer relative h-[350px] w-[350px] flex justify-center items-end m-8">
+  <div ref="viewer" class="viewer relative w-1/4 inline-flex justify-center items-end">
     <div
         class="
           h-full
@@ -37,5 +37,11 @@ export default {
       name: `Baby - ${this.index}`
     }
   },
+  mounted() {
+    this.$refs.viewer.style.height = this.$refs.viewer.offsetWidth + 'px'
+    window.addEventListener('resize', () => {
+      this.$refs.viewer.style.height = this.$refs.viewer.offsetWidth + 'px'
+    })
+  }
 }
 </script>
