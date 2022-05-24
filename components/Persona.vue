@@ -39,7 +39,7 @@ export default {
   name: 'Persona',
   data() {
     return {
-        currentFocus: true
+        currentFocus: false
     }
   },
   setup() {
@@ -49,22 +49,27 @@ export default {
   mounted() {
     this.personaBody = document.querySelector('.persona_body')
     this.personaFace = document.querySelector('.persona_face')
-    this.personaBody.addEventListener('click', (e) => this.changeBodyFocus(e, 'body'))
-    this.personaFace.addEventListener('click', (e) => this.changeBodyFocus(e, 'face'))
+
+    this.changeFocus()
+
+    this.store.$subscribe((mutation, state) => {
+      this.currentFocus = state.face
+
+      this.changeFocus()
+    })
   },
-  methods: {   
-    changeBodyFocus(e, part) {
-      if(part === 'face') {
-        this.currentFocus = true
+  methods: {
+    changeFocus() {
+      console.log(this.personaBody)
+      console.log(this.currentFocus)
+      if(this.currentFocus === true) {
         this.personaFace.classList.add('active')
         this.personaBody.classList.remove('active')
       } else {
-        this.currentFocus = false
         this.personaFace.classList.remove('active')
         this.personaBody.classList.add('active')
       }
-      this.store.toggleIsFace(this.currentFocus)
-    },
+    }
   },
 }
 </script>

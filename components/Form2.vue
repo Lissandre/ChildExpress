@@ -1,5 +1,7 @@
 <template>
   <div class="flex flex-col relative h-full w-full">
+    <Focus />
+
     <form @submit.prevent="prevent">
       <div class="face">
         <component

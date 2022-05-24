@@ -2,8 +2,8 @@
   <div class="bottom-1/2 pb-4 text-gray-500 left-1/3 pointer-events-auto">
     <fieldset :class="`${input.class} animate-bounce-in`">
       <label class="text-white">{{ locale.label1 }}</label>
-      <div class="mr-5">
-        <input
+      <div class="mr-5 custom-select-wrapper" ref="wrapper">
+        <select
           :type="input.type"
           :id="input.name"
           :name="input.name"
@@ -12,7 +12,8 @@
           :step="input.step"
           @input="(e) => update(e)"
           :value="input.value"
-        />
+          ref="select"
+        ></select>
         <span></span>
       </div>
     </fieldset>
@@ -25,9 +26,83 @@ export default {
   props: ['input', 'locale'],
 
   data() {
-    return {}
+    return {
+      select: {}
+    }
   },
   mounted() {
+    this.select = this.$refs['wrapper']
+    let slct = this.$refs['select']
+    // this.select.classList.add('custom-select-wrapper')
+
+    for (let i = 50; i < 200; i++) {
+      const option = document.createElement("option");
+      option.value = `${i}`;
+      option.text = `${i}`;
+      slct.add(option);
+    }
+    
+    window.addEventListener('click', function (e) {
+      const select = document.querySelectorAll('.custom-select-wrapper')
+      if (select) {
+        select.forEach(el => {
+          el.classList.remove('open')
+        })
+      }
+    })
+    this.select.input = this.select.querySelector('select')
+    console.log(this.select.input)
+    this.setOptions(this.select)
+
+    this.eventClickSelect = () => {
+      if (!this.select.classList.contains('open')) {
+        requestAnimationFrame(() => {
+          this.select.classList.toggle('open')
+        })
+      }
+    }
+    this.select.addEventListener('click', this.eventClickSelect)
+
+    this.select.querySelector('.custom-options').childNodes[0].classList.add('selected')
+
+    this.select.querySelectorAll('.custom-options li').forEach(option => {
+      option.addEventListener('click', (e) => {
+        var entry = ''
+        if (e.srcElement.tagName === 'SPAN') {
+          entry = e.srcElement.parentElement
+        } else {
+          entry = e.srcElement
+        }
+
+        setTimeout(() => {
+          this.select.classList.remove('open')
+        }, 100)
+
+        // console.log('ENTRY : ', entry, entry.classList, entry && !entry.classList.contains('selected'))
+        if (entry && !entry.classList.contains('selected')) {
+          Array.from(this.select.getElementsByClassName('selected')).forEach(item => { item.classList.remove('selected') })
+          entry.classList.add('selected')
+          this.select.querySelector('.custom-select__trigger ').textContent = entry.textContent
+          // el.querySelector('.custom-select__trigger ').dataset.value = entry.dataset.value
+          this.select.input.value = entry.dataset.value
+          this.select.input.dispatchEvent(new CustomEvent('navigation', { detail: this.select.input.value }))
+          this.select.input.dispatchEvent(new CustomEvent('change', { bubbles: true, detail: this.select.input.value }
+          ))
+
+          if (entry.dataset.value !== '') {
+            if (!this.select.querySelector('.custom-select__trigger').classList.contains('bold')) {
+              this.select.querySelector('.custom-select__trigger').classList.add('bold')
+            }
+          } else {
+            this.select.querySelector('.custom-select__trigger').classList.remove('bold')
+          }
+        }
+      })
+    })
+
+    if (this.select.input.value) {
+      this.select.querySelector('.custom-select__trigger').classList.add('bold')
+    }
   },
   methods: {
     update(e) {
@@ -40,7 +115,8 @@ export default {
     },
 
     setOptions (el) {
-    let input = el.querySelector('select')
+    let input = this.$refs['select']
+    console.log(el.input)
     let options = Array.from(input.options)
     let list = document.createElement('ul')
     list.classList.add('custom-options')
@@ -65,6 +141,7 @@ export default {
         let li = document.createElement('li')
         let span = document.createElement('span')
         li.appendChild(span)
+          console.log(elm)
         let text = document.createTextNode(elm.innerHTML.replace('&amp;', '&'))
         span.appendChild(text)
         span.dataset.value = elm.value
@@ -90,21 +167,20 @@ export default {
 
     value.appendChild(text)
     value.dataset.value = options[0].value
+    console.log(el)
     el.appendChild(value)
     el.appendChild(list)
   }  
   },
 }
-
 </script>
 
 
-<style scoped>
+<style>
 
 .custom-select-wrapper {
   position: relative;
   background-color: transparent;
-
 }
 
   .custom-select-wrapper select {
@@ -112,12 +188,12 @@ export default {
     display: none;
   }
 
-  .custom-select-wrapper select.open {
+  .custom-select-wrapper.open select {
     z-index: 1000;
     border: 0;
   }
 
-    .custom-select-wrapper select.open .custom-option {
+    .custom-select-wrapper.open .custom-option {
       opacity: 1;
       visibility: visible;
       transform: translate3d(0, 0, 0);
@@ -126,23 +202,23 @@ export default {
       background-color: transparent;
     }
 
-    .custom-select-wrapper select.open .custom-options {
+    .custom-select-wrapper.open .custom-options {
       opacity: 1;
       pointer-events: auto;
-      border: 1px solid black;
+      border: none;
       border-top: 0;
       margin-top: -3px;
     }
 
-      .custom-select-wrapper select.open .custom-options li {
-        background-color: @white;
+      .custom-select-wrapper.open .custom-options li {
+        background-color: white;
       }
-        .custom-select-wrapper select.open .custom-options li span {
+        .custom-select-wrapper.open .custom-options li span {
           position: relative;
         }
 
     .custom-select__trigger {
-      border: 1px solid black;
+      border: none;
 
     }
       .custom-select__trigger::before {
@@ -159,12 +235,11 @@ export default {
     text-overflow: ellipsis;
     position: relative;
     display: block;
-    font-size: 14 / @px;
-    color: @black;
-
+    font-size: 16px;
+    color: black;
     line-height: 60px;
     cursor: pointer;
-    border-color: @black;
+    border-color: black;
     transform: translate3D(0px, 0, 0);
     transition: all 0.2s ease;
     padding-left: 20px;
@@ -172,20 +247,19 @@ export default {
     padding-right: 40px;
     margin: 0 auto;
     min-height: 40px;
-    border: 1px solid black;
+    border-bottom: 2px solid white;
 
   }
     .custom-select__trigger:after {
-      content: "\e91d";
-      font-family: "icomoon";
-      font-size: 8px;
+      content: ">";
+      font-size: 18px;
       display: block;
       position: absolute;
       right: 20px;
       top: 50%;
       transform-origin: 50% 50%;
-      transform: translateY(-50%) rotate(0deg);
-      transition: transform 0.3s @custom-ease;
+      transform: translateY(-50%) rotate(90deg);
+      transition: transform 0.3s ease;
     
   }
 
@@ -218,11 +292,30 @@ export default {
 
   }
     .custom-option.selected{
-      display: none;
+      display: block;
     }
 
     .custom-option:last-child {
       border-bottom: none;
+  }
+
+  .custom-options::-webkit-scrollbar {
+    -webkit-overflow-scrolling: auto;
+    width: 1px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-options::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 1);
+  }
+
+  .custom-options::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
   }
 
 </style>
