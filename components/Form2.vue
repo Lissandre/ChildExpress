@@ -1,24 +1,28 @@
 <template>
-  <div class="flex flex-col relative h-full w-full ">
-
+  <div class="flex flex-col relative h-full w-full">
     <form @submit.prevent="prevent">
-      <component
-        v-for="input in inputs"
-        :key="input.name"
-        :is="input.component"
-        :input="input"
-        ref="inputs"
-        v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
-        :locale="
-          $t(
-            `form2.${slugify(`${input.type}_${input.name}`, {
-              replacement: '_',
-              lower: true,
-            })}`
-          )
-        "
-      ></component>
+      <div class="face">
+        <component
+          v-for="input in inputs"
+          v-if="input.class.includes(store.isFace ? 'face' : 'body')"
+          :key="input.name"
+          :is="input.component"
+          :input="input"
+          ref="inputs"
+          v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
+          :locale="
+            $t(
+              `form2.${slugify(`${input.type}_${input.name}`, {
+                replacement: '_',
+                lower: true,
+              })}`
+            )
+          "
+        ></component>
+      </div>
     </form>
+
+    <Persona />
   </div>
 </template>
 
@@ -52,8 +56,8 @@ export default {
       this.$refs.inputs.forEach((input) => {
         const fieldset = input.$el.getElementsByTagName('fieldset')[0]
         if (fieldset) {
-        fieldset.classList.remove('animate-bounce-in')
-        fieldset.classList.add('animate-bounce-out')
+          fieldset.classList.remove('animate-bounce-in')
+          fieldset.classList.add('animate-bounce-out')
         }
       })
       setTimeout(() => {

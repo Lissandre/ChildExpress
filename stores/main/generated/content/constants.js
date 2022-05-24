@@ -3,6 +3,8 @@ export default {
   STARS: 'stars',
   WEIGHT: 'weight',
   HEALTH: 'health',
+  BABYNAME: 'babyName',
+  AGE: 'age',
   NOSESIZE: 'noseSize',
   EARSSIZE: 'earsSize',
   HANDSSIZE: 'handsSize',
@@ -10,8 +12,10 @@ export default {
   SKINTYPE: 'skinType',
   SCALE: 'scale',
   OVERALLSIZE: 'overallSize',
+  EYESCOLOR: 'eyesColor',
   ELOQUENTHONEST: 'eloquentHonest',
   CREATIVELOGIC: 'creativeLogic',
   COURAGEOUSGREEDY: 'courageousGreedy',
-  HYPERACTIVESENSITIVE: 'hyperactiveSensitive'
+  HYPERACTIVESENSITIVE: 'hyperactiveSensitive',
+  IQ: 'IQ'
 }

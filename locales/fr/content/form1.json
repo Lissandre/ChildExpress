@@ -14,5 +14,11 @@
   "roundslider_health": {
     "label1": "Santé"
   },
+  "text_babyname": {
+    "label1": "Prénom"
+  },
+  "select_age": {
+    "label1": "Âge"
+  },
   "submit_submit": "Suivant"
 }

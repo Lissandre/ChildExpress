@@ -83,6 +83,39 @@
         "step": 0.01,
         "class": "slide2"
       },
+      "babyName": {
+        "locales": {
+          "fr": {
+            "label1": "Prénom"
+          },
+          "en": {
+            "label1": "Name"
+          }
+        },
+        "type": "text",
+        "name": "babyName",
+        "component": "InputText",
+        "value": "'Margaux la boss'",
+        "class": "baby-name slide2"
+      },
+      "age": {
+        "locales": {
+          "fr": {
+            "label1": "Âge"
+          },
+          "en": {
+            "label1": "Age"
+          }
+        },
+        "type": "select",
+        "name": "age",
+        "component": "InputSelect",
+        "value": 120,
+        "from": 0,
+        "to": 150,
+        "step": 1,
+        "class": "slide2"
+      },
       "submit": {
         "locales": {
           "fr": "Suivant",
@@ -91,7 +124,7 @@
         "type": "submit",
         "name": "submit",
         "component": "InputSubmit",
-        "class": ""
+        "class": "slide2"
       }
     }
   },
@@ -109,7 +142,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range"
+        "class": "range face"
       },
       "earsSize": {
         "locales": {
@@ -123,7 +156,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range"
+        "class": "range face"
       },
       "handsSize": {
         "locales": {
@@ -137,7 +170,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range"
+        "class": "range body"
       },
       "skinTint": {
         "locales": {
@@ -152,7 +185,7 @@
         "to": 1,
         "step": 0.01,
         "skinColor": true,
-        "class": "range color-range skinTint"
+        "class": "range color-range skinTint body"
       },
       "skinType": {
         "locales": {
@@ -167,7 +200,7 @@
         "to": 1,
         "step": 0.01,
         "skinColor": true,
-        "class": "range color-range skinType"
+        "class": "range color-range skinType body"
       },
       "scale": {
         "locales": {
@@ -181,7 +214,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range"
+        "class": "range body"
       },
       "overallSize": {
         "locales": {
@@ -194,7 +227,16 @@
         "value": 0.5,
         "length": 3,
         "unit": "kg",
-        "class": "flex flex-col justify-center text-2xl"
+        "class": "flex flex-col justify-center text-2xl body"
+      },
+      "eyesColor": {
+        "type": "radio",
+        "name": "eyesColor",
+        "effect": "eyesColor",
+        "component": "InputRadios",
+        "value": 2,
+        "length": 4,
+        "class": "eyes-color face"
       },
       "submit": {
         "locales": {
@@ -285,6 +327,24 @@
         "value": 0.5,
         "length": 6,
         "class": ""
+      },
+      "IQ": {
+        "locales": {
+          "fr": {
+            "label1": "QI"
+          },
+          "en": {
+            "label1": "IQ"
+          }
+        },
+        "type": "roundSlider",
+        "name": "IQ",
+        "component": "InputRoundSlider",
+        "value": 100,
+        "from": 0,
+        "to": 300,
+        "step": 1,
+        "class": "slide2"
       }
     }
   },

@@ -85,6 +85,7 @@ export default {
       slideBy: 'page',
       loop: false,
       rewind: false,
+      controlsText: ['', '']
     })
   },
   methods: {

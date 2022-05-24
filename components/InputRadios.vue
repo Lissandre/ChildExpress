@@ -48,13 +48,14 @@ export default {
   mounted() {},
   methods: {
     update(e) {
-      console.log(this.input.name)
+      console.log(this.input)
       this.$emit(
         'updateInput',
         this.input.type,
         this.input.name,
         e.target.value
       )
+      
     },
     emitJob(e, fieldsetIndex) {
       if (e.target.value === undefined) return
@@ -198,4 +199,30 @@ fieldset input[type='radio']:checked::before {
 .star-rating.star-3 i ~ i ~ i {
   width: 100%;
 }
+
+.eyes-color input {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+.eyes-color input:nth-of-type(1){
+  background: #B1CF99;
+}
+.eyes-color input:nth-of-type(2){
+  background: #4B6EB8;
+}
+.eyes-color input:nth-of-type(3){
+  background: #85633B;
+}
+.eyes-color input:nth-of-type(4){
+  background: #321C07;
+}
+
+.eyes-color input::before {
+  display: none !important
+}
+.eyes-color input:checked {
+  outline: 4px solid  rgba(15, 84, 228, 1);
+}
+
+
 </style>

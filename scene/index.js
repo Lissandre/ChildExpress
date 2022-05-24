@@ -131,15 +131,15 @@ export default class App {
     if (this.isFace) {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
-        y: 0,
-        z: 0,
+        y: 4,
+        z: -3,
         duration: 1,
         ease: Power3.easeOut,
       })
     } else {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
-        y: 3,
+        y: 0,
         z: 0,
         duration: 1,
         ease: Power3.easeOut,

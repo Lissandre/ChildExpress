@@ -3,7 +3,7 @@ const fs = require('fs')
 const forms = require('./forms.json')
 const stores = {
   path: 'stores/main/generated/content/',
-  types: ['constant', 'radio', 'color', 'range', 'roundSlider', 'checkbox', 'job', 'counter'],
+  types: ['constant', 'radio', 'color', 'range', 'roundSlider', 'checkbox', 'job', 'counter', 'text', 'select'],
 }
 
 const content = {
@@ -14,7 +14,9 @@ const content = {
   roundSlider: [],
   checkbox: [],
   job: [],
-  counter: []
+  counter: [],
+  text: [],
+  select: []
 }
 
 for (const form in forms) {
@@ -91,6 +93,20 @@ stores.types.forEach((type) => {
         .join(',\n')}\n]`
       break
     case 'counter':
+      content[type] = `export default [\n${content[type]
+        .map(function (elem) {
+          return `  { id: '${elem.id}', value: ${elem.value} }`
+        })
+        .join(',\n')}\n]`
+      break
+    case 'text':
+      content[type] = `export default [\n${content[type]
+        .map(function (elem) {
+          return `  { id: '${elem.id}', value: ${elem.value} }`
+        })
+        .join(',\n')}\n]`
+      break
+    case 'select':
       content[type] = `export default [\n${content[type]
         .map(function (elem) {
           return `  { id: '${elem.id}', value: ${elem.value} }`

@@ -14,5 +14,8 @@
   "radio_hyperactivesensitive": {
     "label1": "Hyperactif",
     "label2": "Hypersensible"
+  },
+  "roundslider_iq": {
+    "label1": "QI"
   }
 }

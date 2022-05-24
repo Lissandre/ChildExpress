@@ -2,7 +2,7 @@
   <div>
     <LocaleSwitcher />
     <!--<Tutorial />-->
-    <Focus />
+    <!--<Focus />-->
     <ProgressBar />
     <component :is="`Form${store.activeForm}`" />
     <BabyViewer />
@@ -85,14 +85,17 @@ div fieldset:hover {
 
 .tns-controls {
   display: flex !important;
+  align-items: center;
+  justify-content: space-between;
   position: absolute;
+  width: 70px;
   bottom: 50px;
   left: 50%;
 }
 .tns-controls button {
   content: '' !important;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   pointer-events: all;
   background: radial-gradient(
     rgba(0, 0, 0, 0),
@@ -102,6 +105,11 @@ div fieldset:hover {
   );
   border-radius: 34px;
   position: relative;
+}
+
+.tns-controls button:not(:disabled) {
+  width: 30px;
+  height: 30px;
 }
 
 .tns-controls button:disabled {
