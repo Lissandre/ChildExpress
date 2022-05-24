@@ -191,11 +191,11 @@ export default class App {
   }
   setRAFs() {
     this.time.on('tick', () => {
-      this.renderer.setClearColor(0x000000)
+      this.renderer.setClearColor(0xffffff)
       this.renderer.setScissorTest(false)
       this.renderer.clear()
 
-      this.renderer.setClearColor(0xe0e0e0)
+      this.renderer.setClearColor(0xfafafa)
       this.renderer.setScissorTest(true)
 
       this.scenes.forEach((scene) => {
