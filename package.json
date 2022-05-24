@@ -28,6 +28,7 @@
     "pinia": "^2.0.13",
     "raw-loader": "^4.0.2",
     "three": "^0.138.3",
+    "tiny-slider": "^2.9.4",
     "tweakpane": "^3.0.8",
     "vue": "^2.6.14",
     "vue-circle-slider": "^1.0.2",

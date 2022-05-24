@@ -132,7 +132,7 @@ export default {
   height: 2em;
   padding: 0.5em; /* largeur du bord */
   border-radius: 50%;
-  box-shadow: 9px 25px 30px rgba(15, 84, 228, 0.56);
+  box-shadow: 0px 4px 7px rgba(15, 84, 228, 0.56);
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
   width: 1em;
   height: inherit; /* s'adapte à la hauteur de l'input */
@@ -146,7 +146,7 @@ export default {
   height: 2em;
   padding: 0.5em; /* largeur du bord */
   border-radius: 50%;
-  box-shadow: 9px 25px 30px rgba(15, 84, 228, 0.56);
+  box-shadow: 0px 4px 7px rgba(15, 84, 228, 0.56);
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
   width: 1em;
   height: inherit; /* s'adapte à la hauteur de l'input */
@@ -159,7 +159,7 @@ export default {
   height: 2em;
   padding: 0.5em; /* largeur du bord */
   border-radius: 50%;
-  box-shadow: 9px 25px 30px rgba(15, 84, 228, 0.56);
+  box-shadow: 0px 4px 7px rgba(15, 84, 228, 0.56);
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
   width: 1em;
   height: inherit; /* s'adapte à la hauteur de l'input */

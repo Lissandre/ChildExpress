@@ -31,7 +31,7 @@
         "component": "InputRadios",
         "value": 1,
         "length": 5,
-        "class": "rating"
+        "class": "rating slide1"
       },
       "courageux": {
         "locales": {
@@ -46,7 +46,7 @@
         "name": "courageux",
         "component": "InputCheckbox",
         "value": 0,
-        "class": ""
+        "class": "slide1"
       },
       "weight": {
         "locales": {
@@ -63,7 +63,7 @@
         "value": 1,
         "length": 3,
         "unit": "kg",
-        "class": "flex flex-col justify-center text-2xl"
+        "class": "flex flex-col justify-center text-2xl slide1"
       },
       "health": {
         "locales": {
@@ -81,7 +81,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": ""
+        "class": "slide2"
       },
       "submit": {
         "locales": {
