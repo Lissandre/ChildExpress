@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-20 pb-4 text-gray-500 left-1/3 pointer-events-auto">
+  <div class="mt-20 pb-4 text-gray-500 left-1/3 pointer-events-auto counter-wrapper">
     <fieldset :class="`animate-bounce-in left-60 ${input.class}`">
       <button @click="(e) => update(e, 'plus')" class="text-blue">+</button>
       <div class="content">

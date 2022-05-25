@@ -5,12 +5,9 @@
       id="form1"
       class="absolute h-full w-full flex flex-col justify-center"
     >
-      <h1 class="absolute left-1/3 top-1/4 text-white z-[1] text-3xl">
-        Quelques infos sur vous
-      </h1>
 
       <div class="my-slider">
-        <div>
+        <div class="first-slide">
           <component
             v-for="input in inputs"
             v-if="input.class.includes('slide1')"
@@ -29,7 +26,7 @@
             "
           ></component>
         </div>
-        <div>
+        <div class="second-slide">
           <component
             v-for="input in inputs"
             v-if="input.class.includes('slide2')"
@@ -117,4 +114,46 @@ export default {
 
 
 <style> @import "https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css";
+.first-slide {
+  }
+
+.first-slide fieldset {
+  background: none;
+  border: 1px solid white;
+  border-radius: 34px;
+  box-shadow: 0 1px 9px #fff;
+}
+
+.second-slide {
+  background: none;
+  transition: all ease-out 0.2s;
+  z-index: 1;
+  perspective-origin: 500% 200%;
+  border-radius: 34px;
+  box-shadow: inset 0px 11.5px 20px white, inset -5.82px -4.5px 6.5px 0px white;
+}
+
+.second-slide .slide2 {
+  background: none !important;
+}
+
+.second-slide .submit-wrapper {
+  position: absolute;
+  bottom: 0;
+}
+
+</style>
+
+<style scoped>
+
+.second-slide {
+  width: 800px;
+  height: 60%;
+  max-height: 1200px;
+  min-height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-150%, -50%);
+}
 </style>

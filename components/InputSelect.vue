@@ -260,7 +260,7 @@ export default {
   }
 
   .custom-options {
-    position: absolute;
+    position: relative;
     display: inline-block;
     top: 100%;
     left: 0;
@@ -274,6 +274,7 @@ export default {
     margin: 0 auto;
     max-height: 290px;
     overflow: scroll;
+    width: 100%;
   }
 
   .custom-option {
@@ -284,8 +285,7 @@ export default {
     font-size: 14px;
     padding: 10px;
     cursor: pointer;
-    padding-left: 20px;
-
+    text-align: center;
   }
     .custom-option.selected{
       display: block;

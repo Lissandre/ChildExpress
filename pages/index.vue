@@ -58,6 +58,10 @@ div fieldset:hover {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
+
+fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapper {
+  font-size: 16px;
+}
 /*
 .test:hover fieldset {
   animation: linear 0.4s forwards translateX;
@@ -99,8 +103,8 @@ div fieldset:hover {
 }
 .tns-controls button {
   content: '' !important;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   pointer-events: all;
   background: radial-gradient(
     rgba(0, 0, 0, 0),
@@ -113,8 +117,8 @@ div fieldset:hover {
 }
 
 .tns-controls button:not(:disabled) {
-  width: 30px;
-  height: 30px;
+  width: 27px;
+  height: 27px;
 }
 
 .tns-controls button:disabled {
@@ -140,10 +144,22 @@ div fieldset:hover {
 .tns-inner {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
 }
+
 
 .my-slider {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.first-slide, .second-slide {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom-1/2 pb-4 text-gray-500 left-1/3 pointer-events-auto">
+  <div class="absolute bottom-40 pb-4 text-gray-500 left-40 pointer-events-auto">
     <fieldset :class="`${input.class} animate-bounce-in`">
       <label class="text-white">{{ locale.label1 }}</label>
       <div class="mr-5 text-wrapper">
