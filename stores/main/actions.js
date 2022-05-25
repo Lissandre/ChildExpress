@@ -39,4 +39,7 @@ export const actions = {
     this.face = newValue
     this.$nuxt.$scene?.changeFocus({ face: newValue })
   },
+  updateSubtitle(id) {
+    this.subtitle = id
+  },
 }
