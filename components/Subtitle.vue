@@ -1,5 +1,5 @@
 <template>
-  <p class="absolute bottom-2 left-1/2 text-white z-[10]"> {{ currentSubtitle }}</p>
+  <p class="absolute bottom-2 left-1/2 text-white z-[10]" v-if="isDisplayed"> {{ currentSubtitle }}</p>
 </template>
 
 <script>
@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       currentSubtitle: '',
+      isDisplayed: false,
       subtitles: {
         'fr': subtitle_fr,
         'en': subtitle_en
@@ -28,12 +29,20 @@ export default {
       if (name !== 'updateSubtitle') return
 
       after((result) => {
+        this.isDisplayed = true
         const subtitleName = store.subtitle
         this.currentSubtitle = this.subtitles[this.$i18n.locale][subtitleName]
         this.currentAudioPath = `${this.audioPath}/${this.$i18n.locale}/${subtitleName}.mp3`
 
         const currentAudio = new Audio(this.currentAudioPath)
-        currentAudio.play()
+        currentAudio.addEventListener('canplaythrough', () => {
+          currentAudio.play()
+        }, { once: true })
+        currentAudio.addEventListener('ended', () => {
+          setTimeout(() => {
+            this.isDisplayed = false;
+          }, 1000);
+        }, { once: true })
       })
     })
   },
