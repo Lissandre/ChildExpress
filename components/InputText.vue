@@ -12,6 +12,7 @@
           :step="input.step"
           @input="(e) => update(e)"
           :value="input.value"
+          class="text-white"
         />
         <div class="underline"></div>
       </div>

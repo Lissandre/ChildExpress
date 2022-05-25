@@ -12,8 +12,8 @@
       <div class="my-slider">
         <div>
           <component
-            v-if="input.class.includes('slide1')"
             v-for="input in inputs"
+            v-if="input.class.includes('slide1')"
             :key="input.name"
             :is="input.component"
             :input="input"

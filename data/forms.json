@@ -15,7 +15,7 @@
         "component": "InputRadios",
         "value": 0.5,
         "length": 3,
-        "class": ""
+        "class": "slide2"
       },
       "lifeQuality": {
         "locales": {
@@ -95,7 +95,7 @@
         "type": "text",
         "name": "babyName",
         "component": "InputText",
-        "value": "'Margaux la boss'",
+        "value": "Margaux la boss",
         "class": "baby-name slide2"
       },
       "age": {
