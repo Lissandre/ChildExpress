@@ -1,7 +1,5 @@
 <template>
-  <div class="relative bottom-2 left-1/2 p-4 z-50 pointer-events-auto">
-      <p> {{ currentSubtitle }}</p>
-  </div>
+  <p class="absolute bottom-2 left-1/2 text-white z-[10]"> {{ currentSubtitle }}</p>
 </template>
 
 <script>
@@ -46,4 +44,7 @@ export default {
 
 
 <style scoped>
+ p {
+  transform: translate3d(-50%, 0, 0);
+}
 </style>

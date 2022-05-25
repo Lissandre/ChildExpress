@@ -51,7 +51,6 @@ export default {
       }
     })
     this.select.input = this.select.querySelector('select')
-    console.log(this.select.input)
     this.setOptions(this.select)
 
     this.eventClickSelect = () => {
@@ -116,7 +115,6 @@ export default {
 
     setOptions (el) {
     let input = this.$refs['select']
-    console.log(el.input)
     let options = Array.from(input.options)
     let list = document.createElement('ul')
     list.classList.add('custom-options')
@@ -141,7 +139,6 @@ export default {
         let li = document.createElement('li')
         let span = document.createElement('span')
         li.appendChild(span)
-          console.log(elm)
         let text = document.createTextNode(elm.innerHTML.replace('&amp;', '&'))
         span.appendChild(text)
         span.dataset.value = elm.value
@@ -167,7 +164,6 @@ export default {
 
     value.appendChild(text)
     value.dataset.value = options[0].value
-    console.log(el)
     el.appendChild(value)
     el.appendChild(list)
   }  

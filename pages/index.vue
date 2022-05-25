@@ -94,6 +94,8 @@ div fieldset:hover {
   width: 70px;
   bottom: 50px;
   left: 50%;
+  transform: translate3d(-50%, 0%, 0px);
+
 }
 .tns-controls button {
   content: '' !important;
