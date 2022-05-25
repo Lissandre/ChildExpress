@@ -24,9 +24,9 @@ export default {
   },
   mounted() {
     // this.store.changeActiveForm()
-    setTimeout(() => {
-      this.store.updateSubtitle('etape_type_variance')
-    }, 3578)
+    // setTimeout(() => {
+    //   this.store.updateSubtitle('etape_type_variance')
+    // }, 3578)
   },
   methods: {},
 }

@@ -17,7 +17,7 @@
             :key="input.name"
             :is="input.component"
             :input="input"
-            v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
+            v-on:updateInput="(a, b, c) => {$helpers.updateInput(a, b, c); $nuxt.$emit('updateSound', 'form1', a, b, c)}"
             ref="inputs"
             :locale="
               $t(
@@ -36,7 +36,7 @@
             :key="input.name"
             :is="input.component"
             :input="input"
-            v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
+            v-on:updateInput="(a, b, c) => {$helpers.updateInput(a, b, c); $nuxt.$emit('updateSound', 'form1', a, b, c)}"
             ref="inputs"
             :locale="
               $t(

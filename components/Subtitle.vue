@@ -4,6 +4,7 @@
 
 <script>
 import { useStore } from '@/stores'
+import Sounds from '@/helpers/sounds'
 import subtitle_fr from '@/locales/fr/subtitles.json'
 import subtitle_en from '@/locales/en/subtitles.json'
 
@@ -25,9 +26,11 @@ export default {
     return { store }
   },
   mounted() {
+    this.sounds = new Sounds({store: this.store})
+
     this.store.$onAction(({ name, store, args, after, onError }) => {
       if (name !== 'updateSubtitle') return
-
+      console.log('suss');
       after((result) => {
         this.isDisplayed = true
         const subtitleName = store.subtitle

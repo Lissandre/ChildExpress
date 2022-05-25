@@ -11,7 +11,7 @@
           :is="input.component"
           :input="input"
           ref="inputs"
-          v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
+          v-on:updateInput="(a, b, c) => {$helpers.updateInput(a, b, c); $nuxt.$emit('updateSound', 'form2', a, b, c)}"
           :locale="
             $t(
               `form2.${slugify(`${input.type}_${input.name}`, {
