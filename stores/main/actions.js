@@ -28,6 +28,12 @@ export const actions = {
     // console.log(newValue)
     // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
+  changeCheckbox(id, newValue) {
+    const checkbox = this.checkboxs.find((checkbox) => checkbox.id === id)
+    // checkbox.value = newValue
+    // console.log(newValue)
+    // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+  },
   changeCounter(id, newValue) {
     this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
@@ -38,5 +44,9 @@ export const actions = {
   toggleIsFace(newValue) {
     this.face = newValue
     this.$nuxt.$scene?.changeFocus({ face: newValue })
+  },
+  updateSubtitle(id) {
+    this.subtitle = id
+    console.log(id)
   },
 }
