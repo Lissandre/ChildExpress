@@ -145,15 +145,26 @@ export default {
 </style>
 
 <style scoped>
-
-.second-slide {
+.first-slide, .second-slide {
   width: 800px;
   height: 60%;
   max-height: 1200px;
   min-height: 500px;
   position: absolute;
   top: 50%;
-  left: 100%;
+  left: 50%;
   transform: translate(-150%, -50%);
+  font-family: 'NeueBit';
+
+}
+
+.first-slide {
+  width: 80vw;
+  left: 65%;
+}
+
+.second-slide {
+  width: 800px;
+  left: 100%;
 }
 </style>

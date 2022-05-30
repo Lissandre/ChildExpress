@@ -1,0 +1,63 @@
+/* NeueBit */
+@font-face {
+  font-family: 'NeueBit';
+  font-style: bold;
+    font-weight: 700;
+    src: url('./NeueBit-Bold.otf') format("opentype"); /* IE9 Compat Modes */
+  }
+/* NeueWorld */
+@font-face {
+    font-family: 'NeueWorld';
+    font-style: thin;
+    font-weight: 100;
+    src: url('./NeueWorld/NeueWorld-ExtendedThin.otf') format("opentype"),
+  }
+  @font-face {
+      font-family: 'NeueWorld';
+      font-style: light;
+      font-weight: 300;
+      src: url('./NeueWorld/NeueWorld-SuperCondensedLight.otf') format("opentype"),
+    }
+  @font-face {
+    font-family: 'NeueWorld';
+    font-style: regular;
+    font-weight: 500;
+    src: url('./NeueWorld/NeueWorld-CondensedRegular.otf') format("opentype"),
+  }
+@font-face {
+    font-family: 'NeueWorld';
+    font-style: bold;
+    font-weight: 800;
+    src: url('./NeueWorld/NeueWorld-SemiCondensedUltrabold.otf') format("opentype"),
+  }
+@font-face {
+    font-family: 'NeueWorld';
+    font-style: black;
+    font-weight: 900;
+    src: url('./NeueWorld/NeueWorld-SemiExtendedBlack.otf') format("opentype"),
+  }
+/* NeueMontreal */
+@font-face {
+    font-family: 'NeueMontreal';
+    font-style: light;
+    font-weight: 300;
+    src: url('./NeueMontreal/NeueMontreal-Light.otf') format("opentype"),
+  }
+@font-face {
+  font-family: 'NeueMontreal';
+  font-style: light italic;
+  font-weight: 300;
+  src: url('./NeueMontreal/NeueMontreal-LightItalic.otf') format("opentype"),
+}
+@font-face {
+  font-family: 'NeueMontreal';
+  font-style: bold;
+  font-weight: 800;
+  src: url('./NeueMontreal/NeueMontreal-Bold.otf') format("opentype"),
+}
+@font-face {
+  font-family: 'NeueMontreal';
+  font-style: black italic;
+  font-weight: 900;
+  src: url('./NeueMontreal/NeueMontreal-BoldItalic.otf') format("opentype"),
+}
