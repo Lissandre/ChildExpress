@@ -154,7 +154,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-150%, -50%);
-  font-family: 'NeueBit';
+  font-family: 'NeueMontreal';
 
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute top-2 max-w-screen-md left-1/2 h-20 z-[1]"
+    class="absolute top-2 max-w-screen-md left-1/2 h-20 z-[1] progress-bar"
     style="transform: translate3d(-50%, 0%, 0)"
   >
     <ul
@@ -36,7 +36,7 @@
         >
           <h2>{{ index }}</h2>
         </div>
-        <h3 class="absolute top-16 w-20 text-center text-white">
+        <h3 class="absolute top-16 w-fit text-center text-white">
           {{ $t(`step.${index}`) }}
         </h3>
       </li>
@@ -73,6 +73,11 @@ export default {
 </script>
 
 <style scoped>
+
+.progress-bar {
+  font-family: 'NeueWorld';
+  text-transform: uppercase;
+}
 .active {
   font-size: 22px;
   width: 56px;

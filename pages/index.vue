@@ -50,6 +50,8 @@ fieldset {
   border-radius: 34px;
   position: absolute;
   padding: 20px;
+    font-family: 'NeueMontreal';
+
 }
 
 div fieldset:hover {
