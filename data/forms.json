@@ -1,5 +1,8 @@
 {
   "form1": {
+    "texts": {
+      "titleSlide2": "Carte d'identité"
+    },
     "inputs": {
       "gender": {
         "locales": {

@@ -14,6 +14,7 @@ export default {
     return {
       currentSubtitle: '',
       isDisplayed: false,
+      alreadyPlayed: [],
       subtitles: {
         'fr': subtitle_fr,
         'en': subtitle_en
@@ -25,23 +26,32 @@ export default {
     const store = useStore()
     return { store }
   },
+
+  // Chose que l'on doit prendre en compte :
+  // On lance la voix si l'audio n'est pas déjà en train d'être joué.
+  // A la fin de chaque audio, on stock son ID dans un tableau (ou string ou whatever)
+  // et à chaque début d'audio, on check si cet ID n'est pas déjà présent dans le tableau (pour ne jamais jouer 2 fois le même son)
+  // On utilise un peu de random pour les variations
   mounted() {
     this.sounds = new Sounds({store: this.store})
 
     this.store.$onAction(({ name, store, args, after, onError }) => {
-      if (name !== 'updateSubtitle') return
+      // On passe à la suite si l'action est bien updateSubtitle, si l'audio n'est pas en train de jouer
+      if (name !== 'updateSubtitle' || (this.currentAudio && this.isPlaying(this.currentAudio))) return
       console.log('suss');
       after((result) => {
+        if(this.hasAlreadyBeenPlayed(store.subtitle)) return
         this.isDisplayed = true
         const subtitleName = store.subtitle
         this.currentSubtitle = this.subtitles[this.$i18n.locale][subtitleName]
         this.currentAudioPath = `${this.audioPath}/${this.$i18n.locale}/${subtitleName}.mp3`
 
-        const currentAudio = new Audio(this.currentAudioPath)
-        currentAudio.addEventListener('canplaythrough', () => {
-          currentAudio.play()
+        this.currentAudio = new Audio(this.currentAudioPath)
+        this.currentAudio.addEventListener('canplaythrough', () => {
+          this.currentAudio.play()
+          this.alreadyPlayed.push(subtitleName)
         }, { once: true })
-        currentAudio.addEventListener('ended', () => {
+        this.currentAudio.addEventListener('ended', () => {
           setTimeout(() => {
             this.isDisplayed = false;
           }, 1000);
@@ -50,6 +60,13 @@ export default {
     })
   },
   methods: {
+    isPlaying(audioElement) {
+      return !audioElement?.paused; 
+    },
+
+    hasAlreadyBeenPlayed(id) {
+      return this.alreadyPlayed.includes(id)
+    }
   },
 }
 </script>

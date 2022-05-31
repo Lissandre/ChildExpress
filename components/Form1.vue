@@ -27,6 +27,7 @@
           ></component>
         </div>
         <div class="second-slide">
+          <h2>Carte d'identité</h2>
           <component
             v-for="input in inputs"
             v-if="input.class.includes('slide2')"
