@@ -1,3 +1,113 @@
 {
-  "etape_type_variance": "tchou tchou baiseur de daronne"
+  "etape_type_variance": "tchou tchou baiseur de daronne",
+
+  "form1_intro_speech1": "Mon algorithme a besoin de récolter quelques informations sur vous pour établir la base génétique de votre bébé.",
+  "form1_intro_speech2": "Commencez par renseigner votre sexe.",
+
+  "form1_health_big": "Parfaite santé? “Le strabisme ça compte. Hein!",
+  "form1_health_small": "Ne vous inquiétez pas, grâce à ChildExpress votre bébé sera en parfaite santé",
+  
+  "form1_personality_hypersensitive": "Ne vous inquiétez pas… Ça va bien se passer",
+  "form1_personality_eloquent": "Vous m’avez déjà convaincu",
+  "form1_personality_greedy": "Un sou est un sou",
+  "form1_personality_honest": "Vous feriez un très mauvais politicien",
+  
+  "form1_lifeQuality_big": "L’argent ne fait pas le bonheur comme on dit…",
+  "form1_lifeQuality_small": "L’argent ne fait pas le bonheur… Mais il y contribue",
+  
+  "form1_inputs_unfilled": "Pensez bien à remplir tous les champs",
+
+  "tooMuchTime_lazy_1": "Bon je vais choisir pour vous… et j’ai des goûts assez particulier.",
+  "tooMuchTime_lazy_2": "Il serait temps de choisir",
+  "tooMuchTime_lazy_3": "Je n’ai pas tout mon temps",
+  "tooMuchTime_lazy_4": "Mon temps est précieux, j’ai d’autres naissances à assister",
+  
+
+  "form1_identity_intro1": "Passons maintenant à l’élaboration de la carte d’identité de votre enfant!",
+  "form1_identity_intro2": "Saviez-vous que les prénoms composés seront vraiment hyper tendance dans quelques années? Lou-Therese par exemple!",
+  "form1_identity_name": "Oh comme c’est mignon",
+  "form1_gender_non-binary": "Le mode Non-binaire n’est pas encore disponible. La science a ses limites vous savez.",
+  "form1_gender_man": "Très bon choix",
+  "form1_gender_woman": "Ah…",
+  "form1_age_big": "Selon mes estimation la planète Terre n’existera plus d’ici là",
+  "form1_age_small": "75 ans, presque mort né, vous êtes fou! L’espérance de vie a bcp augmenté vous savez",
+  "form1_age_change": "Voila qui est mieux",
+  "form1_end_loading": "J’ai vraiment hâte de voir votre bébé pas vous?",
+  
+  
+  "form2_intro_speech1": "Je me dois de vous informer qu’il ne part pas sur une très belle base.. Heureusement, vous avez la possibilité de changer ce qu’il vous plaira grâce à nos multiples options! Profitez-en, et testez toutes nos fonctionnalités.",
+  "form2_intro_speech2": "Commencez par déterminer l’IMC de votre enfant",
+  
+  "form2_weight_change": "Un bébé bien portant est un bébé en bonne santé",
+  "form2_weight_big": "Le votre sera en parfaite santé",
+
+
+  "form2_height_big": "Si je peux me permettre, heureusement qu’il ne loge pas dans votre ventre, haha",
+  "form2_height_small": "C’est pas la taille qui compte",
+
+
+  "form2_face_change": "Encore un petit effort, je vois déjà la tête!",
+  "form2_noseSize_change": "Grâce à mon analyse des tendances à venir, je peux vous assurer à 99,8% que votre enfant se fera harceler à l’école s’il a un nez en trompette, optez plutôt pour un nez crochu",
+  "form2_earsSize_big": "Les murs ont des oreilles, bébé en a des grandes! Eloignez-le de votre chambre à coucher",
+  "form2_hairs_different": "On veut toujours ce qu’on n’a pas, n’est-ce pas?",
+  "form2_mouthSize_big": "Avec une bouche comme ça, il va ronger son pouce.",
+  "form2_mouthSize_small": "Faites gaffe à ce qu’il ne fasse pas sa fine bouche.. haha",
+  "form2_mouthSize_seductive": "Je reste bouchée bée!",
+  "form2_eyesSize_big": "Avec des yeux comme ça, vous ne pourrez rien lui refuser",
+  "form2_eyesSize_small": "Pas mal, ça lui donne un petit coté intello",
+  "form2_eyesColor_change": "Les yeux sont le miroir de l’âme comme le disait Cicéron, votre bébé prend vie, n’est-ce pas merveilleux?",
+  "form2_eyesColor_different": "Un minimum de crédibilité s’il vous plait!",
+  "form2_eyesColor_same": "Il vous ressemble comme deux gouttes d’H2O!",
+  "form2_hairColor_same": "Selon mon algorithme, 80% des futurs parents choisissent les cheveux bruns pour le bébé",
+  "form2_skinTint_change": "PANTONE 412C, très bon choix de carnation",
+  "form2_skinTint_bright": "Il est un peu palot là non?",
+  "form2_skinTint_different": "C’est le fils du facteur lui ?",
+
+  "form3_intro_speech": "Mais quel réalisme! N’est-ce pas fabuleux ? Par contre êtes-vous sûr qu’il est de vous ? Haha",
+  "form3_IQ_change": "Méfions-nous des apparences! Qu’a-t-il dans le crâne ce petit? Souhaitez-vous qu’il soit intelligent?",
+  "form3_IQ_change2": "Il faut beaucoup de place pour tous ces neurones",
+  "form3_IQ_big": "Seuls les imbéciles sont heureux.",
+  "form3_IQ_small": "C'est pas le couteau le mieux aiguisé du tiroir.",
+  
+  "form3_personality_speech": "Maintenant choisissez sa personnalité pour éviter toute déviance à l’adolescence",
+  "form3_personality_same": "Tel parent, tel enfant !",
+  "form3_courageousGreedy_greedy": "Je suis d’accord avec vous, L’argent, ça ne pousse pas dans les arbres!",
+  "form3_eloquentHonest_eloquent": "Arnaqueur de tinder, il pourra bien vous mettre en sécurité!!",
+  "form3_creativeLogic_change": "Créatif ou logique, et oui, on ne peut pas avoir le beurre et l’argent du beurre qu’est-ce que vous croyez?",
+  "form3_creativeLogic_logic": "Un esprit logique! Comme moi!",
+  "form3_hyperactiveSensitive_hyperactive": "Des pilules SuperCalm sont fournis avec pour vous aidez à le tenir. Chez childExpress on pense à tout!",
+  "form3_hyperactiveSensitive_hypersensitive": "Sortez les mouchoirs!",
+  
+  "form3_personality_filled": "Il n’y a que les imbéciles qui ne changent pas d’avis!",
+  "form3_personality_lawyer": "Avocat d’intelligence artificielle! Pas très honnête mais lucratif",
+  "form3_personality_tinder": "Arnaqueur de tinder, vous en avez de la chance!!",
+  "form3_personality_NFT": "Artisan NFT, espérons qu’il vous rapporte",
+  "form3_personality_crypto": "Comptable de crypto? Bon courage...",
+  "form3_personality_estate": "Agent immobilier métaverse? Bon menteur, bon vendeur!",
+  "form3_personality_other": "Bon… Je n’aurais peut-être pas choisi comme vous finalement",
+  
+  "form3_xtra_speech": "Grâce à l’offre premium il vous est possible de choisir parmis ces 4 options pour améliorer considérablement les capacités de votre futur bébé!",
+  "form3_xtra_skip1": "Vous êtes sûrs?",
+  "form3_xtra_skip2": "Ah bon, déjà?",
+  "form3_xtra_skip3": "Encore un bébé standard…Bon...",
+  "form3_xtra_skip4": "Impliquez vous d’avantage si vous voulez que votre enfant vous reconnaisse.",
+  
+  
+  "form3_loading_speech": "Le miracle de la vie...",
+  
+  "form4_intro_speech1": "Le miracle de la vie...",
+  "form4_intro_speech2": "Alors!? Heureux?",
+  "form4_intro_speech3": "Une frimousse d’ange n’est-ce pas?",
+  "form4_intro_speech4": "Oooh mais qu’il est beau, il vous ressemble… comme deux gouttes d’H2O",
+  "form4_intro_speech5": "Si ça ne tenait qu’à moi je ne sais pas si je le garderais...",
+  
+  
+  "form4_xtra_silent": "Vous passerez de bonnes nuits au moins, et ça fera une bouche en moins à nourrir...",
+  "form4_xtra_independant": "Charmante hélice",
+  "form4_xtra_clean": "De très beaux cheveux",
+  "form4_xtra_visionnary": "Quel beau regard..!",
+  
+  
+  "form4_keeping_true": "J’espère que notre service vous plaît, en tout cas ce fut un plaisir pour moi de vous épauler.",
+  "form4_keeping_false": "Vous n’êtes pas satisfait de votre résultat ? Pas étonnant vu les choix que vous avez fait… enfin… je voulais dire, quel dommage !"
 }

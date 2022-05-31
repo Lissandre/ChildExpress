@@ -46,6 +46,7 @@ export default {
         this.currentSubtitle = this.subtitles[this.$i18n.locale][subtitleName]
         this.currentAudioPath = `${this.audioPath}/${this.$i18n.locale}/${subtitleName}.mp3`
 
+        // Pour certaines variations (celles avec plus d'une variation), on peut rajouter un id genre _1, _2 à la fin des audios, et faire une fonction qui donnera du random dans ceux qui n'ont pas déjà été joués
         this.currentAudio = new Audio(this.currentAudioPath)
         this.currentAudio.addEventListener('canplaythrough', () => {
           this.currentAudio.play()

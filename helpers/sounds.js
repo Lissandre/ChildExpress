@@ -8,6 +8,7 @@ export default class Sounds {
   }
   getEvent() {
     $nuxt.$on('updateSound', (step, type, name, value) => {
+      console.log(step, name)
       if (value <= 0.2) {
         this.store.updateSubtitle(`${step}_${name}_small`)
       } else if (value <= 0.8) {

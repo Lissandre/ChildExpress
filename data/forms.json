@@ -98,7 +98,7 @@
         "type": "text",
         "name": "babyName",
         "component": "InputText",
-        "value": "Margaux la boss",
+        "value": "'Margaux la boss'",
         "class": "baby-name slide2"
       },
       "age": {
@@ -249,7 +249,7 @@
         "type": "submit",
         "name": "submit",
         "component": "InputSubmit",
-        "class": ""
+        "class": "face"
       }
     }
   },
@@ -347,7 +347,7 @@
         "from": 0,
         "to": 300,
         "step": 1,
-        "class": "slide3"
+        "class": ""
       }
     }
   },

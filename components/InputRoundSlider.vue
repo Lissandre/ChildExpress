@@ -20,20 +20,22 @@
         ${input.class}
       `"
       v-if="!input.skinColor"
+      ref="circleSlider"
     >
       <circle-slider
         v-model="sliderValue"
         :side="150"
-        :min="0"
-        :max="10000"
-        :step-size="100"
+        :min="sliderMin"
+        :max="sliderMax"
+        :step-size="1"
         :circle-width-rel="20"
         :progress-width-rel="10"
         :circleColor="'transparent'"
         :progressColor="'#0F54E4'"
         :knobColor="'transparent'"
       ></circle-slider>
-      <img src="@/assets/images/heart.svg" class="heart" alt="" />
+      <img src="@/assets/images/heart.svg" class="heart" alt="" v-if="this.input.name.includes('health')" />
+      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')"> {{ this.sliderValue }} </p>
 
       <svg
         width="175px"
@@ -77,12 +79,29 @@ export default {
 
   data() {
     return {
-      sliderValue: 1000,
+      sliderValue: 50,
+      sliderMin: this.input.name.includes('IQ') ? 50 : 0,
+      sliderMax: this.input.name.includes('IQ') ? 250: 100,
     }
   },
   mounted() {
     if (this.input.skinColor) {
       console.log('proudz')
+    } else if (this.input.name.includes('IQ')) {
+      console.log('here')
+      this.$refs['circleSlider'].children[0].appendChild(this.$refs['IQvalue'])
+      this.sliderValue = 100
+    } 
+  },
+  watch: {
+    sliderValue(newValue, oldValue) {
+      this.$emit(
+        'updateInput',
+        this.input.type,
+        this.input.name,
+        newValue
+      );
+      if (this.input.name.includes('IQ')) this.$emit('updateIQ',newValue);
     }
   },
   methods: {
@@ -102,6 +121,14 @@ export default {
 </script>
 
 <style>
+.IQvalue {
+  color: white;
+  font-size: 28px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 .circle-slider svg g path {
   stroke-linecap: round;
   transition: stroke-width ease-out 0.2s;
