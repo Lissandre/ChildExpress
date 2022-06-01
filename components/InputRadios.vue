@@ -27,11 +27,11 @@
       <p class="w-20 w-max text-white">{{ locale.label2 }}</p>
 
       <div class="star-rating star-5" v-if="input.class.includes('rating')">
-        <input type="radio" name="rating" value="1" /><i></i>
-        <input type="radio" name="rating" value="2" /><i></i>
-        <input type="radio" name="rating" value="3" /><i></i>
-        <input type="radio" name="rating" value="4" /><i></i>
-        <input type="radio" name="rating" value="5" /><i></i>
+        <input type="radio" name="rating" value="1" @input="() => update(e = { target: {value:1} })"/><i></i>
+        <input type="radio" name="rating" value="2" @input="() => update(e = { target: {value:2} })"/><i></i>
+        <input type="radio" name="rating" value="3" @input="() => update(e = { target: {value:3} })"/><i></i>
+        <input type="radio" name="rating" value="4" @input="() => update(e = { target: {value:4} })"/><i></i>
+        <input type="radio" name="rating" value="5" @input="() => update(e = { target: {value:5} })"/><i></i>
       </div>
     </fieldset>
   </div>

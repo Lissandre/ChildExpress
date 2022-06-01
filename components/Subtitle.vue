@@ -53,8 +53,10 @@ export default {
           this.alreadyPlayed.push(subtitleName)
         }, { once: true })
         this.currentAudio.addEventListener('ended', () => {
+          
           setTimeout(() => {
             this.isDisplayed = false;
+            if(store.subtitle.includes('speech')) this.nextSpeech(store.subtitle)
           }, 1000);
         }, { once: true })
       })
@@ -67,6 +69,12 @@ export default {
 
     hasAlreadyBeenPlayed(id) {
       return this.alreadyPlayed.includes(id)
+    },
+    nextSpeech(subtitle) {
+      const step = subtitle.split('_')[0]
+      const name = subtitle.split('_')[1]
+      const next = subtitle.split('_')[2].replace(/.$/,"2")
+      this.$nuxt.$emit('updateSound', step, 'speech', name, next)
     }
   },
 }

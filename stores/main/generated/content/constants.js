@@ -1,6 +1,6 @@
 export default {
   GENDER: 'gender',
-  STARS: 'stars',
+  LIFEQUALITY: 'lifeQuality',
   WEIGHT: 'weight',
   HEALTH: 'health',
   PARENTSKINTINT: 'parentSkinTint',

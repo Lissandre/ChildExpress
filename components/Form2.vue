@@ -12,7 +12,7 @@
           :input="input"
           ref="inputs"
           v-on:updateInput="
-          (type, name, value, optional) => this.inputChange(type, name, value, optional)"
+          (type, name, value, optional) => inputChange(type, name, value, optional)"
           :locale="
             $t(
               `form2.${slugify(`${input.type}_${input.name}`, {
@@ -68,7 +68,7 @@ export default {
       }, 1000)
     },
     inputChange(type, name, value, optional) {
-      $helpers.updateInput(type, name, value); 
+      this.$helpers.updateInput(type, name, value); 
 
       console.log(type)
       if(type === 'radio') {

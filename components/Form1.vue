@@ -14,7 +14,7 @@
             :key="input.name"
             :is="input.component"
             :input="input"
-            v-on:updateInput="(type, name, value, optional) => this.inputChange(type, name, value, optional)"
+            v-on:updateInput="(type, name, value, optional) => inputChange(type, name, value, optional)"
             ref="inputs"
             :locale="
               $t(
@@ -34,7 +34,7 @@
             :key="input.name"
             :is="input.component"
             :input="input"
-            v-on:updateInput="(type, name, value, optional) => this.inputChange(type, name, value, optional)"
+            v-on:updateInput="(type, name, value, optional) => inputChange(type, name, value, optional)"
             ref="inputs"
             :locale="
               $t(
@@ -78,13 +78,15 @@ export default {
   mounted() {
     this.inputs = form1.inputs
 
-    var slider = tinySlider.tns({
+    this.slider = tinySlider.tns({
       container: '.my-slider',
       slideBy: 'page',
       loop: false,
       rewind: false,
       controlsText: ['', '']
     })
+
+    this.soundEvents()
   },
   methods: {
     prevent(e) {
@@ -101,13 +103,20 @@ export default {
       }, 1000)
     },
     inputChange(type, name, value, optional) {
-      $helpers.updateInput(type, name, value); 
+      this.$helpers.updateInput(type, name, value); 
 
-      console.log(type)
       if(type === 'radio') {
+        console.log(value, optional)
         value = value / optional
+        console.log(value)
       }
       $nuxt.$emit('updateSound', 'form1', type, name, value)
+    },
+    soundEvents() {
+    requestAnimationFrame(() => {
+      if($nuxt) $nuxt.$emit('updateSound', 'form1', 'speech', 'intro', 'speech1')
+    })
+    console.log(this.slider.events)
     }
 
     /*changeZindex(e) {

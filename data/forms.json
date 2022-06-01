@@ -30,7 +30,7 @@
           }
         },
         "type": "radio",
-        "name": "stars",
+        "name": "lifeQuality",
         "component": "InputRadios",
         "value": 1,
         "length": 5,
