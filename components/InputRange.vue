@@ -38,23 +38,45 @@ export default {
   data() {
     return {
       finalColor: new three.Color('#FF0000'),
-      color1: new three.Color('#FDDCD2'),
-      color2: new three.Color('#FCE9D0'),
-      color3: new three.Color('#DBB387'),
-      color4: new three.Color('#B25C20'),
+
+      color1: {
+        a : new three.Color('#FDDCD2'),
+        b : new three.Color('#F5C09E'),
+        c : new three.Color('#F2AA91'),
+      },
+      color2: {
+        a : new three.Color('#FCE9D0'),
+        b : new three.Color('#FFD1A6'),
+        c : new three.Color('#F9AD73'),
+      },
+      color3: {
+        a : new three.Color('#DBB387'),
+        b : new three.Color('#CC8E4A'),
+        c : new three.Color('#D08847'),
+      },
+      color4: {
+        a : new three.Color('#B25C20'),
+        b : new three.Color('#935F41'),
+        c : new three.Color('#553117'),
+      },
+
       sliderTint: '',
       sliderType: '',
     }
   },
   mounted() {
+    this.sliderTint = document.querySelector('.skinTint input')
+    this.sliderType = document.querySelector('.skinType input')
     if (this.$refs.bubble) this.$refs.bubble.innerHTML = 10
     if (this.input.class.includes('skinTint')) {
-      this.sliderTint = document.querySelector('.skinTint input')
       this.sliderTint.style.setProperty('--background1', '#FF00FF')
+      this.variation = 'a'
+
     }
     if (this.input.class.includes('skinType')) {
-      this.sliderType = document.querySelector('.skinType input')
       this.sliderType.style.setProperty('--background2', '#FF00FF')
+      this.variation = 'a'
+
     }
   },
   methods: {
@@ -78,18 +100,55 @@ export default {
     },
 
     updateThumb(e) {
-      console.log(e.target)
+      // Skin tone and shiet
+      if (this.sliderType.value < 1 / 3) this.variation = 'a'
+      else if (this.sliderType.value < 2 / 3) this.variation = 'b'
+      else if (this.sliderType.value < 1) this.variation = 'c'
 
-      let v = e.target.value
-      if (v < 1 / 3) this.finalColor.lerpColors(this.color1, this.color2, v * 3)
-      else if (v < 2 / 3)
-        this.finalColor.lerpColors(this.color2, this.color3, v * 3 - 1 / 3)
-      else if (v < 1)
-        this.finalColor.lerpColors(this.color3, this.color4, v * 3 - 2 / 3)
+      // Skin Tint and final color
+      this.v = this.sliderTint.value
+        if (this.v < 1 / 4) {
+          const var1 = this.color1.a
+          const var2 = this.color1.b
+          const var3 = this.color1.c
+          // this.finalColor.lerpColors(this.color1.a, this.color1.c, this.v * 4)
+          this.finalColor.lerpColors(this.color1[this.variation], this.color1[this.variation], this.v * 4)
+          this.sliderType.style.setProperty('--skinType1', `rgb(${var1.r * 255}, ${var1.g * 255}, ${var1.b * 255})`)
+          this.sliderType.style.setProperty('--skinType2', `rgb(${var2.r * 255}, ${var2.g * 255}, ${var2.b * 255})`)
+          this.sliderType.style.setProperty('--skinType3', `rgb(${var3.r * 255}, ${var3.g * 255}, ${var3.b * 255})`)
+        }
+        else if (this.v < 2 / 4) {
+          const var1 = this.color2.a
+          const var2 = this.color2.b
+          const var3 = this.color2.c
+          this.finalColor.lerpColors(this.color2[this.variation], this.color3[this.variation], this.v * 4 - (3 / 4))
+          this.sliderType.style.setProperty('--skinType1', `rgb(${var1.r * 255}, ${var1.g * 255}, ${var1.b * 255})`)
+          this.sliderType.style.setProperty('--skinType2', `rgb(${var2.r * 255}, ${var2.g * 255}, ${var2.b * 255})`)
+          this.sliderType.style.setProperty('--skinType3', `rgb(${var3.r * 255}, ${var3.g * 255}, ${var3.b * 255})`)
+        }
+        else if (this.v < 3 / 4){
+          const var1 = this.color3.a
+          const var2 = this.color3.b
+          const var3 = this.color3.c
+          this.finalColor.lerpColors(this.color3[this.variation], this.color4[this.variation], this.v * 4 - (2 / 4))
+          this.sliderType.style.setProperty('--skinType1', `rgb(${var1.r * 255}, ${var1.g * 255}, ${var1.b * 255})`)
+          this.sliderType.style.setProperty('--skinType2', `rgb(${var2.r * 255}, ${var2.g * 255}, ${var2.b * 255})`)
+          this.sliderType.style.setProperty('--skinType3', `rgb(${var3.r * 255}, ${var3.g * 255}, ${var3.b * 255})`)
+        }
+        else if (this.v < 1){
+          const var1 = this.color4.a
+          const var2 = this.color4.b
+          const var3 = this.color4.c
+          this.finalColor.lerpColors(this.color4[this.variation], new three.Color('#000000'), this.v * 4 - (1 / 4))
+          this.sliderType.style.setProperty('--skinType1', `rgb(${var1.r * 255}, ${var1.g * 255}, ${var1.b * 255})`)
+          this.sliderType.style.setProperty('--skinType2', `rgb(${var2.r * 255}, ${var2.g * 255}, ${var2.b * 255})`)
+          this.sliderType.style.setProperty('--skinType3', `rgb(${var3.r * 255}, ${var3.g * 255}, ${var3.b * 255})`)
+        }
+      console.log(this.finalColor.r)
 
-      console.log(this.finalColor)
-      console.log(this.sliderColor)
+      // Change skinType color
 
+      // Change thumb
       e.target.style.setProperty(
         this.input.class.includes('skinTint') ? '--background1' : '--background2',
         `rgba(${this.finalColor.r * 255}, ${this.finalColor.g * 255}, ${
@@ -210,10 +269,9 @@ export default {
 .skinType input {
     background: linear-gradient(
     90deg,
-    #FDDCD2,
-    #FCE9D0,
-    #DBB387,
-    #B25C20
+    var(--skinType1),
+    var(--skinType2) 50%,
+    var(--skinType3) 100%
   );
 }
 
