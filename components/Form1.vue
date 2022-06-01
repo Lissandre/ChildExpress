@@ -14,7 +14,7 @@
             :key="input.name"
             :is="input.component"
             :input="input"
-            v-on:updateInput="(a, b, c) => {$helpers.updateInput(a, b, c); $nuxt.$emit('updateSound', 'form1', a, b, c)}"
+            v-on:updateInput="(type, name, value, optional) => this.inputChange(type, name, value, optional)"
             ref="inputs"
             :locale="
               $t(
@@ -34,7 +34,7 @@
             :key="input.name"
             :is="input.component"
             :input="input"
-            v-on:updateInput="(a, b, c) => {$helpers.updateInput(a, b, c); $nuxt.$emit('updateSound', 'form1', a, b, c)}"
+            v-on:updateInput="(type, name, value, optional) => this.inputChange(type, name, value, optional)"
             ref="inputs"
             :locale="
               $t(
@@ -100,6 +100,15 @@ export default {
         this.$helpers.updateInput(e.type, e.type, e.type)
       }, 1000)
     },
+    inputChange(type, name, value, optional) {
+      $helpers.updateInput(type, name, value); 
+
+      console.log(type)
+      if(type === 'radio') {
+        value = value / optional
+      }
+      $nuxt.$emit('updateSound', 'form1', type, name, value)
+    }
 
     /*changeZindex(e) {
       const form1 = document.getElementById('form1')

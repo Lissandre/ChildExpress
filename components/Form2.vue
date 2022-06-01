@@ -11,7 +11,8 @@
           :is="input.component"
           :input="input"
           ref="inputs"
-          v-on:updateInput="(a, b, c) => {$helpers.updateInput(a, b, c); $nuxt.$emit('updateSound', 'form2', a, b, c)}"
+          v-on:updateInput="
+          (type, name, value, optional) => this.inputChange(type, name, value, optional)"
           :locale="
             $t(
               `form2.${slugify(`${input.type}_${input.name}`, {
@@ -66,6 +67,15 @@ export default {
         this.$helpers.updateInput(e.type, e.type, e.type)
       }, 1000)
     },
+    inputChange(type, name, value, optional) {
+      $helpers.updateInput(type, name, value); 
+
+      console.log(type)
+      if(type === 'radio') {
+        // If radio couleurs cheveux/yeux, check et compare le store
+      }
+      $nuxt.$emit('updateSound', 'form2', type, name, value)
+    }
   },
 }
 </script>

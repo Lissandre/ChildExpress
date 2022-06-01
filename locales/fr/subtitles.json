@@ -4,13 +4,13 @@
   "form1_intro_speech1": "Mon algorithme a besoin de récolter quelques informations sur vous pour établir la base génétique de votre bébé.",
   "form1_intro_speech2": "Commencez par renseigner votre sexe.",
 
-  "form1_health_big": "Parfaite santé? “Le strabisme ça compte. Hein!",
+  "form1_health_big": "Parfaite santé? Le strabisme ça compte. Hein!",
   "form1_health_small": "Ne vous inquiétez pas, grâce à ChildExpress votre bébé sera en parfaite santé",
   
-  "form1_personality_hypersensitive": "Ne vous inquiétez pas… Ça va bien se passer",
-  "form1_personality_eloquent": "Vous m’avez déjà convaincu",
-  "form1_personality_greedy": "Un sou est un sou",
-  "form1_personality_honest": "Vous feriez un très mauvais politicien",
+  "form1_hypersensitive_true": "Ne vous inquiétez pas… Ça va bien se passer",
+  "form1_eloquent_true": "Vous m’avez déjà convaincu",
+  "form1_greedy_true": "Un sou est un sou",
+  "form1_honest_true": "Vous feriez un très mauvais politicien",
   
   "form1_lifeQuality_big": "L’argent ne fait pas le bonheur comme on dit…",
   "form1_lifeQuality_small": "L’argent ne fait pas le bonheur… Mais il y contribue",
@@ -32,10 +32,12 @@
   "form1_age_big": "Selon mes estimation la planète Terre n’existera plus d’ici là",
   "form1_age_small": "75 ans, presque mort né, vous êtes fou! L’espérance de vie a bcp augmenté vous savez",
   "form1_age_change": "Voila qui est mieux",
-  "form1_end_loading": "J’ai vraiment hâte de voir votre bébé pas vous?",
+
+
+  "form1_loading_speech": "J’ai vraiment hâte de voir votre bébé pas vous?",
   
   
-  "form2_intro_speech1": "Je me dois de vous informer qu’il ne part pas sur une très belle base.. Heureusement, vous avez la possibilité de changer ce qu’il vous plaira grâce à nos multiples options! Profitez-en, et testez toutes nos fonctionnalités.",
+  "form2_intro_speech1": "Je me dois de vous informer qu’il ne part pas sur une très belle base.. Heureusement, vous avez la possibilité de changer ce qu’il vous plaira grâce à nos multiples options! Profitez-en, et testez toutes nos fonctionnalités.",
   "form2_intro_speech2": "Commencez par déterminer l’IMC de votre enfant",
   
   "form2_weight_change": "Un bébé bien portant est un bébé en bonne santé",
@@ -61,16 +63,16 @@
   "form2_hairColor_same": "Selon mon algorithme, 80% des futurs parents choisissent les cheveux bruns pour le bébé",
   "form2_hairColor_exact": "J'aurais choisi la même chose",
   "form2_skinTint_change": "PANTONE 412C, très bon choix de carnation",
-  "form2_skinTint_bright": "Il est un peu palot j'ai l'impression ?",
+  "form2_skinTint_small": "Il est un peu palot j'ai l'impression ?",
   "form2_skinTint_different": "C’est le fils du facteur ?",
 
   "form3_intro_speech": "Mais quel réalisme! N’est-ce pas fabuleux ? Par contre êtes-vous sûr qu’il est de vous ? Haha",
+  "form3_intro_speech2": "Maintenant choisissez sa personnalité pour éviter toute déviance à l’adolescence",
   "form3_IQ_change": "Méfions-nous des apparences! Qu’a-t-il dans le crâne ce petit? Souhaitez-vous qu’il soit intelligent?",
   "form3_IQ_change2": "Il faut beaucoup de place pour tous ces neurones",
   "form3_IQ_big": "Seuls les imbéciles sont heureux.",
   "form3_IQ_small": "C'est pas le couteau le mieux aiguisé du tiroir.",
   
-  "form3_personality_speech": "Maintenant choisissez sa personnalité pour éviter toute déviance à l’adolescence",
   "form3_personality_different": "Ça veut pas se mouiller à ce que je vois.",
   "form3_personality_same": "Tel parent, tel enfant !",
   "form3_courageousGreedy_courageous": "Qui dit courageux, dit bagarreur",
@@ -122,7 +124,7 @@
   "form4_xtra_visionnary": "Quel beau regard..! Pratique pour espionner les voisins!",
   
   
-  "form4_keeping_true": "J’espère que notre service vous plaît, en tout cas ce fut un plaisir pour moi de vous épauler.",
-  "form4_keeping_false1": "Vous n’êtes pas satisfait de votre résultat ? Pas étonnant vu les choix que vous avez fait… enfin… je voulais dire, quel dommage !",
-  "form4_keeping_false2": "Vous êtes sérieusement en train d’abandonner votre enfant?? mais quel genre de parent êtes vous??"
+  "form4_keep_true": "J’espère que notre service vous plaît, en tout cas ce fut un plaisir pour moi de vous épauler.",
+  "form4_unkeep_true1": "Vous n’êtes pas satisfait de votre résultat ? Pas étonnant vu les choix que vous avez fait… enfin… je voulais dire, quel dommage !",
+  "form4_unkeep_true2": "Vous êtes sérieusement en train d’abandonner votre enfant?? mais quel genre de parent êtes vous??"
 }

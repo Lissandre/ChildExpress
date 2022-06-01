@@ -53,7 +53,8 @@ export default {
         'updateInput',
         this.input.type,
         this.input.name,
-        e.target.value
+        e.target.value,
+        this.input.length
       )
       
     },
