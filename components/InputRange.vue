@@ -37,7 +37,7 @@ export default {
 
   data() {
     return {
-      finalColor: new three.Color('#FF0000'),
+      finalColor: new three.Color('#FFD1A6'),
 
       color1: {
         a : new three.Color('#FDDCD2'),
@@ -68,15 +68,16 @@ export default {
     this.sliderTint = document.querySelector('.skinTint input')
     this.sliderType = document.querySelector('.skinType input')
     if (this.$refs.bubble) this.$refs.bubble.innerHTML = 10
-    if (this.input.class.includes('skinTint')) {
-      this.sliderTint.style.setProperty('--background1', '#FF00FF')
-      this.variation = 'a'
 
-    }
-    if (this.input.class.includes('skinType')) {
-      this.sliderType.style.setProperty('--background2', '#FF00FF')
+    
+    // To refactor, some day
+    if (this.input.class.includes('color-range')) {
+      this.sliderTint.style.setProperty('--background1', `rgba(${this.finalColor.r * 255}, ${this.finalColor.g * 255}, ${this.finalColor.b * 255}, 1)`)
+      this.sliderType.style.setProperty('--background2', `rgba(${this.finalColor.r * 255}, ${this.finalColor.g * 255}, ${this.finalColor.b * 255}, 1)`)
+      this.sliderType.style.setProperty('--skinType1', `rgb(${this.color2.a.r * 255}, ${this.color2.a.g * 255}, ${this.color2.a.b * 255})`)
+      this.sliderType.style.setProperty('--skinType2', `rgb(${this.color2.b.r * 255}, ${this.color2.b.g * 255}, ${this.color2.b.b * 255})`)
+      this.sliderType.style.setProperty('--skinType3', `rgb(${this.color2.c.r * 255}, ${this.color2.c.g * 255}, ${this.color2.c.b * 255})`)
       this.variation = 'a'
-
     }
   },
   methods: {

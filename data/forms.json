@@ -86,6 +86,36 @@
         "step": 0.01,
         "class": "slide1"
       },
+      "parentSkinTint": {
+        "locales": {
+          "fr": "",
+          "en": ""
+        },
+        "type": "range",
+        "name": "parentSkinTint",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "skinColor": true,
+        "class": "range color-range skinTint slide1"
+      },
+      "parentSkinType": {
+        "locales": {
+          "fr": "",
+          "en": ""
+        },
+        "type": "range",
+        "name": "parentSkinType",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "skinColor": true,
+        "class": "range color-range skinType slide1"
+      },
       "babyName": {
         "locales": {
           "fr": {

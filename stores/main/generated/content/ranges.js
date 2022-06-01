@@ -1,4 +1,6 @@
 export default [
+  { id: 'parentSkinTint', value: 0.5 },
+  { id: 'parentSkinType', value: 0.5 },
   { id: 'noseSize', value: 0.5 },
   { id: 'earsSize', value: 0.5 },
   { id: 'handsSize', value: 0.5 },

@@ -3,6 +3,8 @@ export default {
   STARS: 'stars',
   WEIGHT: 'weight',
   HEALTH: 'health',
+  PARENTSKINTINT: 'parentSkinTint',
+  PARENTSKINTYPE: 'parentSkinType',
   BABYNAME: 'babyName',
   AGE: 'age',
   NOSESIZE: 'noseSize',
