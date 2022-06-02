@@ -147,8 +147,6 @@ export default {
         }
       console.log(this.finalColor.r)
 
-      // Change skinType color
-
       // Change thumb
       e.target.style.setProperty(
         this.input.class.includes('skinTint') ? '--background1' : '--background2',

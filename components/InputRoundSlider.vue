@@ -99,7 +99,8 @@ export default {
         'updateInput',
         this.input.type,
         this.input.name,
-        newValue
+        newValue,
+        this.sliderMax
       );
       if (this.input.name.includes('IQ')) this.$emit('updateIQ',newValue);
     }

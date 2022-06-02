@@ -13,6 +13,7 @@
           @input="(e) => update(e)"
           :value="input.value"
           class="text-white"
+          @blur="soundEvents"
         />
         <div class="underline"></div>
       </div>
@@ -37,6 +38,9 @@ export default {
         this.input.name,
         e.target.value
       )
+    },
+    soundEvents(value) {
+      $nuxt.$emit('updateSound', 'form1', this.input.type, this.input.name, value)
     },
   },
 }

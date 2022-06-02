@@ -105,18 +105,26 @@ export default {
     inputChange(type, name, value, optional) {
       this.$helpers.updateInput(type, name, value); 
 
-      if(type === 'radio') {
+      if((type === 'radio' || type === 'roundSlider') && name !== 'gender') {
         console.log(value, optional)
         value = value / optional
         console.log(value)
       }
       $nuxt.$emit('updateSound', 'form1', type, name, value)
+
+
+      console.log(this.store.ranges)
     },
     soundEvents() {
     requestAnimationFrame(() => {
       if($nuxt) $nuxt.$emit('updateSound', 'form1', 'speech', 'intro', 'speech1')
     })
-    console.log(this.slider.events)
+
+
+    this.slider.events.on('indexChanged', () => {
+      $nuxt.$emit('updateSound', 'form1', 'speech', 'identity', 'speech1')
+    });
+
     }
 
     /*changeZindex(e) {

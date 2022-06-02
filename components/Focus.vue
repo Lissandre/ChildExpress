@@ -33,8 +33,14 @@ export default {
   methods: {
     changeFocus() {
       console.log('changeFocus')
+      if(!this.currentFocus) this.soundEvents()
       this.currentFocus = !this.currentFocus
         this.store.toggleIsFace(this.currentFocus)
+
+    },
+
+    soundEvents() {
+      $nuxt.$emit('updateSound', 'form2', 'face', '', '')
     },
   },
 }

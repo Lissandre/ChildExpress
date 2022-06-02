@@ -85,8 +85,7 @@ export default {
           // el.querySelector('.custom-select__trigger ').dataset.value = entry.dataset.value
           this.select.input.value = entry.dataset.value
           this.select.input.dispatchEvent(new CustomEvent('navigation', { detail: this.select.input.value }))
-          this.select.input.dispatchEvent(new CustomEvent('change', { bubbles: true, detail: this.select.input.value }
-          ))
+          this.select.input.dispatchEvent(new CustomEvent('change', { bubbles: true, detail: this.select.input.value }))
 
           if (entry.dataset.value !== '') {
             if (!this.select.querySelector('.custom-select__trigger').classList.contains('bold')) {
@@ -96,6 +95,8 @@ export default {
             this.select.querySelector('.custom-select__trigger').classList.remove('bold')
           }
         }
+        console.log(entry.dataset.value)
+      this.soundEvents(entry.dataset.value)
       })
     })
 
@@ -113,6 +114,9 @@ export default {
       )
     },
 
+    soundEvents(value) {
+      $nuxt.$emit('updateSound', 'form1', this.input.type, this.input.name, value)
+    },
     setOptions (el) {
     let input = this.$refs['select']
     let options = Array.from(input.options)

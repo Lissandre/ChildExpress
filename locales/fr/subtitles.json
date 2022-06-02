@@ -16,16 +16,15 @@
   "form1_lifeQuality_small": "L’argent ne fait pas le bonheur comme on dit…",
   
   "form1_inputs_unfilled": "Pensez bien à remplir tous les champs",
-
   "tooMuchTime_lazy_1": "Bon je vais choisir pour vous… et j’ai des goûts assez particulier.",
   "tooMuchTime_lazy_2": "Il serait temps de choisir",
   "tooMuchTime_lazy_3": "Je n’ai pas tout mon temps",
   "tooMuchTime_lazy_4": "Mon temps est précieux, j’ai d’autres naissances à assister",
   
 
-  "form1_identity_intro1": "Passons maintenant à l’élaboration de la carte d’identité de votre enfant!",
-  "form1_identity_intro2": "Saviez-vous que les prénoms composés seront vraiment hyper tendance dans quelques années? Lou-Therese par exemple!",
-  "form1_identity_name": "Oh comme c’est mignon",
+  "form1_identity_speech1": "Passons maintenant à l’élaboration de la carte d’identité de votre enfant! Choisissez un prénom.",
+  "form1_identity_speech2": "Saviez-vous que les prénoms composés seront vraiment hyper tendance dans quelques années? Lou-Therese par exemple!",
+  "form1_text_babyName": "Oh comme c’est mignon",
   "form1_gender_nonbinary": "Le mode Non-binaire n’est pas encore disponible. La science a ses limites vous savez.",
   "form1_gender_man": "Très bon choix",
   "form1_gender_woman": "Ah…",
@@ -39,30 +38,34 @@
   
   "form2_intro_speech1": "Je me dois de vous informer qu’il ne part pas sur une très belle base.. Heureusement, vous avez la possibilité de changer ce qu’il vous plaira grâce à nos multiples options! Profitez-en, et testez toutes nos fonctionnalités.",
   "form2_intro_speech2": "Commencez par déterminer l’IMC de votre enfant",
-  
   "form2_weight_change": "Un bébé bien portant est un bébé en bonne santé",
   "form2_weight_big": "Le votre sera en parfaite santé",
-
-
-  "form2_height_big": "Si je peux me permettre, heureusement qu’il ne loge pas dans votre ventre, haha",
-  "form2_height_small": "C’est pas la taille qui compte",
+  "form2_scale_big": "Si je peux me permettre, heureusement qu’il ne loge pas dans votre ventre, haha",
+  "form2_scale_small": "C’est pas la taille qui compte",
 
 
   "form2_face_change": "Encore un petit effort, je vois déjà la tête!",
+
+  
   "form2_noseSize_change": "Grâce à mon analyse des tendances à venir, je peux vous assurer à 99,8% que votre enfant se fera harceler à l’école s’il a un nez en trompette, optez plutôt pour un nez crochu",
   "form2_earsSize_big": "Les murs ont des oreilles, bébé en a des grandes! Eloignez-le de votre chambre à coucher",
   "form2_hairs_different": "On veut toujours ce qu’on n’a pas, n’est-ce pas?",
+
   "form2_mouthSize_big": "Avec une bouche comme ça, il va ronger son pouce.",
   "form2_mouthSize_small": "Faites gaffe à ce qu’il ne fasse pas sa fine bouche.. haha",
   "form2_mouthSize_seductive": "Je reste bouchee bée!",
+
   "form2_eyesSize_big": "Avec des yeux comme ça, vous ne pourrez rien lui refuser",
   "form2_eyesSize_small": "Pas mal, ça lui donne un petit coté intello",
+
   "form2_eyesColor_change": "Les yeux sont le miroir de l’âme comme le disait Cicéron, votre bébé prend vie, n’est-ce pas merveilleux?",
   "form2_eyesColor_different": "Un minimum de crédibilité s’il vous plait!",
   "form2_eyesColor_same": "Il vous ressemble comme deux gouttes d’H2O!",
+
   "form2_hairColor_same": "Selon mon algorithme, 80% des futurs parents choisissent les cheveux bruns pour le bébé",
   "form2_hairColor_exact": "J'aurais choisi la même chose",
-  "form2_skinTint_change": "PANTONE 412C, très bon choix de carnation",
+
+  "form2_skinType_change": "PANTONE 412C, très bon choix de carnation",
   "form2_skinTint_small": "Il est un peu palot j'ai l'impression ?",
   "form2_skinTint_different": "C’est le fils du facteur ?",
 

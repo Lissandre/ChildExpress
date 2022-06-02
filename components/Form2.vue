@@ -12,7 +12,9 @@
           :input="input"
           ref="inputs"
           v-on:updateInput="
-          (type, name, value, optional) => inputChange(type, name, value, optional)"
+            (type, name, value, optional) =>
+              inputChange(type, name, value, optional)
+          "
           :locale="
             $t(
               `form2.${slugify(`${input.type}_${input.name}`, {
@@ -49,6 +51,8 @@ export default {
   },
   mounted() {
     this.inputs = form2.inputs
+
+    this.soundEvents()
   },
   methods: {
     changeRange(id, e) {
@@ -67,15 +71,30 @@ export default {
         this.$helpers.updateInput(e.type, e.type, e.type)
       }, 1000)
     },
-    inputChange(type, name, value, optional) {
-      this.$helpers.updateInput(type, name, value); 
 
-      console.log(type)
-      if(type === 'radio') {
-        // If radio couleurs cheveux/yeux, check et compare le store
+    soundEvents() {
+      requestAnimationFrame(() => {
+        if ($nuxt)
+          $nuxt.$emit('updateSound', 'form2', 'speech', 'intro', 'speech1')
+      })
+    },
+    inputChange(type, name, value, optional) {
+      this.$helpers.updateInput(type, name, value)
+      if (!(name === 'skinTint' || name === 'skinType')) {
+        $nuxt.$emit('updateSound', 'form2', type, name, value)
+      } else if (name == 'skinTint') {
+        const parentSkinTint = this.store.ranges.find(
+          (el) => el.id === 'parentSkinTint'
+        )
+        if (value <= 0.2) {
+          $nuxt.$emit('updateSound', 'form2', type, name, value)
+        } else if (Math.abs(parentSkinTint.value - value) > 0.2) {
+          $nuxt.$emit('updateSound', 'form2', type, name, 'different')
+        }
+      } else if (name == 'skinType') {
+        $nuxt.$emit('updateSound', 'form2', type, name, 'change')
       }
-      $nuxt.$emit('updateSound', 'form2', type, name, value)
-    }
+    },
   },
 }
 </script>

@@ -18,7 +18,7 @@
         "component": "InputRadios",
         "value": 0.5,
         "length": 3,
-        "class": "slide2"
+        "class": " gender slide2"
       },
       "lifeQuality": {
         "locales": {
