@@ -1,6 +1,6 @@
 <template>
   <div
-    class="pb-4 text-gray-500 pointer-events-auto flex left-1/3 mt-[100px] test"
+    class="pb-4 text-gray-500 pointer-events-auto flex left-1/3 mt-[100px]"
     style="justify-content: right"
   >
     <fieldset
@@ -27,11 +27,36 @@
       <p class="w-20 w-max text-white">{{ locale.label2 }}</p>
 
       <div class="star-rating star-5" v-if="input.class.includes('rating')">
-        <input type="radio" name="rating" value="1" @input="() => update(e = { target: {value:1} })"/><i></i>
-        <input type="radio" name="rating" value="2" @input="() => update(e = { target: {value:2} })"/><i></i>
-        <input type="radio" name="rating" value="3" @input="() => update(e = { target: {value:3} })"/><i></i>
-        <input type="radio" name="rating" value="4" @input="() => update(e = { target: {value:4} })"/><i></i>
-        <input type="radio" name="rating" value="5" @input="() => update(e = { target: {value:5} })"/><i></i>
+        <input
+          type="radio"
+          name="rating"
+          value="1"
+          @input="() => update((e = { target: { value: 1 } }))"
+        /><i></i>
+        <input
+          type="radio"
+          name="rating"
+          value="2"
+          @input="() => update((e = { target: { value: 2 } }))"
+        /><i></i>
+        <input
+          type="radio"
+          name="rating"
+          value="3"
+          @input="() => update((e = { target: { value: 3 } }))"
+        /><i></i>
+        <input
+          type="radio"
+          name="rating"
+          value="4"
+          @input="() => update((e = { target: { value: 4 } }))"
+        /><i></i>
+        <input
+          type="radio"
+          name="rating"
+          value="5"
+          @input="() => update((e = { target: { value: 5 } }))"
+        /><i></i>
       </div>
     </fieldset>
   </div>
@@ -56,7 +81,6 @@ export default {
         e.target.value,
         this.input.length
       )
-      
     },
     emitJob(e, fieldsetIndex) {
       if (e.target.value === undefined) return
@@ -205,25 +229,57 @@ fieldset input[type='radio']:checked::before {
   border-radius: 10px !important;
   box-shadow: none !important;
 }
-.eyes-color input:nth-of-type(1){
-  background: #B1CF99;
+.eyes-color input:nth-of-type(1) {
+  background: #b1cf99;
 }
-.eyes-color input:nth-of-type(2){
-  background: #4B6EB8;
+.eyes-color input:nth-of-type(2) {
+  background: #4b6eb8;
 }
-.eyes-color input:nth-of-type(3){
-  background: #85633B;
+.eyes-color input:nth-of-type(3) {
+  background: #85633b;
 }
-.eyes-color input:nth-of-type(4){
-  background: #321C07;
+.eyes-color input:nth-of-type(4) {
+  background: #321c07;
 }
 
 .eyes-color input::before {
-  display: none !important
+  display: none !important;
 }
 .eyes-color input:checked {
-  outline: 4px solid  rgba(15, 84, 228, 1);
+  outline: 4px solid rgba(15, 84, 228, 1);
 }
 
+.gender {
+  display: flex;
+  flex-wrap: wrap;
+    width: max-content;
+}
 
+.gender label {
+  flex-basis: 100%;
+  margin-bottom: 10px;
+}
+
+.gender input {
+  margin-right: 120px !important;
+}
+.gender input::after {
+  font-size: 20px;
+  position: absolute;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-left: 30px;
+  width: max-content;
+}
+.gender input:nth-child(2)::after {
+  content: 'Homme';
+}
+.gender input:nth-child(3)::after {
+  content: 'Femme';
+}
+.gender input:nth-child(4)::after {
+  content: 'Non-binaire';
+}
 </style>

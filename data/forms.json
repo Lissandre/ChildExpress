@@ -7,10 +7,10 @@
       "gender": {
         "locales": {
           "fr": {
-            "label1": "Genre"
+            "label1": "Sexe"
           },
           "en": {
-            "label1": "Gender"
+            "label1": "Sexe"
           }
         },
         "type": "radio",
@@ -18,7 +18,7 @@
         "component": "InputRadios",
         "value": 0.5,
         "length": 3,
-        "class": " gender slide2"
+        "class": " gender slide2 second-slide-component"
       },
       "lifeQuality": {
         "locales": {
@@ -129,15 +129,15 @@
         "name": "babyName",
         "component": "InputText",
         "value": "'Margaux la boss'",
-        "class": "baby-name slide2"
+        "class": "baby-name slide2 second-slide-component"
       },
       "age": {
         "locales": {
           "fr": {
-            "label1": "Âge"
+            "label1": "Âge d'expiration"
           },
           "en": {
-            "label1": "Age"
+            "label1": "Expiry age"
           }
         },
         "type": "select",
@@ -147,7 +147,7 @@
         "from": 0,
         "to": 150,
         "step": 1,
-        "class": "slide2"
+        "class": "slide2 second-slide-component"
       },
       "submit": {
         "locales": {

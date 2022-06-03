@@ -14,7 +14,6 @@
         @input="(e) => update(e)"
         :value="input.value"
         required="required"
-        class="test"
         ref="input"
       />
     </fieldset>

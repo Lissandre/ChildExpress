@@ -1,7 +1,4 @@
 {
-  "radio_gender": {
-    "label1": "Gender"
-  },
   "radio_lifequality": {
     "label1": "Life quality"
   },
@@ -16,11 +13,14 @@
   },
   "range_parentskintint": "",
   "range_parentskintype": "",
+  "radio_gender": {
+    "label1": "Sexe"
+  },
   "text_babyname": {
     "label1": "Name"
   },
   "select_age": {
-    "label1": "Age"
+    "label1": "Expiry age"
   },
   "submit_submit": "Submit"
 }

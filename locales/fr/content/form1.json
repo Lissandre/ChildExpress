@@ -1,7 +1,4 @@
 {
-  "radio_gender": {
-    "label1": "Genre"
-  },
   "radio_lifequality": {
     "label1": "Niveau de vie"
   },
@@ -16,11 +13,14 @@
   },
   "range_parentskintint": "",
   "range_parentskintype": "",
+  "radio_gender": {
+    "label1": "Sexe"
+  },
   "text_babyname": {
     "label1": "Prénom"
   },
   "select_age": {
-    "label1": "Âge"
+    "label1": "Âge d'expiration"
   },
   "submit_submit": "Suivant"
 }

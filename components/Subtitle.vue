@@ -84,5 +84,6 @@ export default {
 <style scoped>
  p {
   transform: translate3d(-50%, 0, 0);
+  text-align: center;
 }
 </style>

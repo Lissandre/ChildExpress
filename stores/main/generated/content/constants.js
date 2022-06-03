@@ -1,10 +1,10 @@
 export default {
-  GENDER: 'gender',
   LIFEQUALITY: 'lifeQuality',
   WEIGHT: 'weight',
   HEALTH: 'health',
   PARENTSKINTINT: 'parentSkinTint',
   PARENTSKINTYPE: 'parentSkinType',
+  GENDER: 'gender',
   BABYNAME: 'babyName',
   AGE: 'age',
   NOSESIZE: 'noseSize',

@@ -64,9 +64,6 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   font-size: 16px;
 }
 /*
-.test:hover fieldset {
-  animation: linear 0.4s forwards translateX;
-}
 
 @keyframes translateX {
   0% {

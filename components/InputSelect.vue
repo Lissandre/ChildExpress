@@ -52,7 +52,6 @@ export default {
     })
     this.select.input = this.select.querySelector('select')
     this.setOptions(this.select)
-
     this.eventClickSelect = () => {
       if (!this.select.classList.contains('open')) {
         requestAnimationFrame(() => {
@@ -101,8 +100,12 @@ export default {
     })
 
     if (this.select.input.value) {
-      this.select.querySelector('.custom-select__trigger').classList.add('bold')
+      const trigger = this.select.querySelector('.custom-select__trigger')
+      trigger.classList.add('bold')
+      trigger.innerHTML = this.select.input.value + ' ans'
     }
+
+
   },
   methods: {
     update(e) {
@@ -133,6 +136,7 @@ export default {
           let text = document.createTextNode(elm.innerHTML.replace('&amp;', '&'))
           span.appendChild(text)
           span.dataset.value = elm.value
+          span.innerText = elm.value + ' ans'
           li.dataset.value = elm.value
           li.classList.add('custom-option')
           li.classList.add('links__more')
@@ -146,6 +150,7 @@ export default {
         let text = document.createTextNode(elm.innerHTML.replace('&amp;', '&'))
         span.appendChild(text)
         span.dataset.value = elm.value
+        span.innerText = elm.value + ' ans'
         li.dataset.value = elm.value
         li.classList.add('custom-option')
         li.classList.add('links__more')
@@ -162,7 +167,7 @@ export default {
     let text = document.createTextNode(options[0].innerHTML)
 
     if (el.input.querySelector('option[selected]')) {
-      text = document.createTextNode(el.input.querySelector('option[selected]').textContent)
+      text = document.createTextNode(el.input.querySelector('option[selected]').textContent) + ' ans'
     }
     // console.log(text)
 
@@ -236,10 +241,10 @@ export default {
     position: relative;
     display: block;
     font-size: 16px;
-    color: black;
+    color: white;
     line-height: 60px;
     cursor: pointer;
-    border-color: black;
+    border-color: white;
     transform: translate3D(0px, 0, 0);
     transition: all 0.2s ease;
     padding-left: 20px;
@@ -316,6 +321,11 @@ export default {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     -webkit-border-radius: 8px;
+  }
+
+  label {
+    font-size: 14px;
+
   }
 
 </style>
