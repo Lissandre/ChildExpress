@@ -49,6 +49,10 @@ export default {
 
 <style scoped>
 
+fieldset {
+  padding-bottom: 0;
+}
+
 .text-wrapper {
   position: relative;
 }
@@ -65,6 +69,8 @@ export default {
   overflow: hidden;
   background: none;
   outline: none !important;
+  font-size: 24px;
+  width: 100%;
 
 }
 .underline {

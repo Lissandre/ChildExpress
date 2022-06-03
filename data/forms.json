@@ -4,22 +4,6 @@
       "titleSlide2": "Carte d'identité"
     },
     "inputs": {
-      "gender": {
-        "locales": {
-          "fr": {
-            "label1": "Sexe"
-          },
-          "en": {
-            "label1": "Sexe"
-          }
-        },
-        "type": "radio",
-        "name": "gender",
-        "component": "InputRadios",
-        "value": 0.5,
-        "length": 3,
-        "class": " gender slide2 second-slide-component"
-      },
       "lifeQuality": {
         "locales": {
           "fr": {
@@ -130,6 +114,22 @@
         "component": "InputText",
         "value": "'Margaux la boss'",
         "class": "baby-name slide2 second-slide-component"
+      },
+      "gender": {
+        "locales": {
+          "fr": {
+            "label1": "Sexe"
+          },
+          "en": {
+            "label1": "Sexe"
+          }
+        },
+        "type": "radio",
+        "name": "gender",
+        "component": "InputRadios",
+        "value": 0.5,
+        "length": 3,
+        "class": " gender slide2 second-slide-component"
       },
       "age": {
         "locales": {

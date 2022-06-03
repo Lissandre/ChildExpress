@@ -63,7 +63,7 @@
             </div>
             <div class="society">
               <span>Société de naissance :</span>
-              <img src="" alt="" />
+              <div class="logo"></div>
             </div>
           </div>
         </div>
@@ -225,25 +225,72 @@ export default {
 .framed_inputs {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 65%;
+  padding-bottom: 80px;
 }
 
 .framed_title {
   font-size: 42px;
   text-shadow: 0px 1px 32px white;
   color: white;
+  margin-left: 30px;
 }
 
 .card_bottom {
   font-size: 16px;
   color: white;
+  position: relative;
+  width: 100%;
+}
+
+.creation_date,
+.society {
+  width: fit-content;
+  display: inline-block;
+  position: relative;
+  margin-right: 40px;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.card_bottom::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: white;
+  position: absolute;
+  top: 0;
+}
+.creation_date::after {
+  content: '';
+  width: 1px;
+  height: 30px;
+  background: white;
+  position: absolute;
+  right: -20px;
+}
+
+.logo {
+  background: no-repeat center center url('@/assets/images/logo.svg');
+  height: 30px;
+  width: 200px;
+  color: black;
+  display: inline-block;
+      vertical-align: middle;
+
 }
 
 .second-slide-component {
   position: relative;
   width: 100%;
   height: 100px;
+  left: auto;
+  bottom: auto;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 0;
 }
 </style>
 
@@ -267,7 +314,8 @@ export default {
 }
 
 .second-slide {
-  width: 800px;
+  width: 900px;
+  height: fit-content;
   left: 100%;
   padding: 52px 63px;
 }

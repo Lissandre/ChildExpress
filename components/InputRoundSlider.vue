@@ -34,14 +34,22 @@
         :progressColor="'#0F54E4'"
         :knobColor="'transparent'"
       ></circle-slider>
-      <img src="@/assets/images/heart.svg" class="heart" alt="" v-if="this.input.name.includes('health')" />
-      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')"> {{ this.sliderValue }} </p>
+      <img
+        src="@/assets/images/heart.svg"
+        class="heart"
+        alt=""
+        v-if="this.input.name.includes('health')"
+      />
+      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')">
+        {{ this.sliderValue }}
+      </p>
 
       <svg
         width="175px"
         height="175px"
         viewBox="0 0 150 150"
         class="fake-background"
+        v-if="!this.input.name.includes('IQ')"
       >
         <g>
           <defs>
@@ -53,6 +61,24 @@
             </radialGradient>
           </defs>
           <circle cx="75" cy="75" r="70" fill="url(#myGradient) "></circle>
+          <circle
+            cx="75"
+            cy="75"
+            r="40"
+            fill="transparent"
+            class="center-circle"
+          ></circle>
+        </g>
+        <g></g>
+      </svg>
+      <svg
+        width="175px"
+        height="175px"
+        viewBox="0 0 150 150"
+        class="fake-background"
+        v-if="this.input.name.includes('IQ')"
+      >
+        <g>
           <circle
             cx="75"
             cy="75"
@@ -81,7 +107,7 @@ export default {
     return {
       sliderValue: 50,
       sliderMin: this.input.name.includes('IQ') ? 50 : 0,
-      sliderMax: this.input.name.includes('IQ') ? 250: 100,
+      sliderMax: this.input.name.includes('IQ') ? 250 : 100,
     }
   },
   mounted() {
@@ -91,7 +117,7 @@ export default {
       console.log('here')
       this.$refs['circleSlider'].children[0].appendChild(this.$refs['IQvalue'])
       this.sliderValue = 100
-    } 
+    }
   },
   watch: {
     sliderValue(newValue, oldValue) {
@@ -101,9 +127,9 @@ export default {
         this.input.name,
         newValue,
         this.sliderMax
-      );
-      if (this.input.name.includes('IQ')) this.$emit('updateIQ', newValue);
-    }
+      )
+      if (this.input.name.includes('IQ')) this.$emit('updateIQ', newValue)
+    },
   },
   methods: {
     update(e) {
@@ -122,14 +148,6 @@ export default {
 </script>
 
 <style>
-.IQvalue {
-  color: white;
-  font-size: 28px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
 .circle-slider svg g path {
   stroke-linecap: round;
   transition: stroke-width ease-out 0.2s;
@@ -174,5 +192,14 @@ export default {
 
 .heart {
   z-index: 1;
+}
+
+.IQvalue {
+  color: white;
+  font-size: 28px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
