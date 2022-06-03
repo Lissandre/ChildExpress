@@ -102,7 +102,7 @@ export default {
         newValue,
         this.sliderMax
       );
-      if (this.input.name.includes('IQ')) this.$emit('updateIQ',newValue);
+      if (this.input.name.includes('IQ')) this.$emit('updateIQ', newValue);
     }
   },
   methods: {

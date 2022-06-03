@@ -157,7 +157,7 @@
         "type": "submit",
         "name": "submit",
         "component": "InputSubmit",
-        "class": "slide2"
+        "class": "slide2 neueBit"
       }
     }
   },
@@ -279,7 +279,7 @@
         "type": "submit",
         "name": "submit",
         "component": "InputSubmit",
-        "class": "face"
+        "class": "face neueBit"
       }
     }
   },
@@ -300,9 +300,9 @@
         "name": "eloquentHonest",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 6,
-        "class": ""
+        "class": "blurry"
       },
       "creativeLogic": {
         "locales": {
@@ -319,9 +319,9 @@
         "name": "creativeLogic",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 6,
-        "class": ""
+        "class": "blurry"
       },
       "courageousGreedy": {
         "locales": {
@@ -338,9 +338,9 @@
         "name": "courageousGreedy",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 6,
-        "class": ""
+        "class": "blurry"
       },
       "hyperactiveSensitive": {
         "locales": {
@@ -357,9 +357,9 @@
         "name": "hyperactiveSensitive",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 6,
-        "class": ""
+        "class": "blurry"
       },
       "IQ": {
         "locales": {

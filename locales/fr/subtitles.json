@@ -33,7 +33,7 @@
   "form1_age_change": "Voila qui est mieux",
 
 
-  "form1_loading_speech": "J’ai vraiment hâte de voir votre bébé pas vous?",
+  "form1_loading_speech1": "J’ai vraiment hâte de voir votre bébé pas vous?",
   
   
   "form2_intro_speech1": "Je me dois de vous informer qu’il ne part pas sur une très belle base.. Heureusement, vous avez la possibilité de changer ce qu’il vous plaira grâce à nos multiples options! Profitez-en, et testez toutes nos fonctionnalités.",
@@ -69,24 +69,29 @@
   "form2_skinTint_small": "Il est un peu palot j'ai l'impression ?",
   "form2_skinTint_different": "C’est le fils du facteur ?",
 
-  "form3_intro_speech": "Mais quel réalisme! N’est-ce pas fabuleux ? Par contre êtes-vous sûr qu’il est de vous ? Haha",
-  "form3_intro_speech2": "Maintenant choisissez sa personnalité pour éviter toute déviance à l’adolescence",
+  "form3_intro_speech1": "Mais quel réalisme! N’est-ce pas fabuleux ? Par contre êtes-vous sûr qu’il est de vous ? Haha",
+
   "form3_IQ_change": "Méfions-nous des apparences! Qu’a-t-il dans le crâne ce petit? Souhaitez-vous qu’il soit intelligent?",
   "form3_IQ_change2": "Il faut beaucoup de place pour tous ces neurones",
+
   "form3_IQ_big": "Seuls les imbéciles sont heureux.",
   "form3_IQ_small": "C'est pas le couteau le mieux aiguisé du tiroir.",
   
+  "form3_personality_speech1": "Maintenant choisissez sa personnalité pour éviter toute déviance à l’adolescence",
+
   "form3_personality_different": "Ça veut pas se mouiller à ce que je vois.",
   "form3_personality_same": "Tel parent, tel enfant !",
-  "form3_courageousGreedy_courageous": "Qui dit courageux, dit bagarreur",
-  "form3_courageousGreedy_greedy": "Je suis d’accord avec vous, L’argent, ça ne pousse pas dans les arbres!",
-  "form3_eloquentHonest_eloquent": "Arnaqueur de tinder, il pourra bien vous mettre en sécurité!!",
+
+  "form3_courageousGreedy_small": "Qui dit courageux, dit bagarreur",
+  "form3_courageousGreedy_big": "Je suis d’accord avec vous, L’argent, ça ne pousse pas dans les arbres!",
+  "form3_eloquentHonest_small": "Arnaqueur de tinder, il pourra bien vous mettre en sécurité!!",
   "form3_creativeLogic_change": "Créatif ou logique, et oui, on ne peut pas avoir le beurre et l’argent du beurre qu’est-ce que vous croyez?",
-  "form3_creativeLogic_logic": "Un esprit logique! Comme moi!",
-  "form3_hyperactiveSensitive_hyperactive": "Des pilules SuperCalm sont fournis avec pour vous aidez à le tenir. Chez childExpress on pense à tout!",
-  "form3_hyperactiveSensitive_hypersensitive": "Sortez les mouchoirs!",
+  "form3_creativeLogic_big": "Un esprit logique! Comme moi!",
+  "form3_hyperactiveSensitive_small": "Des pilules SuperCalm sont fournis avec pour vous aidez à le tenir. Chez childExpress on pense à tout!",
+  "form3_hyperactiveSensitive_big": "Sortez les mouchoirs!",
   
   "form3_personality_filled": "Il n’y a que les imbéciles qui ne changent pas d’avis!",
+  
   "form3_personality_lawyer": "Avocat d’intelligence artificielle! Pas très honnête mais lucratif",
   "form3_personality_tinder": "Arnaqueur de tinder, vous en avez de la chance!!",
   "form3_personality_NFT": "Artisan NFT, espérons qu’il vous rapporte",
@@ -106,13 +111,13 @@
   
   "form3_personality_other": "Bon… Je n’aurais peut-être pas choisi comme vous finalement",
   
-  "form3_xtra_speech": "Grâce à l’offre premium il vous est possible de choisir parmis ces 4 options pour améliorer considérablement les capacités de votre futur bébé!",
+  "form3_xtra_speech1": "Grâce à l’offre premium il vous est possible de choisir parmis ces 4 options pour améliorer considérablement les capacités de votre futur bébé!",
   "form3_xtra_skip1": "Vous êtes sûrs?",
   "form3_xtra_skip2": "Ah bon, déjà?",
   "form3_xtra_skip3": "Encore un bébé standard…Bon...",
   "form3_xtra_skip4": "Impliquez vous d’avantage si vous voulez que votre enfant vous reconnaisse.",  
   
-  "form3_loading_speech": "Le miracle de la vie...",
+  "form3_loading_speech1": "Le miracle de la vie...",
   
   "form4_intro_speech1": "Bonjour au petit nouveau !",
   "form4_intro_speech2": "Alors!? Heureux?",

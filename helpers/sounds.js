@@ -60,6 +60,7 @@ export default class Sounds {
           break;
         // If radio, divide by length in the radio input
         case 'radio':
+          console.log(value, step, name)
           if (name === 'gender') {
             if (value === '0') {
               this.store.updateSubtitle(`${step}_${name}_man`)
@@ -71,8 +72,16 @@ export default class Sounds {
               this.store.updateSubtitle(`${step}_${name}_nonbinary`)
               return;
             }
+          } else if (step === 'form3' && name === 'creativeLogic') {
+            this.store.updateSubtitle(`${step}_${name}_change`)
+            return;
+          } else if (step === 'form3' && value.length === 4) {
+            console.log(value)
+            this.store.updateSubtitle(`${step}_${name}_${this.jobAssociation(value)}`)
+            return;
           } else {
             this.defaultCase(value, step, name)
+            return;
           }
           break;
         default:
@@ -88,6 +97,43 @@ export default class Sounds {
       this.store.updateSubtitle(`${step}_${name}_small`)
     } else if (value >= 0.8) {
       this.store.updateSubtitle(`${step}_${name}_big`)
+    }
+  }
+
+  jobAssociation(value) {
+    switch (value) {
+      case '1000':
+        return 'lawyer';
+      case '1001':
+        return 'engineer';
+      case '1010':
+        return 'tinder';
+      case '1011':
+        return 'musician';
+      case '1100':
+        return 'rap';
+      case '1101':
+        return 'doctor';
+      case '1110':
+        return 'mason';
+      case '1111':
+        return 'NFT';
+      case '0111':
+        return 'homeless';
+      case '0011':
+        return 'influencer';
+      case '0101':
+        return 'crypto';
+      case '0110':
+        return 'footballer';
+      case '0001':
+        return 'president';
+      case '0100':
+        return 'facetime';
+      case '0010':
+        return 'estate';
+      case '0000':
+        return 'chatbot';
     }
   }
 }

@@ -17,7 +17,8 @@ module.exports = {
     extend: {
       animation: {
         'bounce-in': 'bounceIn 1s ease forwards',
-        'bounce-out': 'bounceOut 1s ease forwards'
+        'bounce-out': 'bounceOut 1s ease forwards',
+        'unblur': 'unBlur 1s ease forwards'
       },
       keyframes: {
         bounceIn: {
@@ -46,6 +47,17 @@ module.exports = {
           '100%': {
             opacity: 0,
             transform: 'scale3d(0.3, 0.3, 0.3)'
+          }
+        },
+        unBlur: {
+          '0%': {
+            transform: 'scale3d(0.9, 0.9, 0.9)',
+            opacity: 1
+          },
+          '100%': {
+            transform: 'scale3d(0.9, 0.9, 0.9)',
+            transform: 'scale3d(1, 1, 1)',
+            opacity: 1
           }
         }
       }

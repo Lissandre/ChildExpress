@@ -75,11 +75,12 @@ export default {
 <style scoped>
 
 .progress-bar {
-  font-family: 'NeueWorld';
+font-family: 'roc-grotesk-wide';
   text-transform: uppercase;
+  font-size: 14px
 }
 .active {
-  font-size: 22px;
+  font-size: 16px;
   width: 56px;
   height: 56px;
 }
