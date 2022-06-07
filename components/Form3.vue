@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col relative h-full w-full">
-    <form @submit.prevent="prevent">
+    <form @submit.prevent="prevent" class="h-full w-full">
       <component
         v-for="(input, name, fieldsetIndex) in inputs"
         :key="input.name"
@@ -26,17 +26,16 @@
       ></component>
     </form>
 
-    <h2>Métier :</h2>
-    <p class="text-5xl text-white font-semibold z-[1]" v-if="newJob === 'none'">
+    <p style="left: 15%;" class="text-5xl text-white font-semibold z-[1] bottom-1/3 absolute roc" v-if="newJob === 'none'">
       {{ $t(`job.${this.newJob}`) }}
     </p>
     <p
-      class="text-5xl text-white font-semibold z-[1]"
+      style="left: 15%;" class="text-5xl text-white font-semibold z-[1] bottom-1/3 absolute roc"
       v-else-if="newJob !== 'none' && jobs.length > 3"
     >
       {{ $t(`job.${this.newJob}`) }}
     </p>
-    <p class="text-5xl text-white font-semibold z-[1]" v-else>
+    <p style="left: 15%;" class="text-5xl text-white font-semibold z-[1] bottom-1/3 absolute roc" v-else>
       {{ $t(`${this.newJob}`) }}
     </p>
   </div>

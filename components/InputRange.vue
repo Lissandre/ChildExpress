@@ -1,6 +1,6 @@
 <template>
   <div
-    class="pb-4 text-gray-500 pointer-events-auto relative left-60 mt-[100px]"
+    class="text-gray-500 pointer-events-auto relative"
   >
     <fieldset :class="`animate-bounce-in ${input.class}`">
       <p v-if="input.class != 'bubble-range'">{{ locale }}</p>
@@ -18,7 +18,7 @@
       />
     </fieldset>
     <span
-      v-if="input.class === 'bubble-range'"
+      v-if="input.class.includes('bubble-range')"
       ref="bubble"
       class="bubble"
     ></span>
@@ -66,7 +66,13 @@ export default {
   mounted() {
     this.sliderTint = document.querySelector('.skinTint input')
     this.sliderType = document.querySelector('.skinType input')
-    if (this.$refs.bubble) this.$refs.bubble.innerHTML = 10
+
+    console.log(this.sliderTint)
+    if (this.$refs.bubble) {
+      this.$refs.bubble.innerHTML = 50 + ' cm'
+      this.$refs.bubble.style.bottom = `calc(${100 / 2}% + 15px)`
+    }
+
 
     
     // To refactor, some day
@@ -96,7 +102,7 @@ export default {
       const max = el.max ? el.max : 100
       const newVal = Number(((val - min) * 100) / (max - min))
       this.$refs.bubble.style.bottom = `calc(${newVal / 2}% + 15px)`
-      this.$refs.bubble.innerHTML = newVal
+      this.$refs.bubble.innerHTML = newVal + ' cm'
     },
 
     updateThumb(e) {
@@ -176,7 +182,7 @@ export default {
 .bubble-range input {
   -webkit-appearance: slider-vertical; /* WebKit */
   width: 50px;
-  height: 200px;
+  height: 350px;
   padding: 0 24px;
   outline: none;
   background: transparent;
@@ -186,8 +192,8 @@ export default {
 .bubble-range input::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none; /* également nécessaire sur le curseur */
-  height: 2em;
-  padding: 0.5em; /* largeur du bord */
+  height: 2rem;
+  padding: 0.5rem; /* largeur du bord */
   border-radius: 50%;
   box-shadow: 0px 4px 7px rgba(15, 84, 228, 0.56);
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
@@ -200,8 +206,8 @@ export default {
 .range input::-moz-range-thumb,
 .bubble-range input::-moz-range-thumb {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
-  height: 2em;
-  padding: 0.5em; /* largeur du bord */
+  height: 2rem;
+  padding: 0.5rem; /* largeur du bord */
   border-radius: 50%;
   box-shadow: 0px 4px 7px rgba(15, 84, 228, 0.56);
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
@@ -213,8 +219,8 @@ export default {
 .range input::-ms-thumb,
 .bubble-range input::-ms-thumb {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
-  height: 2em;
-  padding: 0.5em; /* largeur du bord */
+  height: 2rem;
+  padding: 0.5rem; /* largeur du bord */
   border-radius: 50%;
   box-shadow: 0px 4px 7px rgba(15, 84, 228, 0.56);
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
@@ -225,8 +231,8 @@ export default {
 }
 
 .bubble-range {
-  height: 14em;
-  width: 2em;
+  height: 25rem;
+  width: 2rem;
   position: relative;
   padding: 0px;
   display: flex;
@@ -242,7 +248,7 @@ export default {
 
 .color-range input {
   -webkit-appearance: none; /* également nécessaire sur le curseur */
-  width: 10em;
+  width: 10rem;
   height: inherit; /* s'adapte à la hauteur de l'input */
   border: none;
   border-radius: 20px; /* pris en compte sur Webkit et Edge */
@@ -262,6 +268,10 @@ export default {
     rgba(226, 207, 189, 1) 51%,
     rgba(52, 15, 9, 1) 100%
   );
+}
+
+.height-range input {
+  transform: rotate3d(0, 0, 1, 90deg) translate3d(50%, 50%, 0);
 }
 
 .skinType input {
@@ -292,27 +302,27 @@ export default {
   padding: 15px;
 }
 
-#skinTint,
-#skinType {
+#skinTint, #parentSkinTint,
+#skinType, #parentSkinType {
   box-shadow: none;
 }
-#skinTint::-webkit-slider-thumb {
+#skinTint::-webkit-slider-thumb, #parentSkinTint::-webkit-slider-thumb{
   background: var(--background1);
 }
-#skinTint::-moz-range-thumb {
+#skinTint::-moz-range-thumb, #parentSkinTint::-moz-range-thumb{
   background: var(--background1);
 }
-#skinTint::-ms-thumb {
+#skinTint::-ms-thumb, #parentSkinTint::-ms-thumb{
   background: var(--background1);
 }
 
-#skinType::-webkit-slider-thumb {
+#skinType::-webkit-slider-thumb, #parentSkinType::-webkit-slider-thumb {
   background: var(--background2);
 }
-#skinType::-moz-range-thumb {
+#skinType::-moz-range-thumb, #parentSkinType::-moz-range-thumb {
   background: var(--background2);
 }
-#skinType::-ms-thumb {
+#skinType::-ms-thumb, #parentSkinType::-ms-thumb {
   background: var(--background2);
 }
 </style>

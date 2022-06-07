@@ -1,5 +1,5 @@
 <template>
-  <div class="relative pb-4 text-gray-500 pointer-events-auto">
+  <div class="relative pointer-events-auto">
     <fieldset
       :class="`
         circle-slider
@@ -195,11 +195,21 @@ export default {
 }
 
 .IQvalue {
-  color: white;
-  font-size: 28px;
+  color: black;
+  font-size: 32px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.IQ {
+  box-shadow: inset 0px 11.5px 20px white, inset -5.82px -4.5px 6.5px 0px white;
+  left: 15%;
+}
+
+.IQ div svg circle:first-of-type {
+  stroke: white;
+  stroke-width: 2px;
 }
 </style>

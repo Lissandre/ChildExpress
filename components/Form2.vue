@@ -2,7 +2,7 @@
   <div class="flex flex-col relative h-full w-full">
     <Focus />
 
-    <form @submit.prevent="prevent">
+    <form @submit.prevent="prevent" class="h-full w-full">
       <div class="face">
         <component
           v-for="input in inputs"

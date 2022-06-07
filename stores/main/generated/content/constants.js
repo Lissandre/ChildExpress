@@ -2,6 +2,7 @@ export default {
   GENDER: 'gender',
   LIFEQUALITY: 'lifeQuality',
   WEIGHT: 'weight',
+  PARENTSCALE: 'parentScale',
   HEALTH: 'health',
   PARENTSKINTINT: 'parentSkinTint',
   PARENTSKINTYPE: 'parentSkinType',

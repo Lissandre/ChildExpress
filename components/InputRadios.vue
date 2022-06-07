@@ -1,6 +1,6 @@
 <template>
   <div
-    class="pb-4 text-gray-500 pointer-events-auto flex left-1/3 mt-[100px]"
+    class="pointer-events-auto"
     style="justify-content: right"
   >
     <fieldset
@@ -25,38 +25,39 @@
       />
       <span class="checkmark"></span>
       <p class="w-20 w-max text-white">{{ locale.label2 }}</p>
-
-      <div class="star-rating star-5" v-if="input.class.includes('rating')">
-        <input
-          type="radio"
-          name="rating"
-          value="1"
-          @input="() => update((e = { target: { value: 1 } }))"
-        /><i></i>
-        <input
-          type="radio"
-          name="rating"
-          value="2"
-          @input="() => update((e = { target: { value: 2 } }))"
-        /><i></i>
-        <input
-          type="radio"
-          name="rating"
-          value="3"
-          @input="() => update((e = { target: { value: 3 } }))"
-        /><i></i>
-        <input
-          type="radio"
-          name="rating"
-          value="4"
-          @input="() => update((e = { target: { value: 4 } }))"
-        /><i></i>
-        <input
-          type="radio"
-          name="rating"
-          value="5"
-          @input="() => update((e = { target: { value: 5 } }))"
-        /><i></i>
+      <div class="star-background" v-if="input.class.includes('rating')">
+        <div class="star-rating star-5">
+          <input
+            type="radio"
+            name="rating"
+            value="1"
+            @input="() => update((e = { target: { value: 1 } }))"
+          /><i></i>
+          <input
+            type="radio"
+            name="rating"
+            value="2"
+            @input="() => update((e = { target: { value: 2 } }))"
+          /><i></i>
+          <input
+            type="radio"
+            name="rating"
+            value="3"
+            @input="() => update((e = { target: { value: 3 } }))"
+          /><i></i>
+          <input
+            type="radio"
+            name="rating"
+            value="4"
+            @input="() => update((e = { target: { value: 4 } }))"
+          /><i></i>
+          <input
+            type="radio"
+            name="rating"
+            value="5"
+            @input="() => update((e = { target: { value: 5 } }))"
+          /><i></i>
+        </div>
       </div>
     </fieldset>
   </div>
@@ -128,6 +129,21 @@ fieldset input[type='radio']:checked::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
 
+.star-background {
+  background: radial-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.8)
+  ) !important;
+  border-radius: 40px !important;
+  height: 60px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
 .star-rating {
   font-size: 0;
   white-space: nowrap;
@@ -137,7 +153,7 @@ fieldset input[type='radio']:checked::before {
   position: relative;
   background: url('@/assets/images/StarEmpty.svg');
   background-size: contain;
-  height: 47.5px;
+  height: 40.5px;
 }
 .star-rating i {
   opacity: 0;
@@ -192,7 +208,7 @@ fieldset input[type='radio']:checked::before {
 }
 
 .star-rating.star-5 {
-  width: 250px;
+  width: 210px;
 }
 .star-rating.star-5 input,
 .star-rating.star-5 i {
@@ -231,15 +247,19 @@ fieldset input[type='radio']:checked::before {
 }
 .eyes-color input:nth-of-type(1) {
   background: #b1cf99;
+  filter: drop-shadow(1px 7px 7px rgba(177, 207, 153, 0.38));
 }
 .eyes-color input:nth-of-type(2) {
   background: #4b6eb8;
+  filter: drop-shadow(1px 7px 7px rgba(75, 110, 184, 0.38));
 }
 .eyes-color input:nth-of-type(3) {
   background: #85633b;
+  filter: drop-shadow(1px 7px 7px rgba(133, 99, 59, 0.38));
 }
 .eyes-color input:nth-of-type(4) {
   background: #321c07;
+  filter: drop-shadow(1px 7px 7px rgba(50, 28, 7, 0.38));
 }
 
 .eyes-color input::before {
@@ -249,29 +269,27 @@ fieldset input[type='radio']:checked::before {
   outline: 4px solid rgba(15, 84, 228, 1);
 }
 
-
-
 .hair-color input {
   border-radius: 10px !important;
   box-shadow: none !important;
 }
 .hair-color input:nth-of-type(1) {
-  background: #DDC075;
+  background: #ddc075;
 }
 .hair-color input:nth-of-type(2) {
-  background: #BC580F;
+  background: #bc580f;
 }
 .hair-color input:nth-of-type(3) {
-  background: #A1815A;
+  background: #a1815a;
 }
 .hair-color input:nth-of-type(4) {
-  background: #85633B;
+  background: #85633b;
 }
 .hair-color input:nth-of-type(5) {
-  background: #5E390D;
+  background: #5e390d;
 }
 .hair-color input:nth-of-type(6) {
-  background: #321C07;
+  background: #321c07;
 }
 
 .hair-color input::before {
@@ -318,6 +336,6 @@ fieldset input[type='radio']:checked::before {
 .parentGender label {
   flex-basis: auto;
   margin-bottom: 0;
-  font-size: 32px;
+  font-size: 26px;
 }
 </style>

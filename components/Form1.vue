@@ -58,11 +58,11 @@
           </div>
           <div class="card_bottom">
             <div class="creation_date">
-              <span>Date de fabrication :</span>
+              <span class="neueBit label">Date de fabrication :</span>
               <span> {{ getTodayDate() }}</span>
             </div>
             <div class="society">
-              <span>Société de naissance :</span>
+              <span class="neueBit label">Société de naissance :</span>
               <div class="logo"></div>
             </div>
           </div>
@@ -120,11 +120,11 @@ export default {
         }
       })
       setTimeout(() => {
-        this.$helpers.updateInput(e.type, e.type, e.type)
+        this.$helpers.updateInput(e.type, e.type, e.type, 'form1')
       }, 1000)
     },
     inputChange(type, name, value, optional) {
-      this.$helpers.updateInput(type, name, value)
+      this.$helpers.updateInput(type, name, value, 'form1')
 
       if ((type === 'radio' || type === 'roundSlider') && name !== 'gender') {
         console.log(value, optional)
@@ -176,7 +176,7 @@ export default {
 .first-slide fieldset {
   background: none;
   border: 1px solid white;
-  border-radius: 34px;
+  border-radius: 20px;
 }
 
 .second-slide {
@@ -197,8 +197,13 @@ export default {
 .second-slide .submit-wrapper {
   position: absolute;
   bottom: 0;
+  right: 0;
 }
-
+.second-slide .submit-wrapper > input{
+    right: -25%;
+    position: absolute;
+    bottom: -100%;
+}
 .framed {
   width: 256px;
   height: 338px;
@@ -229,10 +234,12 @@ export default {
 }
 
 .framed_title {
-  font-size: 42px;
+  font-size: 52px;
   text-shadow: 0px 1px 32px white;
   color: white;
   margin-left: 30px;
+  font-family: 'NeueBit';
+  font-weight: 700;
 }
 
 .card_bottom {
@@ -247,9 +254,16 @@ export default {
   width: fit-content;
   display: inline-block;
   position: relative;
-  margin-right: 40px;
   padding: 20px;
   font-size: 18px;
+}
+.creation_date .label,
+.society .label {
+  font-size: 24px;
+}
+
+.creation_date {
+  margin-right: 40px;
 }
 
 .card_bottom::before {
@@ -306,7 +320,6 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-150%, -50%);
-  font-family: 'NeueMontreal';
 }
 
 .first-slide {

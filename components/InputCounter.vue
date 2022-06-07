@@ -1,14 +1,27 @@
 <template>
-  <div class="mt-20 pb-4 text-gray-500 left-1/3 pointer-events-auto counter-wrapper">
+  <div
+    class="
+      mt-20
+      pb-4
+      text-gray-500
+      left-1/3
+      pointer-events-auto
+      counter-wrapper
+    "
+  >
     <fieldset :class="`animate-bounce-in left-60 ${input.class}`">
-      <button @click="(e) => update(e, 'plus')" class="text-blue text-4xl">+</button>
+      <button @click="(e) => update(e, 'plus')" class="text-blue text-4xl">
+        +
+      </button>
       <div class="content">
         <h2>{{ counterValue }}</h2>
         <p>{{ input.unit }}</p>
       </div>
-      <button @click="(e) => update(e, 'minus')" class="text-blue text-4xl">-</button>
-        <p>{{ locale.label1 }}</p>
+      <button @click="(e) => update(e, 'minus')" class="text-blue text-4xl">
+        -
+      </button>
     </fieldset>
+      <p class="counter-label">{{ locale.label1 }}</p>
   </div>
 </template>
 
@@ -31,7 +44,7 @@ export default {
       } else {
         this.counterValue--
       }
-      this.$emit( 
+      this.$emit(
         'updateInput',
         this.input.type,
         this.input.name,
@@ -60,7 +73,7 @@ fieldset button {
   width: 60px;
 }
 fieldset button:hover {
-  transform: scale3d(1, 1, 1)
+  transform: scale3d(1, 1, 1);
 }
 fieldset .content {
   display: flex;

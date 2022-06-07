@@ -172,4 +172,18 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   transition: all ease-out 0.5s;
   pointer-events: none;
 }
+
+.roc {
+  font-family: 'roc-grotesk';
+}
+
+.light-background {
+    background: radial-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.8)
+  ) !important;
+  border-radius: 40px !important;
+}
 </style>
