@@ -24,10 +24,45 @@
       style="transform: translate3d(-50%, -50%, 0)"
     >
       <canvas
-        id="_canvas2"
+        id="glslCanvas"
         ref="canvas2"
-        class="absolute z-0"
-        style="width: 100vw; height: 100vh"
+        class="glslCanvas absolute z-0"
+        data-fragment="
+          #ifdef GL_ES
+          precision mediump float;
+          #endif
+
+          uniform vec2 u_resolution;
+          uniform float u_time;
+
+          vec3 mainColor = vec3(0.760,0.888,0.995);
+          vec3 accentColor = vec3(0.909,0.011,0.955);
+
+          float grain(vec2 uv){
+              float mdf = 0.05;
+              float noise = (fract(sin(dot(uv + u_time*0.001, vec2(12.9898,78.233)*2.0)) * 43758.5453));
+              return noise * mdf;
+          }
+
+          void main() {
+              vec2 st = gl_FragCoord.xy/u_resolution.xy;
+              st.y /= u_resolution.x/u_resolution.y;
+            
+              vec3 color = mainColor;
+              color -= grain(st);
+            
+              vec2 accentPos = vec2(sin(u_time*0.3), cos(u_time*0.3))*0.5;
+              vec3 accent = max(0., 1.-distance(accentPos,st)) * accentColor;
+              color += accent*0.2;
+              
+              float floor = smoothstep(0.8,0.9,1.-st.y) * 1.-distance(st.x,0.5);
+              color += floor * 0.1;
+              
+              gl_FragColor = vec4(color,1.0);
+          }
+        "
+        width="100vw"
+        height="100vh"
       ></canvas>
       <div
         class="
@@ -49,6 +84,11 @@
 </template>
 
 <script>
+let glslCanvas = null
+if (process.client) {
+  glslCanvas = require('glslCanvas')
+}
+
 export default {
   data() {
     return {
@@ -57,15 +97,24 @@ export default {
   },
   mounted() {
     this.$scene.setCanvas(this.$refs.canvas1)
-    if (this.$backgroundScene.assets.needsLoad) {
-      this.isLoading = true
-      this.$backgroundScene.assets.on('ressourcesReady', () => {
-        this.$backgroundScene.init({ canvas: this.$refs.canvas2 })
-        this.isLoading = false
-      })
-    } else {
-      this.$backgroundScene.init({ canvas: this.$refs.canvas2 })
-    }
+
+    this.$refs.canvas2.width = window.innerWidth
+    this.$refs.canvas2.height = window.innerHeight
+    window.addEventListener('resize', () => {
+      this.$refs.canvas2.width = window.innerWidth
+      this.$refs.canvas2.height = window.innerHeight
+    })
+    // if()
+
+    // if (this.$backgroundScene.assets.needsLoad) {
+    //   this.isLoading = true
+    //   this.$backgroundScene.assets.on('ressourcesReady', () => {
+    //     this.$backgroundScene.init({ canvas: this.$refs.canvas2 })
+    //     this.isLoading = false
+    //   })
+    // } else {
+    //   this.$backgroundScene.init({ canvas: this.$refs.canvas2 })
+    // }
   },
 }
 </script>

@@ -21,6 +21,7 @@
     "@tweakpane/plugin-essentials": "^0.1.4",
     "core-js": "^3.19.3",
     "file-loader": "^6.2.0",
+    "glslCanvas": "^0.1.7",
     "glslify-loader": "^2.0.0",
     "gsap": "^3.9.1",
     "nuxt": "^2.15.8",
