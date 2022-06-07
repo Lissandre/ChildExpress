@@ -132,8 +132,6 @@ export default {
         console.log(value)
       }
       $nuxt.$emit('updateSound', 'form1', type, name, value)
-
-      console.log(this.store.ranges)
     },
     soundEvents() {
       requestAnimationFrame(() => {
@@ -179,7 +177,6 @@ export default {
   background: none;
   border: 1px solid white;
   border-radius: 34px;
-  box-shadow: 0 1px 9px #fff;
 }
 
 .second-slide {
@@ -292,6 +289,10 @@ export default {
   padding-right: 0;
   margin-top: 0;
 }
+
+.weight, .weight button{
+  background: radial-gradient( rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8) ) !important;
+}
 </style>
 
 <style scoped>
@@ -311,6 +312,9 @@ export default {
 .first-slide {
   width: 80vw;
   left: 65%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .second-slide {

@@ -1,12 +1,12 @@
 <template>
   <div class="mt-20 pb-4 text-gray-500 left-1/3 pointer-events-auto counter-wrapper">
     <fieldset :class="`animate-bounce-in left-60 ${input.class}`">
-      <button @click="(e) => update(e, 'plus')" class="text-blue">+</button>
+      <button @click="(e) => update(e, 'plus')" class="text-blue text-4xl">+</button>
       <div class="content">
         <h2>{{ counterValue }}</h2>
         <p>{{ input.unit }}</p>
       </div>
-      <button @click="(e) => update(e, 'minus')" class="text-blue">-</button>
+      <button @click="(e) => update(e, 'minus')" class="text-blue text-4xl">-</button>
         <p>{{ locale.label1 }}</p>
     </fieldset>
   </div>

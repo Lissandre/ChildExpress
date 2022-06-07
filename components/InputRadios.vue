@@ -249,10 +249,42 @@ fieldset input[type='radio']:checked::before {
   outline: 4px solid rgba(15, 84, 228, 1);
 }
 
+
+
+.hair-color input {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+.hair-color input:nth-of-type(1) {
+  background: #DDC075;
+}
+.hair-color input:nth-of-type(2) {
+  background: #BC580F;
+}
+.hair-color input:nth-of-type(3) {
+  background: #A1815A;
+}
+.hair-color input:nth-of-type(4) {
+  background: #85633B;
+}
+.hair-color input:nth-of-type(5) {
+  background: #5E390D;
+}
+.hair-color input:nth-of-type(6) {
+  background: #321C07;
+}
+
+.hair-color input::before {
+  display: none !important;
+}
+.hair-color input:checked {
+  outline: 4px solid rgba(15, 84, 228, 1);
+}
+
 .gender {
   display: flex;
   flex-wrap: wrap;
-    width: max-content;
+  width: max-content;
 }
 
 .gender label {
@@ -281,5 +313,11 @@ fieldset input[type='radio']:checked::before {
 }
 .gender input:nth-child(4)::after {
   content: 'Non-binaire';
+}
+
+.parentGender label {
+  flex-basis: auto;
+  margin-bottom: 0;
+  font-size: 32px;
 }
 </style>

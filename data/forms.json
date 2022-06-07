@@ -4,6 +4,22 @@
       "titleSlide2": "Carte d'identité"
     },
     "inputs": {
+      "parentGender": {
+        "locales": {
+          "fr": {
+            "label1": "Sexe"
+          },
+          "en": {
+            "label1": "Sexe"
+          }
+        },
+        "type": "radio",
+        "name": "gender",
+        "component": "InputRadios",
+        "value": 0.5,
+        "length": 2,
+        "class": "gender parentGender slide1 neueBit"
+      },
       "lifeQuality": {
         "locales": {
           "fr": {
@@ -30,7 +46,112 @@
           }
         },
         "type": "checkbox",
-        "name": "courageux",
+        "name": "courageous",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1"
+      },
+      "eloquent": {
+        "locales": {
+          "fr": {
+            "label1": "Éloquent"
+          },
+          "en": {
+            "label1": "Eloquent"
+          }
+        },
+        "type": "checkbox",
+        "name": "eloquent",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1"
+      },
+      "honest": {
+        "locales": {
+          "fr": {
+            "label1": "Honnête"
+          },
+          "en": {
+            "label1": "Honest"
+          }
+        },
+        "type": "checkbox",
+        "name": "honest",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1"
+      },
+      "greedy": {
+        "locales": {
+          "fr": {
+            "label1": "Econome"
+          },
+          "en": {
+            "label1": "Greedy"
+          }
+        },
+        "type": "checkbox",
+        "name": "greedy",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1"
+      },
+      "hypersensitive": {
+        "locales": {
+          "fr": {
+            "label1": "Hypersensible"
+          },
+          "en": {
+            "label1": "Hypersensitive"
+          }
+        },
+        "type": "checkbox",
+        "name": "hypersensitive",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1"
+      },
+      "logic": {
+        "locales": {
+          "fr": {
+            "label1": "Logique"
+          },
+          "en": {
+            "label1": "Logic"
+          }
+        },
+        "type": "checkbox",
+        "name": "logic",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1"
+      },
+      "hyperactive": {
+        "locales": {
+          "fr": {
+            "label1": "Hyperactif"
+          },
+          "en": {
+            "label1": "Hyperactive"
+          }
+        },
+        "type": "checkbox",
+        "name": "hyperactive",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1"
+      },
+      "creative": {
+        "locales": {
+          "fr": {
+            "label1": "Créatif"
+          },
+          "en": {
+            "label1": "Creative"
+          }
+        },
+        "type": "checkbox",
+        "name": "creative",
         "component": "InputCheckbox",
         "value": 0,
         "class": "slide1"
@@ -50,9 +171,9 @@
         "value": 1,
         "length": 3,
         "unit": "kg",
-        "class": "flex flex-col justify-center text-2xl slide1"
+        "class": "flex flex-col justify-center text-2xl slide1 weight"
       },
-      "health": {
+      "parentHealth": {
         "locales": {
           "fr": {
             "label1": "Santé"
