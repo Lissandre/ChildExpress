@@ -209,8 +209,15 @@ export default {
   top: 30vh;
 }
 
+.IQ div svg {
+  filter: drop-shadow(5px 4px 7px white);
+}
 .IQ div svg circle:first-of-type {
   stroke: white;
   stroke-width: 2px;
+}
+
+.IQ div svg path {
+  filter: drop-shadow(5px 4px 7px rgba(15, 84, 228, 33%));
 }
 </style>

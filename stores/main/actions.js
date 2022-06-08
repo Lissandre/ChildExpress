@@ -34,7 +34,7 @@ export const actions = {
     // console.log(newValue)
     // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
-  changeCounter(id, newValue) {
+  changeCounter(id, newValue, step) {
     if (step != 'form1') this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   toggleIsHealthy(newValue) {

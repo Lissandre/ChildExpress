@@ -36,6 +36,15 @@
         "length": 5,
         "class": "rating slide1"
       },
+      "eyesColor": {
+        "type": "radio",
+        "name": "eyesColor",
+        "effect": "eyesColor",
+        "component": "InputRadios",
+        "value": 2,
+        "length": 4,
+        "class": "eyes-color middle"
+      },
       "courageous": {
         "locales": {
           "fr": {
@@ -156,7 +165,7 @@
         "value": 0,
         "class": "slide1 light-background"
       },
-      "weight": {
+      "parentWeight": {
         "locales": {
           "fr": {
             "label1": "Poids"
@@ -168,7 +177,7 @@
         "type": "counter",
         "name": "weight",
         "component": "InputCounter",
-        "value": 1,
+        "value": 65,
         "length": 3,
         "unit": "kg",
         "class": "flex flex-col justify-center text-2xl slide1 weight"
@@ -406,7 +415,7 @@
         "length": 4,
         "class": "eyes-color middle"
       },
-      "submit": {
+      "submitFace": {
         "locales": {
           "fr": "Suivant",
           "en": "Submit"
@@ -415,6 +424,16 @@
         "name": "submit",
         "component": "InputSubmit",
         "class": "face neueBit"
+      },
+      "submitMiddle": {
+        "locales": {
+          "fr": "Suivant",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submit",
+        "component": "InputSubmit",
+        "class": "middle neueBit"
       }
     }
   },
@@ -513,6 +532,16 @@
         "to": 300,
         "step": 1,
         "class": "IQ"
+      },
+      "submit": {
+        "locales": {
+          "fr": "Suivant",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submit",
+        "component": "InputSubmit",
+        "class": "neueBit"
       }
     }
   },
@@ -540,6 +569,12 @@
   },
   "job": {
     "inputs": {
+      "none": {
+        "locales": {
+          "fr": "Sans-abris",
+          "en": "Homeless"
+        }
+      },
       "1000": {
         "locales": {
           "fr": "Avocat d'intelligence artificielle",
@@ -555,7 +590,7 @@
       "1010": {
         "locales": {
           "fr": "Arnaqueur de Tinder",
-          "en": "The Tinder Swindler"
+          "en": "Tinder Swindler"
         }
       },
       "1001": {

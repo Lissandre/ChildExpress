@@ -1,6 +1,7 @@
 export default {
   GENDER: 'gender',
   LIFEQUALITY: 'lifeQuality',
+  EYESCOLOR: 'eyesColor',
   WEIGHT: 'weight',
   PARENTSCALE: 'parentScale',
   HEALTH: 'health',

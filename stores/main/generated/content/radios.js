@@ -1,6 +1,7 @@
 export default [
   { id: 'gender', value: 0.5 },
   { id: 'lifeQuality', value: 1 },
+  { id: 'eyesColor', value: 2 },
   { id: 'gender', value: 0.5 },
   { id: 'eyesColor', value: 2 },
   { id: 'eloquentHonest', value: 1 },

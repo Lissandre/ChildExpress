@@ -68,8 +68,11 @@ export default {
         }
       })
       setTimeout(() => {
-        if(this.store.isface === 'middle') this.$helpers.updateInput(e.type, e.type, e.type)
-        this.store.toggleIsFace('middle')
+        console.log(this.store.isFace)
+        if(this.store.isFace === 'middle') {
+          this.$helpers.updateInput(e.type, e.type, e.type)
+          this.store.isFace = 'body'
+        } else this.store.toggleIsFace('middle')
       }, 1000)
     },
 
@@ -106,5 +109,6 @@ export default {
 .face div:nth-child(1) {
   position: absolute;
   right: 30%;
+  top: 50%;
 }
 </style>
