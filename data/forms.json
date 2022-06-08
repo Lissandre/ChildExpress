@@ -291,7 +291,7 @@
         "from": 0,
         "to": 150,
         "step": 1,
-        "class": "slide2 second-slide-component"
+        "class": "slide2 second-slide-component age"
       },
       "submit": {
         "locales": {

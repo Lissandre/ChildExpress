@@ -29,18 +29,24 @@
     <div class="fieldJob absolute bottom-1/3 z-[1]" style="left: 15%">
       <p class="text-5xl text-white font-semibold roc" v-if="newJob === 'none'">
         {{ splitJob($t(`job.${this.newJob}`), true) }}
-        <span class="text-3xl neueBit block">{{ splitJob($t(`job.${this.newJob}`), false) }}</span>
+        <span class="text-3xl neueBit block">{{
+          splitJob($t(`job.${this.newJob}`), false)
+        }}</span>
       </p>
       <p
         class="text-5xl text-white font-semibold roc"
         v-else-if="newJob !== 'none' && jobs.length > 3"
       >
         {{ splitJob($t(`job.${this.newJob}`), true) }}
-        <span class="text-3xl neueBit block">{{ splitJob($t(`job.${this.newJob}`), false) }}</span>
+        <span class="text-3xl neueBit block">{{
+          splitJob($t(`job.${this.newJob}`), false)
+        }}</span>
       </p>
       <p class="text-5xl text-white font-semibold roc" v-else>
         {{ splitJob($t(`${this.newJob}`), true) }}
-        <span class="text-3xl neueBit block">{{ splitJob($t(`job.${this.newJob}`), false) }}</span>
+        <span class="text-3xl neueBit block">{{
+          splitJob($t(`job.${this.newJob}`), false)
+        }}</span>
       </p>
     </div>
   </div>
@@ -61,6 +67,7 @@ export default {
       jobs: new Array(),
       newJob: 'none',
       blurry: true,
+      xtra_selected: false,
     }
   },
   setup() {
@@ -114,7 +121,6 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
         this.newJob = 'Influenceur dans la pantoufle'
       }
 
-
       if (value !== 100 && this.blurry === true) {
         window.clearTimeout(this.timeout)
 
@@ -137,11 +143,14 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     },
     prevent(e) {
       e.preventDefault()
-      this.$helpers.updateInput(e.type, e.type, e.type)
+      if (xtra_selected) {
+        this.$helpers.updateInput(e.type, e.type, e.type)
+      } else {
+      }
     },
 
     splitJob(string, isFirstWord) {
-      if(isFirstWord) {
+      if (isFirstWord) {
         return string.split(' ')[0]
       } else {
         return this.removeFirstWord(string)
@@ -149,13 +158,13 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     },
 
     removeFirstWord(str) {
-      const indexOfSpace = str.indexOf(' ');
+      const indexOfSpace = str.indexOf(' ')
 
       if (indexOfSpace === -1) {
-        return '';
+        return ''
       }
 
-      return str.substring(indexOfSpace + 1);
+      return str.substring(indexOfSpace + 1)
     },
     soundEvents() {
       requestAnimationFrame(() => {

@@ -218,6 +218,7 @@ export default {
 .custom-select-wrapper {
   position: relative;
   background-color: transparent;
+  width: fit-content;
 }
 
 .custom-select-wrapper select {
@@ -243,12 +244,8 @@ export default {
   opacity: 1;
   pointer-events: auto;
   border: none;
-  border-top: 0;
   margin-top: -3px;
-}
-
-.custom-select-wrapper.open .custom-options li {
-  background-color: white;
+  border: 1px solid white !important;
 }
 .custom-select-wrapper.open .custom-options li span {
   position: relative;
@@ -313,6 +310,10 @@ export default {
   max-height: 290px;
   overflow: scroll;
   width: 100%;
+  background: #cdceff;
+  color: white;
+  font-size: 32px;
+  filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
 }
 
 .custom-option {
@@ -320,10 +321,11 @@ export default {
   display: block;
   padding: 0;
   opacity: 0;
-  font-size: 14px;
+  font-size: 18px;
   padding: 10px;
   cursor: pointer;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 .custom-option.selected {
   display: block;
@@ -335,25 +337,30 @@ export default {
 
 .custom-options::-webkit-scrollbar {
   -webkit-overflow-scrolling: auto;
-  width: 1px;
+  width: 6px;
+  right: 4px;
   height: 2px;
-  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: transparent;
 }
 
 .custom-options::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 1);
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 1px transparent;
 }
 
 .custom-options::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   -webkit-border-radius: 8px;
 }
 
 label {
   font-size: 14px;
+}
+
+.age {
+  height: fit-content;
 }
 </style>
 
