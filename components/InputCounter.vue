@@ -9,7 +9,7 @@
       counter-wrapper
     "
   >
-    <fieldset :class="`animate-bounce-in left-60 ${input.class}`">
+    <fieldset :class="`animate-bounce-in left-60 relative w-fit ${input.class}`">
       <button @click="(e) => update(e, 'plus')" class="text-blue text-4xl">
         +
       </button>

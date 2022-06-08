@@ -12,14 +12,13 @@
 
 <script>
 export default {
-  name: 'InputRange',
+  name: 'InputSubmit',
   props: ['input', 'locale'],
 
   data() {
     return {}
   },
   mounted() {},
-  methods: {
-  },
+  methods: {},
 }
 </script>

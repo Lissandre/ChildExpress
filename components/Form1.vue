@@ -7,36 +7,10 @@
     >
       <div class="my-slider">
         <div class="first-slide">
-          <component
-            v-for="input in inputs"
-            v-if="input.class.includes('slide1')"
-            :key="input.name"
-            :is="input.component"
-            :input="input"
-            v-on:updateInput="
-              (type, name, value, optional) =>
-                inputChange(type, name, value, optional)
-            "
-            ref="inputs"
-            :locale="
-              $t(
-                `form1.${slugify(`${input.type}_${input.name}`, {
-                  replacement: '_',
-                  lower: true,
-                })}`
-              )
-            "
-          ></component>
-        </div>
-        <div class="second-slide">
-          <div class="framed">
-            <span class="interrogation neueBit">?</span>
-          </div>
-          <div class="framed_inputs">
-            <h2 class="framed_title">Carte d'identité du bébé</h2>
+          <div class="first-slide-wrapper">
             <component
               v-for="input in inputs"
-              v-if="input.class.includes('slide2')"
+              v-if="input.class.includes('slide1')"
               :key="input.name"
               :is="input.component"
               :input="input"
@@ -53,17 +27,47 @@
                   })}`
                 )
               "
-              class="second-slide-component"
             ></component>
           </div>
-          <div class="card_bottom">
-            <div class="creation_date">
-              <span class="neueBit label">Date de fabrication :</span>
-              <span> {{ getTodayDate() }}</span>
+        </div>
+        <div class="second-slide">
+          <div class="second-slide-wrapper">
+            <div class="framed">
+              <span class="interrogation neueBit">?</span>
             </div>
-            <div class="society">
-              <span class="neueBit label">Société de naissance :</span>
-              <div class="logo"></div>
+            <div class="framed_inputs">
+              <h2 class="framed_title">Carte d'identité du bébé</h2>
+              <component
+                v-for="input in inputs"
+                v-if="input.class.includes('slide2')"
+                :key="input.name"
+                :is="input.component"
+                :input="input"
+                v-on:updateInput="
+                  (type, name, value, optional) =>
+                    inputChange(type, name, value, optional)
+                "
+                ref="inputs"
+                :locale="
+                  $t(
+                    `form1.${slugify(`${input.type}_${input.name}`, {
+                      replacement: '_',
+                      lower: true,
+                    })}`
+                  )
+                "
+                class="second-slide-component"
+              ></component>
+            </div>
+            <div class="card_bottom">
+              <div class="creation_date">
+                <span class="neueBit label">Date de fabrication :</span>
+                <span> {{ getTodayDate() }}</span>
+              </div>
+              <div class="society">
+                <span class="neueBit label">Société de naissance :</span>
+                <div class="logo"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -76,6 +80,7 @@
 import { useStore } from '@/stores/'
 import { form1 } from '@/data/forms.json'
 import slugify from 'slugify'
+import files from '~/locales/en'
 
 let tinySlider = null
 
@@ -112,13 +117,11 @@ export default {
   methods: {
     prevent(e) {
       e.preventDefault()
-      this.$refs.inputs.forEach((input) => {
-        const fieldset = input.$el.getElementsByTagName('fieldset')[0]
-        if (fieldset) {
-          fieldset.classList.remove('animate-bounce-in')
-          fieldset.classList.add('animate-bounce-out')
-        }
-      })
+      const fieldset = this.$el.querySelector('.second-slide-wrapper')
+      console.log(fieldset)
+      if (fieldset) {
+        fieldset.classList.add('animate-bounce-out')
+      }
       setTimeout(() => {
         this.$helpers.updateInput(e.type, e.type, e.type, 'form1')
       }, 1000)
@@ -179,7 +182,7 @@ export default {
   border-radius: 20px;
 }
 
-.second-slide {
+.second-slide-wrapper {
   background: none;
   transition: all ease-out 0.2s;
   z-index: 1;
@@ -199,10 +202,10 @@ export default {
   bottom: 0;
   right: 0;
 }
-.second-slide .submit-wrapper > input{
-    right: -25%;
+.second-slide .submit-wrapper > input {
     position: absolute;
-    bottom: -100%;
+    right: -50%;
+    bottom: -200%;
 }
 .framed {
   width: 256px;
@@ -231,6 +234,7 @@ export default {
   align-items: flex-start;
   width: 65%;
   padding-bottom: 80px;
+  position: relative;
 }
 
 .framed_title {
@@ -289,8 +293,7 @@ export default {
   width: 200px;
   color: black;
   display: inline-block;
-      vertical-align: middle;
-
+  vertical-align: middle;
 }
 
 .second-slide-component {
@@ -304,25 +307,40 @@ export default {
   margin-top: 0;
 }
 
-.weight, .weight button{
-  background: radial-gradient( rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8) ) !important;
+.weight,
+.weight button {
+  background: radial-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.8)
+  ) !important;
 }
 </style>
 
 <style scoped>
 .first-slide,
 .second-slide {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-slide {
+  position: absolute;
+  left: 50%;
+}
+
+.first-slide-wrapper,
+.second-slide-wrapper {
   width: 800px;
   height: 60%;
   max-height: 1200px;
   min-height: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-150%, -50%);
 }
 
-.first-slide {
+.first-slide-wrapper {
   width: 80vw;
   left: 65%;
   display: flex;
@@ -330,10 +348,9 @@ export default {
   flex-wrap: wrap;
 }
 
-.second-slide {
+.second-slide-wrapper {
   width: 900px;
   height: fit-content;
-  left: 100%;
   padding: 52px 63px;
 }
 </style>

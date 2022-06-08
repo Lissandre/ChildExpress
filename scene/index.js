@@ -128,23 +128,34 @@ export default class App {
     this.isFace = options.face
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
 
-    if (this.isFace) {
+    if (this.isFace === 'face') {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
         y: 4,
         z: -3,
         duration: 1,
         ease: Power3.easeOut,
-      })
-    } else {
+      }).then(this.camera.camera.controls.autoRotate = false)
+
+    } else if (this.isFace === 'middle') {
+      gsap.to(this.camera.camera.controls.target, {
+        x: 0,
+        y: 4,
+        z: -1,
+        duration: 1,
+        ease: Power3.easeOut,
+      }).then(this.camera.camera.controls.autoRotate = false)
+
+    } else if (this.isFace === 'body') {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
         y: 0,
         z: 0,
         duration: 1,
         ease: Power3.easeOut,
-      })
+      }).then(this.camera.camera.controls.autoRotate = true)
     }
+
   }
 
   changeRange(options) {

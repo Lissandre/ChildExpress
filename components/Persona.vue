@@ -39,7 +39,7 @@ export default {
   name: 'Persona',
   data() {
     return {
-        currentFocus: false
+        currentFocus: 'body'
     }
   },
   setup() {
@@ -62,7 +62,7 @@ export default {
     changeFocus() {
       console.log(this.personaBody)
       console.log(this.currentFocus)
-      if(this.currentFocus === true) {
+      if(this.currentFocus === 'face' || this.currentFocus === 'middle') {
         this.personaFace.classList.add('active')
         this.personaBody.classList.remove('active')
       } else {

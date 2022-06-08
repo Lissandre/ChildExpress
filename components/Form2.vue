@@ -6,7 +6,7 @@
       <div class="face">
         <component
           v-for="input in inputs"
-          v-if="input.class.includes(store.isFace ? 'face' : 'body')"
+          v-if="input.class.includes(store.isFace)"
           :key="input.name"
           :is="input.component"
           :input="input"
@@ -68,7 +68,8 @@ export default {
         }
       })
       setTimeout(() => {
-        this.$helpers.updateInput(e.type, e.type, e.type)
+        if(this.store.isface === 'middle') this.$helpers.updateInput(e.type, e.type, e.type)
+        this.store.toggleIsFace('middle')
       }, 1000)
     },
 
@@ -101,4 +102,9 @@ export default {
 
 
 <style scoped>
+
+.face div:nth-child(1) {
+  position: absolute;
+  right: 30%;
+}
 </style>

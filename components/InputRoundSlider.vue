@@ -206,6 +206,7 @@ export default {
 .IQ {
   box-shadow: inset 0px 11.5px 20px white, inset -5.82px -4.5px 6.5px 0px white;
   left: 15%;
+  top: 30vh;
 }
 
 .IQ div svg circle:first-of-type {

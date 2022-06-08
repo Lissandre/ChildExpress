@@ -1,11 +1,8 @@
 <template>
-  <div
-    class="pointer-events-auto"
-    style="justify-content: right"
-  >
+  <div class="pointer-events-auto" style="justify-content: right">
     <fieldset
       :id="input.name"
-      :class="`flex justify-around items-center animate-bounce-in ${input.class}`"
+      :class="`flex justify-around items-center animate-bounce-in relative w-fit ${input.class}`"
       @click="(e) => emitJob(e, fieldsetIndex)"
       :key="fieldsetIndex"
     >
@@ -128,7 +125,6 @@ fieldset input[type='radio']::before {
 fieldset input[type='radio']:checked::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
-
 .star-background {
   background: radial-gradient(
     rgba(0, 0, 0, 0),
@@ -142,7 +138,11 @@ fieldset input[type='radio']:checked::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  }
+}
+
+.rating {
+  width: fit-content;
+}
 
 .star-rating {
   font-size: 0;

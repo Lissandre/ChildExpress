@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col relative h-full w-full">
-    <form @submit.prevent="prevent" class="h-full w-full">
+    <form @submit.prevent="prevent" class="h-full w-full" id="#form3">
       <component
         v-for="(input, name, fieldsetIndex) in inputs"
         :key="input.name"
@@ -155,3 +155,22 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
   },
 }
 </script>
+
+<style>
+.personality1, .personality2, .personality3, .personality4 {
+  position: absolute;
+  right: 10%;
+}
+.personality1{
+  top: 40%;
+}
+.personality2{
+  top: 50%;
+}
+.personality3{
+  top: 60%;
+}
+.personality4{
+  top: 70%;
+}
+</style>

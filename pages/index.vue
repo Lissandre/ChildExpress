@@ -97,6 +97,7 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   bottom: 50px;
   left: 50%;
   transform: translate3d(-50%, 0%, 0px);
+  z-index: 1000;
 
 }
 .tns-controls button {
@@ -175,6 +176,10 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
 
 .roc {
   font-family: 'roc-grotesk';
+}
+
+.w-fit {
+  width: fit-content;
 }
 
 .light-background {

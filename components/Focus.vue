@@ -2,13 +2,29 @@
   <div class="relative bottom-2 p-4 z-50 pointer-events-auto">
     <button
       @click="changeFocus"
-      class="right-10 top-10 pb-4 text-gray-500 pointer-events-auto absolute button-face"
-      v-if="currentFocus"
+      class="
+        right-10
+        top-10
+        pb-4
+        text-gray-500
+        pointer-events-auto
+        absolute
+        button-face
+      "
+      v-if="currentFocus === 'body'"
     ></button>
     <button
       @click="changeFocus"
-      class="right-20 top-10 pb-4 text-gray-500 pointer-events-auto absolute button-pipette"
-      v-if="!currentFocus"
+      class="
+        right-20
+        top-10
+        pb-4
+        text-gray-500
+        pointer-events-auto
+        absolute
+        button-pipette
+      "
+      v-if="currentFocus === 'face'"
     ></button>
   </div>
 </template>
@@ -20,7 +36,7 @@ export default {
   name: 'Focus',
   data() {
     return {
-      currentFocus: ''
+      currentFocus: 'body',
     }
   },
   setup() {
@@ -29,14 +45,26 @@ export default {
   },
   mounted() {
     this.currentFocus = this.store.isFace
+
+    this.store.$onAction(({ name, store, args, after, onError }) => {
+      after(
+        (result) => {
+          this.currentFocus = store.isFace
+        },
+        { once: true }
+      )
+    })
   },
   methods: {
     changeFocus() {
       console.log('changeFocus')
-      if(!this.currentFocus) this.soundEvents()
-      this.currentFocus = !this.currentFocus
-        this.store.toggleIsFace(this.currentFocus)
-
+      if (this.currentFocus === 'face') {
+        this.soundEvents()
+        this.currentFocus = 'body'
+      } else if (this.currentFocus === 'body') {
+        this.currentFocus = 'face'
+      }
+      this.store.toggleIsFace(this.currentFocus)
     },
 
     soundEvents() {
@@ -61,7 +89,7 @@ button {
   perspective-origin: 500% 200%;
 }
 button:hover {
-  transform: scale3d(1, 1, 1)
+  transform: scale3d(1, 1, 1);
 }
 .button-face {
   background: no-repeat center center url('@/assets/images/face.svg');
@@ -70,8 +98,9 @@ button:hover {
   background: no-repeat center center url('@/assets/images/pipette.svg');
 }
 
-.button-face, .button-pipette {
-  background-color: #0F54E4;
+.button-face,
+.button-pipette {
+  background-color: #0f54e4;
   background-size: 40px 40px;
 }
 </style>
