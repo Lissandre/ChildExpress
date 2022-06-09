@@ -69,7 +69,7 @@ export default class Loader extends EventEmitter {
         },
       },
       {
-        filetype: ['png', 'jpg', 'jpeg'],
+        filetype: ['png', 'jpg', 'jpeg', 'tif'],
         action: (texture) => {
           textureLoader.load(
             texture.src,
@@ -145,7 +145,7 @@ export default class Loader extends EventEmitter {
     const texturesContext = require.context(
       '../../assets/textures',
       true,
-      /\.(png|jpeg|jpg)$/
+      /\.(png|jpeg|jpg|tif)$/
     )
     texturesContext.keys().forEach((key) => {
       const newKey = `${key}`.substring(2)

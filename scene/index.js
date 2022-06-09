@@ -131,6 +131,7 @@ export default class App {
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
 
     if (this.isFace === 'face') {
+      console.log(this.camera)
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
         y: 2,

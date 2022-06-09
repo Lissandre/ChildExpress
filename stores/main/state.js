@@ -19,8 +19,8 @@ export const state = () => {
 
     //   // << END CONSTANTS >>
     // },
-    activeForm: 1,
-    totalForms: 3,
+    activeForm: 4,
+    totalForms: 5,
     health: true,
     face: 'body',
     job: 'none',

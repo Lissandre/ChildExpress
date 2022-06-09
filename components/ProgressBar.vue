@@ -11,8 +11,8 @@
         flex flex-row
         justify-around
         items-center
-        w-96
         left-1/2
+        list
       "
       style="transform: translate3d(-50%, 0, 0)"
     >
@@ -32,11 +32,21 @@
             border border-white
             rounded
             text-white
+            item
           "
         >
           <h2>{{ index }}</h2>
         </div>
-        <h3 class="absolute top-16 w-fit text-center text-white">
+        <h3
+          class="
+            absolute
+            top-16
+            w-fit
+            text-center text-white
+            invisible
+            font-thin
+          "
+        >
           {{ $t(`step.${index}`) }}
         </h3>
       </li>
@@ -73,11 +83,26 @@ export default {
 </script>
 
 <style scoped>
-
 .progress-bar {
-font-family: 'roc-grotesk-wide';
+  font-family: 'roc-grotesk-wide';
   text-transform: uppercase;
-  font-size: 14px
+  font-size: 14px;
+}
+
+.list {
+  width: 40rem;
+}
+
+.list::after {
+  content: '';
+  height: 1px;
+  background: white;
+  z-index: -1;
+  width: 80%;
+  position: absolute;
+}
+.item {
+  backdrop-filter: blur(50px);
 }
 .active {
   font-size: 16px;
@@ -87,5 +112,9 @@ font-family: 'roc-grotesk-wide';
 .active div {
   width: 100%;
   height: 100%;
+}
+
+.active h3 {
+  visibility: visible;
 }
 </style>

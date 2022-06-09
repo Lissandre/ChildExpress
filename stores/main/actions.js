@@ -28,6 +28,10 @@ export const actions = {
     // console.log(newValue)
     // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
+  changeText(id, newValue) {
+    const text = this.texts.find((text) => text.id === id)
+    text.value = newValue
+  },
   changeCheckbox(id, newValue) {
     const checkbox = this.checkboxs.find((checkbox) => checkbox.id === id)
     // checkbox.value = newValue

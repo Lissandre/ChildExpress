@@ -542,6 +542,100 @@
         "name": "submit",
         "component": "InputSubmit",
         "class": "neueBit"
+      },
+      "silent": {
+        "locales": {
+          "fr": {
+            "label1": "Bébé-silencieux"
+          },
+          "en": {
+            "label1": "Silent Baby"
+          }
+        },
+        "type": "checkbox",
+        "name": "silent",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "silent xtra-component xtra-checkbox"
+      },
+      "independant": {
+        "locales": {
+          "fr": {
+            "label1": "Bébé-autonome"
+          },
+          "en": {
+            "label1": "Independant Baby"
+          }
+        },
+        "type": "checkbox",
+        "name": "independant",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "silent xtra-component xtra-checkbox"
+      },
+      "clean": {
+        "locales": {
+          "fr": {
+            "label1": "Bébé-propre"
+          },
+          "en": {
+            "label1": "Clean Baby"
+          }
+        },
+        "type": "checkbox",
+        "name": "clean",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "silent xtra-component xtra-checkbox"
+      },
+      "visionary": {
+        "locales": {
+          "fr": {
+            "label1": "Bébé-visionnaire"
+          },
+          "en": {
+            "label1": "Visionary Baby"
+          }
+        },
+        "type": "checkbox",
+        "name": "visionary",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "silent xtra-component xtra-checkbox"
+      },
+      "submitXtra": {
+        "locales": {
+          "fr": "Suivant",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submitXtra",
+        "component": "InputSubmit",
+        "class": "neueBit xtra-component xtra-submit"
+      }
+    }
+  },
+  "form4": {
+    "inputs": {
+      "submitBin": {
+        "locales": {
+          "fr": "Abandonner",
+          "en": "Drop"
+        },
+        "type": "submit",
+        "name": "submitBin",
+        "component": "InputSubmit",
+        "class": "neueBit submit-bin hover:shadow-hoverStateWhite"
+      },
+      "submitChild": {
+        "locales": {
+          "fr": "Valider",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submitChild",
+        "component": "InputSubmit",
+        "class": "neueBit submit-child"
       }
     }
   },
@@ -563,6 +657,18 @@
         "locales": {
           "fr": "Personnalité",
           "en": "Personnality"
+        }
+      },
+      "4": {
+        "locales": {
+          "fr": "Validation",
+          "en": "Validation"
+        }
+      },
+      "5": {
+        "locales": {
+          "fr": "Achat",
+          "en": "Purchase"
         }
       }
     }

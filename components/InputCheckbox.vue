@@ -48,7 +48,6 @@ fieldset {
   margin-right: 20px;
   position: relative;
   width: fit-content;
-
 }
 fieldset input[type='checkbox'] {
   appearance: none;

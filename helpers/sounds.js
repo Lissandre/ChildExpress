@@ -20,8 +20,11 @@ export default class Sounds {
         case 'speech':
           this.store.updateSubtitle(`${step}_${name}_${value}`)
           break;
+        case 'xtra':
+          this.store.updateSubtitle(`${step}_${name}_${value}`)
+          break;
         case 'checkbox':
-            this.store.updateSubtitle(`${step}_${name}_true`)
+          this.store.updateSubtitle(`${step}_${name}_true`)
           break;
         case 'text':
           this.store.updateSubtitle(`${step}_${type}_${name}`)
