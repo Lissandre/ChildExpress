@@ -17,5 +17,19 @@
   },
   "roundslider_iq": {
     "label1": "QI"
-  }
+  },
+  "submit_submit": "Suivant",
+  "checkbox_silent": {
+    "label1": "Bébé-silencieux"
+  },
+  "checkbox_independant": {
+    "label1": "Bébé-autonome"
+  },
+  "checkbox_clean": {
+    "label1": "Bébé-propre"
+  },
+  "checkbox_visionary": {
+    "label1": "Bébé-visionnaire"
+  },
+  "submit_submitxtra": "Suivant"
 }

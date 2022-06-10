@@ -23,11 +23,17 @@ export default class Baby {
         this.setMovement()
     }
     createBaby() {
-        this.baby = this.assets.models.baby.scene.children[1]
+        this.baby = this.assets.models.baby.scene.children[0]
         this.babyMin = this.baby.geometry.boundingBox.min.z
         this.babyMax = this.baby.geometry.boundingBox.max.z
-        this.baby.material.transparent = true
 
+        this.babyMin = this.baby.children[2].geometry.boundingBox.min.z
+        this.babyMax = this.baby.children[2].geometry.boundingBox.max.z
+        console.log(this.baby)
+        console.log(this.babyMin)
+        // this.baby.children[2].material.transparent = true
+
+        // faire des variables
         this.map1 = this.assets.textures.map1
         this.map1.wrapS = RepeatWrapping;
         this.map1.wrapT = RepeatWrapping;

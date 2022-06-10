@@ -1,47 +1,55 @@
 <template>
-  <div class="bottom-1/2 pb-4 text-gray-500 pointer-events-auto">
+  <div class="relative pointer-events-auto">
     <fieldset
-      class="
+      :class="`
         circle-slider
         animate-bounce-in
-        left-1/4
-        bottom-1/8
         circle-fieldset
         skin-color
-      "
+        ${input.class}
+      `"
       v-if="input.skinColor"
     ></fieldset>
 
     <fieldset
-      class="
+      :class="`
         circle-slider
         animate-bounce-in
-        left-1/2
-        bottom-1/8
         circle-fieldset
         health-fieldset
-      "
+        ${input.class}
+      `"
       v-if="!input.skinColor"
+      ref="circleSlider"
     >
       <circle-slider
         v-model="sliderValue"
         :side="150"
-        :min="0"
-        :max="10000"
-        :step-size="100"
+        :min="sliderMin"
+        :max="sliderMax"
+        :step-size="1"
         :circle-width-rel="20"
         :progress-width-rel="10"
         :circleColor="'transparent'"
         :progressColor="'#0F54E4'"
         :knobColor="'transparent'"
       ></circle-slider>
-      <img src="@/assets/images/heart.svg" class="heart" alt="" />
+      <img
+        src="@/assets/images/heart.svg"
+        class="heart"
+        alt=""
+        v-if="this.input.name.includes('health')"
+      />
+      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')">
+        {{ this.sliderValue }}
+      </p>
 
       <svg
         width="175px"
         height="175px"
         viewBox="0 0 150 150"
         class="fake-background"
+        v-if="!this.input.name.includes('IQ')"
       >
         <g>
           <defs>
@@ -53,6 +61,24 @@
             </radialGradient>
           </defs>
           <circle cx="75" cy="75" r="70" fill="url(#myGradient) "></circle>
+          <circle
+            cx="75"
+            cy="75"
+            r="40"
+            fill="transparent"
+            class="center-circle"
+          ></circle>
+        </g>
+        <g></g>
+      </svg>
+      <svg
+        width="175px"
+        height="175px"
+        viewBox="0 0 150 150"
+        class="fake-background"
+        v-if="this.input.name.includes('IQ')"
+      >
+        <g>
           <circle
             cx="75"
             cy="75"
@@ -79,13 +105,31 @@ export default {
 
   data() {
     return {
-      sliderValue: 1000,
+      sliderValue: 50,
+      sliderMin: this.input.name.includes('IQ') ? 50 : 0,
+      sliderMax: this.input.name.includes('IQ') ? 250 : 100,
     }
   },
   mounted() {
     if (this.input.skinColor) {
       console.log('proudz')
+    } else if (this.input.name.includes('IQ')) {
+      console.log('here')
+      this.$refs['circleSlider'].children[0].appendChild(this.$refs['IQvalue'])
+      this.sliderValue = 100
     }
+  },
+  watch: {
+    sliderValue(newValue, oldValue) {
+      this.$emit(
+        'updateInput',
+        this.input.type,
+        this.input.name,
+        newValue,
+        this.sliderMax
+      )
+      if (this.input.name.includes('IQ')) this.$emit('updateIQ', newValue)
+    },
   },
   methods: {
     update(e) {
@@ -148,5 +192,32 @@ export default {
 
 .heart {
   z-index: 1;
+}
+
+.IQvalue {
+  color: black;
+  font-size: 32px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.IQ {
+  box-shadow: inset 0px 11.5px 20px white, inset -5.82px -4.5px 6.5px 0px white;
+  left: 15%;
+  top: 30vh;
+}
+
+.IQ div svg {
+  filter: drop-shadow(5px 4px 7px white);
+}
+.IQ div svg circle:first-of-type {
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.IQ div svg path {
+  filter: drop-shadow(5px 4px 7px rgba(15, 84, 228, 33%));
 }
 </style>
