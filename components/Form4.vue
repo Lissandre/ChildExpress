@@ -48,6 +48,23 @@
         <p class="tag-xtra">Visionnaire</p>
       </div>
     </div>
+
+    <div class="ticket">
+      <div class="ticket__left">
+        <div class="ticket__left__bottom">
+          <span>Analyse</span>
+        </div>
+      </div>
+      <div class="ticket__center">
+        <span class="ticket__center__title">Personnalité</span>
+        <div class="ticket__center__item">
+          <span class="ticket__center__rectangle"></span>
+          <span class="ticket__center__fill"></span>
+          <span class="ticket__center__percentage">50%</span>
+          <p class="ticket__center__name neueBit">Logique</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -127,6 +144,7 @@ export default {
   font-size: 28px;
   text-align: center;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  text-align: left;
 }
 
 .info_data {
@@ -216,5 +234,80 @@ export default {
 
 .line2 {
   animation-delay: 0.4s;
+}
+</style>
+
+<style scoped>
+html,
+body {
+  font-family: sans-serif;
+  background-color: #000;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+svg {
+  display: none;
+}
+
+.ticket {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  align-items: center;
+  z-index: 1;
+  transform: translate3d(-50%, -50%, 0);
+  background: no-repeat center center url('@/assets/images/ticket.svg');
+  height: 700px;
+  width: 700px;
+}
+.ticket__left {
+  margin-left: 63px;
+  margin-top: 350px;
+}
+
+.ticket__left__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 130px;
+  width: 50px;
+  border-radius: 0 0 20px 0;
+}
+.ticket__left__bottom span {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 100%;
+  transform: rotate(-90deg);
+}
+
+.ticket__center {
+  display: flex;
+  align-items: center;
+}
+
+.ticket__center__title {
+  font-family: 'roc-grotesk-wide';
+  font-weight: 900;
+  font-size: 42px;
+}
+
+.ticket__center__rectangle {
+  width: 150px;
+  border: 1px solid black;
+  height: 50px;
+}
+
+.ticket__center__name {
+  font-size: 30px;
+}
+
+.border {
+  border-left: 2px dashed white;
+  height: 280px;
 }
 </style>

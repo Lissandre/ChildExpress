@@ -36,7 +36,8 @@ for (const form in forms) {
 
           for (const input in element) {
             if (Object.hasOwnProperty.call(element, input)) {
-              if (element[input].name && element[input].value) {
+              console.log(Object.hasOwn(element[input], 'value'))
+              if (element[input].name && Object.hasOwn(element[input], 'value')) {
                 content.constant.push({
                   name: element[input].name.toUpperCase(),
                   value: element[input].name,

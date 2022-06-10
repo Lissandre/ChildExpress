@@ -2,6 +2,14 @@ export default {
   GENDER: 'gender',
   LIFEQUALITY: 'lifeQuality',
   EYESCOLOR: 'eyesColor',
+  COURAGEOUS: 'courageous',
+  ELOQUENT: 'eloquent',
+  HONEST: 'honest',
+  GREEDY: 'greedy',
+  HYPERSENSITIVE: 'hypersensitive',
+  LOGIC: 'logic',
+  HYPERACTIVE: 'hyperactive',
+  CREATIVE: 'creative',
   WEIGHT: 'weight',
   PARENTSCALE: 'parentScale',
   HEALTH: 'health',
@@ -22,5 +30,9 @@ export default {
   CREATIVELOGIC: 'creativeLogic',
   COURAGEOUSGREEDY: 'courageousGreedy',
   HYPERACTIVESENSITIVE: 'hyperactiveSensitive',
-  IQ: 'IQ'
+  IQ: 'IQ',
+  SILENT: 'silent',
+  INDEPENDANT: 'independant',
+  CLEAN: 'clean',
+  VISIONARY: 'visionary'
 }
