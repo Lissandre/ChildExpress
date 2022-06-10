@@ -14,7 +14,11 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: "https://use.typekit.net/tju5ktt.css" }
+
+    ],
   },
   css: [],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -113,7 +117,7 @@ export default {
         use: ['raw-loader', 'glslify-loader'],
       }),
         config.module.rules.push({
-          test: /\.(fbx|glb|obj|3ds|gltf)$/,
+          test: /\.(fbx|glb|obj|3ds|gltf|tif)$/,
           exclude: /node_modules/,
           use: ['file-loader'],
         })

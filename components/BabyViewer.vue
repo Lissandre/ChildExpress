@@ -4,7 +4,12 @@
       class="baby-container absolute left-1/2 top-1/2 z-[2] pointer-events-none"
       style="width: 100%; height: 100%; transform: translate3d(-50%, -50%, 0)"
     >
-      <canvas id="_canvas1" ref="canvas1" class="absolute" style="width: 100vw; height: 100vh"></canvas>
+      <canvas
+        id="_canvas1"
+        ref="canvas1"
+        class="absolute"
+        style="width: 100vw; height: 100vh"
+      ></canvas>
     </div>
     <div
       class="

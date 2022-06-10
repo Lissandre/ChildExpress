@@ -1,24 +1,48 @@
 {
   "radio_gender": {
-    "label1": "Gender"
+    "label1": "Sexe"
   },
-  "radio_stars": {
+  "radio_lifequality": {
     "label1": "Life quality"
   },
-  "checkbox_courageux": {
+  "checkbox_courageous": {
     "label1": "brave"
+  },
+  "checkbox_eloquent": {
+    "label1": "Eloquent"
+  },
+  "checkbox_honest": {
+    "label1": "Honest"
+  },
+  "checkbox_greedy": {
+    "label1": "Greedy"
+  },
+  "checkbox_hypersensitive": {
+    "label1": "Hypersensitive"
+  },
+  "checkbox_logic": {
+    "label1": "Logic"
+  },
+  "checkbox_hyperactive": {
+    "label1": "Hyperactive"
+  },
+  "checkbox_creative": {
+    "label1": "Creative"
   },
   "counter_weight": {
     "label1": "Weight"
   },
+  "range_parentscale": "",
   "roundslider_health": {
     "label1": "Health"
   },
+  "range_parentskintint": "",
+  "range_parentskintype": "",
   "text_babyname": {
     "label1": "Name"
   },
   "select_age": {
-    "label1": "Age"
+    "label1": "Expiry age"
   },
   "submit_submit": "Submit"
 }

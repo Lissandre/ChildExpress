@@ -39,7 +39,6 @@ export default class App {
     } else {
       this.setBackgroundShader()
     }
-
   }
   setCanvas(canvas = this.renderer?.canvas) {
     this.canvas = canvas
@@ -106,6 +105,9 @@ export default class App {
     })
     // Add camera to scene
     this.scene.add(this.camera.container)
+
+    this.camera.camera.controls.saveState();
+
   }
   setWorld() {
     // Create world instance
@@ -128,14 +130,15 @@ export default class App {
     this.isFace = options.face
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
 
-    if (this.isFace) {
+    if (this.isFace === 'face') {
+      console.log(this.camera)
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
-        y: 4,
-        z: -3,
+        y: 2,
+        z: 0,
         duration: 1,
         ease: Power3.easeOut,
-      })
+      }).then(this.resetCamera())
     } else {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
@@ -145,6 +148,37 @@ export default class App {
         ease: Power3.easeOut,
       })
     }
+
+  }
+
+  resetCamera() {
+    console.log(this.camera.camera.controls.maxAzimuthAngle)
+    this.camera.camera.controls.autoRotate = false;
+
+    this.camera.camera.controls.maxAzimuthAngle = Math.PI
+    this.camera.camera.controls.minAzimuthAngle = - Math.PI
+
+    this.camera.camera.controls.maxPolarAngle = Math.PI
+    this.camera.camera.controls.minPolarAngle = 0
+
+
+    var tl = gsap.timeline({
+      onComplete: () => {
+        this.camera.camera.controls.maxAzimuthAngle = Infinity,
+          this.camera.camera.controls.minAzimuthAngle = - Infinity
+      }
+    });
+
+    tl.to(this.camera.camera.controls, {
+      maxAzimuthAngle: 0,
+      minAzimuthAngle: 0,
+
+      minPolarAngle: Math.PI / 2,
+      maxPolarAngle: Math.PI / 2,
+
+      duration: 1,
+      ease: Power3.easeOut,
+    })
   }
 
   changeRange(options) {

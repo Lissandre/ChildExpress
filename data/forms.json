@@ -1,21 +1,24 @@
 {
   "form1": {
+    "texts": {
+      "titleSlide2": "Carte d'identité"
+    },
     "inputs": {
-      "gender": {
+      "parentGender": {
         "locales": {
           "fr": {
-            "label1": "Genre"
+            "label1": "Sexe"
           },
           "en": {
-            "label1": "Gender"
+            "label1": "Sexe"
           }
         },
         "type": "radio",
         "name": "gender",
         "component": "InputRadios",
         "value": 0.5,
-        "length": 3,
-        "class": "slide2"
+        "length": 2,
+        "class": "gender parentGender slide1"
       },
       "lifeQuality": {
         "locales": {
@@ -27,13 +30,22 @@
           }
         },
         "type": "radio",
-        "name": "stars",
+        "name": "lifeQuality",
         "component": "InputRadios",
         "value": 1,
         "length": 5,
         "class": "rating slide1"
       },
-      "courageux": {
+      "eyesColor": {
+        "type": "radio",
+        "name": "eyesColor",
+        "effect": "eyesColor",
+        "component": "InputRadios",
+        "value": 2,
+        "length": 4,
+        "class": "eyes-color middle"
+      },
+      "courageous": {
         "locales": {
           "fr": {
             "label1": "Courageux"
@@ -43,12 +55,117 @@
           }
         },
         "type": "checkbox",
-        "name": "courageux",
+        "name": "courageous",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1"
+        "class": "slide1 light-background"
       },
-      "weight": {
+      "eloquent": {
+        "locales": {
+          "fr": {
+            "label1": "Éloquent"
+          },
+          "en": {
+            "label1": "Eloquent"
+          }
+        },
+        "type": "checkbox",
+        "name": "eloquent",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1 light-background"
+      },
+      "honest": {
+        "locales": {
+          "fr": {
+            "label1": "Honnête"
+          },
+          "en": {
+            "label1": "Honest"
+          }
+        },
+        "type": "checkbox",
+        "name": "honest",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1 light-background"
+      },
+      "greedy": {
+        "locales": {
+          "fr": {
+            "label1": "Econome"
+          },
+          "en": {
+            "label1": "Greedy"
+          }
+        },
+        "type": "checkbox",
+        "name": "greedy",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1 light-background"
+      },
+      "hypersensitive": {
+        "locales": {
+          "fr": {
+            "label1": "Hypersensible"
+          },
+          "en": {
+            "label1": "Hypersensitive"
+          }
+        },
+        "type": "checkbox",
+        "name": "hypersensitive",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1 light-background"
+      },
+      "logic": {
+        "locales": {
+          "fr": {
+            "label1": "Logique"
+          },
+          "en": {
+            "label1": "Logic"
+          }
+        },
+        "type": "checkbox",
+        "name": "logic",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1 light-background"
+      },
+      "hyperactive": {
+        "locales": {
+          "fr": {
+            "label1": "Hyperactif"
+          },
+          "en": {
+            "label1": "Hyperactive"
+          }
+        },
+        "type": "checkbox",
+        "name": "hyperactive",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1 light-background"
+      },
+      "creative": {
+        "locales": {
+          "fr": {
+            "label1": "Créatif"
+          },
+          "en": {
+            "label1": "Creative"
+          }
+        },
+        "type": "checkbox",
+        "name": "creative",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "slide1 light-background"
+      },
+      "parentWeight": {
         "locales": {
           "fr": {
             "label1": "Poids"
@@ -60,12 +177,26 @@
         "type": "counter",
         "name": "weight",
         "component": "InputCounter",
-        "value": 1,
+        "value": 65,
         "length": 3,
         "unit": "kg",
-        "class": "flex flex-col justify-center text-2xl slide1"
+        "class": "flex flex-col justify-center text-2xl slide1 weight"
       },
-      "health": {
+      "parentScale": {
+        "locales": {
+          "fr": "",
+          "en": ""
+        },
+        "type": "range",
+        "name": "parentScale",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "range slide1 bubble-range"
+      },
+      "parentHealth": {
         "locales": {
           "fr": {
             "label1": "Santé"
@@ -81,7 +212,37 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "slide2"
+        "class": "slide1"
+      },
+      "parentSkinTint": {
+        "locales": {
+          "fr": "",
+          "en": ""
+        },
+        "type": "range",
+        "name": "parentSkinTint",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "skinColor": true,
+        "class": "range color-range skinTint slide1"
+      },
+      "parentSkinType": {
+        "locales": {
+          "fr": "",
+          "en": ""
+        },
+        "type": "range",
+        "name": "parentSkinType",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "skinColor": true,
+        "class": "range color-range skinType slide1"
       },
       "babyName": {
         "locales": {
@@ -95,16 +256,32 @@
         "type": "text",
         "name": "babyName",
         "component": "InputText",
-        "value": "Margaux la boss",
-        "class": "baby-name slide2"
+        "value": "'Margaux la boss'",
+        "class": "baby-name slide2 second-slide-component"
+      },
+      "gender": {
+        "locales": {
+          "fr": {
+            "label1": "Sexe"
+          },
+          "en": {
+            "label1": "Sexe"
+          }
+        },
+        "type": "radio",
+        "name": "gender",
+        "component": "InputRadios",
+        "value": 0.5,
+        "length": 3,
+        "class": " gender slide2 second-slide-component"
       },
       "age": {
         "locales": {
           "fr": {
-            "label1": "Âge"
+            "label1": "Âge d'expiration"
           },
           "en": {
-            "label1": "Age"
+            "label1": "Expiry age"
           }
         },
         "type": "select",
@@ -114,7 +291,7 @@
         "from": 0,
         "to": 150,
         "step": 1,
-        "class": "slide2"
+        "class": "slide2 second-slide-component age"
       },
       "submit": {
         "locales": {
@@ -124,7 +301,7 @@
         "type": "submit",
         "name": "submit",
         "component": "InputSubmit",
-        "class": "slide2"
+        "class": "slide2 neueBit"
       }
     }
   },
@@ -170,7 +347,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range body"
+        "class": "range"
       },
       "skinTint": {
         "locales": {
@@ -185,7 +362,7 @@
         "to": 1,
         "step": 0.01,
         "skinColor": true,
-        "class": "range color-range skinTint body"
+        "class": "range color-range skinTint middle"
       },
       "skinType": {
         "locales": {
@@ -200,12 +377,12 @@
         "to": 1,
         "step": 0.01,
         "skinColor": true,
-        "class": "range color-range skinType body"
+        "class": "range color-range skinType middle"
       },
       "scale": {
         "locales": {
-          "fr": "Taille Bebe",
-          "en": "Baby Size"
+          "fr": "",
+          "en": ""
         },
         "type": "range",
         "name": "scale",
@@ -214,7 +391,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range body"
+        "class": "range body bubble-range"
       },
       "overallSize": {
         "locales": {
@@ -236,9 +413,9 @@
         "component": "InputRadios",
         "value": 2,
         "length": 4,
-        "class": "eyes-color face"
+        "class": "eyes-color middle"
       },
-      "submit": {
+      "submitFace": {
         "locales": {
           "fr": "Suivant",
           "en": "Submit"
@@ -246,7 +423,17 @@
         "type": "submit",
         "name": "submit",
         "component": "InputSubmit",
-        "class": ""
+        "class": "face neueBit"
+      },
+      "submitMiddle": {
+        "locales": {
+          "fr": "Suivant",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submit",
+        "component": "InputSubmit",
+        "class": "middle neueBit"
       }
     }
   },
@@ -267,9 +454,9 @@
         "name": "eloquentHonest",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 6,
-        "class": ""
+        "class": "blurry personality1"
       },
       "creativeLogic": {
         "locales": {
@@ -286,9 +473,9 @@
         "name": "creativeLogic",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 6,
-        "class": ""
+        "class": "blurry personality2"
       },
       "courageousGreedy": {
         "locales": {
@@ -305,9 +492,9 @@
         "name": "courageousGreedy",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 6,
-        "class": ""
+        "class": "blurry personality3"
       },
       "hyperactiveSensitive": {
         "locales": {
@@ -324,9 +511,9 @@
         "name": "hyperactiveSensitive",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 0.5,
+        "value": 1,
         "length": 6,
-        "class": ""
+        "class": "blurry personality4"
       },
       "IQ": {
         "locales": {
@@ -344,7 +531,111 @@
         "from": 0,
         "to": 300,
         "step": 1,
-        "class": "slide2"
+        "class": "IQ"
+      },
+      "submit": {
+        "locales": {
+          "fr": "Suivant",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submit",
+        "component": "InputSubmit",
+        "class": "neueBit"
+      },
+      "silent": {
+        "locales": {
+          "fr": {
+            "label1": "Bébé-silencieux"
+          },
+          "en": {
+            "label1": "Silent Baby"
+          }
+        },
+        "type": "checkbox",
+        "name": "silent",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "silent xtra-component xtra-checkbox"
+      },
+      "independant": {
+        "locales": {
+          "fr": {
+            "label1": "Bébé-autonome"
+          },
+          "en": {
+            "label1": "Independant Baby"
+          }
+        },
+        "type": "checkbox",
+        "name": "independant",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "silent xtra-component xtra-checkbox"
+      },
+      "clean": {
+        "locales": {
+          "fr": {
+            "label1": "Bébé-propre"
+          },
+          "en": {
+            "label1": "Clean Baby"
+          }
+        },
+        "type": "checkbox",
+        "name": "clean",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "silent xtra-component xtra-checkbox"
+      },
+      "visionary": {
+        "locales": {
+          "fr": {
+            "label1": "Bébé-visionnaire"
+          },
+          "en": {
+            "label1": "Visionary Baby"
+          }
+        },
+        "type": "checkbox",
+        "name": "visionary",
+        "component": "InputCheckbox",
+        "value": 0,
+        "class": "silent xtra-component xtra-checkbox"
+      },
+      "submitXtra": {
+        "locales": {
+          "fr": "Suivant",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submitXtra",
+        "component": "InputSubmit",
+        "class": "neueBit xtra-component xtra-submit"
+      }
+    }
+  },
+  "form4": {
+    "inputs": {
+      "submitBin": {
+        "locales": {
+          "fr": "Abandonner",
+          "en": "Drop"
+        },
+        "type": "submit",
+        "name": "submitBin",
+        "component": "InputSubmit",
+        "class": "neueBit submit-bin hover:shadow-hoverStateWhite"
+      },
+      "submitChild": {
+        "locales": {
+          "fr": "Valider",
+          "en": "Submit"
+        },
+        "type": "submit",
+        "name": "submitChild",
+        "component": "InputSubmit",
+        "class": "neueBit submit-child"
       }
     }
   },
@@ -367,11 +658,29 @@
           "fr": "Personnalité",
           "en": "Personnality"
         }
+      },
+      "4": {
+        "locales": {
+          "fr": "Validation",
+          "en": "Validation"
+        }
+      },
+      "5": {
+        "locales": {
+          "fr": "Achat",
+          "en": "Purchase"
+        }
       }
     }
   },
   "job": {
     "inputs": {
+      "none": {
+        "locales": {
+          "fr": "Sans-abris",
+          "en": "Homeless"
+        }
+      },
       "1000": {
         "locales": {
           "fr": "Avocat d'intelligence artificielle",
@@ -387,13 +696,13 @@
       "1010": {
         "locales": {
           "fr": "Arnaqueur de Tinder",
-          "en": "The Tinder Swindler"
+          "en": "Tinder Swindler"
         }
       },
       "1001": {
         "locales": {
-          "fr": "Ingénieur dans les soucoupes volantes",
-          "en": "Engineer in flying saucers"
+          "fr": "Ingénieur dans les collants indestructibles",
+          "en": "Engineer in indestructible tights"
         }
       },
       "1110": {

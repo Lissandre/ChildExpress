@@ -48,30 +48,28 @@ fieldset {
     rgba(255, 255, 255, 0.8)
   );
   transition: all ease-out 0.5s;
-  filter: blur(2px);
   z-index: 1;
   perspective-origin: 500% 200%;
   /*transform: perspective(800px) rotate3d(0, 1, 0, -45deg) scale3d(0.9, 0.9, 0.9);*/
-  transform: scale3d(0.9, 0.9, 0.9);
+
   border-radius: 34px;
   position: absolute;
   padding: 20px;
+  font-family: 'roc-grotesk';
+  /*filter: blur(0px);*/
+
 }
 
 div fieldset:hover {
-  filter: blur(0px);
   z-index: 3;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  /* -webkit-backdrop-filter: blur(10px); */
+  /* backdrop-filter: blur(10px); */
 }
 
 fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapper {
   font-size: 16px;
 }
 /*
-.test:hover fieldset {
-  animation: linear 0.4s forwards translateX;
-}
 
 @keyframes translateX {
   0% {
@@ -105,6 +103,7 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   bottom: 50px;
   left: 50%;
   transform: translate3d(-50%, 0%, 0px);
+  z-index: 1000;
 
 }
 .tns-controls button {
@@ -167,5 +166,35 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   height: 100vh;
   position: absolute;
   top: 0;
+}
+
+
+.neueBit {
+  font-family: 'NeueBit'
+}
+
+.blurry {
+  transform: scale(0.9) !important;
+  filter: blur(2px);
+  transition: all ease-out 0.5s;
+  pointer-events: none;
+}
+
+.roc {
+  font-family: 'roc-grotesk';
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.light-background {
+    background: radial-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.8)
+  ) !important;
+  border-radius: 40px !important;
 }
 </style>
