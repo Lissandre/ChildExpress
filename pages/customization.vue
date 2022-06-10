@@ -14,6 +14,12 @@ import { useStore } from '@/stores/'
 
 export default {
   name: 'Home',
+  nuxtI18n: {
+    paths: {
+      en: '/customization',
+      fr: '/personnalisation'
+    }
+  },
   data() {
     return {}
   },
