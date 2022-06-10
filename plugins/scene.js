@@ -1,4 +1,4 @@
-import App from '@/scene';
+import App from '@/scene'
 
 export default ({ app }, inject) => {
   const Scene = new App()

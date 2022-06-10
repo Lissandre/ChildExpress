@@ -34,7 +34,7 @@ export default class PointLightSource {
     // Color debug
     this.debugFolder = this.debug.addFolder({
       title: 'Point Light',
-      expanded: false
+      expanded: false,
     })
     this.debugFolder
       .addInput(this.params, 'color', {
@@ -46,12 +46,11 @@ export default class PointLightSource {
         this.light.color = new Color(this.params.color)
       })
     //Position debug
-    this.debugFolder
-      .addInput(this.light, 'position', {
-        label: 'x, y, z',
-        x: {min: -5, max: 5},
-        y: {min: -5, max: 5},
-        z: {min: -5, max: 5},
-      })
+    this.debugFolder.addInput(this.light, 'position', {
+      label: 'x, y, z',
+      x: { min: -5, max: 5 },
+      y: { min: -5, max: 5 },
+      z: { min: -5, max: 5 },
+    })
   }
 }

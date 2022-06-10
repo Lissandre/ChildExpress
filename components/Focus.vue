@@ -2,28 +2,12 @@
   <div class="relative bottom-2 p-4 z-50 pointer-events-auto">
     <button
       @click="changeFocus"
-      class="
-        right-10
-        top-10
-        pb-4
-        text-gray-500
-        pointer-events-auto
-        absolute
-        button-face
-      "
+      class="right-10 top-10 pb-4 text-gray-500 pointer-events-auto absolute button-face"
       v-if="currentFocus === 'body'"
     ></button>
     <button
       @click="changeFocus"
-      class="
-        right-20
-        top-10
-        pb-4
-        text-gray-500
-        pointer-events-auto
-        absolute
-        button-pipette
-      "
+      class="right-20 top-10 pb-4 text-gray-500 pointer-events-auto absolute button-pipette"
       v-if="currentFocus === 'face'"
     ></button>
   </div>
@@ -57,7 +41,6 @@ export default {
   },
   methods: {
     changeFocus() {
-      console.log('changeFocus')
       if (this.currentFocus === 'face') {
         this.soundEvents()
         this.currentFocus = 'body'
@@ -73,7 +56,6 @@ export default {
   },
 }
 </script>
-
 
 <style scoped>
 button {

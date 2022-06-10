@@ -124,8 +124,6 @@ export default {
       this.store.changeRange(id, e.target.value)
     },
     updateJob(value, fieldsetToUpdate) {
-      // console.log('value : ', value, 'fieldsetToUpdate : ', fieldsetToUpdate)
-      // console.log(this.inputs[name], this.inputs[name].value)
       this.jobs[fieldsetToUpdate] = value
 
       // Quickfix, trouver un moyen d'update les locales ailleurs ? Sinon rajouter un if locale fr/en
@@ -226,7 +224,6 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     },
     soundEvents() {
       requestAnimationFrame(() => {
-        console.log('here')
         if ($nuxt)
           $nuxt.$emit('updateSound', 'form3', 'speech', 'intro', 'speech1')
       })

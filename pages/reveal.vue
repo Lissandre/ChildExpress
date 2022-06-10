@@ -10,8 +10,8 @@ export default {
   nuxtI18n: {
     paths: {
       en: '/oops',
-      fr: '/mince'
-    }
+      fr: '/mince',
+    },
   },
 }
 </script>

@@ -30,8 +30,8 @@ export default class Time extends EventEmitter {
     this.current = current
 
     // fluid on < 60Hz
-    if (this.delta > 1 / 60 * 1000) {
-      this.delta = 1 / 60 * 1000
+    if (this.delta > (1 / 60) * 1000) {
+      this.delta = (1 / 60) * 1000
     }
 
     // Add trigger event

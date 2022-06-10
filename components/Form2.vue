@@ -69,7 +69,7 @@ export default {
       })
       setTimeout(() => {
         console.log(this.store.isFace)
-        if(this.store.isFace === 'middle') {
+        if (this.store.isFace === 'middle') {
           this.$helpers.updateInput(e.type, e.type, e.type)
           this.store.isFace = 'body'
         } else this.store.toggleIsFace('middle')
@@ -103,9 +103,7 @@ export default {
 }
 </script>
 
-
 <style scoped>
-
 .face div:nth-child(1) {
   position: absolute;
   right: 30%;

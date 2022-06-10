@@ -21,7 +21,8 @@ export const getters = {
     return (id) => state.counters.find((counter) => counter.id === id).value
   },
   getRoundSlider(state) {
-    return (id) => state.roundSliders.find((roundSlider) => roundSlider.id === id).value
+    return (id) =>
+      state.roundSliders.find((roundSlider) => roundSlider.id === id).value
   },
   isHealthy() {
     return this.health

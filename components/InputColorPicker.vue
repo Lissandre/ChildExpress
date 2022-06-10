@@ -1,19 +1,19 @@
 <template>
   <div class="pointer-events-auto">
-  <fieldset class="animate-bounce-in">
-    <p>{{ locale }}</p>
-    <input
-      :type="input.type"
-      :id="input.name"
-      :name="input.name"
-      :min="input.from"
-      :max="input.to"
-      :step="input.step"
-      @input="(e) => update(e)"
-      :value="input.value"
-      required="required"
-    />
-  </fieldset>
+    <fieldset class="animate-bounce-in">
+      <p>{{ locale }}</p>
+      <input
+        :type="input.type"
+        :id="input.name"
+        :name="input.name"
+        :min="input.from"
+        :max="input.to"
+        :step="input.step"
+        @input="(e) => update(e)"
+        :value="input.value"
+        required="required"
+      />
+    </fieldset>
   </div>
 </template>
 
@@ -25,11 +25,15 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     update(e) {
-      this.$emit('updateInput', this.input.type, this.input.name, e.target.value)
+      this.$emit(
+        'updateInput',
+        this.input.type,
+        this.input.name,
+        e.target.value
+      )
     },
   },
 }

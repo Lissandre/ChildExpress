@@ -17,8 +17,8 @@ export default {
   nuxtI18n: {
     paths: {
       en: '/customization',
-      fr: '/personnalisation'
-    }
+      fr: '/personnalisation',
+    },
   },
   data() {
     return {}
@@ -57,7 +57,6 @@ fieldset {
   padding: 20px;
   font-family: 'roc-grotesk';
   /*filter: blur(0px);*/
-
 }
 
 div fieldset:hover {
@@ -66,7 +65,10 @@ div fieldset:hover {
   /* backdrop-filter: blur(10px); */
 }
 
-fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapper {
+fieldset > label,
+fieldset > input[type='submit'],
+.text-wrapper,
+.counter-wrapper {
   font-size: 16px;
 }
 /*
@@ -104,7 +106,6 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   left: 50%;
   transform: translate3d(-50%, 0%, 0px);
   z-index: 1000;
-
 }
 .tns-controls button {
   content: '' !important;
@@ -144,7 +145,6 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
 }
 
-
 #tns1-mw,
 .tns-inner {
   width: 100%;
@@ -153,7 +153,6 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   top: 0;
 }
 
-
 .my-slider {
   width: 100%;
   height: 100%;
@@ -161,16 +160,16 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
   top: 0;
 }
 
-.first-slide, .second-slide {
+.first-slide,
+.second-slide {
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
 }
 
-
 .neueBit {
-  font-family: 'NeueBit'
+  font-family: 'NeueBit';
 }
 
 .blurry {
@@ -189,7 +188,7 @@ fieldset > label, fieldset > input[type="submit"], .text-wrapper, .counter-wrapp
 }
 
 .light-background {
-    background: radial-gradient(
+  background: radial-gradient(
     rgba(0, 0, 0, 0),
     rgba(255, 255, 255, 0.1),
     rgba(255, 255, 255, 0.4),

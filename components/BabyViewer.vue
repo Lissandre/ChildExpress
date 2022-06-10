@@ -12,15 +12,7 @@
       ></canvas>
     </div>
     <div
-      class="
-        background-container
-        absolute
-        left-1/2
-        top-1/2
-        pointer-events-auto
-        w-screen
-        h-screen
-      "
+      class="background-container absolute left-1/2 top-1/2 pointer-events-auto w-screen h-screen"
       style="transform: translate3d(-50%, -50%, 0)"
     >
       <canvas
@@ -30,16 +22,7 @@
         style="width: 100vw; height: 100vh"
       ></canvas>
       <div
-        class="
-          h-full
-          w-full
-          flex
-          justify-center
-          items-center
-          flex-col
-          absolute
-          top-0
-        "
+        class="h-full w-full flex justify-center items-center flex-col absolute top-0"
         v-if="isLoading"
       >
         <div class="loader"></div>

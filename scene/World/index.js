@@ -20,7 +20,7 @@ export default class World {
       this.container.add(new AxesHelper(5))
       this.debugFolder = this.debug.addFolder({
         title: 'World',
-        expanded: false
+        expanded: false,
       })
     }
 
@@ -53,7 +53,7 @@ export default class World {
   setBaby() {
     this.baby = new Baby({
       time: this.time,
-      assets: this.assets
+      assets: this.assets,
     })
     this.container.add(this.baby.container)
   }

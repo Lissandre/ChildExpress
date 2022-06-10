@@ -10,5 +10,5 @@ export default [
   { id: 'silent', value: 0 },
   { id: 'independant', value: 0 },
   { id: 'clean', value: 0 },
-  { id: 'visionary', value: 0 }
+  { id: 'visionary', value: 0 },
 ]

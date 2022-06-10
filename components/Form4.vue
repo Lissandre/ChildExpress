@@ -130,7 +130,6 @@ export default {
 }
 </script>
 
-
 <style>
 .babyInfos {
   width: 80%;

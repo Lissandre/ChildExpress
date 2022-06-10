@@ -7,5 +7,5 @@ export default [
   { id: 'eloquentHonest', value: 1 },
   { id: 'creativeLogic', value: 1 },
   { id: 'courageousGreedy', value: 1 },
-  { id: 'hyperactiveSensitive', value: 1 }
+  { id: 'hyperactiveSensitive', value: 1 },
 ]

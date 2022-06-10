@@ -71,7 +71,6 @@ export default {
   mounted() {},
   methods: {
     update(e) {
-      console.log(this.input)
       this.$emit(
         'updateInput',
         this.input.type,

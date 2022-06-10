@@ -1,3 +1,1 @@
-export default [
-  { id: 'skinColor', value: '#e66465' }
-]
+export default [{ id: 'skinColor', value: '#e66465' }]

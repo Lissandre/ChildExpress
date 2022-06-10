@@ -54,7 +54,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 fieldset {
   padding-bottom: 0;

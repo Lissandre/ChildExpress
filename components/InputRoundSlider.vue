@@ -112,9 +112,7 @@ export default {
   },
   mounted() {
     if (this.input.skinColor) {
-      console.log('proudz')
     } else if (this.input.name.includes('IQ')) {
-      console.log('here')
       this.$refs['circleSlider'].children[0].appendChild(this.$refs['IQvalue'])
       this.sliderValue = 100
     }
@@ -140,9 +138,7 @@ export default {
         e.target.value
       )
     },
-    checkValue() {
-      console.log('prout')
-    },
+    checkValue() {},
   },
 }
 </script>

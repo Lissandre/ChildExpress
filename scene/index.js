@@ -14,7 +14,6 @@ import Camera from './Camera'
 import World from './World'
 import Plane from './World/Plane'
 
-
 export default class App {
   constructor(options) {
     // Set options
@@ -33,7 +32,6 @@ export default class App {
     this.setConfig()
     this.setRenderer()
     this.setCamera()
-    console.log(this.elementApp)
     if (this.elementApp.id === '_canvas1') {
       this.setWorld()
     } else {
@@ -106,8 +104,7 @@ export default class App {
     // Add camera to scene
     this.scene.add(this.camera.container)
 
-    this.camera.camera.controls.saveState();
-
+    this.camera.camera.controls.saveState()
   }
   setWorld() {
     // Create world instance
@@ -131,14 +128,15 @@ export default class App {
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
 
     if (this.isFace === 'face') {
-      console.log(this.camera)
-      gsap.to(this.camera.camera.controls.target, {
-        x: 0,
-        y: 2,
-        z: 0,
-        duration: 1,
-        ease: Power3.easeOut,
-      }).then(this.resetCamera())
+      gsap
+        .to(this.camera.camera.controls.target, {
+          x: 0,
+          y: 2,
+          z: 0,
+          duration: 1,
+          ease: Power3.easeOut,
+        })
+        .then(this.resetCamera())
     } else {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
@@ -148,26 +146,23 @@ export default class App {
         ease: Power3.easeOut,
       })
     }
-
   }
 
   resetCamera() {
-    console.log(this.camera.camera.controls.maxAzimuthAngle)
-    this.camera.camera.controls.autoRotate = false;
+    this.camera.camera.controls.autoRotate = false
 
     this.camera.camera.controls.maxAzimuthAngle = Math.PI
-    this.camera.camera.controls.minAzimuthAngle = - Math.PI
+    this.camera.camera.controls.minAzimuthAngle = -Math.PI
 
     this.camera.camera.controls.maxPolarAngle = Math.PI
     this.camera.camera.controls.minPolarAngle = 0
 
-
     var tl = gsap.timeline({
       onComplete: () => {
-        this.camera.camera.controls.maxAzimuthAngle = Infinity,
-          this.camera.camera.controls.minAzimuthAngle = - Infinity
-      }
-    });
+        ;(this.camera.camera.controls.maxAzimuthAngle = Infinity),
+          (this.camera.camera.controls.minAzimuthAngle = -Infinity)
+      },
+    })
 
     tl.to(this.camera.camera.controls, {
       maxAzimuthAngle: 0,
@@ -184,7 +179,6 @@ export default class App {
   changeRange(options) {
     // const vec = new Vector3(this.world.cube.cube.scale.x, this.world.cube.cube.scale.y, this.world.cube.cube.scale.z)
 
-    console.log(options)
     gsap.to(this.world.cube.cube[options.propertyToChange], {
       x: options.range / 10,
       y: options.range / 10,

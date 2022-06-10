@@ -66,7 +66,6 @@ export default {
     this.sliderType = document.querySelector('.skinType input')
     this.hasForm1 = document.querySelector('#form1')
 
-    console.log(this.hasForm1)
     this.initializeDialogue()
 
     // To refactor, some day
@@ -129,7 +128,6 @@ export default {
         )
 
       if (this.sliderTint.value < 1 / 2) {
-        console.log(three)
         var selectedTint = {
           t1: new three.Color('#fcdcd2').lerp(
             new three.Color('#F5C09E'),
@@ -226,7 +224,6 @@ export default {
           this.sliderType.style.setProperty('--skinType3', `rgb(${var3.r * 255}, ${var3.g * 255}, ${var3.b * 255})`)
           this.sliderType.style.setProperty('--skinType4', `rgb(${var3.r * 255}, ${var3.g * 255}, ${var3.b * 255})`)
         } */
-      console.log(this.finalColor.r)
 
       // Change thumb
       e.target.style.setProperty(
@@ -241,7 +238,6 @@ export default {
   },
 }
 </script>
-
 
 <style scoped>
 .range input {

@@ -34,5 +34,5 @@ export default {
   SILENT: 'silent',
   INDEPENDANT: 'independant',
   CLEAN: 'clean',
-  VISIONARY: 'visionary'
+  VISIONARY: 'visionary',
 }

@@ -2,6 +2,6 @@
 @font-face {
   font-family: 'NeueBit';
   font-style: normal;
-    font-weight: 700;
-    src: url('./NeueBit-Bold.otf') format("opentype"); /* IE9 Compat Modes */
-  }
+  font-weight: 700;
+  src: url('./NeueBit-Bold.otf') format('opentype'); /* IE9 Compat Modes */
+}

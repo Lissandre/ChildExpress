@@ -78,7 +78,6 @@ export default {
           this.select.classList.remove('open')
         }, 100)
 
-        // console.log('ENTRY : ', entry, entry.classList, entry && !entry.classList.contains('selected'))
         if (entry && !entry.classList.contains('selected')) {
           Array.from(this.select.getElementsByClassName('selected')).forEach(
             (item) => {
@@ -116,7 +115,6 @@ export default {
               .classList.remove('bold')
           }
         }
-        console.log(entry.dataset.value)
         this.soundEvents(entry.dataset.value)
       })
     })
@@ -152,7 +150,6 @@ export default {
       let list = document.createElement('ul')
       list.classList.add('custom-options')
 
-      // console.log(el)
       options.map((elm, i) => {
         if (el.input.classList.contains('b__nav-dropdown')) {
           if (!elm.selected) {
@@ -202,7 +199,6 @@ export default {
             el.input.querySelector('option[selected]').textContent
           ) + ' ans'
       }
-      // console.log(text)
 
       value.appendChild(text)
       value.dataset.value = options[0].value
@@ -212,7 +208,6 @@ export default {
   },
 }
 </script>
-
 
 <style>
 .custom-select-wrapper {
@@ -363,5 +358,3 @@ label {
   height: fit-content;
 }
 </style>
-
-

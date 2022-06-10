@@ -44,7 +44,6 @@ export default {
         (this.currentAudio && this.isPlaying(this.currentAudio))
       )
         return
-      console.log('suss')
       after((result) => {
         if (this.hasAlreadyBeenPlayed(store.subtitle)) return
         this.isDisplayed = true
@@ -93,7 +92,6 @@ export default {
   },
 }
 </script>
-
 
 <style scoped>
 p {
