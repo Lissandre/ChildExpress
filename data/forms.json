@@ -51,7 +51,7 @@
             "label1": "Courageux"
           },
           "en": {
-            "label1": "brave"
+            "label1": "Brave"
           }
         },
         "type": "checkbox",
@@ -492,7 +492,7 @@
         "name": "courageousGreedy",
         "effect": "mouthSize",
         "component": "InputRadios",
-        "value": 1,
+        "value": 0.2,
         "length": 6,
         "class": "blurry personality3"
       },
@@ -549,13 +549,13 @@
             "label1": "Bébé-silencieux"
           },
           "en": {
-            "label1": "Silent Baby"
+            "label1": "Silent-Baby"
           }
         },
         "type": "checkbox",
         "name": "silent",
         "component": "InputCheckbox",
-        "value": 0,
+        "value": 1,
         "class": "silent xtra-component xtra-checkbox"
       },
       "independant": {
@@ -564,7 +564,7 @@
             "label1": "Bébé-autonome"
           },
           "en": {
-            "label1": "Independant Baby"
+            "label1": "Independant-Baby"
           }
         },
         "type": "checkbox",
@@ -579,13 +579,13 @@
             "label1": "Bébé-propre"
           },
           "en": {
-            "label1": "Clean Baby"
+            "label1": "Clean-Baby"
           }
         },
         "type": "checkbox",
         "name": "clean",
         "component": "InputCheckbox",
-        "value": 0,
+        "value": 1,
         "class": "silent xtra-component xtra-checkbox"
       },
       "visionary": {
@@ -594,7 +594,7 @@
             "label1": "Bébé-visionnaire"
           },
           "en": {
-            "label1": "Visionary Baby"
+            "label1": "Visionary-Baby"
           }
         },
         "type": "checkbox",
@@ -636,6 +636,20 @@
         "name": "submitChild",
         "component": "InputSubmit",
         "class": "neueBit submit-child"
+      }
+    }
+  },
+  "form5": {
+    "inputs": {
+      "submit": {
+        "locales": {
+          "fr": "Recevoir mon bébé",
+          "en": "Ship my baby"
+        },
+        "type": "submit",
+        "name": "submitFinal",
+        "component": "InputSubmit",
+        "class": "neueBit w-80"
       }
     }
   },

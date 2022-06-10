@@ -22,6 +22,13 @@ export default {
         en: subtitle_en,
       },
       audioPath: '/sounds',
+      xtras: [
+        { id: 'silent' },
+        { id: 'independant' },
+        { id: 'clean' },
+        { id: 'visionary' },
+      ],
+      playedOneExtra: false,
     }
   },
   setup() {
@@ -67,8 +74,7 @@ export default {
           () => {
             setTimeout(() => {
               this.isDisplayed = false
-              if (store.subtitle.includes('speech'))
-                this.nextSpeech(store.subtitle)
+              this.particuliarCases(this.store.subtitle)
             }, 1000)
           },
           { once: true }
@@ -89,6 +95,47 @@ export default {
       const name = subtitle.split('_')[1]
       const next = subtitle.split('_')[2].replace(/.$/, '2')
       this.$nuxt.$emit('updateSound', step, 'speech', name, next)
+    },
+
+    computeXtras() {
+      this.xtrasToPlay = []
+      this.xtras.forEach((xtra) => {
+        if (this.store.getXtras(xtra.id) === 1) {
+          console.log(xtra.id)
+          this.xtrasToPlay.push({
+            id: xtra.id,
+            value: this.store.getXtras(xtra.id),
+          })
+        }
+      })
+      this.playXtras()
+      this.playedOneExtra = true
+    },
+
+    playXtras() {
+      const rand = Math.floor(Math.random() * this.xtrasToPlay.length)
+      this.$nuxt.$emit(
+        'updateSound',
+        'form4',
+        'xtra',
+        this.xtrasToPlay[rand].id,
+        true
+      )
+      this.xtrasToPlay.splice(rand, 1)
+    },
+    particuliarCases(subtitle) {
+      const step = subtitle.split('_')[0]
+      if (subtitle.includes('speech')) this.nextSpeech(subtitle)
+      if (step === 'form4' && subtitle.includes('speech2')) {
+        if (this.playedOneExtra === false) this.computeXtras()
+      }
+      if (
+        step === 'form4' &&
+        subtitle.includes('true') &&
+        this.playedOneExtra
+      ) {
+        this.playXtras()
+      }
     },
   },
 }

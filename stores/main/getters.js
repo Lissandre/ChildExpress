@@ -5,11 +5,14 @@ export const getters = {
   getTotalForms() {
     return this.totalForms
   },
-  getJobs() {
-    return this.job
+  getJob() {
+    return this.newJob
   },
   getXtras(state) {
-    return (id) => state.xtras.find((xtra) => xtra.value === true).id
+    return (id) => state.checkboxs.find((xtra) => xtra.id === id).value
+  },
+  getRadio(state) {
+    return (id) => state.radios.find((radio) => radio.id === id).value
   },
   getRange(state) {
     return (id) => state.ranges.find((range) => range.id === id).value

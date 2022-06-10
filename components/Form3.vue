@@ -189,11 +189,12 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
           $nuxt.$emit('updateSound', 'form3', 'speech', 'loading', 'speech1')
           const indicator = document.querySelector('.progress-bar-indicator')
           indicator.classList.add('animate-progressbargrow')
+          this.store.changeJob($nuxt.$t(`job.${this.newJob}`))
         }, 1000)
 
         setTimeout(() => {
           this.$helpers.updateInput(e.type, e.type, e.type)
-        }, 50000)
+        }, 8000)
       } else {
         this.xtraWrapper.classList.add('open')
         const xtraComponents = document.querySelectorAll('.xtra-component')
@@ -234,7 +235,6 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 
     inputChange(type, name, value, optional) {
       this.$helpers.updateInput(type, name, value)
-
       if (type === 'roundSlider') {
         value = value / optional
       }

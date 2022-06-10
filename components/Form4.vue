@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col relative h-full w-full">
+  <div class="flex flex-col relative h-full w-full z-[1]" ref="content">
     <div class="babyInfos">
       <p class="info_category neueBit">Welcome</p>
-      <p class="info_data info-name roc">{{ getText }}</p>
+      <p class="info_data info-name outline">{{ getText }}</p>
       <p class="info_category neueBit">QI</p>
       <p class="info_data roc">
         {{ getRoundSlider }} <span class="line1"></span>
@@ -39,13 +39,12 @@
     <div class="tag-wrapper">
       <p class="tag_data tag-name roc">{{ getText }}</p>
       <p class="tag_data tag-job roc">
-        <span> Avocat </span> d'intelligence artificielle
+        <span>{{ getJob }}</span>
       </p>
       <div class="tag-xtra-wrapper roc">
-        <p class="tag-xtra">Volant</p>
-        <p class="tag-xtra">Muet</p>
-        <p class="tag-xtra">Silencieux</p>
-        <p class="tag-xtra">Visionnaire</p>
+        <p class="tag-xtra" v-for="(xtra, index) in xtrasToPlay" :key="index">
+          {{ getSplittedExtra(xtra.id) }}
+        </p>
       </div>
     </div>
 
@@ -57,11 +56,21 @@
       </div>
       <div class="ticket__center">
         <span class="ticket__center__title">Personnalité</span>
-        <div class="ticket__center__item">
-          <span class="ticket__center__rectangle"></span>
-          <span class="ticket__center__fill"></span>
-          <span class="ticket__center__percentage">50%</span>
-          <p class="ticket__center__name neueBit">Logique</p>
+        <div
+          class="ticket__center__item"
+          v-for="(perso, index) in personality"
+          :key="index"
+        >
+          <div class="ticket__center__item__left">
+            <span class="ticket__center__rectangle"></span>
+            <span class="ticket__center__fill" ref="fill"></span>
+            <span class="ticket__center__percentage"
+              >{{ getPercentage(perso.id, index) }}%</span
+            >
+          </div>
+          <p class="ticket__center__name neueBit">
+            {{ getLabel(perso.id) }}
+          </p>
         </div>
       </div>
     </div>
@@ -71,6 +80,7 @@
 <script>
 import { useStore } from '@/stores/'
 import { form4 } from '@/data/forms.json'
+import { form3 } from '@/data/forms.json'
 import slugify from 'slugify'
 
 export default {
@@ -80,6 +90,19 @@ export default {
       name: 'form4',
       inputs: [],
       slugify: slugify,
+      personality: [
+        { id: 'courageousGreedy' },
+        { id: 'creativeLogic' },
+        { id: 'hyperactiveSensitive' },
+        { id: 'eloquentHonest' },
+      ],
+      xtras: [
+        { id: 'silent' },
+        { id: 'independant' },
+        { id: 'clean' },
+        { id: 'visionary' },
+      ],
+      xtrasToPlay: [],
     }
   },
   setup() {
@@ -89,12 +112,24 @@ export default {
   mounted() {
     this.inputs = form4.inputs
 
+    console.log(this.getJob)
+    this.getExtras()
+
     setTimeout(() => {
       const lines = document.querySelectorAll('.line1, .line2')
       lines.forEach((line) => {
         line.classList.add('animate-linegrow')
       })
-    }, 20000)
+    }, 2000)
+
+    setTimeout(() => {
+      const tag = document.querySelector('.tag-wrapper')
+      tag.classList.add('animate-fromleft')
+    }, 3000)
+    setTimeout(() => {
+      const ticket = document.querySelector('.ticket')
+      ticket.classList.add('animate-fromright')
+    }, 4000)
     this.soundEvents()
   },
   methods: {
@@ -106,7 +141,81 @@ export default {
       requestAnimationFrame(() => {
         if ($nuxt)
           $nuxt.$emit('updateSound', 'form4', 'speech', 'intro', 'speech1')
+
+        const keep = document.querySelector('.submit-child')
+        const unkeep = document.querySelector('.submit-bin')
+
+        keep.addEventListener('click', () => {
+          $nuxt.$emit('updateSound', 'form4', 'submit', 'keep', 'true')
+          setTimeout(() => {
+            this.$refs.content.classList.add('animate-slideup')
+          }, 6000)
+          setTimeout(() => {
+            this.$helpers.updateInput('submit', 'keep', 'true')
+          }, 8000)
+        })
+        unkeep.addEventListener('click', () => {
+          $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')
+        })
       })
+    },
+    getLabel(id) {
+      for (const [key, value] of Object.entries(form3.inputs)) {
+        if (key === id) {
+          if (value.value > 0.5)
+            return form3.inputs[key].locales[this.$i18n.locale].label2
+          else return form3.inputs[key].locales[this.$i18n.locale].label1
+        }
+      }
+    },
+
+    getPercentage(id, index) {
+      this.rectangleFill = this.$refs.fill
+      if (this.rectangleFill) {
+        const value = this.getRadios(id)
+
+        this.finalValue = this.getFinalXtraValue(value)
+        this.finalValue = this.finalValue + this.sign() * 0.15
+        this.finalValue = Math.round(this.finalValue * 1e2) / 1e2
+
+        this.rectangleFill[index].style.width = `${this.finalValue * 300}px`
+        return this.finalValue * 100
+      } else return 0
+    },
+
+    getExtras() {
+      this.xtras.forEach((xtra) => {
+        if (this.store.getXtras(xtra.id) === 1) {
+          console.log(xtra.id)
+          this.xtrasToPlay.push({
+            id: xtra.id,
+            value: this.store.getXtras(xtra.id),
+          })
+        }
+      })
+    },
+
+    getFinalXtraValue(value) {
+      switch (value) {
+        case '0':
+        case '1':
+          return 0.8
+        case '0.2':
+        case '0.8':
+          return 0.6
+        case '0.4':
+        case '0.6':
+          return 0.3
+      }
+    },
+    sign() {
+      return Math.round(Math.random()) * 2 - 1
+    },
+    getSplittedExtra(id) {
+      if (this.$i18n.locale === 'fr')
+        return form3.inputs[id].locales[this.$i18n.locale].label1.split('-')[1]
+      else if (this.$i18n.locale === 'en')
+        return form3.inputs[id].locales[this.$i18n.locale].label1.split('-')[0]
     },
     inputChange(type, name, value, optional) {},
   },
@@ -123,8 +232,11 @@ export default {
     getRoundSlider: function () {
       return this.store.getRoundSlider('IQ')
     },
-    getJobs: function () {
-      return this.store.getJobs
+    getJob: function () {
+      return this.store.getJob
+    },
+    getRadios: function () {
+      return (id) => this.store.getRadio(id)
     },
   },
 }
@@ -136,15 +248,21 @@ export default {
   width: 80%;
   margin: 0 auto;
   z-index: 1;
+  height: 80%;
+  transform: translate3d(-50%, -50%, 0);
+  top: 50%;
+  position: absolute;
+  left: 50%;
 }
 
 .info-name {
-  color: rgba(0, 0, 0, 0.5) !important;
   /*font-size: 25.5vw !important; */
-  font-size: 28px;
+  font-size: 132px;
   text-align: center;
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   text-align: left;
+  text-transform: uppercase;
+  font-family: 'roc-grotesk-extrawide';
+  font-weight: 700;
 }
 
 .info_data {
@@ -158,19 +276,6 @@ export default {
   color: white;
   text-transform: uppercase;
   font-size: 28px;
-}
-.submit-wrapper:first-child {
-  right: 300px;
-}
-.submit-wrapper:first-child::before {
-  content: '';
-  position: absolute;
-  height: 63px;
-  width: 45px;
-  z-index: 10;
-  left: -34px;
-  backdrop-filter: blur(21px);
-  background: no-repeat center center url('@/assets/images/bin.svg');
 }
 
 .submit-bin {
@@ -189,7 +294,7 @@ export default {
   line-height: 30px;
   bottom: 20%;
   position: absolute;
-  left: 20%;
+  left: -30%;
   max-width: 400px;
 }
 .tag-name {
@@ -218,6 +323,7 @@ export default {
   text-transform: uppercase;
   font-size: 22px;
   margin-top: 3px;
+  margin-right: 3px;
   line-height: auto;
 }
 
@@ -251,14 +357,28 @@ svg {
   display: none;
 }
 
+.submit-wrapper:first-child {
+  right: 300px;
+}
+.submit-wrapper:first-child::before {
+  content: '';
+  position: absolute;
+  height: 63px;
+  width: 45px;
+  z-index: 10;
+  left: -34px;
+  backdrop-filter: blur(21px);
+  background: no-repeat center center url('@/assets/images/bin.svg');
+}
+
 .ticket {
   display: flex;
   position: absolute;
-  right: 0;
+  right: -800px;
   top: 50%;
   align-items: center;
   z-index: 1;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(0, -50%, 0);
   background: no-repeat center center url('@/assets/images/ticket.svg');
   height: 700px;
   width: 700px;
@@ -284,30 +404,81 @@ svg {
   margin-bottom: 100%;
   transform: rotate(-90deg);
 }
+.ticket__center__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket__center__item__left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
 
 .ticket__center {
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  padding: 0 30px;
+  margin-top: -100px;
 }
 
 .ticket__center__title {
   font-family: 'roc-grotesk-wide';
-  font-weight: 900;
+  font-weight: 600;
   font-size: 42px;
+  display: inline-block;
+  text-transform: uppercase;
 }
 
 .ticket__center__rectangle {
-  width: 150px;
+  width: 300px;
   border: 1px solid black;
-  height: 50px;
+  height: 30px;
+  display: inline-block;
+}
+
+.ticket__center__fill {
+  width: 0;
+  background: black;
+  height: 30px;
+  position: absolute;
+  transition: all ease-in-out 2.5s;
+  transition-delay: 5000ms;
+}
+
+.ticket__center__percentage {
+  font-family: 'roc-grotesk-wide';
+  font-weight: 900;
+  font-size: 26px;
+  transition-delay: 5000ms;
 }
 
 .ticket__center__name {
   font-size: 30px;
+  display: inline-block;
 }
 
 .border {
   border-left: 2px dashed white;
   height: 280px;
+}
+
+/* Faux outline for older browsers */
+.outline {
+  color: white; /* Unfortunately you can't use transparent here … */
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
+  font-size: 156px;
+}
+
+/* Real outline for modern browsers */
+@supports ((text-stroke: 2px white) or (-webkit-text-stroke: 2px white)) {
+  .outline {
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    text-stroke: 2px white;
+    text-shadow: none;
+  }
 }
 </style>

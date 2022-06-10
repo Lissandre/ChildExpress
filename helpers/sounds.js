@@ -11,7 +11,7 @@ export default class Sounds {
     this.getEvent()
   }
   getEvent() {
-    $nuxt.$on('updateSound', (step, type, name, value) => {
+    $nuxt.$on('updateSound', (step, type, name, value, optional) => {
       console.log(step, name)
       console.log(type)
       // If speech
@@ -61,6 +61,9 @@ export default class Sounds {
           break;
         case 'face':
           this.store.updateSubtitle(`${step}_${type}_change`)
+          break;
+        case 'submit':
+          this.store.updateSubtitle(`${step}_${name}_${value}`)
           break;
         // If radio, divide by length in the radio input
         case 'radio':

@@ -21,7 +21,11 @@ module.exports = {
         'bounce-out': 'bounceOut 1s ease forwards',
         'unblur': 'unBlur 1s ease forwards',
         'progressbargrow': 'progressBarGrow 8s ease forwards',
-        'linegrow': 'lineGrow 0.8s ease forwards'
+        'linegrow': 'lineGrow 0.8s ease forwards',
+        'fromright': 'fromRight 1.5s ease forwards',
+        'fromrightpayement': 'fromRightPayement 2.5s ease forwards',
+        'fromleft': 'fromLeft 1.5s ease forwards',
+        'slideup': 'slideUp 1.5s ease forwards'
       },
       keyframes: {
         bounceIn: {
@@ -79,6 +83,38 @@ module.exports = {
           },
           '100%': {
             width: '100px',
+          }
+        },
+        fromRight: {
+          '0%': {
+            right: '-800px',
+          },
+          '100%': {
+            right: '-50px',
+          }
+        },
+        fromRightPayement: {
+          '0%': {
+            right: '-80%',
+          },
+          '100%': {
+            right: '-15%',
+          }
+        },
+        fromLeft: {
+          '0%': {
+            left: '-30%',
+          },
+          '100%': {
+            left: '20%',
+          }
+        },
+        slideUp: {
+          '0%': {
+            transform: 'translate3d(0, 0, 0)',
+          },
+          '100%': {
+            transform: 'translate3d(0, -100%, 0)',
           }
         }
       }

@@ -20,16 +20,16 @@
   },
   "submit_submit": "Submit",
   "checkbox_silent": {
-    "label1": "Silent Baby"
+    "label1": "Silent-Baby"
   },
   "checkbox_independant": {
-    "label1": "Independant Baby"
+    "label1": "Independant-Baby"
   },
   "checkbox_clean": {
-    "label1": "Clean Baby"
+    "label1": "Clean-Baby"
   },
   "checkbox_visionary": {
-    "label1": "Visionary Baby"
+    "label1": "Visionary-Baby"
   },
   "submit_submitxtra": "Submit"
 }
