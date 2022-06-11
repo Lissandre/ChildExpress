@@ -28,21 +28,14 @@ export default class Box {
     
     this.texture.wrapS = RepeatWrapping;
     this.texture.wrapT = RepeatWrapping;
+   
     
     const material = new MeshBasicMaterial({
       map: this.texture,
       // map: this.assets.textures.map_box,
+      side: DoubleSide,
+      transparent: true,
     });
-
-
-    this.cube = new Mesh(
-      new BoxGeometry(2, 2, 2),
-      new MeshBasicMaterial({
-        map: this.texture
-      })
-    )
-
-    this.container.add(this.cube)
 
     console.log(this.assets.models)
     this.box = this.assets.models.baby_box.scene
@@ -73,64 +66,72 @@ export default class Box {
     // this.map1.wrapT = RepeatWrapping;
 
     this.container.add(this.box)
-    this.box.scale.set(2, 2, 2)
+    this.box.scale.set(-3, -3, -3)
+    this.box.rotation.set(Math.PI, 0, 0)
+
+    this.box.position.set(1, 1, 3)
 
   }, 2000)
+
   }
 
   makeCanvas(size, job, name, xtras, personality, iq, weight, height) {
     const borderSize = 200;
-    let ctx = document.createElement('canvas').getContext('2d');
+    this.ctx = document.createElement('canvas').getContext('2d');
+    console.log(this.assets.textures.map_box)
+    this.ctx.canvas.width = 2048
+    this.ctx.canvas.height = 2048
+    
+    this.ctx.drawImage(this.assets.textures.map_box.image, 0, 0, 2048, 2048);
+
 
     const font = `${size}px bold NeueBit`;
-    ctx.font = font;
+    this.ctx.font = font;
     // measure how long the name will be
     const doubleBorderSize = borderSize * 2;
-    const width = ctx.measureText(name).width + doubleBorderSize;
-    const heightCanvas = size + doubleBorderSize;
-    ctx.canvas.width = width;
-    ctx.canvas.height = heightCanvas;
 
     // need to set font again after resizing canvas
-    ctx.font = font;
-    ctx.textBaseline = 'top';
+    this.ctx.font = font;
+    this.ctx.textBaseline = 'top';
 
 
-    ctx.fillStyle = 'blue';
+    this.ctx.fillStyle = 'blue';
     //ctx.fillRect(0, 0, width, height);
-    ctx.fillStyle = 'white';
+    this.ctx.fillStyle = 'red';
+
+    this.ctx.fillRect(1500, 1500,  1000, 1500);
+
     
     /* Job */
-    ctx.font =`100px bold NeueBit`;
-    ctx.fillText(name, 50, 0);
+    this.ctx.font =`100px bold NeueBit`;
+    this.ctx.fillText(name, 50, 0);
     
     /* Nom */
-    ctx.fillStyle = 'white';
-    ctx.font =`80px bold NeueBit`;
-    ctx.fillText(job, 50, 50);
+    this.ctx.fillStyle = 'white';
+    this.ctx.font =`80px bold NeueBit`;
+    this.ctx.fillText(job, 50, 50);
     
     /* xtras */
-    ctx.font =`40px bold NeueBit`;
-    ctx.strokeStyle = "white";
-    ctx.fillText(xtras[0], 50, 100);
-    ctx.strokeRect(5, 100, 250, 50);
+    this.ctx.font =`40px bold NeueBit`;
+    this.ctx.strokeStyle = "white";
+    this.ctx.fillText(xtras[0], 50, 100);
+    this.ctx.strokeRect(5, 100, 250, 50);
 
     /* personnalité */
     
     console.log(personality)
-    var height = 150
+    var height = 100
     personality.forEach((perso) => {
-      ctx.fillText(perso.label, 50, height);
+      this.ctx.fillText(perso.label, 50, height);
       height += 50
 
-      ctx.strokeStyle = "white";
-      ctx.fillStyle = "white";
+      this.ctx.strokeStyle = "white";
+      this.ctx.fillStyle = "white";
 
-      ctx.strokeRect(50, height, 300, 50);
-      ctx.fillRect(50, height,  perso.percentage * 3, 50);
+      this.ctx.strokeRect(50, height, 500, 50);
+      this.ctx.fillRect(50, height,  perso.percentage * 3, 50);
       height += 50
     })
-    ctx.drawImage(this.assets.textures.map_box.image, 0, 0, 2048, 2048);
 
 
     /* qi */
@@ -141,8 +142,16 @@ export default class Box {
 
     /* taille */
     // ctx.fillText(height, 50, 300);
+    /* qi */
+    // ctx.fillText(iq, 50, 200);
 
-    return ctx.canvas;
+    /* poids */
+    // ctx.fillText(weight + 'KG', 50, 250);
+
+    /* taille */
+    // ctx.fillText(height, 50, 300);
+
+    return this.ctx.canvas;
   }
   imageCanvas() {
     const loader = new ImageLoader();
@@ -182,7 +191,7 @@ export default class Box {
   setMovement() {
     this.time.on('tick', () => {
       this.texture.needsUpdate = true;
-
+      
       // this.box.rotation.y += 0.001 * this.time.delta
     })
   }
