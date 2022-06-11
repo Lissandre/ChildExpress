@@ -118,7 +118,7 @@ export default {
 
 <style>
 .payment-wrapper {
-  padding: 60px;
+  padding: 10px 50px;
   border: 1px solid white;
   width: fit-content;
   height: fit-content;
@@ -130,6 +130,7 @@ export default {
   display: inline-block;
   animation-delay: 6000ms;
   right: 100%;
+  max-width: 45%;
 }
 .payment-category-wrapper {
   padding-bottom: 40px;
@@ -145,7 +146,7 @@ export default {
   position: absolute;
 }
 .payment-category {
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 600;
   font-family: 'roc-grotesk-wide';
   text-transform: uppercase;
@@ -168,8 +169,14 @@ export default {
 }
 
 .payment-subtitle {
-  font-size: 32px;
-  margin-top: 30px;
+  font-size: 26px;
+  margin-top: 10px;
+}
+
+.shipping-wrapper {
+  padding-bottom: 0;
+  padding-left:0;
+  padding-right:0;
 }
 
 .shipping-item,
@@ -191,22 +198,22 @@ label {
 }
 
 .label1 {
-  font-size: 48px;
+  font-size: 28px;
   cursor: pointer;
 }
 .label2 {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 100;
   cursor: pointer;
 }
 .label3 {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 100;
-  color: #aaa;
+  color: #bbb;
   cursor: pointer;
 }
 
-@media screen and (max-width: 1336px) {
+@media screen and (max-width: 1500px) {
   .payment-wrapper {
     max-width: 600px;
   }
@@ -247,4 +254,14 @@ input[type='radio']::before {
 input[type='radio']:checked::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
+/*
+.submit-wrapper {
+    left: 40%;
+    bottom: -65%;
+}
+
+.submitFinal {
+  width: 20rem;
+}
+*/
 </style>

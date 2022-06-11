@@ -649,7 +649,7 @@
         "type": "submit",
         "name": "submitFinal",
         "component": "InputSubmit",
-        "class": "neueBit w-80"
+        "class": "neueBit w-80 submitFinal form5"
       }
     }
   },

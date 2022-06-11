@@ -35,6 +35,7 @@ export default class App {
     this.setCamera()
     console.log(this.elementApp)
     if (this.elementApp.id === '_canvas1') {
+      console.log('yes')
       this.setWorld()
     } else {
       this.setBackgroundShader()

@@ -118,6 +118,15 @@ export default {
     this.xtraWrapper = this.$refs.xtraWrapper
 
     this.soundEvents()
+    /*
+      requestAnimationFrame(() => {
+        if (this.$nuxt.$scene.assets.needsLoad) {
+      this.$nuxt.$scene.assets.on('ressourcesReady', () => {
+        this.$nuxt.$scene.init()
+      })
+        })
+    }
+        */
   },
   methods: {
     changeRange(id, e) {
@@ -258,6 +267,8 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 .personality4 {
   position: absolute;
   right: 10%;
+  width: 600px !important;
+
 }
 .personality1 {
   top: 40%;

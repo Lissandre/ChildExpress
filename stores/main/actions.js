@@ -46,9 +46,14 @@ export const actions = {
     counter.value = newValue
     if (step != 'form1') this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
-
   changeJob(value) {
     this.newJob = value
+  },
+  changeBox(job, name, xtras, personality, iq, weight, height) {
+    console.log(job)
+    // console.log(this.$scene.world.baby.updateUniform('test', "test"))
+    this.$nuxt.$scene.world.box.createBox(job, name, xtras, personality, iq, weight, height)
+
   },
   toggleIsHealthy(newValue) {
     this.health = newValue

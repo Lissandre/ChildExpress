@@ -19,10 +19,11 @@ export const state = () => {
 
     //   // << END CONSTANTS >>
     // },
-    activeForm: 3,
+    activeForm: 4,
     totalForms: 5,
     health: true,
     face: 'body',
+    babyName: 'Margauxxx', // to remove
     job: 'none',
     newJob: 'test',
     subtitle: '',
