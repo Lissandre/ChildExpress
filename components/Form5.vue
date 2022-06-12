@@ -128,7 +128,7 @@ export default {
   border-radius: 40px;
   color: white;
   display: inline-block;
-  animation-delay: 6000ms;
+  animation-delay: 2000ms;
   right: 100%;
   max-width: 45%;
 }
