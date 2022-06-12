@@ -76,6 +76,7 @@ export default class App {
     })
 
     this.time.on('tick', () => {
+
       this.debug && this.fpsGraph.begin()
 
       this.camera.camera.controls.update()

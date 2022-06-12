@@ -64,7 +64,7 @@ export default class World {
   setBox() {
     this.box = new Box({
       time: this.time,
-      assets: this.assets
+      assets: this.assets,
     })
     this.container.add(this.box.container)
   }
