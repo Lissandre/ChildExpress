@@ -1,23 +1,33 @@
 <template>
-  <div class="flex flex-col absolute bottom-1/2 left-20">
+  <div class="flex flex-col relative h-full w-full">
+    <Focus />
 
-    <form @submit.prevent="prevent">
-      <component
-        v-for="input in inputs"
-        :key="input.name"
-        :is="input.component"
-        :input="input"
-        v-on:updateInput="(a, b, c) => $helpers.updateInput(a, b, c)"
-        :locale="
-          $t(
-            `form2.${slugify(`${input.type}_${input.name}`, {
-              replacement: '_',
-              lower: true,
-            })}`
-          )
-        "
-      ></component>
+    <form @submit.prevent="prevent" class="h-full w-full">
+      <div class="face">
+        <component
+          v-for="input in inputs"
+          v-if="input.class.includes(store.isFace)"
+          :key="input.name"
+          :is="input.component"
+          :input="input"
+          ref="inputs"
+          v-on:updateInput="
+            (type, name, value, optional) =>
+              inputChange(type, name, value, optional)
+          "
+          :locale="
+            $t(
+              `form2.${slugify(`${input.type}_${input.name}`, {
+                replacement: '_',
+                lower: true,
+              })}`
+            )
+          "
+        ></component>
+      </div>
     </form>
+
+    <Persona />
   </div>
 </template>
 
@@ -41,6 +51,8 @@ export default {
   },
   mounted() {
     this.inputs = form2.inputs
+
+    this.soundEvents()
   },
   methods: {
     changeRange(id, e) {
@@ -48,8 +60,55 @@ export default {
     },
     prevent(e) {
       e.preventDefault()
-      this.$helpers.updateInput(e.type, e.type, e.type)
+      this.$refs.inputs.forEach((input) => {
+        const fieldset = input.$el.getElementsByTagName('fieldset')[0]
+        if (fieldset) {
+          fieldset.classList.remove('animate-bounce-in')
+          fieldset.classList.add('animate-bounce-out')
+        }
+      })
+      setTimeout(() => {
+        console.log(this.store.isFace)
+        if(this.store.isFace === 'middle') {
+          this.$helpers.updateInput(e.type, e.type, e.type)
+          this.store.isFace = 'body'
+        } else this.store.toggleIsFace('middle')
+      }, 1000)
+    },
+
+    soundEvents() {
+      requestAnimationFrame(() => {
+        if ($nuxt)
+          $nuxt.$emit('updateSound', 'form2', 'speech', 'intro', 'speech1')
+      })
+    },
+    inputChange(type, name, value, optional) {
+      this.$helpers.updateInput(type, name, value)
+      if (!(name === 'skinTint' || name === 'skinType')) {
+        $nuxt.$emit('updateSound', 'form2', type, name, value)
+      } else if (name == 'skinTint') {
+        const parentSkinTint = this.store.ranges.find(
+          (el) => el.id === 'parentSkinTint'
+        )
+        if (value <= 0.2) {
+          $nuxt.$emit('updateSound', 'form2', type, name, value)
+        } else if (Math.abs(parentSkinTint.value - value) > 0.2) {
+          $nuxt.$emit('updateSound', 'form2', type, name, 'different')
+        }
+      } else if (name == 'skinType') {
+        $nuxt.$emit('updateSound', 'form2', type, name, 'change')
+      }
     },
   },
 }
 </script>
+
+
+<style scoped>
+
+.face div:nth-child(1) {
+  position: absolute;
+  right: 30%;
+  top: 50%;
+}
+</style>

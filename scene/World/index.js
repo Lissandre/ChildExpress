@@ -4,6 +4,7 @@ import AmbientLightSource from './AmbientLight'
 import PointLightSource from './PointLight'
 import Cube from './Cube'
 import Baby from './Baby'
+import Box from './Box'
 
 export default class World {
   constructor(options) {
@@ -25,12 +26,15 @@ export default class World {
     }
 
     this.init()
+
+    console.log('initWorld')
   }
   init() {
     this.setAmbientLight()
     this.setPointLight()
     // this.setCube()
-    this.setBaby()
+    // this.setBaby()
+    this.setBox()
   }
   setAmbientLight() {
     this.ambientlight = new AmbientLightSource({
@@ -56,5 +60,12 @@ export default class World {
       assets: this.assets
     })
     this.container.add(this.baby.container)
+  }
+  setBox() {
+    this.box = new Box({
+      time: this.time,
+      assets: this.assets,
+    })
+    this.container.add(this.box.container)
   }
 }

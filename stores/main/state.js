@@ -19,10 +19,13 @@ export const state = () => {
 
     //   // << END CONSTANTS >>
     // },
-    activeForm: 1,
-    totalForms: 3,
+    activeForm: 5,
+    totalForms: 5,
     health: true,
-    face: true,
-    job: ''
+    face: 'body',
+    babyName: 'Margauxxx', // to remove
+    job: 'none',
+    newJob: 'test',
+    subtitle: '',
   }
 }

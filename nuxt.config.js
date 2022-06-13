@@ -14,7 +14,11 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: "https://use.typekit.net/tju5ktt.css" }
+
+    ],
   },
   css: [],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -28,6 +32,7 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
     ['@pinia/nuxt', { disableVuex: false }],
+    'nuxt-webpack-optimisations',
   ],
   modules: ['@nuxtjs/axios', '@nuxtjs/i18n'],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -52,14 +57,51 @@ export default {
       },
     ],
     detectBrowserLanguage: {
-      useCookie: true,
+      useCookie: false,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root', // recommended
     },
     langDir: '~/locales/',
     strategy: 'prefix',
   },
-
+  webpackOptimisations: {
+    risky: true,
+    debug: false,
+    measure: false,
+    measureMode: 'all',
+    esbuildMinifyOptions: {
+      client: {
+        target: 'es2017',
+      },
+      server: {
+        target: 'node14',
+      },
+      modern: {
+        target: 'es2017',
+      },
+    },
+    esbuildLoaderOptions: {
+      client: {
+        target: 'es2017',
+      },
+      server: {
+        target: 'node14',
+      },
+      modern: {
+        target: 'es2017',
+      },
+    },
+    features: {
+      postcssNoPolyfills: true,
+      esbuildLoader: true,
+      esbuildMinifier: true,
+      imageFileLoader: true,
+      webpackOptimisations: true,
+      //cacheLoader: true,
+      //hardSourcePlugin: true,
+      //parallelPlugin: true,
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
@@ -75,7 +117,7 @@ export default {
         use: ['raw-loader', 'glslify-loader'],
       }),
         config.module.rules.push({
-          test: /\.(fbx|glb|obj|3ds|gltf)$/,
+          test: /\.(fbx|glb|obj|3ds|gltf|tif)$/,
           exclude: /node_modules/,
           use: ['file-loader'],
         })

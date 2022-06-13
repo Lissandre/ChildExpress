@@ -1,8 +1,10 @@
 {
   "range_nosesize": "Nose Size",
   "range_earssize": "Ears Size",
-  "picker_skincolor": "Skin Color",
   "range_handssize": "Hands Size",
-  "range_overallsize": "Overall Size",
+  "range_skintint": "",
+  "range_skintype": "",
+  "range_scale": "",
+  "counter_overallsize": "Overall Size",
   "submit_submit": "Submit"
 }

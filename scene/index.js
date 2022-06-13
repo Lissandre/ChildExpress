@@ -1,4 +1,4 @@
-import { Scene, sRGBEncoding, WebGLRenderer, Vector3 } from 'three'
+import { Scene, sRGBEncoding, WebGLRenderer } from 'three'
 
 import gsap, { Power3 } from 'gsap'
 
@@ -12,34 +12,37 @@ import Loader from './Tools/Loader'
 
 import Camera from './Camera'
 import World from './World'
+import Plane from './World/Plane'
+
 
 export default class App {
   constructor(options) {
     // Set options
-    this.debug = true
+    this.debug = false
     this.time = new Time()
     this.sizes = new Sizes()
-    this.assets = new Loader({
-      template: `
-        <div class="loaderScreen">
-        <div class="loaderScreen__progressBar">
-            <div class="loaderScreen__progress"></div>
-        </div>
-        <h1 class="loaderScreen__load">0%</h1>
-        <div class="loaderScreen__progressBar">
-            <div class="loaderScreen__progress"></div>
-        </div>
-        </div>
-    `,
-    })
+    this.assets = new Loader()
   }
   init(options) {
-    this.elementApp = options.canvas
+    if (this.canvas) {
+      this.elementApp = this.canvas
+    } else {
+      this.elementApp = options.canvas
+    }
     // Set up
     this.setConfig()
     this.setRenderer()
     this.setCamera()
-    this.setWorld()
+    console.log(this.elementApp)
+    if (this.elementApp.id === '_canvas1') {
+      console.log('yes')
+      this.setWorld()
+    } else {
+      this.setBackgroundShader()
+    }
+  }
+  setCanvas(canvas = this.renderer?.canvas) {
+    this.canvas = canvas
   }
   setRenderer() {
     // Set scene
@@ -73,6 +76,7 @@ export default class App {
     })
 
     this.time.on('tick', () => {
+
       this.debug && this.fpsGraph.begin()
 
       this.camera.camera.controls.update()
@@ -103,6 +107,9 @@ export default class App {
     })
     // Add camera to scene
     this.scene.add(this.camera.container)
+
+    this.camera.camera.controls.saveState();
+
   }
   setWorld() {
     // Create world instance
@@ -114,12 +121,27 @@ export default class App {
     // Add world to scene
     this.scene.add(this.world.container)
   }
+  setBackgroundShader() {
+    this.plane = new Plane({
+      time: this.time,
+    })
+    this.scene.add(this.plane.container)
+  }
 
   changeFocus(options) {
     this.isFace = options.face
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
 
-    if (this.isFace) {
+    if (this.isFace === 'face') {
+      console.log(this.camera)
+      gsap.to(this.camera.camera.controls.target, {
+        x: 0,
+        y: 2,
+        z: 0,
+        duration: 1,
+        ease: Power3.easeOut,
+      }).then(this.resetCamera())
+    } else {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
         y: 0,
@@ -127,15 +149,38 @@ export default class App {
         duration: 1,
         ease: Power3.easeOut,
       })
-    } else {
-      gsap.to(this.camera.camera.controls.target, {
-        x: 0,
-        y: 3,
-        z: 0,
-        duration: 1,
-        ease: Power3.easeOut,
-      })
     }
+
+  }
+
+  resetCamera() {
+    console.log(this.camera.camera.controls.maxAzimuthAngle)
+    this.camera.camera.controls.autoRotate = false;
+
+    this.camera.camera.controls.maxAzimuthAngle = Math.PI
+    this.camera.camera.controls.minAzimuthAngle = - Math.PI
+
+    this.camera.camera.controls.maxPolarAngle = Math.PI
+    this.camera.camera.controls.minPolarAngle = 0
+
+
+    var tl = gsap.timeline({
+      onComplete: () => {
+        this.camera.camera.controls.maxAzimuthAngle = Infinity,
+          this.camera.camera.controls.minAzimuthAngle = - Infinity
+      }
+    });
+
+    tl.to(this.camera.camera.controls, {
+      maxAzimuthAngle: 0,
+      minAzimuthAngle: 0,
+
+      minPolarAngle: Math.PI / 2,
+      maxPolarAngle: Math.PI / 2,
+
+      duration: 1,
+      ease: Power3.easeOut,
+    })
   }
 
   changeRange(options) {

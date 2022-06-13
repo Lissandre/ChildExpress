@@ -23,11 +23,17 @@ export default class Baby {
         this.setMovement()
     }
     createBaby() {
-        this.baby = this.assets.models.baby.scene.children[1]
+        this.baby = this.assets.models.baby.scene.children[0]
         this.babyMin = this.baby.geometry.boundingBox.min.z
         this.babyMax = this.baby.geometry.boundingBox.max.z
-        this.baby.material.transparent = true
 
+        this.babyMin = this.baby.children[2].geometry.boundingBox.min.z
+        this.babyMax = this.baby.children[2].geometry.boundingBox.max.z
+        console.log(this.baby)
+        console.log(this.babyMin)
+        // this.baby.children[2].material.transparent = true
+
+        // faire des variables
         this.map1 = this.assets.textures.map1
         this.map1.wrapS = RepeatWrapping;
         this.map1.wrapT = RepeatWrapping;
@@ -48,6 +54,7 @@ export default class Baby {
             s.uniforms.startAnimation = { value: 0 }
             s.uniforms.babyMin = { value: this.babyMin }
             s.uniforms.babyMax = { value: this.babyMax }
+            s.uniforms.scale = { value: 0 }
             s.vertexShader = `
         uniform sampler2D map1;
         uniform float noseSize;
@@ -58,6 +65,7 @@ export default class Baby {
         uniform float startAnimation;
         uniform float babyMin;
         uniform float babyMax;
+        uniform float scale;
 
         varying float normHeight;
         varying float startProgress;
@@ -112,7 +120,7 @@ export default class Baby {
                 startProgress += smoothstep(0.,0.4,startAnimation*2.-normHeight)*0.02;
                 
                 float effect = smoothstep(0.9,1.,1.-distance(startAnimation*2.-normHeight+0.1,1.));
-                vec3 pos = position;
+                vec3 pos = position * (0.8 + scale * 0.4);
                 pos.xy *=  1. + effect/length(pos.xy);
                 
                 vec3 transformed = pos + transformation * normal;
@@ -156,7 +164,7 @@ export default class Baby {
             `)
             // console.log(s.fragmentShader)
             this.shader = s
-            // this.appear()
+            this.appear()
         }
 
 
@@ -179,7 +187,7 @@ export default class Baby {
             if (!this.shader) return
             this.shader.uniforms.time.value = this.time.current * 100.;
 
-            this.shader.uniforms.startAnimation.value = Math.sin(this.time.current * 0.0008) / 2. + 0.5
+            // this.shader.uniforms.startAnimation.value = Math.sin(this.time.current * 0.0008) / 2. + 0.5
         })
     }
 
