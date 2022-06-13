@@ -237,7 +237,7 @@
         "type": "text",
         "name": "babyName",
         "component": "InputText",
-        "value": "'Margaux la boss'",
+        "value": "'Margaux'",
         "class": "baby-name slide2 second-slide-component"
       },
       "gender": {

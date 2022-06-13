@@ -191,12 +191,6 @@ export default {
   flex-direction: column;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  max-width: 80%;
-}
-
 .label1 {
   font-size: 28px;
   cursor: pointer;
@@ -253,6 +247,12 @@ input[type='radio']::before {
 }
 input[type='radio']:checked::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
 }
 /*
 .submit-wrapper {

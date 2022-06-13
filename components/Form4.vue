@@ -278,24 +278,14 @@ export default {
 
 <style>
 .babyInfos {
-  width: 80%;
+  width: 80vw;
   margin: 0 auto;
   z-index: 1;
   height: 80%;
   transform: translate3d(-50%, -50%, 0);
   top: 50%;
-  position: absolute;
+  position: relative;
   left: 50%;
-}
-
-.info-name {
-  /*font-size: 25.5vw !important; */
-  font-size: 132px;
-  text-align: center;
-  text-align: left;
-  text-transform: uppercase;
-  font-family: 'roc-grotesk-extrawide';
-  font-weight: 700;
 }
 
 .info_data {
@@ -304,6 +294,16 @@ export default {
   font-size: 42px;
   position: relative;
   margin-top: -15px;
+}
+
+.info-name {
+  /*font-size: 25.5vw !important; */
+  font-size: 5rem;
+  text-align: center;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: 'roc-grotesk-extrawide';
+  font-weight: 700;
 }
 
 .info_category {
@@ -404,7 +404,7 @@ svg {
   width: 45px;
   z-index: 10;
   left: -34px;
-  backdrop-filter: blur(21px);
+  backdrop-filter: blur(10px);
   background: no-repeat center center url('@/assets/images/bin.svg');
 }
 
@@ -510,7 +510,9 @@ svg {
   /* Unfortunately you can't use transparent here … */
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
     1px 1px 0 white;
-  font-size: 156px;
+  font-size: 7rem;
+  /* font-size: 25.5vw; */
+
 }
 
 /* Real outline for modern browsers */
