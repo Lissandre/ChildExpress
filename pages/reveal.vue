@@ -7,11 +7,12 @@
 <script>
 export default {
   name: 'Reveal',
+  layout: 'landing',
   nuxtI18n: {
     paths: {
       en: '/oops',
-      fr: '/mince'
-    }
+      fr: '/mince',
+    },
   },
 }
 </script>

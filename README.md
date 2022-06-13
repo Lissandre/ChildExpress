@@ -59,8 +59,9 @@ Here is an example of our JSON datas that will be translate.
 ![Forms](https://i.imgur.com/GnwPIf0.png)
 
 We made readable and easy-to-change it as much as possible.
-Exemple : if you want to add a New form, just add "form" plus the number that you want. 
+Exemple : if you want to add a New form, just add "form" plus the number that you want.
 Made another object "inputs" inside, and for each input, describe it's type, value, locales (translations), class that will be add etc !
+
 ## Datas stock
 
 In our MVP :

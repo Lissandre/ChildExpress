@@ -15,18 +15,25 @@
       <p class="info_data roc">{{ getCounter }} KG</p>
     </div>
     <form @submit.prevent="prevent" class="h-full w-full">
-      <component v-for="input in inputs" :key="input.name" :is="input.component" :input="input" ref="inputs"
+      <component
+        v-for="input in inputs"
+        :key="input.name"
+        :is="input.component"
+        :input="input"
+        ref="inputs"
         v-on:updateInput="
           (type, name, value, optional) =>
             inputChange(type, name, value, optional)
-        " :locale="
-  $t(
-    `form4.${slugify(`${input.type}_${input.name}`, {
-      replacement: '_',
-      lower: true,
-    })}`
-  )
-"></component>
+        "
+        :locale="
+          $t(
+            `form4.${slugify(`${input.type}_${input.name}`, {
+              replacement: '_',
+              lower: true,
+            })}`
+          )
+        "
+      ></component>
     </form>
 
     <div class="tag-wrapper">
@@ -49,11 +56,17 @@
       </div>
       <div class="ticket__center">
         <span class="ticket__center__title">Personnalité</span>
-        <div class="ticket__center__item" v-for="(perso, index) in personality" :key="index">
+        <div
+          class="ticket__center__item"
+          v-for="(perso, index) in personality"
+          :key="index"
+        >
           <div class="ticket__center__item__left">
             <span class="ticket__center__rectangle"></span>
             <span class="ticket__center__fill" ref="fill"></span>
-            <span class="ticket__center__percentage">{{ getPercentage(perso.id, index) }}%</span>
+            <span class="ticket__center__percentage"
+              >{{ getPercentage(perso.id, index) }}%</span
+            >
           </div>
           <p class="ticket__center__name neueBit">
             {{ getLabel(perso.id) }}
@@ -90,7 +103,7 @@ export default {
         { id: 'visionary' },
       ],
       xtrasToPlay: [],
-      splittedXtra: []
+      splittedXtra: [],
     }
   },
   setup() {
@@ -141,11 +154,19 @@ export default {
             this.personality.forEach((perso, index) => {
               const label = this.getLabel(perso.id)
               const percentage = this.getPercentage(perso.id, index)
-              boxPersonnality.push({label, percentage})
+              boxPersonnality.push({ label, percentage })
             })
-            store.changeBox(this.getJob, this.getText, this.splittedXtra, boxPersonnality, this.getRoundSlider, this.getCounter, this.getRange)
+            store.changeBox(
+              this.getJob,
+              this.getText,
+              this.splittedXtra,
+              boxPersonnality,
+              this.getRoundSlider,
+              this.getCounter,
+              this.getRange
+            )
             // this.$scene.world.box.writeOnBox()
-          }, 1000);
+          }, 1000)
         }
         const keep = document.querySelector('.submit-child')
         const unkeep = document.querySelector('.submit-bin')
@@ -222,11 +243,15 @@ export default {
     getSplittedExtra(id) {
       console.log(id)
       if (this.$i18n.locale === 'fr')
-        this.splittedXtra.push(form3.inputs[id].locales[this.$i18n.locale].label1.split('-')[1])
+        this.splittedXtra.push(
+          form3.inputs[id].locales[this.$i18n.locale].label1.split('-')[1]
+        )
       else if (this.$i18n.locale === 'en')
-        this.splittedXtra.push(form3.inputs[id].locales[this.$i18n.locale].label1.split('-')[0])
+        this.splittedXtra.push(
+          form3.inputs[id].locales[this.$i18n.locale].label1.split('-')[0]
+        )
     },
-    inputChange(type, name, value, optional) { },
+    inputChange(type, name, value, optional) {},
   },
   computed: {
     getText: function () {
@@ -250,7 +275,6 @@ export default {
   },
 }
 </script>
-
 
 <style>
 .babyInfos {
@@ -320,7 +344,8 @@ export default {
   font-size: 26px;
 }
 
-.tag-xtra-wrapper {}
+.tag-xtra-wrapper {
+}
 
 .tag-xtra {
   font-weight: 600;

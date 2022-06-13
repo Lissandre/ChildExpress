@@ -1,4 +1,4 @@
-import Helpers from '@/helpers/helpers';
+import Helpers from '@/helpers/helpers'
 
 export default ({ app }, inject) => {
   const helpers = new Helpers()

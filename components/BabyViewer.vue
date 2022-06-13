@@ -15,12 +15,13 @@
       class="
         background-container
         absolute
-        left-0
-        top-0
+        left-1/2
+        top-1/2
         pointer-events-auto
         w-screen
         h-screen
       "
+      style="transform: translate3d(-50%, -50%, 0)"
     >
       <canvas
         id="glslCanvas"

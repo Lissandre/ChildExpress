@@ -170,7 +170,6 @@ export default {
 }
 </script>
 
-
 <style>
 @import 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css';
 .first-slide {
@@ -203,9 +202,9 @@ export default {
   right: 0;
 }
 .second-slide .submit-wrapper > input {
-    position: absolute;
-    right: -50%;
-    bottom: -200%;
+  position: absolute;
+  right: -50%;
+  bottom: -200%;
 }
 .framed {
   width: 256px;

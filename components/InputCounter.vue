@@ -1,15 +1,10 @@
 <template>
   <div
-    class="
-      mt-20
-      pb-4
-      text-gray-500
-      left-1/3
-      pointer-events-auto
-      counter-wrapper
-    "
+    class="mt-20 pb-4 text-gray-500 left-1/3 pointer-events-auto counter-wrapper"
   >
-    <fieldset :class="`animate-bounce-in left-60 relative w-fit ${input.class}`">
+    <fieldset
+      :class="`animate-bounce-in left-60 relative w-fit ${input.class}`"
+    >
       <button @click="(e) => update(e, 'plus')" class="text-blue text-4xl">
         +
       </button>
@@ -21,7 +16,7 @@
         -
       </button>
     </fieldset>
-      <p class="counter-label">{{ locale.label1 }}</p>
+    <p class="counter-label">{{ locale.label1 }}</p>
   </div>
 </template>
 

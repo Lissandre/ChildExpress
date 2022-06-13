@@ -30,7 +30,6 @@ export default class Cube {
     )
     this.cube2.position.set(0, 4, 0)
     this.container.add(this.cube2)
-    
   }
   setMovement() {
     this.time.on('tick', () => {

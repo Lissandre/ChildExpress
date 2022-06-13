@@ -3,7 +3,6 @@ export default class Sounds {
     // Set options
     this.store = options.store
 
-
     // Some booleans
     this.selectChange = false
 
@@ -19,46 +18,46 @@ export default class Sounds {
       switch (type) {
         case 'speech':
           this.store.updateSubtitle(`${step}_${name}_${value}`)
-          break;
+          break
         case 'xtra':
           this.store.updateSubtitle(`${step}_${name}_${value}`)
-          break;
+          break
         case 'checkbox':
           this.store.updateSubtitle(`${step}_${name}_true`)
-          break;
+          break
         case 'text':
           this.store.updateSubtitle(`${step}_${type}_${name}`)
-          break;
+          break
         case 'select':
-          if (this.selectChange && (value >= 90 && value <= 150)) {
+          if (this.selectChange && value >= 90 && value <= 150) {
             this.store.updateSubtitle(`${step}_${name}_change`)
-            return;
+            return
           } else if (value <= 90) {
             this.store.updateSubtitle(`${step}_${name}_small`)
             this.selectChange = true
-            return;
+            return
           } else if (value >= 150) {
             this.store.updateSubtitle(`${step}_${name}_big`)
             this.selectChange = true
-            return;
+            return
           }
-          break;
+          break
         case 'range':
           if (name === 'skinTint') {
             if (value === 'different') {
               this.store.updateSubtitle(`${step}_${name}_different`)
-              return;
+              return
             } else {
               this.store.updateSubtitle(`${step}_${name}_small`)
-              return;
+              return
             }
-          } else if (name === "skinType") {
+          } else if (name === 'skinType') {
             this.store.updateSubtitle(`${step}_${name}_change`)
-            return;
+            return
           } else {
             this.defaultCase(value, step, name)
           }
-          break;
+          break
         case 'face':
           this.store.updateSubtitle(`${step}_${type}_change`)
           break;
@@ -67,33 +66,33 @@ export default class Sounds {
           break;
         // If radio, divide by length in the radio input
         case 'radio':
-          console.log(value, step, name)
           if (name === 'gender') {
             if (value === '0') {
               this.store.updateSubtitle(`${step}_${name}_man`)
-              return;
+              return
             } else if (value === '0.5') {
               this.store.updateSubtitle(`${step}_${name}_woman`)
-              return;
+              return
             } else if (value === '1') {
               this.store.updateSubtitle(`${step}_${name}_nonbinary`)
-              return;
+              return
             }
           } else if (step === 'form3' && name === 'creativeLogic') {
             this.store.updateSubtitle(`${step}_${name}_change`)
-            return;
+            return
           } else if (step === 'form3' && value.length === 4) {
-            console.log(value)
-            this.store.updateSubtitle(`${step}_${name}_${this.jobAssociation(value)}`)
-            return;
+            this.store.updateSubtitle(
+              `${step}_${name}_${this.jobAssociation(value)}`
+            )
+            return
           } else {
             this.defaultCase(value, step, name)
-            return;
+            return
           }
-          break;
+          break
         default:
           this.defaultCase(value, step, name)
-          break;
+          break
       }
 
       // If unfilled, check length of array, that is fill when inputs are touched
@@ -110,37 +109,37 @@ export default class Sounds {
   jobAssociation(value) {
     switch (value) {
       case '1000':
-        return 'lawyer';
+        return 'lawyer'
       case '1001':
-        return 'engineer';
+        return 'engineer'
       case '1010':
-        return 'tinder';
+        return 'tinder'
       case '1011':
-        return 'musician';
+        return 'musician'
       case '1100':
-        return 'rap';
+        return 'rap'
       case '1101':
-        return 'doctor';
+        return 'doctor'
       case '1110':
-        return 'mason';
+        return 'mason'
       case '1111':
-        return 'NFT';
+        return 'NFT'
       case '0111':
-        return 'homeless';
+        return 'homeless'
       case '0011':
-        return 'influencer';
+        return 'influencer'
       case '0101':
-        return 'crypto';
+        return 'crypto'
       case '0110':
-        return 'footballer';
+        return 'footballer'
       case '0001':
-        return 'president';
+        return 'president'
       case '0100':
-        return 'facetime';
+        return 'facetime'
       case '0010':
-        return 'estate';
+        return 'estate'
       case '0000':
-        return 'chatbot';
+        return 'chatbot'
     }
   }
 }

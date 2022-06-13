@@ -4,16 +4,7 @@
     style="transform: translate3d(-50%, 0%, 0)"
   >
     <ul
-      class="
-        flex flex-row
-        absolute
-        top-2
-        flex flex-row
-        justify-around
-        items-center
-        left-1/2
-        list
-      "
+      class="flex flex-row absolute top-2 flex flex-row justify-around items-center left-1/2 list"
       style="transform: translate3d(-50%, 0, 0)"
     >
       <li
@@ -23,29 +14,12 @@
         :key="index"
       >
         <div
-          class="
-            flex
-            justify-center
-            items-center
-            w-10
-            h-10
-            border border-white
-            rounded
-            text-white
-            item
-          "
+          class="flex justify-center items-center w-10 h-10 border border-white rounded text-white item"
         >
           <h2>{{ index }}</h2>
         </div>
         <h3
-          class="
-            absolute
-            top-16
-            w-fit
-            text-center text-white
-            invisible
-            font-thin
-          "
+          class="absolute top-16 w-fit text-center text-white invisible font-thin"
         >
           {{ $t(`step.${index}`) }}
         </h3>
@@ -75,7 +49,6 @@ export default {
   },
   methods: {
     changeRange(id, e) {
-      console.log(id, e.target.value)
       this.store.changeRange(id, e.target.value)
     },
   },

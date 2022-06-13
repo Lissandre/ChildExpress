@@ -27,7 +27,7 @@ export default class Loader extends EventEmitter {
   }
   setLoaders() {
     const dracoLoader = new DRACOLoader()
-    dracoLoader.setDecoderPath('./draco/')
+    dracoLoader.setDecoderPath('/draco/')
     dracoLoader.setDecoderConfig({ type: 'js' })
 
     const gltfLoader = new GLTFLoader()

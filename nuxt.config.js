@@ -16,8 +16,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: "https://use.typekit.net/tju5ktt.css" }
-
+      { rel: 'stylesheet', href: 'https://use.typekit.net/tju5ktt.css' },
     ],
   },
   css: [],
@@ -115,12 +114,12 @@ export default {
         test: /\.(glsl|vs|fs|frag|vert)$/,
         exclude: /node_modules/,
         use: ['raw-loader', 'glslify-loader'],
-      }),
-        config.module.rules.push({
-          test: /\.(fbx|glb|obj|3ds|gltf|tif)$/,
-          exclude: /node_modules/,
-          use: ['file-loader'],
-        })
+      })
+      config.module.rules.push({
+        test: /\.(fbx|glb|obj|3ds|gltf|tif)$/,
+        exclude: /node_modules/,
+        use: ['file-loader'],
+      })
     },
   },
 }

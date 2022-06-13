@@ -3,7 +3,6 @@ import { state } from "./state"
 export const actions = {
   changeActiveForm() {
     this.activeForm++
-    console.log(this.activeForm)
     if (this.activeForm === 2 && this.$nuxt.$scene.assets.needsLoad) {
       this.$nuxt.$scene.assets.on('ressourcesReady', () => {
         this.$nuxt.$scene.init()
@@ -16,18 +15,17 @@ export const actions = {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
 
-    if (step != 'form1') this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    if (step != 'form1')
+      this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changePicker(id, newValue, step) {
     // const picker = this.pickers.find((picker) => picker.id === id
     // picker.value = newValu
-    console.log(newValue)
     // this.$nuxt.$scene.world.baby.updateUniform(id, newValue
   },
   changeRadio(id, newValue, step) {
     const radio = this.radios.find((radio) => radio.id === id)
     radio.value = newValue
-    // console.log(newValue)
     // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeText(id, newValue) {
@@ -44,7 +42,8 @@ export const actions = {
   changeCounter(id, newValue, step) {
     const counter = this.counters.find((counter) => counter.id === id)
     counter.value = newValue
-    if (step != 'form1') this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    if (step != 'form1')
+      this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeJob(value) {
     this.newJob = value
@@ -65,6 +64,5 @@ export const actions = {
   },
   updateSubtitle(id) {
     this.subtitle = id
-    console.log(id)
   },
 }

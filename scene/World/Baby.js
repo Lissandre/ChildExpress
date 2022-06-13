@@ -2,60 +2,59 @@ import { Object3D, RepeatWrapping, Vector2 } from 'three'
 import gsap, { Power3 } from 'gsap'
 
 export default class Baby {
-    constructor(options) {
-        // Options
-        this.time = options.time
-        this.assets = options.assets
+  constructor(options) {
+    // Options
+    this.time = options.time
+    this.assets = options.assets
 
-        // Set up
-        this.container = new Object3D()
-        this.container.name = 'Baby'
+    // Set up
+    this.container = new Object3D()
+    this.container.name = 'Baby'
 
-        this.transition = 0
+    this.transition = 0
 
-        this.noseSize = 0
-        this.earsSize = 0
-        this.handsSize = 0
-        this.overallSize = 0
+    this.noseSize = 0
+    this.earsSize = 0
+    this.handsSize = 0
+    this.overallSize = 0
 
-        this.createBaby()
-        this.modifyShader()
-        this.setMovement()
-    }
-    createBaby() {
-        this.baby = this.assets.models.baby.scene.children[0]
-        this.babyMin = this.baby.geometry.boundingBox.min.z
-        this.babyMax = this.baby.geometry.boundingBox.max.z
+    this.createBaby()
+    // this.modifyShader()
+    this.setMovement()
+  }
+  createBaby() {
+    this.baby = this.assets.models.baby.scene.children[0]
+    // this.babyMin = this.baby.geometry.boundingBox.min.z
+    // this.babyMax = this.baby.geometry.boundingBox.max.z
 
-        this.babyMin = this.baby.children[2].geometry.boundingBox.min.z
-        this.babyMax = this.baby.children[2].geometry.boundingBox.max.z
-        console.log(this.baby)
-        console.log(this.babyMin)
-        // this.baby.children[2].material.transparent = true
+    // this.babyMin = this.baby.children[2].geometry.boundingBox.min.z
+    // this.babyMax = this.baby.children[2].geometry.boundingBox.max.z
+    // this.baby.children[2].material.transparent = true
 
-        // faire des variables
-        this.map1 = this.assets.textures.map1
-        this.map1.wrapS = RepeatWrapping;
-        this.map1.wrapT = RepeatWrapping;
+    // faire des variables
+    this.map1 = this.assets.textures.map1
+    this.map1.wrapS = RepeatWrapping
+    this.map1.wrapT = RepeatWrapping
 
-        this.container.add(this.baby)
-    }
+    this.container.add(this.baby)
+  }
 
-    modifyShader() {
-        // this.baby.children[1].geometry = new PlaneBufferGeometry(15, 15, 1, 1)
-        // this.baby.rotation.x = Math.PI / 2.
-        this.baby.material.onBeforeCompile = (s) => {
-            s.uniforms.map1 = { value: this.map1 }
-            s.uniforms.noseSize = { value: 0 }
-            s.uniforms.earsSize = { value: 0 }
-            s.uniforms.handsSize = { value: 0 }
-            s.uniforms.overallSize = { value: 0 }
-            s.uniforms.time = { value: 0 }
-            s.uniforms.startAnimation = { value: 0 }
-            s.uniforms.babyMin = { value: this.babyMin }
-            s.uniforms.babyMax = { value: this.babyMax }
-            s.uniforms.scale = { value: 0 }
-            s.vertexShader = `
+  modifyShader() {
+    // this.baby.children[1].geometry = new PlaneBufferGeometry(15, 15, 1, 1)
+    // this.baby.rotation.x = Math.PI / 2.
+    this.baby.material.onBeforeCompile = (s) => {
+      s.uniforms.map1 = { value: this.map1 }
+      s.uniforms.noseSize = { value: 0 }
+      s.uniforms.earsSize = { value: 0 }
+      s.uniforms.handsSize = { value: 0 }
+      s.uniforms.overallSize = { value: 0 }
+      s.uniforms.time = { value: 0 }
+      s.uniforms.startAnimation = { value: 0 }
+      s.uniforms.babyMin = { value: this.babyMin }
+      s.uniforms.babyMax = { value: this.babyMax }
+      s.uniforms.scale = { value: 0 }
+      s.vertexShader =
+        `
         uniform sampler2D map1;
         uniform float noseSize;
         uniform float earsSize;
@@ -105,10 +104,13 @@ export default class Baby {
 
       ` + s.vertexShader
 
-            s.fragmentShader = `uniform sampler2D map1;
+      s.fragmentShader =
+        `uniform sampler2D map1;
       ` + s.fragmentShader
 
-            s.vertexShader = s.vertexShader.replace('#include <begin_vertex>', /*glsl*/`
+      s.vertexShader = s.vertexShader.replace(
+        '#include <begin_vertex>',
+        /*glsl*/ `
                 vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
                 float nose = tex1.r*  noseSize;
                 float ears = tex1.g* earsSize;
@@ -126,9 +128,11 @@ export default class Baby {
                 vec3 transformed = pos + transformation * normal;
                 
 
-            `)
+            `
+      )
 
-            s.fragmentShader = `
+      s.fragmentShader =
+        `
             uniform float startAnimation;
             varying float startProgress;
             varying float normHeight;
@@ -140,8 +144,10 @@ export default class Baby {
                 return m * v;
             }
             
-            ` + s.fragmentShader.replace('vec4 diffuseColor = vec4( diffuse, opacity );',
-            /*glsl*/`
+            ` +
+        s.fragmentShader.replace(
+          'vec4 diffuseColor = vec4( diffuse, opacity );',
+          /*glsl*/ `
                vec3 diff = diffuse;
                vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
 
@@ -161,60 +167,49 @@ export default class Baby {
                 diff = mix(vec3(0.), diff, colorness);
 
                 vec4 diffuseColor = vec4(diff*startProgress, grid);
-            `)
-            // console.log(s.fragmentShader)
-            this.shader = s
-            this.appear()
-        }
-
-
-
-
-        this.updateUniform = (uniform, value) => {
-            gsap.to(
-                this.shader.uniforms[uniform], {
-                value,
-                duration: 1,
-                ease: Power3.easeOut,
-            }
-            )
-
-        }
-    }
-
-    setMovement() {
-        this.time.on('tick', () => {
-            if (!this.shader) return
-            this.shader.uniforms.time.value = this.time.current * 100.;
-
-            // this.shader.uniforms.startAnimation.value = Math.sin(this.time.current * 0.0008) / 2. + 0.5
-        })
-    }
-
-
-    appear() {
-        gsap.to(
-            this.shader.uniforms.startAnimation, {
-            value: 1,
-            duration: 5,
-            ease: Power3.easeOut,
-        }
+            `
         )
+      this.shader = s
+      this.appear()
     }
 
-    lerp(start, end, amt) {
-        return (1 - amt) * start + amt * end
+    this.updateUniform = (uniform, value) => {
+      gsap.to(this.shader.uniforms[uniform], {
+        value,
+        duration: 1,
+        ease: Power3.easeOut,
+      })
     }
+  }
 
+  setMovement() {
+    this.time.on('tick', () => {
+      if (!this.shader) return
+      this.shader.uniforms.time.value = this.time.current * 100
 
-    easeOutElastic(x) {
-        const c4 = (2 * Math.PI) / 3;
+      // this.shader.uniforms.startAnimation.value = Math.sin(this.time.current * 0.0008) / 2. + 0.5
+    })
+  }
 
-        return x === 0
-            ? 0
-            : x === 1
-                ? 1
-                : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1;
+  appear() {
+    gsap.to(this.shader.uniforms.startAnimation, {
+      value: 1,
+      duration: 5,
+      ease: Power3.easeOut,
+    })
+  }
 
-    }
+  lerp(start, end, amt) {
+    return (1 - amt) * start + amt * end
+  }
+
+  easeOutElastic(x) {
+    const c4 = (2 * Math.PI) / 3
+
+    return x === 0
+      ? 0
+      : x === 1
+      ? 1
+      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
+  }
 }

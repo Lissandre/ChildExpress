@@ -24,10 +24,10 @@ for (const form in forms) {
         if (Object.hasOwnProperty.call(_form, _content)) {
           const element = _form[_content]
 
-          if ((_content === 'title')) {
+          if (_content === 'title') {
             content[`${_content}`] = element.locales[type]
           }
-          
+
           for (const input in element) {
             if (Object.hasOwnProperty.call(element, input)) {
               if (
@@ -57,6 +57,5 @@ for (const form in forms) {
       })
     })
   } else {
-
   }
 }

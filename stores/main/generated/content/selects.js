@@ -1,3 +1,1 @@
-export default [
-  { id: 'age', value: 120 }
-]
+export default [{ id: 'age', value: 120 }]

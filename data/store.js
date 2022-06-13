@@ -3,7 +3,18 @@ const fs = require('fs')
 const forms = require('./forms.json')
 const stores = {
   path: 'stores/main/generated/content/',
-  types: ['constant', 'radio', 'color', 'range', 'roundSlider', 'checkbox', 'job', 'counter', 'text', 'select'],
+  types: [
+    'constant',
+    'radio',
+    'color',
+    'range',
+    'roundSlider',
+    'checkbox',
+    'job',
+    'counter',
+    'text',
+    'select',
+  ],
 }
 
 const content = {
@@ -16,7 +27,7 @@ const content = {
   job: [],
   counter: [],
   text: [],
-  select: []
+  select: [],
 }
 
 for (const form in forms) {
@@ -26,7 +37,7 @@ for (const form in forms) {
       const element = _form['inputs']
       for (const input in element) {
         content.job.push({
-          name: input
+          name: input,
         })
       }
     } else {
@@ -36,8 +47,10 @@ for (const form in forms) {
 
           for (const input in element) {
             if (Object.hasOwnProperty.call(element, input)) {
-              console.log(Object.hasOwn(element[input], 'value'))
-              if (element[input].name && Object.hasOwn(element[input], 'value')) {
+              if (
+                element[input].name &&
+                Object.hasOwn(element[input], 'value')
+              ) {
                 content.constant.push({
                   name: element[input].name.toUpperCase(),
                   value: element[input].name,

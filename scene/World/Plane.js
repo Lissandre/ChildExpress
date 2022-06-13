@@ -1,4 +1,12 @@
-import { Mesh, MeshBasicMaterial, Object3D, PlaneGeometry, RawShaderMaterial, Vector2, Color } from 'three'
+import {
+  Mesh,
+  MeshBasicMaterial,
+  Object3D,
+  PlaneGeometry,
+  RawShaderMaterial,
+  Vector2,
+  Color,
+} from 'three'
 
 export default class Plane {
   constructor(options) {
@@ -22,7 +30,7 @@ export default class Plane {
             vUv = uv;
             gl_Position = vec4(position, 0, 1);
         }
-    `;
+    `
 
     const fragment = /* glsl */ `
     precision highp float;
@@ -35,7 +43,7 @@ export default class Plane {
         gl_FragColor.b = 0.5 + 0.3 * cos(vUv.x + uTime) + uColor.b;
         gl_FragColor.a = 0.6;
     }
-    `;
+    `
     this.material = new RawShaderMaterial({
       uniforms: {
         resolution: { value: new Vector2() },
@@ -44,15 +52,10 @@ export default class Plane {
       },
       fragmentShader: fragment,
       vertexShader: vertex,
-    });
+    })
 
-    
-    this.plane = new Mesh(
-      new PlaneGeometry(20, 20, 20),
-      this.material
-    )
+    this.plane = new Mesh(new PlaneGeometry(20, 20, 20), this.material)
     this.container.add(this.plane)
-    
   }
   setMovement() {
     this.time.on('tick', () => {

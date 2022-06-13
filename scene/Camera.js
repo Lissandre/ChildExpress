@@ -1,5 +1,5 @@
 import { Object3D, PerspectiveCamera, Vector3 } from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import gsap from 'gsap'
 
 export default class Camera {
@@ -46,32 +46,39 @@ export default class Camera {
   setPosition() {
     // Set camera position
     this.camera.position.x = 0
-    this.camera.position.y = 0
-    this.camera.position.z = 5
+    this.camera.position.y = 2
+    this.camera.position.z = 3
   }
   setOrbitControls() {
-    this.camera.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.camera.controls = new OrbitControls(
+      this.camera,
+      this.renderer.domElement
+    )
 
-    this.camera.controls.minDistance = 8;
-    this.camera.controls.maxDistance = 8;
+    this.camera.controls.minDistance = 3
+    this.camera.controls.maxDistance = 3
 
-    this.camera.controls.minPolarAngle = Math.PI / 3;
-    this.camera.controls.maxPolarAngle = 2 * Math.PI / 3;
+    this.camera.controls.minPolarAngle = Math.PI / 3
+    this.camera.controls.maxPolarAngle = (2 * Math.PI) / 3
 
     this.camera.controls.autoRotate = false
     
     // this.camera.controls.target = new Vector3(1, 0, 0)
 
-    this.camera.controls.update();
+    this.camera.controls.update()
   }
   changeScene(options) {
     this.isHealthy = options.isHealthy
-    const vec = new Vector3(this.camera.position.x, this.camera.position.y, this.camera.position.z)
+    const vec = new Vector3(
+      this.camera.position.x,
+      this.camera.position.y,
+      this.camera.position.z
+    )
 
     if (this.isHealthy) {
       gsap.to(vec, {
         x: 0,
-        y: 0,
+        y: 2,
         z: 5,
         duration: 1,
         onUpdate: () => {
@@ -80,9 +87,9 @@ export default class Camera {
       })
     } else {
       gsap.to(vec, {
-        x: -2,
-        y: 0,
-        z: 3,
+        x: 0,
+        y: 2,
+        z: 5,
         duration: 1,
         onUpdate: () => {
           this.camera.position.set(vec.x, vec.y, vec.z)
@@ -100,12 +107,11 @@ export default class Camera {
       .on('change', () => {
         this.camera.updateProjectionMatrix()
       })
-    this.debugFolder
-      .addInput(this.camera, 'position', {
-        label: 'x, y, z',
-        x: { min: -5, max: 5 },
-        y: { min: -5, max: 5 },
-        z: { min: -5, max: 5 },
-      })
+    this.debugFolder.addInput(this.camera, 'position', {
+      label: 'x, y, z',
+      x: { min: -5, max: 5 },
+      y: { min: -5, max: 5 },
+      z: { min: -5, max: 5 },
+    })
   }
 }

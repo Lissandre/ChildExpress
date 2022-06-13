@@ -4,16 +4,20 @@ module.exports = {
   mode: 'jit',
   theme: {
     colors: {
-      'blue': '#0F54E4',
-      'white': '#FFFFFF'
+      blue: '#0F54E4',
+      greyblue: '#BECEE1',
+      white: '#FFFFFF',
+      pink: '#E893AD',
     },
     borderRadius: {
       DEFAULT: '80px',
+      md: '0.375rem',
+      full: '9999px',
     },
     boxShadow: {
       DEFAULT: '9px 25px 30px rgba(15, 84, 228, 0.38)',
-      'hoverState': '4px 15px 30px rgba(15, 84, 228, 0.38)',
-      'hoverStateWhite': '4px 15px 30px white',
+      hoverState: '4px 15px 30px rgba(15, 84, 228, 0.38)',
+      hoverStateWhite: '4px 15px 30px white',
     },
     extend: {
       animation: {
@@ -31,51 +35,53 @@ module.exports = {
         bounceIn: {
           '0%': {
             opacity: 0,
-            transform: 'scale3d(0.3, 0.3, 0.3)'
+            transform: 'scale3d(0.3, 0.3, 0.3)',
           },
           '25%': {
             opacity: 1,
-            transform: 'scale3d(0.95, 0.95, 0.95)'
+            transform: 'scale3d(0.95, 0.95, 0.95)',
           },
           '50%': { transform: 'scale3d(0.8, 0.8, 0.8)' },
-          '100%': { opacity: 1, transform: 'scale3d(0.9, 0.9, 0.9)' }
+          '100%': { opacity: 1, transform: 'scale3d(0.9, 0.9, 0.9)' },
         },
         bounceOut: {
           '0%': {
-            transform: 'scale3d(0.9, 0.9, 0.9)', opacity: 1,
+            transform: 'scale3d(0.9, 0.9, 0.9)',
+            opacity: 1,
           },
           '25%': {
-            transform: 'scale3d(0.85, 0.85, 0.85)', opacity: 1,
+            transform: 'scale3d(0.85, 0.85, 0.85)',
+            opacity: 1,
           },
           '50%': {
             opacity: 1,
-            transform: 'scale3d(1, 1, 1)'
+            transform: 'scale3d(1, 1, 1)',
           },
           '100%': {
             opacity: 0,
-            transform: 'scale3d(0.3, 0.3, 0.3)'
-          }
+            transform: 'scale3d(0.3, 0.3, 0.3)',
+          },
         },
         unBlur: {
           '0%': {
             transform: 'scale3d(0.9, 0.9, 0.9)',
-            opacity: 1
+            opacity: 1,
           },
           '100%': {
             transform: 'scale3d(0.9, 0.9, 0.9)',
             transform: 'scale3d(1, 1, 1)',
-            opacity: 1
-          }
+            opacity: 1,
+          },
         },
         progressBarGrow: {
           '0%': {
             width: '0%',
-            opacity: 1
+            opacity: 1,
           },
           '100%': {
             width: '100%',
-            opacity: 1
-          }
+            opacity: 1,
+          },
         },
         lineGrow: {
           '0%': {
