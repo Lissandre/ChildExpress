@@ -51,8 +51,8 @@ export const actions = {
   changeBox(job, name, xtras, personality, iq, weight, height) {
     console.log(job)
     // console.log(this.$scene.world.baby.updateUniform('test', "test"))
+    console.log(this.$nuxt.$scene.world)
     this.$nuxt.$scene.world.box.createBox(job, name, xtras, personality, iq, weight, height)
-
   },
   toggleIsHealthy(newValue) {
     this.health = newValue

@@ -165,8 +165,7 @@ export default {
               this.getCounter,
               this.getRange
             )
-            // this.$scene.world.box.writeOnBox()
-          }, 1000)
+          }, 4000)
         }
         const keep = document.querySelector('.submit-child')
         const unkeep = document.querySelector('.submit-bin')
