@@ -109,7 +109,7 @@ module.exports = {
         },
         fromLeft: {
           '0%': {
-            left: '-30%',
+            left: '-50%',
           },
           '100%': {
             left: '20%',

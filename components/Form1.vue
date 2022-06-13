@@ -192,8 +192,8 @@ export default {
   flex-wrap: wrap;
 }
 
-.second-slide .slide2 {
-  background: none !important;
+.second-slide .second-slide-component {
+   background: none !important;
 }
 
 .second-slide .submit-wrapper {

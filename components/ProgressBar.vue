@@ -75,7 +75,7 @@ export default {
   position: absolute;
 }
 .item {
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(10px);
 }
 .active {
   font-size: 16px;
