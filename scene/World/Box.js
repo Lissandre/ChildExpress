@@ -97,7 +97,7 @@ export default class Box {
       this.ctx.fillText("My TEXT!", 20, 20);
 
 
-      const font = `${size}px bold NeueBit`;
+      const font = `${size}px bold Calibri`;
       this.ctx.font = font;
       // measure how long the name will be
       const doubleBorderSize = borderSize * 2;
@@ -117,7 +117,7 @@ export default class Box {
       /* Job */
 
       this.ctx.save()
-      this.ctx.font = `100px bold NeueBit`;
+      this.ctx.font = `100px bold Calibri`;
       this.ctx.translate(550, 1200);
       this.ctx.rotate(-0.5 * Math.PI);
       this.ctx.fillText(name, 0, 0);
@@ -127,7 +127,7 @@ export default class Box {
       this.ctx.save()
       this.ctx.translate(650, 1200);
       this.ctx.rotate(-0.5 * Math.PI);
-      this.ctx.font = `80px bold NeueBit`;
+      this.ctx.font = `80px bold Calibri`;
       this.ctx.fillText(job, 0, 0);
       this.ctx.restore()
 
@@ -138,7 +138,7 @@ export default class Box {
         this.ctx.save()
         this.ctx.translate(650, 1200);
         this.ctx.rotate(-0.5 * Math.PI);
-        this.ctx.font = `20px bold NeueBit`;
+        this.ctx.font = `20px bold Calibri`;
         this.ctx.strokeStyle = "black";
         const uppercase = value.toUpperCase()
         this.ctx.fillText(uppercase, this.oldMeasure.width + 20, 100);
@@ -162,7 +162,7 @@ export default class Box {
 
         this.ctx.strokeStyle = "black";
         this.ctx.fillStyle = "black";
-        this.ctx.font = `22px bold NeueBit`;
+        this.ctx.font = `22px bold Calibri`;
 
 
         this.ctx.strokeRect(50, height, 300, 30);
@@ -194,10 +194,11 @@ export default class Box {
 
     
     this.ctx.save()
-    this.ctx.translate(800, 500);
-    this.ctx.rotate(-1);
-    this.ctx.font = `42px bold Calibri`;
-    this.ctx.fillText(weight + 'KG', 400, 400);
+    this.ctx.translate(100, 100);
+    this.ctx.rotate(180* Math.PI / 180);
+
+    this.ctx.font = `420px bold Calibri`;
+    this.ctx.fillText(weight + 'KG', 500, 1500);
     this.ctx.restore()
 
     /* taille */
