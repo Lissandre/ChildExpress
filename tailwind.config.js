@@ -5,10 +5,14 @@ module.exports = {
   theme: {
     colors: {
       blue: '#0F54E4',
+      greyblue: '#BECEE1',
       white: '#FFFFFF',
+      pink: '#E893AD',
     },
     borderRadius: {
       DEFAULT: '80px',
+      md: '0.375rem',
+      full: '9999px',
     },
     boxShadow: {
       DEFAULT: '9px 25px 30px rgba(15, 84, 228, 0.38)',

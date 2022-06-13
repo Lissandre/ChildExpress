@@ -7,6 +7,7 @@
 <script>
 export default {
   name: 'Reveal',
+  layout: 'landing',
   nuxtI18n: {
     paths: {
       en: '/oops',
