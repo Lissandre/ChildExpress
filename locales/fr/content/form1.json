@@ -3,7 +3,7 @@
     "label1": "Sexe"
   },
   "radio_lifequality": {
-    "label1": "Niveau de vie"
+    "label1": "Qualité de vie"
   },
   "checkbox_courageous": {
     "label1": "Courageux"
@@ -32,7 +32,7 @@
   "counter_weight": {
     "label1": "Poids"
   },
-  "range_parentscale": "",
+  "range_parentscale": "Taille",
   "roundslider_health": {
     "label1": "Santé"
   },

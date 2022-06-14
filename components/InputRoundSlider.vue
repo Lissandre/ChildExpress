@@ -22,6 +22,11 @@
       v-if="!input.skinColor"
       ref="circleSlider"
     >
+    <label class="w-20 mr-3 w-max text-white absolute">{{ locale.label1 }}</label>
+
+      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')">
+        {{ this.sliderValue }}
+      </p>
       <circle-slider
         v-model="sliderValue"
         :side="150"
@@ -40,9 +45,6 @@
         alt=""
         v-if="this.input.name.includes('health')"
       />
-      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')">
-        {{ this.sliderValue }}
-      </p>
 
       <svg
         width="175px"
@@ -215,5 +217,20 @@ export default {
 
 .IQ div svg path {
   filter: drop-shadow(5px 4px 7px rgba(15, 84, 228, 33%));
+}
+
+.IQ label {
+      left: 50%;
+    transform: translateX(-50%);
+}
+
+.circle-slider.slide1 {
+  padding: 60px;
+}
+
+.slide1 label {
+  font-size: 22px;
+  left: 20px;
+  top: 20px;
 }
 </style>

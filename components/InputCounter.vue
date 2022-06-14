@@ -3,7 +3,7 @@
     class="mt-20 pb-4 text-gray-500 left-1/3 pointer-events-auto counter-wrapper"
   >
     <fieldset
-      :class="`animate-bounce-in left-60 relative w-fit ${input.class}`"
+      :class="`animate-bounce-in relative w-fit ${input.class}`"
     >
       <button @click="(e) => update(e, 'plus')" class="text-blue text-4xl">
         +
@@ -75,5 +75,11 @@ fieldset .content {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.counter-label {
+  color: white;
+  font-size: 22px;
+
 }
 </style>

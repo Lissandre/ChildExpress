@@ -121,7 +121,7 @@ fieldset input[type='radio']::before {
   height: 15px;
   box-shadow: 1px 5px 5px rgb(15 84 228 / 56%);
 }
-fieldset input[type='radio']:checked::before {
+fieldset input[type='radio']:checked::before, fieldset input[type='radio']:hover::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
 .star-background {
@@ -335,6 +335,10 @@ fieldset input[type='radio']:checked::before {
 .parentGender label {
   flex-basis: auto;
   margin-bottom: 0;
-  font-size: 26px;
+  font-size: 22px;
+}
+
+.quality-label {
+  font-size: 22px;
 }
 </style>

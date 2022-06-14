@@ -32,7 +32,7 @@
   "counter_weight": {
     "label1": "Weight"
   },
-  "range_parentscale": "",
+  "range_parentscale": "Height",
   "roundslider_health": {
     "label1": "Health"
   },
