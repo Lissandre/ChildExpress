@@ -1,4 +1,4 @@
-import { Mesh, MeshBasicMaterial, Object3D, BoxGeometry, RepeatWrapping, CanvasTexture, LinearFilter, ClampToEdgeWrapping, DoubleSide, ImageLoader } from 'three'
+import { Mesh, Object3D, BoxGeometry, RepeatWrapping, CanvasTexture, LinearFilter, ClampToEdgeWrapping, DoubleSide, ImageLoader, ShaderMaterial } from 'three'
 
 
 export default class Box {
@@ -33,11 +33,39 @@ export default class Box {
       this.texture.wrapT = RepeatWrapping;
 
 
-      const material = new MeshBasicMaterial({
-        map: this.texture,
+      const material = new ShaderMaterial({
+        // map: this.texture,
         // map: this.assets.textures.map_box,
         side: DoubleSide,
         transparent: true,
+        uniforms: {
+          u_texture: { value: this.texture}
+        },
+        vertexShader: `
+        varying vec2 vUv;
+  
+        void main()	{
+  
+          vUv = uv;
+  
+          vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+          gl_Position = projectionMatrix * mvPosition;  
+
+        }`,
+        fragmentShader: `
+        varying vec2 vUv;
+
+        uniform sampler2D u_texture;
+
+        void main() {
+
+          vec3 color = texture2D(u_texture, vUv).xyz;
+          if(color == vec3(0., 1., 0.)) {
+            discard;
+          }
+          gl_FragColor = vec4(color.ggg, 1.);
+        }
+        `
       });
 
       console.log(this.assets.models)
