@@ -3,5 +3,5 @@
   font-family: 'NeueBit';
   font-style: normal;
   font-weight: 700;
-  src: url('./NeueBit-Bold.otf') format('opentype'); /* IE9 Compat Modes */
+  src: url('~assets/fonts/NeueBit-Bold.otf') format('opentype'); /* IE9 Compat Modes */
 }

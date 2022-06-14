@@ -49,7 +49,6 @@ export const actions = {
     this.newJob = value
   },
   changeBox(job, name, xtras, personality, iq, weight, height) {
-    console.log(job)
     // console.log(this.$scene.world.baby.updateUniform('test', "test"))
     console.log(this.$nuxt.$scene.world)
     if(this.$nuxt.$scene.world)

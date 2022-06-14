@@ -22,6 +22,11 @@
       v-if="!input.skinColor"
       ref="circleSlider"
     >
+    <label class="w-20 mr-3 w-max text-white absolute">{{ locale.label1 }}</label>
+
+      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')">
+        {{ this.sliderValue }}
+      </p>
       <circle-slider
         v-model="sliderValue"
         :side="150"
@@ -40,9 +45,6 @@
         alt=""
         v-if="this.input.name.includes('health')"
       />
-      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')">
-        {{ this.sliderValue }}
-      </p>
 
       <svg
         width="175px"
@@ -113,7 +115,7 @@ export default {
   mounted() {
     if (this.input.skinColor) {
     } else if (this.input.name.includes('IQ')) {
-      this.$refs['circleSlider'].children[0].appendChild(this.$refs['IQvalue'])
+      this.$refs['circleSlider'].appendChild(this.$refs['IQvalue'])
       this.sliderValue = 100
     }
   },
@@ -197,14 +199,21 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  margin-top: 13px;
 }
 
 .IQ {
   box-shadow: inset 0px 11.5px 20px white, inset -5.82px -4.5px 6.5px 0px white;
   left: 15%;
   top: 30vh;
+  padding-bottom: 50px;
 }
 
+
+.IQ div {
+  top: 26px;
+  position: relative;
+}
 .IQ div svg {
   filter: drop-shadow(5px 4px 7px white);
 }
@@ -215,5 +224,20 @@ export default {
 
 .IQ div svg path {
   filter: drop-shadow(5px 4px 7px rgba(15, 84, 228, 33%));
+}
+
+.IQ label {
+      left: 50%;
+    transform: translateX(-50%);
+}
+
+.circle-slider.slide1 {
+  padding: 60px;
+}
+
+.slide1 label {
+  font-size: 22px;
+  left: 20px;
+  top: 20px;
 }
 </style>

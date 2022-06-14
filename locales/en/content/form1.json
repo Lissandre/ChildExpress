@@ -5,6 +5,15 @@
   "radio_lifequality": {
     "label1": "Life quality"
   },
+  "radio_parenteyescolor": {
+    "label1": "Eyes"
+  },
+  "radio_parenthairstyle": {
+    "label1": "Hair Type"
+  },
+  "radio_parenthaircolor": {
+    "label1": "Hair color"
+  },
   "checkbox_courageous": {
     "label1": "Brave"
   },
@@ -32,7 +41,7 @@
   "counter_weight": {
     "label1": "Weight"
   },
-  "range_parentscale": "",
+  "range_parentscale": "Height",
   "roundslider_health": {
     "label1": "Health"
   },

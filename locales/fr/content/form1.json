@@ -3,7 +3,16 @@
     "label1": "Sexe"
   },
   "radio_lifequality": {
-    "label1": "Niveau de vie"
+    "label1": "Qualité de vie"
+  },
+  "radio_parenteyescolor": {
+    "label1": "Yeux"
+  },
+  "radio_parenthairstyle": {
+    "label1": "Style des cheveux"
+  },
+  "radio_parenthaircolor": {
+    "label1": "Couleur des cheveux"
   },
   "checkbox_courageous": {
     "label1": "Courageux"
@@ -32,7 +41,7 @@
   "counter_weight": {
     "label1": "Poids"
   },
-  "range_parentscale": "",
+  "range_parentscale": "Taille",
   "roundslider_health": {
     "label1": "Santé"
   },
