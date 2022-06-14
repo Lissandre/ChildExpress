@@ -48,6 +48,9 @@
       </div>
     </div>
 
+    <div class="resumeWrapper blurWrapper" ref="blur">
+    </div>
+
     <div class="ticket">
       <div class="ticket__left">
         <div class="ticket__left__bottom">
@@ -120,6 +123,8 @@ export default {
     }
 
     this.getExtras()
+
+    this.$refs.blur.classList.remove('blurWrapper')
 
     setTimeout(() => {
       const lines = document.querySelectorAll('.line1, .line2')
@@ -285,6 +290,22 @@ export default {
   top: 20%;
   position: relative;
   left: 50%;
+}
+
+.resumeWrapper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all ease 0.5s;
+  transition-delay: 1500ms;
+}
+
+.blurWrapper {
+  visibility: visible;
+  backdrop-filter: blur(10px) contrast(30%);
 }
 
 .info_data {

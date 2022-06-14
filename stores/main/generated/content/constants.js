@@ -1,7 +1,9 @@
 export default {
   GENDER: 'gender',
   LIFEQUALITY: 'lifeQuality',
-  EYESCOLOR: 'eyesColor',
+  PARENTEYESCOLOR: 'parentEyesColor',
+  PARENTHAIRSTYLE: 'parentHairStyle',
+  PARENTHAIRCOLOR: 'parentHairColor',
   COURAGEOUS: 'courageous',
   ELOQUENT: 'eloquent',
   HONEST: 'honest',

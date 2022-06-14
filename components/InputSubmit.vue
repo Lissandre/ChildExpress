@@ -7,7 +7,7 @@
       :name="input.name"
       :value="locale"
       :key="input.name"
-      :class="`w-20 z-[1] bg-blue px-20 py-4 flex justify-center rounded shadow cursor-pointer hover:bg-white hover:text-grey transition neueBit text-2xl ${input.class}`"
+      :class="`w-20 z-[1] bg-blue px-20 py-4 flex justify-center rounded shadow cursor-pointer hover:shadow-hoverState hover:bg-white hover:text-grey transition neueBit text-2xl ${input.class}`"
     />
   </div>
 </template>

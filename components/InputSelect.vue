@@ -263,7 +263,7 @@ export default {
   text-overflow: ellipsis;
   position: relative;
   display: block;
-  font-size: 16px;
+  font-size: 24px;
   color: white;
   line-height: 60px;
   cursor: pointer;
@@ -318,7 +318,7 @@ export default {
   display: block;
   padding: 0;
   opacity: 0;
-  font-size: 18px;
+  font-size: 24px;
   padding: 10px;
   cursor: pointer;
   text-align: center;

@@ -115,7 +115,7 @@ export default {
   mounted() {
     if (this.input.skinColor) {
     } else if (this.input.name.includes('IQ')) {
-      this.$refs['circleSlider'].children[0].appendChild(this.$refs['IQvalue'])
+      this.$refs['circleSlider'].appendChild(this.$refs['IQvalue'])
       this.sliderValue = 100
     }
   },
@@ -199,14 +199,21 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  margin-top: 13px;
 }
 
 .IQ {
   box-shadow: inset 0px 11.5px 20px white, inset -5.82px -4.5px 6.5px 0px white;
   left: 15%;
   top: 30vh;
+  padding-bottom: 50px;
 }
 
+
+.IQ div {
+  top: 26px;
+  position: relative;
+}
 .IQ div svg {
   filter: drop-shadow(5px 4px 7px white);
 }
