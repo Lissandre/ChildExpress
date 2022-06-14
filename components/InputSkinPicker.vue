@@ -12,9 +12,14 @@ if (process.client) {
 }
 
 export default {
+  name: 'InputSkinPicker',
   props: ['input', 'locale'],
+  data() {
+    return {}
+  },
   mounted() {
-    this.canvas = this.$ref.skinCanvas
+    console.log(this.$refs.skinCanvas)
+    this.canvas = this.$refs.skinCanvas
     this.sandbox = new glslCanvas.default(this.canvas)
     this.sandbox.load(`
         #ifdef GL_ES

@@ -104,6 +104,8 @@ export default {
   mounted() {
     this.inputs = form1.inputs
 
+
+console.log(this.inputs)
     this.slider = tinySlider.tns({
       container: '.my-slider',
       slideBy: 'page',

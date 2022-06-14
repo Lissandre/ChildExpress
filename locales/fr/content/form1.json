@@ -36,8 +36,7 @@
   "roundslider_health": {
     "label1": "Santé"
   },
-  "range_parentskintint": "",
-  "range_parentskintype": "",
+  "color_parentskin": "",
   "text_babyname": {
     "label1": "Prénom"
   },

@@ -214,19 +214,16 @@
         "step": 0.01,
         "class": "slide1"
       },
-      "parentSkinColor": {
+      "parentSkin": {
         "locales": {
           "fr": "",
           "en": ""
         },
-        "type": "range",
-        "name": "parentSkinColor",
-        "component": "InputColorPicker",
+        "type": "color",
+        "name": "parentSkin",
+        "component": "InputSkinPicker",
         "value": 0.5,
-        "from": 0,
-        "to": 1,
-        "step": 0.01,
-        "class": ""
+        "class": "slide1"
       },
       "babyName": {
         "locales": {
@@ -347,21 +344,6 @@
         "step": 0.01,
         "skinColor": true,
         "class": "range color-range skinTint middle"
-      },
-      "skinType": {
-        "locales": {
-          "fr": "",
-          "en": ""
-        },
-        "type": "range",
-        "name": "skinType",
-        "component": "InputRange",
-        "value": 0.5,
-        "from": 0,
-        "to": 1,
-        "step": 0.01,
-        "skinColor": true,
-        "class": "range color-range skinType middle"
       },
       "scale": {
         "locales": {

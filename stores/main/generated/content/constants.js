@@ -13,8 +13,7 @@ export default {
   WEIGHT: 'weight',
   PARENTSCALE: 'parentScale',
   HEALTH: 'health',
-  PARENTSKINTINT: 'parentSkinTint',
-  PARENTSKINTYPE: 'parentSkinType',
+  PARENTSKIN: 'parentSkin',
   BABYNAME: 'babyName',
   GENDER: 'gender',
   AGE: 'age',
@@ -22,7 +21,6 @@ export default {
   EARSSIZE: 'earsSize',
   HANDSSIZE: 'handsSize',
   SKINTINT: 'skinTint',
-  SKINTYPE: 'skinType',
   SCALE: 'scale',
   OVERALLSIZE: 'overallSize',
   EYESCOLOR: 'eyesColor',
@@ -34,5 +32,5 @@ export default {
   SILENT: 'silent',
   INDEPENDANT: 'independant',
   CLEAN: 'clean',
-  VISIONARY: 'visionary',
+  VISIONARY: 'visionary'
 }
