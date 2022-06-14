@@ -5,6 +5,15 @@
   "radio_lifequality": {
     "label1": "Qualité de vie"
   },
+  "radio_parenteyescolor": {
+    "label1": "Yeux"
+  },
+  "radio_parenthairstyle": {
+    "label1": "Style des cheveux"
+  },
+  "radio_parenthaircolor": {
+    "label1": "Couleur des cheveux"
+  },
   "checkbox_courageous": {
     "label1": "Courageux"
   },

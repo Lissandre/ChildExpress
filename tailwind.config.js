@@ -81,9 +81,12 @@ module.exports = {
             width: '0%',
             opacity: 1,
           },
-          '100%': {
+          '70%': {
             width: '100%',
             opacity: 1,
+          },
+          '90%': {
+            width: '100%',
           },
         },
         lineGrow: {

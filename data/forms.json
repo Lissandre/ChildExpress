@@ -36,14 +36,56 @@
         "length": 5,
         "class": "rating slide1"
       },
-      "eyesColor": {
+      "parentEyesColor": {
+        "locales": {
+          "fr": {
+            "label1": "Yeux"
+          },
+          "en": {
+            "label1": "Eyes"
+          }
+        },
         "type": "radio",
-        "name": "eyesColor",
-        "effect": "eyesColor",
+        "name": "parentEyesColor",
+        "effect": "parentEyesColor",
         "component": "InputRadios",
         "value": 2,
         "length": 4,
-        "class": "eyes-color middle"
+        "class": "eyes-color slide1"
+      },
+      "parentHairStyle": {
+        "locales": {
+          "fr": {
+            "label1": "Style des cheveux"
+          },
+          "en": {
+            "label1": "Hair Type"
+          }
+        },
+        "type": "radio",
+        "name": "parentHairStyle",
+        "effect": "parentHairStyle",
+        "component": "InputRadios",
+        "value": 2,
+        "length": 4,
+        "class": "hair-type slide1"
+      },
+      "parentHairColor": {
+        "locales": {
+          "fr": {
+            "label1": "Couleur des cheveux"
+          },
+          "en": {
+            "label1": "Hair color"
+          }
+        },
+        "type": "radio",
+        "name": "parentHairColor",
+        "effect": "parentHairColor",
+        "component": "InputRadios",
+        "value": 2,
+        "length": 6,
+        "class": "hair-color slide1"
       },
       "courageous": {
         "locales": {
