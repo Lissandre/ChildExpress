@@ -282,8 +282,8 @@ export default {
   margin: 0 auto;
   z-index: 1;
   height: 80%;
-  transform: translate3d(-50%, -50%, 0);
-  top: 50%;
+  transform: translate3d(-50%, -20%, 0);
+  top: 20%;
   position: relative;
   left: 50%;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="text-gray-500 pointer-events-auto relative">
     <fieldset :class="`animate-bounce-in ${input.class}`">
-      <p v-if="input.class != 'bubble-range'">{{ locale }}</p>
+      <p v-if="input.class != 'bubble-range'" class="range-label">{{ locale }}</p>
       <input
         :type="input.type"
         :id="input.name"
@@ -314,6 +314,13 @@ export default {
   justify-content: center;
 }
 
+.parent-scale{
+      padding: 20px 100px 20px 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
 .color-range {
   position: relative;
   width: 20px !important;
@@ -369,7 +376,7 @@ export default {
 
 .bubble {
   display: flex;
-  left: 60px;
+  left: 65px;
   bottom: 50px;
   z-index: 3;
   background: radial-gradient(
@@ -385,6 +392,14 @@ export default {
   position: absolute;
   padding: 15px;
   font-size: 18px;
+  white-space: nowrap;
+}
+
+.range-label {
+  color: white;
+  font-size: 22px;
+      margin-left: 20px;
+
 }
 
 #skinTint,

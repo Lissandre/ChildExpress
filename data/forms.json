@@ -23,7 +23,7 @@
       "lifeQuality": {
         "locales": {
           "fr": {
-            "label1": "Niveau de vie"
+            "label1": "Qualité de vie"
           },
           "en": {
             "label1": "Life quality"
@@ -184,8 +184,8 @@
       },
       "parentScale": {
         "locales": {
-          "fr": "",
-          "en": ""
+          "fr": "Taille",
+          "en": "Height"
         },
         "type": "range",
         "name": "parentScale",
@@ -194,7 +194,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range slide1 bubble-range"
+        "class": "range slide1 bubble-range parent-scale"
       },
       "parentHealth": {
         "locales": {
@@ -370,7 +370,7 @@
         "value": 0.5,
         "length": 3,
         "unit": "kg",
-        "class": "flex flex-col justify-center text-2xl body"
+        "class": "flex flex-col justify-center text-2xl body left-60"
       },
       "eyesColor": {
         "type": "radio",
@@ -615,7 +615,7 @@
         "type": "submit",
         "name": "submitFinal",
         "component": "InputSubmit",
-        "class": "neueBit w-80 submitFinal form5"
+        "class": "neueBit submitFinal form5"
       }
     }
   },

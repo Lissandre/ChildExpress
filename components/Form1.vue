@@ -317,6 +317,13 @@ console.log(this.inputs)
     rgba(255, 255, 255, 0.8)
   ) !important;
 }
+
+.counter-wrapper{
+      border: 1px solid white;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+}
 </style>
 
 <style scoped>

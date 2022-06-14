@@ -207,6 +207,10 @@ export default {
   cursor: pointer;
 }
 
+.submitFinal {
+  width: 20rem;
+}
+
 @media screen and (max-width: 1500px) {
   .payment-wrapper {
     max-width: 600px;
@@ -260,8 +264,5 @@ label {
     bottom: -65%;
 }
 
-.submitFinal {
-  width: 20rem;
-}
 */
 </style>
