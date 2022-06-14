@@ -72,7 +72,7 @@ export default class Box {
       this.box.scale.set(-3, -3, -3)
       this.box.rotation.set(Math.PI, 0, 0)
 
-      this.box.position.set(1, 0, 0)
+      this.box.position.set(1, -2, -8)
 
     }, 2000)
 
