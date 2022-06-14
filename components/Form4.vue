@@ -149,7 +149,7 @@ export default {
           $nuxt.$emit('updateSound', 'form4', 'speech', 'intro', 'speech1')
           const store = this.store
           setTimeout(() => {
-            if (this.$scene) console.log(this.$scene.world)
+            if (this.$scene) {
             var boxPersonnality = []
             this.personality.forEach((perso, index) => {
               const label = this.getLabel(perso.id)
@@ -165,6 +165,7 @@ export default {
               this.getCounter,
               this.getRange
             )
+            }
           }, 4000)
         }
         const keep = document.querySelector('.submit-child')
