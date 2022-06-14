@@ -1,4 +1,4 @@
-import { Scene, sRGBEncoding, WebGLRenderer } from 'three'
+import { Scene, sRGBEncoding, Vector3, WebGLRenderer } from 'three'
 
 import gsap, { Power3 } from 'gsap'
 
@@ -188,6 +188,36 @@ export default class App {
       duration: 1,
       ease: Power3.easeInOut,
     })
+  }
+
+  focusOnCamera() {
+    
+    // this.camera.camera.lookAt(this.world.box.box.position)
+
+    gsap.fromTo(this.world.box.box.rotation, {x: Math.PI, y:  2 * Math.PI, z:0 }, {x: Math.PI, y: 0, z:0, duration: 1.5})
+    gsap.to(this.world.box.box.position, {x: 0, y: 0, z:0, duration: 1}).then(() => {
+
+      console.log(this.camera.camera.controls.object)
+      const pos = this.world.box.box.position
+      this.camera.camera.controls.target.set(pos.x, pos.y, pos.z);
+      console.log(this.world.box.box.position)
+      
+      console.log(this.camera.camera.controls.target)
+      
+      // this.camera.position.copy(this.camera.camera.controls.target).add(new Vector3(x, y, z+10));
+      
+    }).then(() => {
+      gsap.to(this.world.box.box.position, {x: -1, y: 0, z:-1, duration: 1, delay: 3})
+    })
+
+
+    this.camera.camera.controls.update()
+
+    
+    // this.camera.camera.updateProjectionMatrix();
+
+    console.log(this.camera.camera)
+    console.log(this.world.box.box.position)
   }
 
   setConfig() {

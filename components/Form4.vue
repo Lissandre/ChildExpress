@@ -123,7 +123,6 @@ export default {
     }
 
     this.getExtras()
-
     this.$refs.blur.classList.remove('blurWrapper')
 
     setTimeout(() => {
@@ -170,25 +169,19 @@ export default {
               this.getCounter,
               this.getRange
             )
+
             }
           }, 4000)
-        }
+
+        setTimeout(() => {
+          this.store.focusCamera()
+        }, 9000)
+          }
         const keep = document.querySelector('.submit-child')
         const unkeep = document.querySelector('.submit-bin')
 
-        keep.addEventListener('click', () => {
-          $nuxt.$emit('updateSound', 'form4', 'submit', 'keep', 'true')
-          setTimeout(() => {
-            this.$refs.content.classList.add('animate-slideup')
-            // lancer ici la bonne anim de boite
-          }, 6000)
-          setTimeout(() => {
-            this.$helpers.updateInput('submit', 'keep', 'true')
-          }, 8000)
-        })
-        unkeep.addEventListener('click', () => {
-          $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')
-        })
+        keep.addEventListener('click', () => keepBaby())
+        unkeep.addEventListener('click', () => unkeepBaby())
       })
     },
     getLabel(id) {
@@ -257,6 +250,21 @@ export default {
         )
     },
     inputChange(type, name, value, optional) {},
+
+    keepBaby() {
+      $nuxt.$emit('updateSound', 'form4', 'submit', 'keep', 'true')
+      setTimeout(() => {
+        this.$refs.content.classList.add('animate-slideup')
+        // lancer ici la bonne anim de boite
+      }, 6000)
+      setTimeout(() => {
+        this.$helpers.updateInput('submit', 'keep', 'true')
+      }, 8000)
+    },
+    unkeepBaby() {
+      $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')
+    }
+
   },
   computed: {
     getText: function () {
@@ -299,7 +307,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1;
   transition: all ease 0.5s;
   transition-delay: 1500ms;
 }
