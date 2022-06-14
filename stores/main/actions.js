@@ -54,6 +54,10 @@ export const actions = {
     if(this.$nuxt.$scene.world)
     this.$nuxt.$scene.world.box.createBox(job, name, xtras, personality, iq, weight, height)
   },
+
+  focusCamera() {
+    this.$nuxt.$scene?.focusOnCamera()
+  },
   toggleIsHealthy(newValue) {
     this.health = newValue
     this.$nuxt.$scene.camera?.changeScene({ health: newValue })

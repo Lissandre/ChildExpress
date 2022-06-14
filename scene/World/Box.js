@@ -14,8 +14,6 @@ export default class Box {
     this.oldMeasure = { width: -30 }
 
     // this.createBox()
-    // this.setMovement()
-
   }
   createBox(job, name, xtras, personality, iq, weight, height) {
 
@@ -100,7 +98,15 @@ export default class Box {
       this.box.scale.set(-3, -3, -3)
       this.box.rotation.set(Math.PI, 0, 0)
 
-      this.box.position.set(1, -2, -8)
+      this.box.position.set(0, -5, 0)
+
+      this.box.children[0].position.set(0, 0, 0)
+
+
+      console.log(this.box)
+
+      // this.setMovement()
+
 
     }, 2000)
 
@@ -113,19 +119,32 @@ export default class Box {
     this.ctx.canvas.width = 2048
     this.ctx.canvas.height = 2048
 
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://use.typekit.net/tju5ktt.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+
+
     var imageObj = new Image();
     console.log(this.assets)
     imageObj.src = this.assets.textures.map_box.image.src;
     imageObj.addEventListener("load", () => {
+    var image = new Image;
+    image.src = link.href;
+    image.onerror = () => {
+
+      console.log(this)
+
       console.log('her')
       console.log(this.ctx)
       this.ctx.drawImage(this.assets.textures.map_box.image, 0, 0, 2048, 2048);
       console.log('draw')
-      this.ctx.font = "40pt Calibri";
+      this.ctx.font = '40pt "roc-grotesk"';
       this.ctx.fillText("My TEXT!", 20, 20);
 
 
-      const font = `${size}px bold Calibri`;
+      const font = `${size}px bold "roc-grotesk"`;
       this.ctx.font = font;
       // measure how long the name will be
       const doubleBorderSize = borderSize * 2;
@@ -141,32 +160,33 @@ export default class Box {
 
       //this.ctx.fillRect(0, 0, 1000, 1500);
 
+      /* Nom */
+      this.ctx.save()
+      this.ctx.translate(550, 1200);
+      this.ctx.rotate(-0.5 * Math.PI);
+      this.ctx.font = `80px 700 "roc-grotesk-wide"`;
+      this.ctx.fillText(name, 0, 0);
+      this.ctx.restore()
+
 
       /* Job */
 
       this.ctx.save()
-      this.ctx.font = `100px bold Calibri`;
-      this.ctx.translate(550, 1200);
+      this.ctx.font = '35px 700 "roc-grotesk"';
+      this.ctx.translate(600, 1200);
       this.ctx.rotate(-0.5 * Math.PI);
-      this.ctx.fillText(name, 0, 0);
-      this.ctx.restore()
-
-      /* Nom */
-      this.ctx.save()
-      this.ctx.translate(650, 1200);
-      this.ctx.rotate(-0.5 * Math.PI);
-      this.ctx.font = `80px bold Calibri`;
       this.ctx.fillText(job, 0, 0);
       this.ctx.restore()
 
+    
       /* xtras */
 
       var xtrasFinal = Array.from(xtras)
       for (const [key, value] of Object.entries(xtrasFinal)) {
         this.ctx.save()
-        this.ctx.translate(650, 1200);
+        this.ctx.translate(550, 1200);
         this.ctx.rotate(-0.5 * Math.PI);
-        this.ctx.font = `20px bold Calibri`;
+        this.ctx.font = '20px "Calibri"';
         this.ctx.strokeStyle = "black";
         const uppercase = value.toUpperCase()
         this.ctx.fillText(uppercase, this.oldMeasure.width + 20, 100);
@@ -190,12 +210,11 @@ export default class Box {
 
         this.ctx.strokeStyle = "black";
         this.ctx.fillStyle = "black";
-        this.ctx.font = `22px bold Calibri`;
-
+        this.ctx.font = '16px "roc-grotesk"';
 
         this.ctx.strokeRect(50, height, 300, 30);
         this.ctx.fillRect(50, height, perso.percentage * 3, 30);
-        this.ctx.font = `28px bold Calibri`;
+        this.ctx.font = '28px "roc-grotesk"';
         this.ctx.fillText(perso.percentage + '%', 370, height);
 
         height += 40
@@ -206,30 +225,27 @@ export default class Box {
         this.ctx.restore();
       })
 
-
-
-
     /* qi */
     console.log(iq)
     this.ctx.save()
     this.ctx.translate(1800, 800);
     this.ctx.rotate(0.5 * Math.PI);
-    this.ctx.font = `42px bold Calibri`;
+    this.ctx.font = `42px bold "roc-grotesk-wide"`;
     this.ctx.fillText(iq, 40, 260);
     this.ctx.restore()
 
     /* poids */
-
-    
     this.ctx.save()
-    this.ctx.translate(100, 100);
-    this.ctx.rotate(180* Math.PI / 180);
+    this.ctx.translate(1024, 1024);
+    this.ctx.rotate(2 * Math.PI);
 
-    this.ctx.font = `420px bold Calibri`;
-    this.ctx.fillText(weight + 'KG', 500, 1500);
+    this.ctx.font = `420px bold "roc-grotesk-wide"`;
+    this.ctx.fillText(weight + 'KG', 0, 0);
     this.ctx.restore()
 
     /* taille */
+    // this.ctx.font = `42px bold "roc-grotesk-wide"`;
+
     // ctx.fillText(height, 50, 300);
     /* qi */
     // ctx.fillText(iq, 50, 200);
@@ -240,14 +256,15 @@ export default class Box {
     /* taille */
     // ctx.fillText(height, 50, 300);
 
-  })
+  }
+})
     return this.ctx.canvas;
   }
   setMovement() {
+    if(this.box)
     this.time.on('tick', () => {
-      this.texture.needsUpdate = true;
 
-      // this.box.rotation.y += 0.001 * this.time.delta
+      this.box.rotation.y += 0.001 * this.time.delta
     })
   }
 

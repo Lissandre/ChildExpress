@@ -62,6 +62,10 @@ export default class Camera {
     this.camera.controls.maxPolarAngle = (2 * Math.PI) / 3
 
     this.camera.controls.autoRotate = false
+
+    this.camera.position.set(0, 0, 3)
+
+    // this.camera.controls.object = this.camera
     
     // this.camera.controls.target = new Vector3(1, 0, 0)
 

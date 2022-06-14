@@ -5,3 +5,12 @@
   font-weight: 700;
   src: url('~assets/fonts/NeueBit-Bold.otf') format('opentype'); /* IE9 Compat Modes */
 }
+
+/* Roc */
+@font-face {
+  font-family: 'RocGrotesk';
+  font-style: normal;
+  font-weight: 500;
+  src: url('~assets/fonts/RocGrotesk.ttf') format('truetype'); /* IE9 Compat Modes */
+}
+
