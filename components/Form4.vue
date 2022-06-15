@@ -306,7 +306,8 @@ export default {
 
 <style>
 .babyInfos {
-  width: 80vw;
+  /*width: 80vw;*/
+  width: 90vw;
   margin: 0 auto;
   z-index: 1;
   height: 80%;
@@ -569,7 +570,7 @@ svg {
   /* Unfortunately you can't use transparent here … */
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
     1px 1px 0 white;
-  font-size: 7rem;
+  font-size: 9rem;
   /* font-size: 25.5vw; */
 }
 
