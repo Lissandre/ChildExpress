@@ -3,10 +3,10 @@
     <div class="container flex flex-col items-center justify-center">
       <div>
         <div>
-          <span class="font-bold">Accéder à notre boutique</span>|
-          <a href="">Aide</a>|
-          <a href="">Contact</a>|
-          <a href="">Termes et Conditions</a>|
+          <span class="font-bold">Accéder à notre boutique</span> |
+          <a href="">Aide</a> |
+          <a href="">Contact</a> |
+          <a href="">Termes et Conditions</a> |
           <span>LOGOS</span>
         </div>
         <span>© 2022 ChildExpress. All right reserved.</span>
