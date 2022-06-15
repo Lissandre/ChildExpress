@@ -7,7 +7,7 @@
       }}</span>
     </div>
     <NuxtLink
-      :to="localePath('index')"
+      :to="localePath('landing')"
       class="absolute bottom-0 pb-4 text-gray-500 pointer-events-auto"
       >{{ $t('error.backlink') }}</NuxtLink
     >
