@@ -324,12 +324,14 @@ console.log(this.inputs)
 
 .weight,
 .weight button {
-  background: radial-gradient(
+  /*background: radial-gradient(
     rgba(0, 0, 0, 0),
     rgba(255, 255, 255, 0.1),
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.8)
-  ) !important;
+  ) !important;*/
+  box-shadow: inset 0px 12px 20px rgba(255, 255, 255, 0.86),
+    inset -5px -4.5px 6.5px rgba(255, 255, 255, 0.7);
 }
 
 .weight {

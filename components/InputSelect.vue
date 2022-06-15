@@ -289,7 +289,7 @@ export default {
   transform-origin: 50% 50%;
   transform: translateY(-50%);
   transition: transform 0.3s ease;
-  background: no-repeat center center url('@/assets/images/arrow.svg')
+  background: no-repeat center center url('@/assets/images/arrow.svg');
 }
 
 .custom-options {
@@ -310,7 +310,7 @@ export default {
   width: 100%;
   color: white;
   font-size: 32px;
-  filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
+  box-shadow: 0px 4px 7px rgb(15 84 228 / 56%);
 }
 
 .custom-option {

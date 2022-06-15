@@ -40,13 +40,8 @@ export default {
 
 <style>
 fieldset {
-  background: radial-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.6));
-  background: radial-gradient(
-    rgba(0, 0, 0, 0),
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.8)
-  );
+  box-shadow: inset 0px 12px 20px rgba(255, 255, 255, 0.86),
+    inset -5px -4.5px 6.5px rgba(255, 255, 255, 0.7);
   transition: all ease-out 0.5s;
   z-index: 1;
   perspective-origin: 500% 200%;
