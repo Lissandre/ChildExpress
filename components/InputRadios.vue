@@ -121,7 +121,7 @@ fieldset input[type='radio']::before {
   height: 15px;
   box-shadow: 1px 5px 5px rgb(15 84 228 / 56%);
 }
-fieldset input[type='radio']:checked::before {
+fieldset input[type='radio']:checked::before, fieldset input[type='radio']:hover::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
 .star-background {
@@ -298,7 +298,7 @@ fieldset input[type='radio']:checked::before {
   outline: 4px solid rgba(15, 84, 228, 1);
 }
 
-.gender {
+.gender, .hair-type {
   display: flex;
   flex-wrap: wrap;
   width: max-content;
@@ -309,10 +309,10 @@ fieldset input[type='radio']:checked::before {
   margin-bottom: 10px;
 }
 
-.gender input {
+.gender input, .hair-type input {
   margin-right: 120px !important;
 }
-.gender input::after {
+.gender input::after, .hair-type input::after {
   font-size: 20px;
   position: absolute;
   left: 20px;
@@ -332,9 +332,26 @@ fieldset input[type='radio']:checked::before {
   content: 'Non-binaire';
 }
 
+.hair-type input:nth-child(2)::after {
+  content: 'Lissés';
+}
+.hair-type input:nth-child(3)::after {
+  content: 'Bouclés';
+}
+.hair-type input:nth-child(4)::after {
+  content: 'Ondulés';
+}
+.hair-type input:nth-child(5)::after {
+  content: 'Crépus';
+}
+
 .parentGender label {
   flex-basis: auto;
   margin-bottom: 0;
-  font-size: 26px;
+  font-size: 22px;
+}
+
+.quality-label {
+  font-size: 22px;
 }
 </style>

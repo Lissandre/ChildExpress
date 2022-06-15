@@ -8,6 +8,7 @@ module.exports = {
       greyblue: '#BECEE1',
       white: '#FFFFFF',
       pink: '#E893AD',
+      grey: '#8998A8'
     },
     borderRadius: {
       DEFAULT: '80px',
@@ -80,9 +81,12 @@ module.exports = {
             width: '0%',
             opacity: 1,
           },
-          '100%': {
+          '70%': {
             width: '100%',
             opacity: 1,
+          },
+          '90%': {
+            width: '100%',
           },
         },
         lineGrow: {

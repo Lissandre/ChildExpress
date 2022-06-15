@@ -18,6 +18,8 @@
           @blur="soundEvents"
         />
         <div class="underline"></div>
+        <div class="fake-underline"></div>
+
       </div>
     </fieldset>
   </div>
@@ -88,16 +90,19 @@ fieldset {
   height: 2px;
   background-color: white;
 }
+.underline{
+  z-index: 100;
+}
 
-.baby-name input[type='text']::after {
-  content: '';
-  width: 100%;
+.fake-underline {
+  transition: all 0.5s;
+  display: inline-block;
   bottom: 0;
   left: 0%;
   position: absolute;
-  width: 0%;
   height: 2px;
-  background-color: white;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.521);
 }
 
 .baby-name input[type='text']:focus + .underline {

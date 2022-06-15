@@ -263,7 +263,7 @@ export default {
   text-overflow: ellipsis;
   position: relative;
   display: block;
-  font-size: 16px;
+  font-size: 24px;
   color: white;
   line-height: 60px;
   cursor: pointer;
@@ -278,15 +278,18 @@ export default {
   border-bottom: 2px solid white;
 }
 .custom-select__trigger:after {
-  content: '>';
+  content: '';
   font-size: 18px;
   display: block;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  right: 20px;
+  right: 10px;
   top: 50%;
   transform-origin: 50% 50%;
-  transform: translateY(-50%) rotate(90deg);
+  transform: translateY(-50%);
   transition: transform 0.3s ease;
+  background: no-repeat center center url('@/assets/images/arrow.svg')
 }
 
 .custom-options {
@@ -305,7 +308,6 @@ export default {
   max-height: 290px;
   overflow: scroll;
   width: 100%;
-  background: #cdceff;
   color: white;
   font-size: 32px;
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
@@ -316,7 +318,7 @@ export default {
   display: block;
   padding: 0;
   opacity: 0;
-  font-size: 18px;
+  font-size: 24px;
   padding: 10px;
   cursor: pointer;
   text-align: center;

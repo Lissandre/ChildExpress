@@ -48,6 +48,9 @@
       </div>
     </div>
 
+    <div class="resumeWrapper blurWrapper" ref="blur">
+    </div>
+
     <div class="ticket">
       <div class="ticket__left">
         <div class="ticket__left__bottom">
@@ -120,6 +123,7 @@ export default {
     }
 
     this.getExtras()
+    this.$refs.blur.classList.remove('blurWrapper')
 
     setTimeout(() => {
       const lines = document.querySelectorAll('.line1, .line2')
@@ -165,25 +169,19 @@ export default {
               this.getCounter,
               this.getRange
             )
+
             }
           }, 4000)
-        }
+
+        setTimeout(() => {
+          this.store.focusCamera()
+        }, 9000)
+          }
         const keep = document.querySelector('.submit-child')
         const unkeep = document.querySelector('.submit-bin')
 
-        keep.addEventListener('click', () => {
-          $nuxt.$emit('updateSound', 'form4', 'submit', 'keep', 'true')
-          setTimeout(() => {
-            this.$refs.content.classList.add('animate-slideup')
-            // lancer ici la bonne anim de boite
-          }, 6000)
-          setTimeout(() => {
-            this.$helpers.updateInput('submit', 'keep', 'true')
-          }, 8000)
-        })
-        unkeep.addEventListener('click', () => {
-          $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')
-        })
+        keep.addEventListener('click', () => keepBaby())
+        unkeep.addEventListener('click', () => unkeepBaby())
       })
     },
     getLabel(id) {
@@ -252,6 +250,21 @@ export default {
         )
     },
     inputChange(type, name, value, optional) {},
+
+    keepBaby() {
+      $nuxt.$emit('updateSound', 'form4', 'submit', 'keep', 'true')
+      setTimeout(() => {
+        this.$refs.content.classList.add('animate-slideup')
+        // lancer ici la bonne anim de boite
+      }, 6000)
+      setTimeout(() => {
+        this.$helpers.updateInput('submit', 'keep', 'true')
+      }, 8000)
+    },
+    unkeepBaby() {
+      $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')
+    }
+
   },
   computed: {
     getText: function () {
@@ -282,10 +295,26 @@ export default {
   margin: 0 auto;
   z-index: 1;
   height: 80%;
-  transform: translate3d(-50%, -50%, 0);
-  top: 50%;
+  transform: translate3d(-50%, -20%, 0);
+  top: 20%;
   position: relative;
   left: 50%;
+}
+
+.resumeWrapper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: all ease 0.5s;
+  transition-delay: 1500ms;
+}
+
+.blurWrapper {
+  visibility: visible;
+  backdrop-filter: blur(10px) contrast(30%);
 }
 
 .info_data {

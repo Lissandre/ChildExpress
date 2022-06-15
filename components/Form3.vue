@@ -57,7 +57,7 @@
             ></component>
           </div>
         </div>
-        <div class="progress-bar-container">
+        <div class="progress-bar-container" ref="progressContainer">
           <div class="progress-bar-indicator"></div>
         </div>
       </div>
@@ -196,14 +196,20 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
           $nuxt.$emit('updateSound', 'form3', 'speech', 'loading', 'speech1')
           const indicator = document.querySelector('.progress-bar-indicator')
           indicator.classList.add('animate-progressbargrow')
+
+          this.$refs.progressContainer.classList.add('border')
           this.store.changeJob($nuxt.$t(`job.${this.newJob}`))
         }, 1000)
+
+        setTimeout(() => {
+          this.$refs.progressContainer.classList.remove('border')
+        }, 7000)
 
         setTimeout(() => {
           this.$helpers.updateInput(e.type, e.type, e.type)
         }, 8000)
       } else {
-        this.xtraWrapper.classList.add('open')
+        this.xtraWrapper.classList.add('openPopin')
         const xtraComponents = document.querySelectorAll('.xtra-component')
         xtraComponents.forEach((xtra) => {
           xtra.classList.remove('animate-bounce-in')
@@ -340,7 +346,7 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
   margin-bottom: 20px;
 }
 
-.open {
+.openPopin {
   backdrop-filter: blur(10px) contrast(30%);
   visibility: visible;
   opacity: 1;
@@ -359,6 +365,10 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
   left: 50%;
   transform: translate3d(-50%, 0, 0);
   width: 800px;
+}
+
+.border {
+  border: 1px solid white;
 }
 
 .progress-bar-indicator {

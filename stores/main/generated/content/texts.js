@@ -1,1 +1,3 @@
-export default [{ id: 'babyName', value: 'Margaux' }]
+export default [
+  { id: 'babyName', value: 'Margaux' }
+]
