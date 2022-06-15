@@ -2,7 +2,9 @@
   <header class="fixed top-0 w-full z-[9999]">
     <div class="container flex justify-between py-4 px-8">
       <div class="flex items-center gap-8">
-        <img src="@/assets/images/logoChildExpressBlack.svg" alt="Logo ChildExpress">
+        <a href="#0">
+          <img src="@/assets/images/logoChildExpressBlack.svg" alt="Logo ChildExpress">
+        </a>
         <nav class="flex gap-8">
           <a href="#1">Nos réalisations</a>
           <a href="#2">Nos valeurs</a>
