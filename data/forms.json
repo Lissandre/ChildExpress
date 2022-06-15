@@ -10,11 +10,11 @@
             "label1": "Sexe"
           },
           "en": {
-            "label1": "Sexe"
+            "label1": "Gender"
           }
         },
         "type": "radio",
-        "name": "gender",
+        "name": "parentGender",
         "component": "InputRadios",
         "value": 0.5,
         "length": 2,
@@ -100,7 +100,7 @@
         "name": "courageous",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1 light-background"
+        "class": "slide1 light-background checkbox-slide1"
       },
       "eloquent": {
         "locales": {
@@ -115,7 +115,7 @@
         "name": "eloquent",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1 light-background"
+        "class": "slide1 light-background checkbox-slide1"
       },
       "honest": {
         "locales": {
@@ -130,7 +130,7 @@
         "name": "honest",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1 light-background"
+        "class": "slide1 light-background checkbox-slide1"
       },
       "greedy": {
         "locales": {
@@ -145,7 +145,7 @@
         "name": "greedy",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1 light-background"
+        "class": "slide1 light-background checkbox-slide1"
       },
       "hypersensitive": {
         "locales": {
@@ -160,7 +160,7 @@
         "name": "hypersensitive",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1 light-background"
+        "class": "slide1 light-background checkbox-slide1"
       },
       "logic": {
         "locales": {
@@ -175,7 +175,7 @@
         "name": "logic",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1 light-background"
+        "class": "slide1 light-background checkbox-slide1"
       },
       "hyperactive": {
         "locales": {
@@ -190,7 +190,7 @@
         "name": "hyperactive",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1 light-background"
+        "class": "slide1 light-background checkbox-slide1"
       },
       "creative": {
         "locales": {
@@ -205,7 +205,7 @@
         "name": "creative",
         "component": "InputCheckbox",
         "value": 0,
-        "class": "slide1 light-background"
+        "class": "slide1 light-background checkbox-slide1"
       },
       "parentWeight": {
         "locales": {
@@ -222,7 +222,7 @@
         "value": 65,
         "length": 3,
         "unit": "kg",
-        "class": "flex flex-col justify-center text-2xl slide1 weight"
+        "class": "flex flex-row justify-center text-2xl slide1 weight"
       },
       "parentScale": {
         "locales": {
@@ -288,7 +288,7 @@
             "label1": "Sexe"
           },
           "en": {
-            "label1": "Sexe"
+            "label1": "Gender"
           }
         },
         "type": "radio",
@@ -633,7 +633,7 @@
         "type": "submit",
         "name": "submitBin",
         "component": "InputSubmit",
-        "class": "neueBit submit-bin hover:shadow-hoverStateWhite"
+        "class": "neueBit submit-bin hover:shadow-hoverStateNone hover:bg-white hover:text-grey transition "
       },
       "submitChild": {
         "locales": {
@@ -657,7 +657,7 @@
         "type": "submit",
         "name": "submitFinal",
         "component": "InputSubmit",
-        "class": "neueBit submitFinal form5"
+        "class": "neueBit submitFinal transition animate-opacityfadein"
       }
     }
   },

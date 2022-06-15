@@ -1,5 +1,5 @@
 export default [
-  { id: 'gender', value: 0.5 },
+  { id: 'parentGender', value: 0.5 },
   { id: 'lifeQuality', value: 1 },
   { id: 'parentEyesColor', value: 2 },
   { id: 'parentHairStyle', value: 2 },

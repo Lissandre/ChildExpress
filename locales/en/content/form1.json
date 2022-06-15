@@ -1,6 +1,6 @@
 {
-  "radio_gender": {
-    "label1": "Sexe"
+  "radio_parentgender": {
+    "label1": "Gender"
   },
   "radio_lifequality": {
     "label1": "Life quality"
@@ -48,6 +48,9 @@
   "color_parentskin": "",
   "text_babyname": {
     "label1": "Name"
+  },
+  "radio_gender": {
+    "label1": "Gender"
   },
   "select_age": {
     "label1": "Expiry age"

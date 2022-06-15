@@ -1,5 +1,5 @@
 export default {
-  GENDER: 'gender',
+  PARENTGENDER: 'parentGender',
   LIFEQUALITY: 'lifeQuality',
   PARENTEYESCOLOR: 'parentEyesColor',
   PARENTHAIRSTYLE: 'parentHairStyle',

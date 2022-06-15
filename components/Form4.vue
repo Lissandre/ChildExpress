@@ -1,5 +1,9 @@
 <template>
-  <div class="flex flex-col relative h-full w-full z-[1]" ref="content">
+  <div
+    class="flex flex-col relative h-full w-full z-[1] fadeWrapper"
+    ref="content"
+  >
+    <div class="fadeWrapper" ref="fade"></div>
     <div class="babyInfos">
       <p class="info_category neueBit">Welcome</p>
       <p class="info_data info-name outline">{{ getText }}</p>
@@ -14,7 +18,7 @@
       <p class="info_category neueBit">Poids</p>
       <p class="info_data roc">{{ getCounter }} KG</p>
     </div>
-    <form @submit.prevent="prevent" class="h-full w-full">
+    <form @submit.prevent="prevent" class="h-full w-full z-[2]">
       <component
         v-for="input in inputs"
         :key="input.name"
@@ -48,8 +52,7 @@
       </div>
     </div>
 
-    <div class="resumeWrapper blurWrapper" ref="blur">
-    </div>
+    <div class="resumeWrapper blurWrapper" ref="blur"></div>
 
     <div class="ticket">
       <div class="ticket__left">
@@ -154,34 +157,29 @@ export default {
           const store = this.store
           setTimeout(() => {
             if (this.$scene) {
-            var boxPersonnality = []
-            this.personality.forEach((perso, index) => {
-              const label = this.getLabel(perso.id)
-              const percentage = this.getPercentage(perso.id, index)
-              boxPersonnality.push({ label, percentage })
-            })
-            store.changeBox(
-              this.getJob,
-              this.getText,
-              this.splittedXtra,
-              boxPersonnality,
-              this.getRoundSlider,
-              this.getCounter,
-              this.getRange
-            )
-
+              var boxPersonnality = []
+              this.personality.forEach((perso, index) => {
+                const label = this.getLabel(perso.id)
+                const percentage = this.getPercentage(perso.id, index)
+                boxPersonnality.push({ label, percentage })
+              })
+              store.changeBox(
+                this.getJob,
+                this.getText,
+                this.splittedXtra,
+                boxPersonnality,
+                this.getRoundSlider,
+                this.getCounter,
+                this.getRange
+              )
             }
-          }, 4000)
-
-        setTimeout(() => {
-          this.store.focusCamera()
-        }, 9000)
-          }
+          }, 5000)
+        }
         const keep = document.querySelector('.submit-child')
         const unkeep = document.querySelector('.submit-bin')
 
-        keep.addEventListener('click', () => keepBaby())
-        unkeep.addEventListener('click', () => unkeepBaby())
+        keep.addEventListener('click', () => this.keepBaby())
+        unkeep.addEventListener('click', () => this.unkeepBaby())
       })
     },
     getLabel(id) {
@@ -255,6 +253,8 @@ export default {
       $nuxt.$emit('updateSound', 'form4', 'submit', 'keep', 'true')
       setTimeout(() => {
         this.$refs.content.classList.add('animate-slideup')
+        this.store.focusBox()
+
         // lancer ici la bonne anim de boite
       }, 6000)
       setTimeout(() => {
@@ -263,8 +263,23 @@ export default {
     },
     unkeepBaby() {
       $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')
-    }
+      setTimeout(() => {
+        this.store.focusBin()
+        $nuxt.$emit('updateSound', 'form4', 'text', 'bin')
+      }, 9000)
+      setTimeout(() => {
+        this.$refs.content.classList.add('fadeToBlack')
+        this.$refs.fade.classList.add('fadeToBlack')
+      }, 12000)
+      setTimeout(() => {
+        this.redirectToEnd()
+      }, 15000)
+    },
 
+    redirectToEnd() {
+      if (this.$i18n.locale === 'fr') this.$router.push('/fr/mince')
+      else this.$router.push('/en/oops')
+    },
   },
   computed: {
     getText: function () {
@@ -301,7 +316,8 @@ export default {
   left: 50%;
 }
 
-.resumeWrapper {
+.resumeWrapper,
+.fadeToBlack {
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -312,9 +328,20 @@ export default {
   transition-delay: 1500ms;
 }
 
+.fadeToBlack {
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+}
 .blurWrapper {
   visibility: visible;
   backdrop-filter: blur(10px) contrast(30%);
+}
+
+.fadeToBlack {
+  visibility: visible;
+  opacity: 1;
+  background: black;
 }
 
 .info_data {
@@ -345,6 +372,9 @@ export default {
   background-color: transparent !important;
   border: 1px solid white;
   box-shadow: none;
+}
+.submit-bin:hover {
+  color: white;
 }
 
 .tag-wrapper {
@@ -541,7 +571,6 @@ svg {
     1px 1px 0 white;
   font-size: 7rem;
   /* font-size: 25.5vw; */
-
 }
 
 /* Real outline for modern browsers */
