@@ -237,4 +237,8 @@ ul.good li::before {
 .border {
   border-color: #000;
 }
+
+section {
+  scroll-margin-top: 4rem;
+}
 </style>
