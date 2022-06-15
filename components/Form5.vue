@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col relative h-full w-full z-[1]" ref="content">
-    <form @submit.prevent="prevent" class="h-full w-full">
+    <form @submit.prevent="prevent" class="h-full w-full form5">
       <div class="payment-wrapper">
         <div class="payment-category-wrapper relative">
           <h3 class="payment-category roc">Récapitulatif de commande</h3>
@@ -105,12 +105,22 @@ export default {
 
     const payment = document.querySelector('.payment-wrapper')
     payment.classList.add('animate-fromrightpayement')
+
+    setTimeout(() => {
+      const submitFinal = document.querySelector('.submitFinal')
+      submitFinal.classList.add('animate-opacityfadein')
+    }, 3000)
   },
   methods: {
     prevent(e) {
       e.preventDefault()
+      this.redirectToEnd()
     },
     inputChange(type, name, value, optional) {},
+    redirectToEnd() {
+      if (this.$i18n.locale === 'fr') this.$router.push('/fr/mince')
+      else this.$router.push('/en/oops')
+    },
   },
 }
 </script>
@@ -175,8 +185,8 @@ export default {
 
 .shipping-wrapper {
   padding-bottom: 0;
-  padding-left:0;
-  padding-right:0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .shipping-item,
@@ -209,6 +219,10 @@ export default {
 
 .submitFinal {
   width: 20rem;
+  position: relative;
+  bottom: 100px;
+  animation-delay: 4000ms;
+  opacity: 0;
 }
 
 @media screen and (max-width: 1500px) {

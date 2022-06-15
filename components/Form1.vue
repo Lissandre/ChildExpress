@@ -113,6 +113,8 @@ export default {
     })
 
     this.soundEvents()
+
+    //this.checkBoxsInDiv()
   },
   methods: {
     prevent(e) {
@@ -158,6 +160,17 @@ export default {
       return today
     },
 
+    checkBoxsInDiv() {
+      const div = document.createElement('div')
+      console.log(this.$refs)
+
+      for (const [key, value] of Object.entries(this.inputs)) {
+        if (value.class.includes('checkbox-slide1')) {
+          console.log(key, value)
+        }
+      }
+    },
+
     /*changeZindex(e) {
       const form1 = document.getElementById('form1')
       if (form1.classList.contains('behind')) {
@@ -193,18 +206,19 @@ export default {
 }
 
 .second-slide .second-slide-component {
-   background: none !important;
+  background: none !important;
 }
 
 .second-slide .submit-wrapper {
   position: absolute;
   bottom: 0;
   right: 0;
+  bottom: -500px;
 }
 .second-slide .submit-wrapper > input {
   position: absolute;
   right: -50%;
-  bottom: -200%;
+  bottom: calc(-200% + 500px);
 }
 .framed {
   width: 256px;
@@ -316,11 +330,20 @@ export default {
   ) !important;
 }
 
-.counter-wrapper{
-      border: 1px solid white;
-    width: fit-content;
-    padding: 20px;
-    border-radius: 20px;
+.weight {
+  border-radius: 80px !important;
+}
+
+.weight .content {
+  flex-direction: row !important;
+  margin: 0 20px;
+}
+
+.counter-wrapper {
+  border: 1px solid white;
+  width: fit-content;
+  padding: 20px;
+  border-radius: 20px;
 }
 </style>
 

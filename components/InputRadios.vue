@@ -121,7 +121,8 @@ fieldset input[type='radio']::before {
   height: 15px;
   box-shadow: 1px 5px 5px rgb(15 84 228 / 56%);
 }
-fieldset input[type='radio']:checked::before, fieldset input[type='radio']:hover::before {
+fieldset input[type='radio']:checked::before,
+fieldset input[type='radio']:hover::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
 .star-background {
@@ -298,10 +299,20 @@ fieldset input[type='radio']:checked::before, fieldset input[type='radio']:hover
   outline: 4px solid rgba(15, 84, 228, 1);
 }
 
-.gender, .hair-type {
+.gender,
+.hair-type {
   display: flex;
   flex-wrap: wrap;
   width: max-content;
+}
+.hair-type {
+  width: 400px;
+  justify-content: flex-start;
+}
+
+.hair-type label {
+  flex-basis: 100%;
+  margin-bottom: 20px;
 }
 
 .gender label {
@@ -309,10 +320,15 @@ fieldset input[type='radio']:checked::before, fieldset input[type='radio']:hover
   margin-bottom: 10px;
 }
 
-.gender input, .hair-type input {
+.gender input,
+.hair-type input {
   margin-right: 120px !important;
 }
-.gender input::after, .hair-type input::after {
+.hair-type input {
+  margin-bottom: 20px;
+}
+.gender input::after,
+.hair-type input::after {
   font-size: 20px;
   position: absolute;
   left: 20px;

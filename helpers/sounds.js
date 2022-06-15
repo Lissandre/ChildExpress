@@ -26,6 +26,7 @@ export default class Sounds {
           this.store.updateSubtitle(`${step}_${name}_true`)
           break
         case 'text':
+          console.log('heyefhfd')
           this.store.updateSubtitle(`${step}_${type}_${name}`)
           break
         case 'select':

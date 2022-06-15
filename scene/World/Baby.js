@@ -37,6 +37,9 @@ export default class Baby {
     this.map1.wrapT = RepeatWrapping
 
     this.container.add(this.baby)
+
+    this.baby.children[2].material.metalness = 1
+    this.baby.children[3].material.metalness = 1
   }
 
   modifyShader() {
@@ -209,7 +212,7 @@ export default class Baby {
     return x === 0
       ? 0
       : x === 1
-      ? 1
-      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
+        ? 1
+        : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
   }
 }

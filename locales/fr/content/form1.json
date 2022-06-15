@@ -1,5 +1,5 @@
 {
-  "radio_gender": {
+  "radio_parentgender": {
     "label1": "Sexe"
   },
   "radio_lifequality": {
@@ -49,6 +49,9 @@
   "range_parentskintype": "",
   "text_babyname": {
     "label1": "Prénom"
+  },
+  "radio_gender": {
+    "label1": "Sexe"
   },
   "select_age": {
     "label1": "Âge d'expiration"
