@@ -11,7 +11,9 @@ module.exports = {
     },
     borderRadius: {
       DEFAULT: '80px',
-      md: '0.375rem',
+      sm: '0.375rem',
+      md: '30px',
+      lg: '60px',
       full: '9999px',
     },
     boxShadow: {
@@ -23,13 +25,13 @@ module.exports = {
       animation: {
         'bounce-in': 'bounceIn 1s ease forwards',
         'bounce-out': 'bounceOut 1s ease forwards',
-        'unblur': 'unBlur 1s ease forwards',
-        'progressbargrow': 'progressBarGrow 8s ease forwards',
-        'linegrow': 'lineGrow 0.8s ease forwards',
-        'fromright': 'fromRight 1.5s ease forwards',
-        'fromrightpayement': 'fromRightPayement 2.5s ease forwards',
-        'fromleft': 'fromLeft 1.5s ease forwards',
-        'slideup': 'slideUp 1.5s ease forwards'
+        unblur: 'unBlur 1s ease forwards',
+        progressbargrow: 'progressBarGrow 8s ease forwards',
+        linegrow: 'lineGrow 0.8s ease forwards',
+        fromright: 'fromRight 1.5s ease forwards',
+        fromrightpayement: 'fromRightPayement 2.5s ease forwards',
+        fromleft: 'fromLeft 1.5s ease forwards',
+        slideup: 'slideUp 1.5s ease forwards',
       },
       keyframes: {
         bounceIn: {
@@ -89,7 +91,7 @@ module.exports = {
           },
           '100%': {
             width: '100px',
-          }
+          },
         },
         fromRight: {
           '0%': {
@@ -97,7 +99,7 @@ module.exports = {
           },
           '100%': {
             right: '-50px',
-          }
+          },
         },
         fromRightPayement: {
           '0%': {
@@ -105,7 +107,7 @@ module.exports = {
           },
           '100%': {
             right: '-15%',
-          }
+          },
         },
         fromLeft: {
           '0%': {
@@ -113,7 +115,7 @@ module.exports = {
           },
           '100%': {
             left: '20%',
-          }
+          },
         },
         slideUp: {
           '0%': {
@@ -121,10 +123,9 @@ module.exports = {
           },
           '100%': {
             transform: 'translate3d(0, -100%, 0)',
-          }
-        }
-      }
-
+          },
+        },
+      },
     },
   },
   variants: {

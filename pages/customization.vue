@@ -13,7 +13,7 @@
 import { useStore } from '@/stores/'
 
 export default {
-  name: 'Home',
+  name: 'Custom',
   nuxtI18n: {
     paths: {
       en: '/customization',
