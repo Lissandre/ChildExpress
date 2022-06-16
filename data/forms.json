@@ -20,22 +20,6 @@
         "length": 2,
         "class": "gender parentGender slide1"
       },
-      "lifeQuality": {
-        "locales": {
-          "fr": {
-            "label1": "Qualité de vie"
-          },
-          "en": {
-            "label1": "Life quality"
-          }
-        },
-        "type": "radio",
-        "name": "lifeQuality",
-        "component": "InputRadios",
-        "value": 1,
-        "length": 5,
-        "class": "rating slide1"
-      },
       "parentEyesColor": {
         "locales": {
           "fr": {
@@ -266,6 +250,22 @@
         "component": "InputSkinPicker",
         "value": 0.5,
         "class": "slide1"
+      },
+      "lifeQuality": {
+        "locales": {
+          "fr": {
+            "label1": "Qualité de vie"
+          },
+          "en": {
+            "label1": "Life quality"
+          }
+        },
+        "type": "radio",
+        "name": "lifeQuality",
+        "component": "InputRadios",
+        "value": 1,
+        "length": 5,
+        "class": "rating slide1"
       },
       "babyName": {
         "locales": {

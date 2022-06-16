@@ -57,6 +57,9 @@
         </div>
         <div class="payment-category-wrapper relative">
           <h3 class="payment-category">Mail de facturation</h3>
+          <input type="email" placeholder="badparent@gmail.com"/>
+          <div class="underline"></div>
+          <div class="fake-underline"></div>
         </div>
       </div>
       <component
@@ -64,6 +67,7 @@
         :key="input.name"
         :is="input.component"
         :input="input"
+        v-if="input.name != 'email'"
         ref="inputs"
         v-on:updateInput="
           (type, name, value, optional) =>
@@ -267,7 +271,7 @@ input[type='radio']::before {
   height: 15px;
   box-shadow: 1px 5px 5px rgb(15 84 228 / 56%);
 }
-input[type='radio']:checked::before {
+input[type='radio']:checked::before, input[type='radio']:hover::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
 
@@ -275,6 +279,47 @@ label {
   display: flex;
   flex-direction: column;
   max-width: 80%;
+}
+
+.underline {
+  transition: all 0.5s;
+  display: inline-block;
+  bottom: 40px;
+  left: 0%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+}
+.underline {
+  z-index: 100;
+}
+
+.fake-underline {
+  transition: all 0.5s;
+  display: inline-block;
+  bottom: 40px;
+  left: 0%;
+  position: absolute;
+  height: 2px;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.521);
+
+}
+input[type='email'] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+  outline: none !important;
+  font-size: 24px;
+  width: 100%;
+}
+
+input[type='email']:focus + .underline {
+  width: 50%;
 }
 /*
 .submit-wrapper {

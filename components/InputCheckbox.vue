@@ -1,6 +1,6 @@
 <template>
   <div class="pointer-events-auto">
-    <fieldset :class="`animate-bounce-in ${input.class}`">
+    <fieldset :class="`animate-bounce-in ${input.class} checkbox-fieldset`">
       <label class="text-white">{{ locale.label1 }}</label>
       <div class="mr-5">
         <input

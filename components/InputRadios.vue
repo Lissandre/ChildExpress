@@ -311,17 +311,20 @@ fieldset input[type='radio']:hover::before {
 }
 
 .gender,
-.hair-type {
+.hair-type,
+.hair-color {
   display: flex;
   flex-wrap: wrap;
   width: max-content;
 }
-.hair-type {
+.hair-type,
+.hair-color {
   width: 400px;
   justify-content: flex-start;
 }
 
-.hair-type label {
+.hair-type label,
+.hair-color label {
   flex-basis: 100%;
   margin-bottom: 20px;
 }
