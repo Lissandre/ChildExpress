@@ -2,8 +2,14 @@
   "range_nosesize": "Taille Nez",
   "range_earssize": "Taille Oreilles",
   "range_handssize": "Taille Mains",
-  "range_skintint": "",
   "range_scale": "",
   "counter_overallsize": "Taille Globale",
+  "radio_eyescolor": {
+    "labelMiddle": "Yeux"
+  },
+  "radio_haircolor": {
+    "labelMiddle": "Cheveux"
+  },
+  "color_skin": "Peau",
   "submit_submit": "Suivant"
 }

@@ -63,6 +63,8 @@
         </div>
       </div>
     </fieldset>
+      <label class="w-20 mr-3 w-max text-white relative left-[20px] z-[1]">{{ locale.labelMiddle }}</label>
+
   </div>
 </template>
 
@@ -319,14 +321,19 @@ fieldset input[type='radio']:hover::before {
 }
 .hair-type,
 .hair-color {
-  width: 400px;
   justify-content: flex-start;
+}
+
+.hair-type {
+  width: 400px;
 }
 
 .hair-type label,
 .hair-color label {
-  flex-basis: 100%;
   margin-bottom: 20px;
+}
+.hair-type label {
+  flex-basis: 100%;
 }
 
 .gender label {

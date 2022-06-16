@@ -42,7 +42,10 @@
   "roundslider_health": {
     "label1": "Health"
   },
-  "color_parentskin": "",
+  "color_parentskin": "Skin",
+  "radio_lifequality": {
+    "label1": "Life quality"
+  },
   "text_babyname": {
     "label1": "Name"
   },

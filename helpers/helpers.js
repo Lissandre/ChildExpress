@@ -15,7 +15,7 @@ export default class Helpers {
         )
         break
       case 'color':
-        this.store.changePicker(
+        this.store.changeColor(
           this.store.constants[name.toUpperCase()],
           value,
           step

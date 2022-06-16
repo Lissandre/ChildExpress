@@ -409,6 +409,13 @@ console.log(this.inputs)
   padding: 20px;
   border-radius: 20px;
 }
+
+#form1 .hair-color {
+  width: 400px;
+}
+#form1 .hair-color label{
+  flex-basis: 100%;
+}
 </style>
 
 <style scoped>

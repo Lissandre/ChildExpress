@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <span ref="skinThumb" id="skinpicker-thumb"></span>
-    <canvas ref="skinCanvas" id="skinCanvas"></canvas>
+  <div class="relative pointer-events-auto h-[240px]">
+    <fieldset :class="`animate-bounce-in ${input.class} flex flex-col`">
+      <div>
+      <span ref="skinThumb" id="skinpicker-thumb"></span>
+      <canvas ref="skinCanvas" id="skinCanvas"></canvas>
+      </div>
+    <label class="w-20 mt-5 w-max text-white text-[22px]">{{ locale }}</label>
+    </fieldset>
   </div>
 </template>
 
@@ -95,11 +100,11 @@ export default {
     )
 
     this.mouseDown = false
-    window.addEventListener('mousedown', (e) => {
+    this.$el.addEventListener('mousedown', (e) => {
       this.mouseDown = true
       this.updateColor(e)
     })
-    window.addEventListener('mouseup', () => {
+    this.$el.addEventListener('mouseup', () => {
       this.mouseDown = false
     })
 
@@ -109,25 +114,30 @@ export default {
     })
   },
   methods: {
-    onChange() {
+    onChange(value) {
+
+      console.log('change', value)
       this.$emit(
         'updateInput',
         this.input.type,
-        this.input.name
+        this.input.name,
+        value
         // COLOR
       )
     },
 
     updateColor(e) {
-      this.thumb.style.transform = `translate3d(${e.offsetX - 7.5}px, ${
-        e.offsetY - 7.5
-      }px, 0px)`
+      this.thumb.style.transform = `translate3d(${e.offsetX - 15}px, ${
+        e.offsetY - 
+      15}px, 0px)`
       let c = this.getColor(
         this.ctx,
         e.offsetX,
         this.canvas.offsetHeight - e.offsetY
       )
       this.thumb.style.background = `rgba(${c.r}, ${c.g}, ${c.b}, 1)`
+
+      this.onChange(c)
     },
 
     getColor(context, x, y) {
@@ -143,15 +153,20 @@ export default {
 
 <style>
 #skinpicker-thumb {
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: red;
   border: solid 3px blue;
   position: absolute;
 }
 
 #skinCanvas {
   pointer-events: all;
+  border-radius: 13px;
+  
+}
+
+.skinform2 {
+  box-shadow: none;
 }
 </style>
