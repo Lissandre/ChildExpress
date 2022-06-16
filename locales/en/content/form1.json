@@ -2,9 +2,6 @@
   "radio_parentgender": {
     "label1": "Gender"
   },
-  "radio_lifequality": {
-    "label1": "Life quality"
-  },
   "radio_parenteyescolor": {
     "label1": "Eyes"
   },
@@ -47,6 +44,9 @@
   },
   "range_parentskintint": "",
   "range_parentskintype": "",
+  "radio_lifequality": {
+    "label1": "Life quality"
+  },
   "text_babyname": {
     "label1": "Name"
   },

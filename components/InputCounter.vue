@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="mt-20 pb-4 text-gray-500 left-1/3 pointer-events-auto counter-wrapper"
-  >
-    <fieldset
-      :class="`animate-bounce-in relative w-fit ${input.class}`"
-    >
+  <div class="pb-4 text-gray-500 left-1/3 pointer-events-auto counter-wrapper">
+    <fieldset :class="`animate-bounce-in relative w-fit ${input.class}`">
       <button @click="(e) => update(e, 'plus')" class="text-blue text-4xl">
         +
       </button>
@@ -80,6 +76,5 @@ fieldset .content {
 .counter-label {
   color: white;
   font-size: 22px;
-
 }
 </style>

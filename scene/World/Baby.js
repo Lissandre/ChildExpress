@@ -40,6 +40,14 @@ export default class Baby {
 
     this.baby.children[2].material.metalness = 1
     this.baby.children[3].material.metalness = 1
+
+    const skin = this.baby.children.find(el => el.type === 'SkinnedMesh')
+
+    const expressions = Object.keys(skin.morphTargetDictionary);
+    console.log(skin)
+
+    console.log(expressions)
+
   }
 
   modifyShader() {

@@ -10,7 +10,7 @@
           <div class="first-slide-wrapper">
             <component
               v-for="input in inputs"
-              v-if="input.class.includes('slide1')"
+              v-if="input.class.includes('slide1') && input.type != 'checkbox'"
               :key="input.name"
               :is="input.component"
               :input="input"
@@ -28,6 +28,36 @@
                 )
               "
             ></component>
+
+            <div class="checkbox-wrapper">
+              <h2>
+                Vous êtes plutôt ?
+                <p>(3 choix maximum)</p>
+              </h2>
+
+              <component
+                v-for="input in inputs"
+                v-if="
+                  input.class.includes('slide1') && input.type == 'checkbox'
+                "
+                :key="input.name"
+                :is="input.component"
+                :input="input"
+                v-on:updateInput="
+                  (type, name, value, optional) =>
+                    inputChange(type, name, value, optional)
+                "
+                ref="inputs"
+                :locale="
+                  $t(
+                    `form1.${slugify(`${input.type}_${input.name}`, {
+                      replacement: '_',
+                      lower: true,
+                    })}`
+                  )
+                "
+              ></component>
+            </div>
           </div>
         </div>
         <div class="second-slide">
@@ -222,6 +252,33 @@ export default {
   position: absolute;
   right: -50%;
   bottom: calc(-200% + 500px);
+}
+
+.checkbox-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid white;
+  padding: 20px;
+  max-width: 575px;
+  border-radius: 23px;
+}
+
+.checkbox-wrapper h2 {
+  font-size: 22px;
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-bottom: 20px;
+}
+.checkbox-wrapper p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.checkbox-fieldset {
+  margin-right: 0px !important;
 }
 .framed {
   width: 256px;

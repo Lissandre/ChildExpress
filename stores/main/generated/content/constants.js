@@ -1,6 +1,5 @@
 export default {
   PARENTGENDER: 'parentGender',
-  LIFEQUALITY: 'lifeQuality',
   PARENTEYESCOLOR: 'parentEyesColor',
   PARENTHAIRSTYLE: 'parentHairStyle',
   PARENTHAIRCOLOR: 'parentHairColor',
@@ -17,6 +16,7 @@ export default {
   HEALTH: 'health',
   PARENTSKINTINT: 'parentSkinTint',
   PARENTSKINTYPE: 'parentSkinType',
+  LIFEQUALITY: 'lifeQuality',
   BABYNAME: 'babyName',
   GENDER: 'gender',
   AGE: 'age',
