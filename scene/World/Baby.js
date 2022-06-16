@@ -43,10 +43,10 @@ export default class Baby {
 
     const skin = this.baby.children.find(el => el.type === 'SkinnedMesh')
 
-    const expressions = Object.keys(skin.morphTargetDictionary);
+    const xtras = Object.keys(skin.morphTargetDictionary);
     console.log(skin)
 
-    console.log(expressions)
+    console.log(xtras)
 
   }
 
