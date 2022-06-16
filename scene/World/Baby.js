@@ -36,15 +36,33 @@ export default class Baby {
     this.map1.wrapS = RepeatWrapping
     this.map1.wrapT = RepeatWrapping
 
+    this.baby.scale.set(1.5, 1.5, 1.5)
+
+    this.baby.children.forEach(bone => {
+      bone.position.set(0, -0.5, 0)
+    })
+    this.baby.position.set(0, 0, -1)
+
     this.container.add(this.baby)
 
     this.baby.children[2].material.metalness = 1
     this.baby.children[3].material.metalness = 1
 
+    console.log(this.baby)
     const skin = this.baby.children.find(el => el.type === 'SkinnedMesh')
 
     const xtras = Object.keys(skin.morphTargetDictionary);
     console.log(skin)
+
+    const values = Object.keys(skin.morphTargetInfluences);
+
+    console.log(skin.morphTargetInfluences)
+
+
+    skin.morphTargetDictionary['helice'] = 0
+    skin.morphTargetInfluences[0] = 0
+    skin.morphTargetInfluences[1] = 0
+    skin.morphTargetInfluences[2] = 0
 
     console.log(xtras)
 

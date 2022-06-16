@@ -133,8 +133,8 @@ export default class App {
       gsap
         .to(this.camera.camera.controls.target, {
           x: 0,
-          y: 2,
-          z: 0,
+          y: 1.5,
+          z: -2,
           duration: 1,
           ease: Power3.easeOut,
         })

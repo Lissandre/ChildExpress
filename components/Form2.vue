@@ -104,9 +104,23 @@ export default {
 </script>
 
 <style scoped>
+
+.face div {
+  z-index: 2;
+}
 .face div:nth-child(1) {
   position: absolute;
   right: 30%;
   top: 50%;
+}
+.face div:nth-child(2) {
+  position: absolute;
+  right: 10%;
+  top: 30%;
+}
+
+
+#form2 > .hair-color label {
+  flex-basis: 0;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="baby-container absolute left-1/2 top-1/2 z-[1] pointer-events-none"
+      class="baby-container absolute left-1/2 top-1/2 z-[1] pointer-events-all"
       style="width: 100%; height: 100%; transform: translate3d(-50%, -50%, 0)"
     >
       <canvas

@@ -264,6 +264,10 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
   border-radius: 34px;
   padding: 40px 100px 40px 40px;
 }
+
+.personality > div {
+  z-index: 2;
+}
 .personality1,
 .personality2,
 .personality3,
@@ -274,6 +278,8 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
   box-shadow: inset 0px 12px 20px rgba(255, 255, 255, 0.86),
     inset -5px -4.5px 6.5px rgba(255, 255, 255, 0.7);
   background: none;
+  z-index: 2;
+
 }
 .personality1 {
   top: 40%;
