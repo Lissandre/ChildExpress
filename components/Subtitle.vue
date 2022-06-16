@@ -1,5 +1,5 @@
 <template>
-  <p class="absolute bottom-2 left-1/2 text-white z-[10]" v-if="isDisplayed">
+  <p class="absolute bottom-8 left-1/2 text-white z-[10]" v-if="isDisplayed">
     {{ currentSubtitle }}
   </p>
 </template>
@@ -144,5 +144,8 @@ export default {
 p {
   transform: translate3d(-50%, 0, 0);
   text-align: center;
+  vertical-align: top;
+  display: inline-block;
+  width: 80%;
 }
 </style>

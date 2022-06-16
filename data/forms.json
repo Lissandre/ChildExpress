@@ -315,7 +315,7 @@
         "component": "InputRadios",
         "value": 0.5,
         "length": 3,
-        "class": " gender slide2 second-slide-component"
+        "class": " gender slide2 genderSlide2 second-slide-component"
       },
       "age": {
         "locales": {

@@ -97,7 +97,7 @@ fieldset > input[type='submit'],
   justify-content: space-between;
   position: absolute;
   width: 70px;
-  bottom: 50px;
+  bottom: 100px;
   left: 50%;
   transform: translate3d(-50%, 0%, 0px);
   z-index: 1000;
@@ -183,12 +183,7 @@ fieldset > input[type='submit'],
 }
 
 .light-background {
-  background: radial-gradient(
-    rgba(0, 0, 0, 0),
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.8)
-  ) !important;
   border-radius: 40px !important;
+  box-shadow: inset 0px 3.5px 21px rgba(255, 255, 255, 0.86) !important;
 }
 </style>
