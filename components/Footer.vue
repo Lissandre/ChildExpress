@@ -3,13 +3,13 @@
     <div class="container flex flex-col items-center justify-center">
       <div>
         <div>
-          <span class="font-bold">Accéder à notre boutique</span> |
-          <a href="">Aide</a> |
-          <a href="">Contact</a> |
-          <a href="">Termes et Conditions</a> |
+          <nuxtLink :to="localePath('customization')" class="font-bold">{{ $t('footer.shop') }}</nuxtLink> |
+          <a href="">{{ $t('footer.help') }}</a> |
+          <a href="">{{ $t('footer.contact') }}</a> |
+          <a href="">{{ $t('footer.conditions') }}</a> |
           <span>LOGOS</span>
         </div>
-        <span>© 2022 ChildExpress. All right reserved.</span>
+        <span>{{ $t('footer.rights') }}</span>
       </div>
     </div>
   </footer>

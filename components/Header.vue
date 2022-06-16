@@ -6,11 +6,11 @@
           <img src="@/assets/images/logoChildExpressBlack.svg" alt="Logo ChildExpress">
         </a>
         <nav class="flex gap-8">
-          <a href="#1">Nos réalisations</a>
-          <a href="#2">Nos valeurs</a>
-          <a href="#3">Notre solution</a>
-          <a href="#4">Nos offres</a>
-          <a href="#5">Child Community</a>
+          <a href="#1">{{ $t('header.realisations') }}</a>
+          <a href="#2">{{ $t('header.values') }}</a>
+          <a href="#3">{{ $t('header.solution') }}</a>
+          <a href="#4">{{ $t('header.offers') }}</a>
+          <a href="#5">{{ $t('header.community') }}</a>
         </nav>
       </div>
       <button>
@@ -31,5 +31,8 @@ export default {
 header {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.0117188) 99.99%, rgba(255, 255, 255, 0.04) 100%);
   backdrop-filter: blur(50px);
+}
+nav a:hover {
+  text-decoration: underline;
 }
 </style>
