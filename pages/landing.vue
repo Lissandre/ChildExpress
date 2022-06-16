@@ -2,129 +2,145 @@
   <div class="container overflow-x-hidden">
     <section id="0" class="min-h-screen flex flex-col items-center justify-center px-8">
       <div>
-        <h1 class="font-bold text-8xl mb-10">
-          Faites de <span class="text-pink">votre enfant</span><br />
-          la meilleure version<br />
-          de vous même
-        </h1>
+        <i18n
+          tag="h1"
+          path="landing.h1_title"
+          class="font-bold text-8xl mb-10 whitespace-pre-line"
+        >
+          <template v-slot:pink>
+            <span class="text-pink">
+              {{ $t('landing.h1_title_pink') }}
+            </span>
+          </template>
+        </i18n>
         <div class="w-full flex justify-between">
           <div class="block flex flex-col justify-between items-start">
-            <span class="font-light text-2xl">Faciliter la grossesse, c’est notre raison d’être, notre ADN.</span>
-            <nuxt-link :to="localePath('customization')" class="font-bold text-3xl px-8 py-4 rounded-full neue">Je crée mon enfant</nuxt-link>
+            <span class="font-light text-2xl">{{ $t('landing.subtitle') }}</span>
+            <nuxt-link :to="localePath('customization')" class="font-bold text-3xl px-8 py-4 rounded-full neue">{{ $t('landing.create_child') }}</nuxt-link>
           </div>
           <div class="h-48 w-48 flex justify-center items-center rounded-full overflow-hidden limited neue">
-            <span class="block">Offre limitée !</span>
+            <span class="block">{{ $t('landing.limited') }}</span>
           </div>
         </div>
       </div>
     </section>
     <section id="1" class="min-h-screen flex flex-col items-center justify-center px-8">
-      <h2 class="text-7xl font-bold">Nos réalisations</h2>
+      <h2 class="text-7xl font-bold uppercase">{{ $t('landing.realisations') }}</h2>
       <div class="flex gap-4 justify-center m-24">
         <div class="w-[19%] flex flex-col items-center">
-          <span class="name px-4 py-2 uppercase">Name</span>
-          <img src="@/assets/images/baby_1.jpg" alt="" class="rounded-sm">
+          <span class="name px-4 py-2 uppercase">{{ $t('landing.name_1') }}</span>
+          <video muted loop autoplay class="rounded-sm">
+            <source src="@/assets/images/webm/bebe1.webm" type="video/webm">
+          </video>
         </div>
         <div class="w-[19%] flex flex-col items-center">
-          <span class="name px-4 py-2 uppercase">Name</span>
-          <img src="@/assets/images/baby_2.jpg" alt="" class="rounded-sm">
+          <span class="name px-4 py-2 uppercase">{{ $t('landing.name_2') }}</span>
+          <video muted loop autoplay class="rounded-sm">
+            <source src="@/assets/images/webm/bebe2.webm" type="video/webm">
+          </video>
         </div>
         <div class="w-[19%] flex flex-col items-center">
-          <span class="name px-4 py-2 uppercase">Name</span>
-          <img src="@/assets/images/baby_3.jpg" alt="" class="rounded-sm">
+          <span class="name px-4 py-2 uppercase">{{ $t('landing.name_3') }}</span>
+          <video muted loop autoplay class="rounded-sm">
+            <source src="@/assets/images/webm/bebe3.webm" type="video/webm">
+          </video>
         </div>
         <div class="w-[19%] flex flex-col items-center">
-          <span class="name px-4 py-2 uppercase">Name</span>
-          <img src="@/assets/images/baby_4.jpg" alt="" class="rounded-sm">
+          <span class="name px-4 py-2 uppercase">{{ $t('landing.name_4') }}</span>
+          <video muted loop autoplay class="rounded-sm">
+            <source src="@/assets/images/webm/bebe4.webm" type="video/webm">
+          </video>
         </div>
         <div class="w-[19%] flex flex-col items-center relative">
-          <span class="name px-4 py-2 uppercase">Name</span>
-          <img src="@/assets/images/baby_5.jpg" alt="" class="rounded-sm">
+          <span class="name px-4 py-2 uppercase">{{ $t('landing.name_5') }}</span>
+          <video muted loop autoplay class="rounded-sm">
+            <source src="@/assets/images/webm/bebe5.webm" type="video/webm">
+          </video>
           <img src="@/assets/images/flames.png" alt="" class="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/2 h-2/3">
         </div>
       </div>
-      <nuxt-link :to="localePath('customization')" class="font-bold text-3xl px-8 py-4 rounded-full neue">Je veux le mien</nuxt-link>
+      <nuxt-link :to="localePath('customization')" class="font-bold text-3xl px-8 py-4 rounded-full neue">{{ $t('landing.wants_mine') }}</nuxt-link>
     </section>
     <section id="2" class="min-h-screen flex flex-col items-center justify-center px-8">
-      <h2 class="text-7xl font-bold">Nos valeurs</h2>
+      <h2 class="text-7xl font-bold uppercase">{{ $t('landing.values') }}</h2>
       <div class="flex flex-wrap gap-8 justify-between m-24">
         <div class="w-[47%] flex rounded-lg border py-4 pr-8">
           <img src="@/assets/images/sticker_ecologie.png" alt="" class="-translate-x-1/4 pink-neue">
           <div class="flex flex-col justify-center">
-            <h3 class="font-bold text-3xl uppercase mb-4">Ecologie</h3>
+            <h3 class="font-bold text-3xl uppercase mb-4">{{ $t('landing.eco_title') }}</h3>
             <p class="text-xl font-light">
-              Bébés 99% biodégradables (s’il ne vous convient pas il sera recyclé) <br />
-              <span class="uppercase">mange peu - dort - produit de l’engrais</span>
+              {{ $t('landing.eco_description') }} <br />
+              <span class="uppercase">{{ $t('landing.eco_tldr') }}</span>
             </p>
           </div>
         </div>
         <div class="w-[47%] flex rounded-lg border py-4 pr-8">
           <img src="@/assets/images/sticker_positivite.png" alt="" class="-translate-x-1/4 pink-neue">
           <div class="flex flex-col justify-center">
-            <h3 class="font-bold text-3xl uppercase mb-4">Positivité</h3>
+            <h3 class="font-bold text-3xl uppercase mb-4">{{ $t('landing.positivity_title') }}</h3>
             <p class="text-xl font-light">
-              Bébés 99% biodégradables (s’il ne vous convient pas il sera recyclé) <br />
-              <span class="uppercase">mange peu - dort - produit de l’engrais</span>
+              {{ $t('landing.positivity_description') }} <br />
+              <span class="uppercase">{{ $t('landing.positivity_tldr') }}</span>
             </p>
           </div>
         </div>
         <div class="w-[47%] flex rounded-lg border py-4 pr-8">
           <img src="@/assets/images/sticker_egalite.png" alt="" class="-translate-x-1/4 pink-neue">
           <div class="flex flex-col justify-center">
-            <h3 class="font-bold text-3xl uppercase mb-4">Égalité</h3>
+            <h3 class="font-bold text-3xl uppercase mb-4">{{ $t('landing.egality_title') }}</h3>
             <p class="text-xl font-light">
-              Bébés 99% biodégradables (s’il ne vous convient pas il sera recyclé) <br />
-              <span class="uppercase">mange peu - dort - produit de l’engrais</span>
+              {{ $t('landing.egality_description') }} <br />
+              <span class="uppercase">{{ $t('landing.egality_tldr') }}</span>
             </p>
           </div>
         </div>
         <div class="w-[47%] flex rounded-lg border py-4 pr-8">
           <img src="@/assets/images/sticker_innovation.png" alt="" class="-translate-x-1/4 pink-neue">
           <div class="flex flex-col justify-center">
-            <h3 class="font-bold text-3xl uppercase mb-4">Innovation</h3>
+            <h3 class="font-bold text-3xl uppercase mb-4">{{ $t('landing.innovation_title') }}</h3>
             <p class="text-xl font-light">
-              Bébés 99% biodégradables (s’il ne vous convient pas il sera recyclé) <br />
-              <span class="uppercase">mange peu - dort - produit de l’engrais</span>
+              {{ $t('landing.innovation_description') }} <br />
+              <span class="uppercase">{{ $t('landing.innovation_tldr') }}</span>
             </p>
           </div>
         </div>
       </div>
-      <nuxt-link :to="localePath('customization')" class="font-bold text-3xl px-8 py-4 rounded-full neue">En savoir plus</nuxt-link>
+      <nuxt-link :to="localePath('customization')" class="font-bold text-3xl px-8 py-4 rounded-full neue">{{ $t('landing.more') }}</nuxt-link>
     </section>
     <section id="3" class="min-h-screen flex flex-col items-center justify-center px-8">
-      <h2 class="text-7xl font-bold">Notre solution</h2>
+      <h2 class="text-7xl font-bold uppercase">{{ $t('landing.solution') }}</h2>
       <div class="w-10/12 flex m-24 relative">
         <div class="w-11/12 flex gap-12 rounded-lg border">
           <div class="pl-20 py-16">
-            <h3 class="font-bold text-3xl uppercase mb-6">Accoucher</h3>
+            <h3 class="font-bold text-3xl uppercase mb-6">{{ $t('landing.give_title') }}</h3>
             <ul class="text-xl font-light bad">
-              <li>9 mois d'attente</li>
-              <li>Douloureux</li>
-              <li>Incertitude</li>
-              <li>Risques de maladies</li>
-              <li>Corps altéré</li>
-              <li>Old-school</li>
+              <li>{{ $t('landing.give_1') }}</li>
+              <li>{{ $t('landing.give_2') }}</li>
+              <li>{{ $t('landing.give_3') }}</li>
+              <li>{{ $t('landing.give_4') }}</li>
+              <li>{{ $t('landing.give_5') }}</li>
+              <li>{{ $t('landing.give_6') }}</li>
             </ul>
           </div>
           <div class="py-16">
-            <h3 class="font-bold text-3xl uppercase mb-6">Adopter</h3>
+            <h3 class="font-bold text-3xl uppercase mb-6">{{ $t('landing.adopt_title') }}</h3>
             <ul class="text-xl font-light bad">
-              <li>Long</li>
-              <li>Compliqué</li>
-              <li>Incertitude</li>
-              <li>Aucune ressemblance</li>
+              <li>{{ $t('landing.adopt_1') }}</li>
+              <li>{{ $t('landing.adopt_2') }}</li>
+              <li>{{ $t('landing.adopt_3') }}</li>
+              <li>{{ $t('landing.adopt_4') }}</li>
             </ul>
           </div>
           <div class="w-6/12 h-full flex rounded-lg absolute right-0 top-1/4 bg-white neue">
             <div class="pl-20 py-16">
-              <h3 class="font-bold text-3xl uppercase mb-6">"ChildExpresser"</h3>
+              <h3 class="font-bold text-3xl uppercase mb-6">"{{ $t('landing.childexpresser_title') }}"</h3>
               <ul class="text-xl font-light good">
-                <li>Livraison record</li>
-                <li>Indolore</li>
-                <li>Personnalisation totale</li>
-                <li>Autonomie de création</li>
-                <li>Réussite génétique</li>
-                <li>Au top des tendances</li>
+                <li>{{ $t('landing.childexpresser_1') }}</li>
+                <li>{{ $t('landing.childexpresser_2') }}</li>
+                <li>{{ $t('landing.childexpresser_3') }}</li>
+                <li>{{ $t('landing.childexpresser_4') }}</li>
+                <li>{{ $t('landing.childexpresser_5') }}</li>
+                <li>{{ $t('landing.childexpresser_6') }}</li>
               </ul>
             </div>
             <img src="@/assets/images/ADN.svg" alt="ADN illustration" class="pb-16 absolute bottom-[-10%] right-[10%]">
@@ -133,32 +149,32 @@
       </div>
     </section>
     <section id="4" class="min-h-screen flex flex-col items-center justify-center px-8">
-      <h2 class="text-7xl font-bold">Nos offres</h2>
+      <h2 class="text-7xl font-bold uppercase">{{ $t('landing.offer') }}</h2>
       <div class="w-10/12 flex gap-4 justify-between items-start m-24">
         <div class="rounded-md flex flex-col items-center w-full neue">
           <img src="@/assets/images/donutPremium.svg" alt="" class="w-1/2 -translate-y-1/3">
-          <h3 class="text-3xl font-light text-center mb-12">enfant <br>premium</h3>
+          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">{{ $t('landing.premium') }}</h3>
           <span class="text-5xl mb-16 text-center">$$$<br>$$</span>
-          <nuxt-link :to="localePath('customization')" class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo">Découvrir</nuxt-link>
+          <nuxt-link :to="localePath('customization')" class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo">{{ $t('landing.discover') }}</nuxt-link>
         </div>
         <div class="rounded-md border flex flex-col items-center w-full">
           <img src="@/assets/images/donutStandard.svg" alt="" class="w-1/2 -translate-y-1/3">
-          <h3 class="text-3xl font-light text-center mb-12">enfant <br>standard</h3>
+          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">{{ $t('landing.standard') }}</h3>
           <span class="text-5xl mb-16 stroke-text">$$$</span>
         </div>
         <div class="rounded-md border flex flex-col items-center w-full">
           <img src="@/assets/images/donutReconditionne.svg" alt="" class="w-1/2 -translate-y-1/3">
-          <h3 class="text-3xl font-light text-center mb-12">enfant <br>reconditionné</h3>
+          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">{{ $t('landing.recond') }}</h3>
           <span class="text-5xl mb-16 stroke-text">$$</span>
         </div>
         <div class="rounded-md border flex flex-col items-center w-full">
           <img src="@/assets/images/donutOccasion.svg" alt="" class="w-1/2 -translate-y-1/3">
-          <h3 class="text-3xl font-light text-center mb-12">enfant <br>d'occasion</h3>
+          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">{{ $t('landing.occas') }}</h3>
           <span class="text-5xl mb-16 stroke-text">$</span>
         </div>
         <div class="rounded-md border flex flex-col items-center w-full">
           <img src="@/assets/images/donutFree.svg" alt="" class="w-1/2 -translate-y-1/3">
-          <h3 class="text-3xl font-light text-center mb-12">to good to go <br>les invendus</h3>
+          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">{{ $t('landing.unsell') }}</h3>
           <span class="text-5xl mb-16 stroke-text">FREE</span>
         </div>
       </div>
