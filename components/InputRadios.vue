@@ -19,6 +19,12 @@
         :key="index"
         required="required"
         class="w-10 z-[1] cursor-pointer"
+        :class="
+          input.class.includes('genderSlide2') &&
+          (index - 1) / (input.length - 1) == 1
+            ? 'disabled'
+            : ''
+        "
       />
       <span class="checkmark"></span>
       <p class="w-20 w-max text-white">{{ locale.label2 }}</p>
@@ -78,6 +84,8 @@ export default {
         e.target.value,
         this.input.length
       )
+
+      console.log('upd')
     },
     emitJob(e, fieldsetIndex) {
       if (e.target.value === undefined) return
@@ -133,7 +141,7 @@ fieldset input[type='radio']:hover::before {
     rgba(255, 255, 255, 0.8)
   ) !important;
   border-radius: 40px !important;
-  height: 60px;
+  height: 50px;
   width: 300px;
   display: flex;
   justify-content: center;
@@ -153,7 +161,7 @@ fieldset input[type='radio']:hover::before {
   position: relative;
   background: url('@/assets/images/StarEmpty.svg');
   background-size: contain;
-  height: 40.5px;
+  height: 36.5px;
 }
 .star-rating i {
   opacity: 0;
@@ -208,7 +216,7 @@ fieldset input[type='radio']:hover::before {
 }
 
 .star-rating.star-5 {
-  width: 210px;
+  width: 190px;
 }
 .star-rating.star-5 input,
 .star-rating.star-5 i {
@@ -244,6 +252,7 @@ fieldset input[type='radio']:hover::before {
 .eyes-color input {
   border-radius: 10px !important;
   box-shadow: none !important;
+  transition: all ease 0.1s;
 }
 .eyes-color input:nth-of-type(1) {
   background: #b1cf99;
@@ -265,13 +274,15 @@ fieldset input[type='radio']:hover::before {
 .eyes-color input::before {
   display: none !important;
 }
-.eyes-color input:checked {
+.eyes-color input:checked,
+.eyes-color input:hover {
   outline: 4px solid rgba(15, 84, 228, 1);
 }
 
 .hair-color input {
   border-radius: 10px !important;
   box-shadow: none !important;
+  transition: all ease 0.1s;
 }
 .hair-color input:nth-of-type(1) {
   background: #ddc075;
@@ -326,6 +337,10 @@ fieldset input[type='radio']:hover::before {
 }
 .hair-type input {
   margin-bottom: 20px;
+}
+
+.gender input.disabled::before {
+  display: none;
 }
 .gender input::after,
 .hair-type input::after {

@@ -154,7 +154,7 @@ export default class Box {
       this.ctx.save()
       this.ctx.translate(550, 1200);
       this.ctx.rotate(-0.5 * Math.PI);
-      this.ctx.font = `80px 700 "roc-grotesk-wide"`;
+      this.ctx.font = `52px "roc-grotesk-wide"`;
       this.ctx.fillText(name, 0, 0);
       this.ctx.restore()
 
@@ -162,9 +162,9 @@ export default class Box {
       /* Job */
 
       this.ctx.save()
-      this.ctx.font = '35px 700 "roc-grotesk"';
-      this.ctx.translate(600, 1200);
+      this.ctx.translate(610, 1200);
       this.ctx.rotate(-0.5 * Math.PI);
+      this.ctx.font = `40px "roc-grotesk"`;
       this.ctx.fillText(job, 0, 0);
       this.ctx.restore()
 
@@ -174,12 +174,12 @@ export default class Box {
       var xtrasFinal = Array.from(xtras)
       for (const [key, value] of Object.entries(xtrasFinal)) {
         this.ctx.save()
-        this.ctx.translate(550, 1200);
+        this.ctx.translate(600, 1175);
         this.ctx.rotate(-0.5 * Math.PI);
-        this.ctx.font = '20px "Calibri"';
         this.ctx.strokeStyle = "black";
+        this.ctx.font = `20px "roc-grotesk"`;
         const uppercase = value.toUpperCase()
-        this.ctx.fillText(uppercase, this.oldMeasure.width + 20, 100);
+        this.ctx.fillText(uppercase, this.oldMeasure.width + 20, 102);
         const measure = this.ctx.measureText(uppercase)
 
 

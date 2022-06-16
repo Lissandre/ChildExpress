@@ -34,7 +34,9 @@ module.exports = {
         'fromrightpayement': 'fromRightPayement 2.5s ease forwards',
         'fromleft': 'fromLeft 1.5s ease forwards',
         'slideup': 'slideUp 1.5s ease forwards',
-        'opacityfadein': 'opacityFadeIn 1.5s ease forwards'
+        'opacityfadein': 'opacityFadeIn 1.5s ease forwards',
+        'opacityfadeout': 'opacityFadeOut 1.5s ease forwards',
+        'revealtext': 'revealText 1.5s ease forwards'
       },
       keyframes: {
         bounceIn: {
@@ -138,6 +140,18 @@ module.exports = {
           '100%': {
             opacity: 1,
           }
+        },
+        opacityFadeOut: {
+          '0%': {
+            opacity: 1,
+          },
+          '100%': {
+            opacity: 0,
+          }
+        },
+        revealText: {
+          '0%': { opacity: 0, transform: 'translate(0%, 25%) matrix(1, 0, 0, 1, 0, 0)' },
+          '100%': { opacity: 1, transform: 'translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0)' }
         }
       }
 

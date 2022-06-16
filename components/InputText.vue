@@ -19,7 +19,6 @@
         />
         <div class="underline"></div>
         <div class="fake-underline"></div>
-
       </div>
     </fieldset>
   </div>
@@ -90,7 +89,7 @@ fieldset {
   height: 2px;
   background-color: white;
 }
-.underline{
+.underline {
   z-index: 100;
 }
 

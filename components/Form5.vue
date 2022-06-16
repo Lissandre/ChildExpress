@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col relative h-full w-full z-[1]" ref="content">
-    <form @submit.prevent="prevent" class="h-full w-full form5">
+    <form @submit.prevent="prevent" class="h-full w-full form5" ref="form5">
       <div class="payment-wrapper">
         <div class="payment-category-wrapper relative">
           <h3 class="payment-category roc">Récapitulatif de commande</h3>
@@ -118,8 +118,12 @@ export default {
     },
     inputChange(type, name, value, optional) {},
     redirectToEnd() {
-      if (this.$i18n.locale === 'fr') this.$router.push('/fr/mince')
-      else this.$router.push('/en/oops')
+      this.$refs.content.classList.add('fadeToBlack')
+      this.$refs.form5.classList.add('animate-opacityfadeout')
+      setTimeout(() => {
+        if (this.$i18n.locale === 'fr') this.$router.push('/fr/mince')
+        else this.$router.push('/en/oops')
+      }, 3000)
     },
   },
 }
@@ -234,7 +238,7 @@ export default {
 
 <style scoped>
 fieldset {
-  background: none;
+  box-shadow: none;
   position: relative;
 }
 

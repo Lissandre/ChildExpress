@@ -5,18 +5,56 @@
   >
     <div class="fadeWrapper" ref="fade"></div>
     <div class="babyInfos">
-      <p class="info_category neueBit">Welcome</p>
-      <p class="info_data info-name outline">{{ getText }}</p>
-      <p class="info_category neueBit">QI</p>
-      <p class="info_data roc">
-        {{ getRoundSlider }} <span class="line1"></span>
-      </p>
+      <div class="Title animate-revealtext">
+        <span class="Title-mask"
+          ><p class="info_category neueBit Title-line animate-revealtext first">
+            Welcome
+          </p></span
+        >
+        <span class="Title-mask"
+          ><p
+            class="
+              info_data info-name
+              outline
+              Title-line
+              animate-revealtext
+              second
+            "
+          >
+            {{ getText }}
+          </p></span
+        >
+        <span class="Title-mask"
+          ><p class="info_category neueBit Title-line animate-revealtext third">
+            QI
+          </p></span
+        >
+        <span class="Title-mask"
+          ><p class="info_data roc Title-line animate-revealtext fourth">
+            {{ getRoundSlider }} <span class="line1"></span></p
+        ></span>
 
-      <p class="info_category neueBit">Taille</p>
-      <p class="info_data roc">{{ getRange }} CM <span class="line2"></span></p>
+        <span class="Title-mask"
+          ><p class="info_category neueBit Title-line animate-revealtext fifth">
+            Taille
+          </p></span
+        >
+        <span class="Title-mask"
+          ><p class="info_data roc Title-line animate-revealtext six">
+            {{ getRange }} CM <span class="line2"></span></p
+        ></span>
 
-      <p class="info_category neueBit">Poids</p>
-      <p class="info_data roc">{{ getCounter }} KG</p>
+        <span class="Title-mask"
+          ><p class="info_category neueBit Title-line animate-revealtext seven">
+            Poids
+          </p></span
+        >
+        <span class="Title-mask"
+          ><p class="info_data roc Title-line animate-revealtext eight">
+            {{ getCounter }} KG
+          </p></span
+        >
+      </div>
     </div>
     <form @submit.prevent="prevent" class="h-full w-full z-[2]">
       <component
@@ -254,6 +292,7 @@ export default {
       setTimeout(() => {
         this.$refs.content.classList.add('animate-slideup')
         this.store.focusBox()
+        $nuxt.$emit('updateSound', 'form4', 'text', 'box')
 
         // lancer ici la bonne anim de boite
       }, 6000)
@@ -324,7 +363,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
   transition: all ease 0.5s;
   transition-delay: 1500ms;
 }
@@ -337,6 +376,7 @@ export default {
 .blurWrapper {
   visibility: visible;
   backdrop-filter: blur(10px) contrast(30%);
+  z-index: 1000;
 }
 
 .fadeToBlack {
@@ -367,6 +407,9 @@ export default {
   color: white;
   text-transform: uppercase;
   font-size: 28px;
+  opacity: 0;
+  transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);
+  will-change: opacity, transform;
 }
 
 .submit-bin {
@@ -431,10 +474,11 @@ export default {
   height: 2px;
   background: white;
   width: 0;
+  animation-delay: 3.4s;
 }
 
 .line2 {
-  animation-delay: 0.4s;
+  animation-delay: 3.7s;
 }
 </style>
 
@@ -572,6 +616,56 @@ svg {
     1px 1px 0 white;
   font-size: 9rem;
   /* font-size: 25.5vw; */
+}
+
+.Title {
+  font-size: 2rem;
+  opacity: 0;
+  transform: translate(0%, 25%) matrix(1, 0, 0, 1, 0, 0);
+  will-change: opacity, transform;
+  animation-delay: 3000ms;
+}
+
+.Title-mask {
+  display: block;
+  position: relative;
+  text-align: start;
+  overflow: hidden;
+}
+
+.Title-line {
+  display: inline-block;
+  opacity: 0;
+  transform: translate(0%, 25%) matrix(1, 0, 0, 1, 0, 0);
+  will-change: opacity, transform;
+}
+
+.first {
+  animation-delay: 3200ms;
+}
+.second {
+  animation-delay: 3500ms;
+}
+.third {
+  animation-delay: 3800ms;
+}
+.fourth {
+  animation-delay: 4100ms;
+}
+.fifth {
+  animation-delay: 4400ms;
+}
+.six {
+  animation-delay: 4700ms;
+}
+.seven {
+  animation-delay: 5000ms;
+}
+.eight {
+  animation-delay: 5300ms;
+}
+.nine {
+  animation-delay: 5600ms;
 }
 
 /* Real outline for modern browsers */

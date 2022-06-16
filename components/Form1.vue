@@ -133,6 +133,8 @@ console.log(this.inputs)
     inputChange(type, name, value, optional) {
       this.$helpers.updateInput(type, name, value, 'form1')
 
+      console.log('yes')
+
       if ((type === 'radio' || type === 'roundSlider') && name !== 'gender') {
         console.log(value, optional)
         value = value / optional
@@ -194,6 +196,7 @@ console.log(this.inputs)
   background: none;
   border: 1px solid white;
   border-radius: 20px;
+  box-shadow: none;
 }
 
 .second-slide-wrapper {
@@ -208,7 +211,7 @@ console.log(this.inputs)
 }
 
 .second-slide .second-slide-component {
-  background: none !important;
+  box-shadow: none !important;
 }
 
 .second-slide .submit-wrapper {
@@ -331,7 +334,7 @@ console.log(this.inputs)
     rgba(255, 255, 255, 0.8)
   ) !important;*/
   box-shadow: inset 0px 12px 20px rgba(255, 255, 255, 0.86),
-    inset -5px -4.5px 6.5px rgba(255, 255, 255, 0.7);
+    inset -5px -4.5px 6.5px rgba(255, 255, 255, 0.7) !important;
 }
 
 .weight {
