@@ -1,6 +1,7 @@
 <template>
   <div>
-    <canvas ref="skinCanvas"></canvas>
+    <span ref="skinThumb" id="skinpicker-thumb"></span>
+    <canvas ref="skinCanvas" id="skinCanvas"></canvas>
   </div>
 </template>
 
@@ -18,8 +19,8 @@ export default {
     return {}
   },
   mounted() {
-    console.log(this.$refs.skinCanvas)
     this.canvas = this.$refs.skinCanvas
+    this.thumb = this.$refs.skinThumb
     this.sandbox = new glslCanvas.default(this.canvas)
     this.sandbox.load(`
         #ifdef GL_ES
@@ -78,6 +79,34 @@ export default {
             gl_FragColor = vec4(color,1.);
         }
         `)
+    this.ctx = this.canvas.getContext('webgl')
+
+    this.pixels = new Uint8Array(
+      4 * this.ctx.drawingBufferWidth * this.ctx.drawingBufferHeight
+    )
+    this.ctx.readPixels(
+      0,
+      0,
+      this.ctx.drawingBufferWidth,
+      this.ctx.drawingBufferHeight,
+      this.ctx.RGBA,
+      this.ctx.UNSIGNED_BYTE,
+      this.pixels
+    )
+
+    this.mouseDown = false
+    window.addEventListener('mousedown', (e) => {
+      this.mouseDown = true
+      this.updateColor(e)
+    })
+    window.addEventListener('mouseup', () => {
+      this.mouseDown = false
+    })
+
+    this.canvas.addEventListener('mousemove', (e) => {
+      if (!this.mouseDown) return
+      this.updateColor(e)
+    })
   },
   methods: {
     onChange() {
@@ -88,6 +117,41 @@ export default {
         // COLOR
       )
     },
+
+    updateColor(e) {
+      this.thumb.style.transform = `translate3d(${e.offsetX - 7.5}px, ${
+        e.offsetY - 7.5
+      }px, 0px)`
+      let c = this.getColor(
+        this.ctx,
+        e.offsetX,
+        this.canvas.offsetHeight - e.offsetY
+      )
+      this.thumb.style.background = `rgba(${c.r}, ${c.g}, ${c.b}, 1)`
+    },
+
+    getColor(context, x, y) {
+      return {
+        r: this.pixels[4 * (y * context.drawingBufferWidth + x)],
+        g: this.pixels[4 * (y * context.drawingBufferWidth + x) + 1],
+        b: this.pixels[4 * (y * context.drawingBufferWidth + x) + 2],
+      }
+    },
   },
 }
 </script>
+
+<style>
+#skinpicker-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: red;
+  border: solid 3px blue;
+  position: absolute;
+}
+
+#skinCanvas {
+  pointer-events: all;
+}
+</style>
