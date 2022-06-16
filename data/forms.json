@@ -372,6 +372,7 @@
         "step": 0.01,
         "class": "range"
       },
+<<<<<<< HEAD
       "skin": {
         "locales": {
           "fr": "Peau",
@@ -382,6 +383,8 @@
         "component": "InputSkinPicker",
         "class": "middle"
       },
+=======
+>>>>>>> bb8d3cc... feat(picker): add store to picker
       "scale": {
         "locales": {
           "fr": "",
@@ -410,6 +413,14 @@
         "class": "flex flex-col justify-center text-2xl body left-60"
       },
       "eyesColor": {
+        "locales": {
+          "fr": {
+            "labelMiddle": "Yeux"
+          },
+          "en": {
+            "labelMiddle": "Eyes"
+          }
+        },
         "type": "radio",
         "name": "eyesColor",
         "effect": "eyesColor",
@@ -417,6 +428,34 @@
         "value": 2,
         "length": 4,
         "class": "eyes-color middle"
+      },
+      "hairColor": {
+        "locales": {
+          "fr": {
+            "labelMiddle": "Cheveux"
+          },
+          "en": {
+            "labelMiddle": "Hair"
+          }
+        },
+        "type": "radio",
+        "name": "hairColor",
+        "effect": "hairColor",
+        "component": "InputRadios",
+        "value": 2,
+        "length": 6,
+        "class": "hair-color middle"
+      },
+      "skin": {
+        "locales": {
+          "fr": "Peau",
+          "en": "Skin"
+        },
+        "type": "color",
+        "name": "skin",
+        "component": "InputSkinPicker",
+        "value": 0.5,
+        "class": "middle skinform2"
       },
       "submitFace": {
         "locales": {

@@ -18,10 +18,11 @@ export const actions = {
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
-  changePicker(id, newValue, step) {
-    // const picker = this.pickers.find((picker) => picker.id === id
-    // picker.value = newValu
-    // this.$nuxt.$scene.world.baby.updateUniform(id, newValue
+  changeColor(id, newValue, step) {
+    const color = this.colors.find((color) => color.id === id)
+    color.value = newValue
+    if (step != 'form1')
+      this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeRadio(id, newValue, step) {
     const radio = this.radios.find((radio) => radio.id === id)

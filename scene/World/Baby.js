@@ -64,6 +64,13 @@ export default class Baby {
     skin.morphTargetInfluences[1] = 0
     skin.morphTargetInfluences[2] = 0
 
+    values[0] = 1
+    values[1] = 1
+    values[2] = 1
+
+
+    console.log(values)
+
     console.log(xtras)
 
   }
@@ -201,14 +208,15 @@ export default class Baby {
       this.shader = s
       this.appear()
     }
+  }
 
-    this.updateUniform = (uniform, value) => {
-      gsap.to(this.shader.uniforms[uniform], {
-        value,
-        duration: 1,
-        ease: Power3.easeOut,
-      })
-    }
+  updateUniform = (uniform, value) => {
+    console.log(uniform, value)
+    gsap.to(this.shader.uniforms[uniform], {
+      value,
+      duration: 1,
+      ease: Power3.easeOut,
+    })
   }
 
   setMovement() {

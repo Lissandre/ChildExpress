@@ -20,6 +20,9 @@ export const getters = {
   getText(state) {
     return (id) => state.texts.find((text) => text.id === id).value
   },
+  getColor(state) {
+    return (id) => state.colors.find((color) => color.id === id).value
+  },
   getCounter(state) {
     return (id) => state.counters.find((counter) => counter.id === id).value
   },
