@@ -1,10 +1,11 @@
 <template>
   <div class="relative pointer-events-auto h-[240px]">
-    <fieldset :class="`animate-bounce-in ${input.class} flex flex-col`">
-      <div>
-      <span ref="skinThumb" id="skinpicker-thumb"></span>
-      <canvas ref="skinCanvas" id="skinCanvas"></canvas>
-      </div>
+    <fieldset :class="`animate-bounce-in ${input.class} flex flex-col h-full w-full`">
+      <div class="skinpicker-wrapper">
+        <div class="borderbox"></div>
+          <span ref="skinThumb" id="skinpicker-thumb"></span>
+          <canvas ref="skinCanvas" id="skinCanvas"></canvas>
+        </div>
     <label class="w-20 mt-5 w-max text-white text-[22px]">{{ locale }}</label>
     </fieldset>
   </div>
@@ -158,6 +159,19 @@ export default {
   border-radius: 50%;
   border: solid 3px blue;
   position: absolute;
+}
+
+.skinpicker-wrapper {
+      width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+.borderbox{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-shadow: inset 0px 11.5px 20px white, inset -5.82px -4.5px 6.5px 0px white;
+  border-radius: 13px;
 }
 
 #skinCanvas {

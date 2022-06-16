@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col relative h-full w-full z-[1] fadeWrapper"
+    class="flex flex-col relative h-full w-full fadeWrapper"
     ref="content"
   >
     <div class="fadeWrapper" ref="fade"></div>
@@ -56,7 +56,7 @@
         >
       </div>
     </div>
-    <form @submit.prevent="prevent" class="h-full w-full z-[2]">
+    <form @submit.prevent="prevent" class="h-full w-full ">
       <component
         v-for="input in inputs"
         :key="input.name"

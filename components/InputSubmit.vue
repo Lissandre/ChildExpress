@@ -8,7 +8,7 @@
       right-[100px]
       bottom-[100px]
       text-white
-      z-[1]
+      z-[2]
       text-base
       submit-wrapper
     "
