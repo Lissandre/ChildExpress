@@ -428,7 +428,7 @@ export default {
   width: 800px;
   height: 60%;
   max-height: 1200px;
-  min-height: 500px;
+  min-height: 750px;
 }
 
 .first-slide-wrapper {

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative pointer-events-auto h-[240px]">
+  <div class="relative pointer-events-auto h-[240px] w-fit">
     <fieldset :class="`animate-bounce-in ${input.class} flex flex-col h-full w-full`">
       <div class="skinpicker-wrapper">
         <div class="borderbox"></div>

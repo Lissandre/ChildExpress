@@ -42,8 +42,7 @@
   "roundslider_health": {
     "label1": "Santé"
   },
-  "range_parentskintint": "",
-  "range_parentskintype": "",
+  "color_parentskin": "Peau",
   "radio_lifequality": {
     "label1": "Qualité de vie"
   },

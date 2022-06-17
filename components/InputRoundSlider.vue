@@ -1,5 +1,5 @@
 <template>
-  <div class="relative pointer-events-auto">
+  <div class="relative pointer-events-auto w-[300px] h-[200px]">
     <fieldset
       :class="`
         circle-slider
