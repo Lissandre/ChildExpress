@@ -277,8 +277,12 @@ fieldset input[type='radio']:hover::before {
   display: none !important;
 }
 .eyes-color input:checked,
-.eyes-color input:hover {
+.eyes-color input:hover, .hair-color input:checked {
   outline: 4px solid rgba(15, 84, 228, 1);
+}
+
+.eyes-color input:checked, .hair-color input:checked {
+  filter: drop-shadow(0px 11px 9px rgb(15 84 228 / 75%)) !important;
 }
 
 .hair-color input {

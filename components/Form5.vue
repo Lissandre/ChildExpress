@@ -228,7 +228,7 @@ export default {
 .submitFinal {
   width: 20rem;
   position: relative;
-  bottom: 100px;
+  bottom: 0;
   animation-delay: 4000ms;
   opacity: 0;
 }

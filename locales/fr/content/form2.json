@@ -2,6 +2,7 @@
   "range_nosesize": "Taille Nez",
   "range_earssize": "Taille Oreilles",
   "range_handssize": "Taille Mains",
+  "color_skin": "Peau",
   "range_scale": "",
   "counter_overallsize": "Taille Globale",
   "radio_eyescolor": {
@@ -10,6 +11,5 @@
   "radio_haircolor": {
     "labelMiddle": "Cheveux"
   },
-  "color_skin": "Peau",
   "submit_submit": "Suivant"
 }

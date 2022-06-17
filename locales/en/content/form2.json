@@ -2,6 +2,7 @@
   "range_nosesize": "Nose Size",
   "range_earssize": "Ears Size",
   "range_handssize": "Hands Size",
+  "color_skin": "Skin",
   "range_scale": "",
   "counter_overallsize": "Overall Size",
   "radio_eyescolor": {
@@ -10,6 +11,5 @@
   "radio_haircolor": {
     "labelMiddle": "Hair"
   },
-  "color_skin": "Skin",
   "submit_submit": "Submit"
 }

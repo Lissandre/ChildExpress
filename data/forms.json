@@ -372,19 +372,6 @@
         "step": 0.01,
         "class": "range"
       },
-<<<<<<< HEAD
-      "skin": {
-        "locales": {
-          "fr": "Peau",
-          "en": "Skin"
-        },
-        "type": "color",
-        "name": "skin",
-        "component": "InputSkinPicker",
-        "class": "middle"
-      },
-=======
->>>>>>> bb8d3cc... feat(picker): add store to picker
       "scale": {
         "locales": {
           "fr": "",

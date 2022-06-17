@@ -161,12 +161,13 @@ export default {
     inputChange(type, name, value, optional) {
       this.$helpers.updateInput(type, name, value, 'form1')
 
-      console.log('yes')
-
       if ((type === 'radio' || type === 'roundSlider') && name !== 'gender') {
-        console.log(value, optional)
         value = value / optional
         console.log(value)
+      }
+
+      if(type === "text") {
+        this.store.changeText('babyName', value)
       }
       $nuxt.$emit('updateSound', 'form1', type, name, value)
     },

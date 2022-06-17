@@ -15,14 +15,14 @@ export const actions = {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
 
-    if (step != 'form1')
-      this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    //if (step != 'form1')
+      //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeColor(id, newValue, step) {
     const color = this.colors.find((color) => color.id === id)
     color.value = newValue
-    if (step != 'form1')
-      this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    //if (step != 'form1')
+      //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeRadio(id, newValue, step) {
     const radio = this.radios.find((radio) => radio.id === id)
@@ -41,13 +41,21 @@ export const actions = {
     // this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeCounter(id, newValue, step) {
+    console.log(id,newValue)
     const counter = this.counters.find((counter) => counter.id === id)
     counter.value = newValue
-    if (step != 'form1')
-      this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    //if (step != 'form1')
+      //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeJob(value) {
     this.newJob = value
+  },
+  changeRoundSlider(id, newValue) {
+    const roundSlider = this.roundSliders.find((roundSlider) => roundSlider.id === id)
+    roundSlider.value = newValue
+    console.log('yes')
+    //if (step != 'form1')
+      //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeBox(job, name, xtras, personality, iq, weight, height) {
     // console.log(this.$scene.world.baby.updateUniform('test', "test"))

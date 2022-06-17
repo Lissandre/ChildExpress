@@ -83,7 +83,7 @@ export default {
       })
     },
     inputChange(type, name, value, optional) {
-      this.$helpers.updateInput(type, name, value)
+      this.storeChange(type, name, value)
       if (!(name === 'skinTint' || name === 'skinType')) {
         $nuxt.$emit('updateSound', 'form2', type, name, value)
       } else if (name == 'skinTint') {
@@ -99,6 +99,17 @@ export default {
         $nuxt.$emit('updateSound', 'form2', type, name, 'change')
       }
     },
+
+    storeChange(type, name, value) {
+      if(name === 'overallSize') {
+        value = value * 4
+      }
+      if(name === 'scale') {
+        value = (value * 100).toFixed(0)
+      }
+      console.log(value)
+      this.$helpers.updateInput(type, name, value)
+    }
   },
 }
 </script>
@@ -116,6 +127,12 @@ export default {
 .face div:nth-child(2) {
   position: absolute;
   right: 10%;
+  top: 30%;
+}
+
+.face div:nth-child(3) {
+  position: absolute;
+  left: 10%;
   top: 30%;
 }
 

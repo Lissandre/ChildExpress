@@ -25,6 +25,7 @@ export const state = () => {
     face: 'body',
     babyName: 'Margauxxx', // to remove
     job: 'none',
+    IQ: 122,
     newJob: 'test',
     subtitle: '',
   }
