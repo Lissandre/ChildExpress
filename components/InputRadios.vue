@@ -277,8 +277,12 @@ fieldset input[type='radio']:hover::before {
   display: none !important;
 }
 .eyes-color input:checked,
-.eyes-color input:hover {
+.eyes-color input:hover, .hair-color input:hover {
   outline: 4px solid rgba(15, 84, 228, 1);
+}
+
+.eyes-color input:checked, .hair-color input:checked {
+  filter: drop-shadow(0px 11px 9px rgb(15 84 228 / 75%)) !important;
 }
 
 .hair-color input {
@@ -288,21 +292,33 @@ fieldset input[type='radio']:hover::before {
 }
 .hair-color input:nth-of-type(1) {
   background: #ddc075;
+  filter: drop-shadow(1px 7px 7px rgba(221, 192, 117, 0.38));
+
 }
 .hair-color input:nth-of-type(2) {
   background: #bc580f;
+  filter: drop-shadow(1px 7px 7px rgba(188, 88, 15, 0.38));
+
 }
 .hair-color input:nth-of-type(3) {
   background: #a1815a;
+  filter: drop-shadow(1px 7px 7px rgba(161, 129, 90, 0.38));
+
 }
 .hair-color input:nth-of-type(4) {
   background: #85633b;
+  filter: drop-shadow(1px 7px 7px rgba(133, 99, 59, 0.38));
+
 }
 .hair-color input:nth-of-type(5) {
   background: #5e390d;
+  filter: drop-shadow(1px 7px 7px rgba(94, 57, 13, 0.38));
+
 }
 .hair-color input:nth-of-type(6) {
   background: #321c07;
+  filter: drop-shadow(1px 7px 7px rgba(50, 28, 7, 0.38));
+
 }
 
 .hair-color input::before {

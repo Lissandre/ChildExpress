@@ -397,4 +397,8 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
   bottom: 0;
   background-image: linear-gradient(to right, white, white, transparent);
 }
+
+#form3 > fieldset {
+  backdrop-filter: blur(20px);
+}
 </style>
