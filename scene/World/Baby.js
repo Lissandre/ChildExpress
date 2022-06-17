@@ -6,11 +6,13 @@ export default class Baby {
     // Options
     this.time = options.time
     this.assets = options.assets
+    this.debug = options.debug
 
     // Set up
     this.container = new Object3D()
     this.container.name = 'Baby'
 
+    this.morphCtrls = []
     this.transition = 0
 
     this.noseSize = 0
@@ -18,12 +20,50 @@ export default class Baby {
     this.handsSize = 0
     this.overallSize = 0
 
+    if (this.debug) {
+      this.debugFolder = this.debug.addFolder({
+        title: 'Baby',
+        expanded: true,
+      })
+    }
+
     this.createBaby()
     // this.modifyShader()
     this.setMovement()
   }
   createBaby() {
     this.baby = this.assets.models.baby.scene.children[0]
+    this.container.add(this.baby)
+
+    if (this.debug) {
+      const morphMeshes = []
+      this.baby.traverse((node) => {
+        if (node.isMesh && node.morphTargetInfluences) {
+          morphMeshes.push(node)
+        }
+      })
+
+      if (morphMeshes.length) {
+        morphMeshes.forEach((mesh) => {
+          mesh.material.needsUpdate = true
+          for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
+            mesh.morphTargetInfluences[i] = 1
+            const ctrl = this.debugFolder.addInput(
+              mesh.morphTargetInfluences,
+              `${i}`,
+              {
+                label: mesh.morphTargetDictionary[i],
+                min: 0,
+                max: 1,
+                step: 0.01,
+              }
+            )
+            this.morphCtrls.push(ctrl)
+          }
+        })
+      }
+    }
+
     // this.babyMin = this.baby.geometry.boundingBox.min.z
     // this.babyMax = this.baby.geometry.boundingBox.max.z
 
@@ -38,41 +78,13 @@ export default class Baby {
 
     this.baby.scale.set(1.5, 1.5, 1.5)
 
-    this.baby.children.forEach(bone => {
+    this.baby.children.forEach((bone) => {
       bone.position.set(0, -0.5, 0)
     })
     this.baby.position.set(0, 0, -1)
 
-    this.container.add(this.baby)
-
     this.baby.children[2].material.metalness = 1
     this.baby.children[3].material.metalness = 1
-
-    console.log(this.baby)
-    const skin = this.baby.children.find(el => el.type === 'SkinnedMesh')
-
-    const xtras = Object.keys(skin.morphTargetDictionary);
-    console.log(skin)
-
-    const values = Object.keys(skin.morphTargetInfluences);
-
-    console.log(skin.morphTargetInfluences)
-
-
-    skin.morphTargetDictionary['helice'] = 0
-    skin.morphTargetInfluences[0] = 0
-    skin.morphTargetInfluences[1] = 0
-    skin.morphTargetInfluences[2] = 0
-
-    values[0] = 1
-    values[1] = 1
-    values[2] = 1
-
-
-    console.log(values)
-
-    console.log(xtras)
-
   }
 
   modifyShader() {
@@ -211,7 +223,7 @@ export default class Baby {
   }
 
   updateUniform = (uniform, value) => {
-    console.log(uniform, value)
+    // console.log(uniform, value)
     gsap.to(this.shader.uniforms[uniform], {
       value,
       duration: 1,
@@ -246,7 +258,7 @@ export default class Baby {
     return x === 0
       ? 0
       : x === 1
-        ? 1
-        : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
+      ? 1
+      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
   }
 }

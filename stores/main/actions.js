@@ -1,4 +1,4 @@
-import { state } from "./state"
+import { state } from './state'
 
 export const actions = {
   changeActiveForm() {
@@ -34,7 +34,7 @@ export const actions = {
     text.value = newValue
   },
   changeCheckbox(id, newValue) {
-    console.log('here')
+    // console.log('here')
     const checkbox = this.checkboxs.find((checkbox) => checkbox.id === id)
     if (checkbox.value === 0) checkbox.value = 1
     else checkbox.value = 0
@@ -58,10 +58,18 @@ export const actions = {
       //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeBox(job, name, xtras, personality, iq, weight, height) {
-    // console.log(this.$scene.world.baby.updateUniform('test', "test"))
-    console.log(this.$nuxt.$scene.world)
+    // // console.log(this.$scene.world.baby.updateUniform('test', "test"))
+    // console.log(this.$nuxt.$scene.world)
     if (this.$nuxt.$scene.world)
-      this.$nuxt.$scene.world.box.createBox(job, name, xtras, personality, iq, weight, height)
+      this.$nuxt.$scene.world.box.createBox(
+        job,
+        name,
+        xtras,
+        personality,
+        iq,
+        weight,
+        height
+      )
   },
 
   focusBox() {

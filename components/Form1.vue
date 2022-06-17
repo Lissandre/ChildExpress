@@ -150,7 +150,7 @@ export default {
     prevent(e) {
       e.preventDefault()
       const fieldset = this.$el.querySelector('.second-slide-wrapper')
-      console.log(fieldset)
+      // console.log(fieldset)
       if (fieldset) {
         fieldset.classList.add('animate-bounce-out')
       }
@@ -163,10 +163,10 @@ export default {
 
       if ((type === 'radio' || type === 'roundSlider') && name !== 'gender') {
         value = value / optional
-        console.log(value)
+        // console.log(value)
       }
 
-      if(type === "text") {
+      if (type === 'text') {
         this.store.changeText('babyName', value)
       }
       $nuxt.$emit('updateSound', 'form1', type, name, value)
@@ -195,11 +195,11 @@ export default {
 
     checkBoxsInDiv() {
       const div = document.createElement('div')
-      console.log(this.$refs)
+      // console.log(this.$refs)
 
       for (const [key, value] of Object.entries(this.inputs)) {
         if (value.class.includes('checkbox-slide1')) {
-          console.log(key, value)
+          // console.log(key, value)
         }
       }
     },
@@ -391,7 +391,7 @@ export default {
 #form1 .hair-color {
   width: 400px;
 }
-#form1 .hair-color label{
+#form1 .hair-color label {
   flex-basis: 100%;
 }
 </style>
