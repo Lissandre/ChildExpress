@@ -10,16 +10,16 @@ if (process.client) {
 }
 
 export default {
+  props: ['dark'],
   data() {
     return {}
   },
   mounted() {
     this.canvas = this.$refs.backgroundCanvas
-
     this.setSize()
     window.addEventListener('resize', this.setSize)
-
     this.sandbox = new glslCanvas.default(this.canvas)
+
     this.sandbox.load(`
         #ifdef GL_ES
         precision highp float;
@@ -29,10 +29,12 @@ export default {
         uniform vec2 u_mouse;
         uniform float u_time;
         uniform float u_scroll;
+        uniform float u_dark;
 
-        vec3 c1 = vec3(244., 200., 223.) / 255.;
-        vec3 c2 = vec3(251., 245., 228.) / 255.;
-        vec3 c3 = vec3(190., 206., 225.) / 255.;
+        uniform vec3 c0;
+        uniform vec3 c1;
+        uniform vec3 c2;
+        uniform vec3 c3;
 
         float mod289(float x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
         vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
@@ -60,25 +62,42 @@ export default {
             return o4.y * d.y + o4.x * (1.0 - d.y);
         }
 
+        float grain(vec2 uv){
+            float mdf = 0.05;
+            float noise = (fract(sin(dot(uv + u_time*0.01, vec2(12.9898,78.233)*2.0)) * 43758.5453));
+            return noise * mdf;
+        }
+
         void main() {
             vec2 st = gl_FragCoord.xy/u_resolution.xy;
+            st.x /= u_resolution.y / u_resolution.x;
             st.y -= u_scroll;
-            st += u_mouse/u_resolution*0.3;
-            float t = u_time * 0.5;
-            vec3 color = vec3(1.);
-            color = mix(color, c1, noise(vec3(st*2., t)));
-            color = mix(color, c2, noise(vec3(st*2., t + 100.)));
-            color = mix(color, c3, noise(vec3(st*2., t + 200.)));
+            st += u_mouse/u_resolution*0.1;
+            float t = u_time * 0.1;
+            vec3 color = c0;
+            color = mix(color, c1, smoothstep(u_dark*0.8, 1., noise(vec3(st*2., t))));
+            color = mix(color, c2, smoothstep(u_dark*0.8, 1., noise(vec3(st*2., t + 100.))));
+            color = mix(color, c3, smoothstep(u_dark*0.8, 1., noise(vec3(st*2., t + 200.))));
             
-            color = mix(vec3(1.), color, min(1., u_time));
+            color = mix(c0, color, min(1., u_time));
+            color -= grain(st)*3.*(0.3 + 2.*u_dark/3.);
             gl_FragColor = vec4(color,1.);
         }
         `)
 
-    this.canvas.addEventListener('mousemove', (e) => {
-      if (!this.mouseDown) return
-      this.updateColor(e)
-    })
+    if (this.dark) {
+      this.sandbox.setUniform('c0', 29 / 255, 29 / 255, 27 / 255)
+      this.sandbox.setUniform('c1', 97 / 255, 228 / 255, 180 / 255)
+      this.sandbox.setUniform('c2', 188 / 255, 72 / 255, 13 / 255)
+      this.sandbox.setUniform('c3', 76 / 255, 74 / 255, 221 / 255)
+      this.sandbox.setUniform('u_dark', 1)
+    } else {
+      this.sandbox.setUniform('c0', 1, 1, 1)
+      this.sandbox.setUniform('c1', 244 / 255, 200 / 255, 223 / 255)
+      this.sandbox.setUniform('c2', 251 / 255, 245 / 255, 228 / 255)
+      this.sandbox.setUniform('c3', 190 / 255, 206 / 255, 225 / 255)
+      this.sandbox.setUniform('u_dark', 0)
+    }
 
     this.sandbox.setUniform('u_scroll', 0)
     window.addEventListener('scroll', (e) => {

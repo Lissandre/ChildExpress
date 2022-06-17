@@ -54,6 +54,7 @@ let glslCanvas = null
 if (process.client) {
   glslCanvas = require('glslCanvas')
 }
+import { useStore } from '@/stores/'
 
 export default {
   data() {
@@ -61,9 +62,24 @@ export default {
       isLoading: false,
     }
   },
+  setup() {
+    const store = useStore()
+    return { store }
+  },
   mounted() {
     this.$scene.setCanvas(this.$refs.canvas1)
     this.sandbox = new glslCanvas.default(this.$refs.canvas2)
+    this.currentForm = this.store.getActiveForm
+    this.store.$onAction(({ name, store, args, after, onError }) => {
+      if (name != 'changeActiveForm') return
+      after(
+        (result) => {
+          this.currentForm = store.activeForm
+          console.log(this.currentForm)
+        },
+        { once: true }
+      )
+    })
 
     this.$refs.canvas2.setAttribute(
       'width',
@@ -130,11 +146,31 @@ export default {
         
         color += ground * 0.2;
         
-        color -= grain(st)*1.5;
+        color -= grain(st)*1.5*u_darkness;
         gl_FragColor = vec4(color,1.0);
     }
   `)
-    this.sandbox.setUniform('u_darkness', 0.5)
+
+    this.darkness = ((this.currentForm - 1) / 4) * 0.9
+    this.sandbox.setUniform('u_darkness', this.darkness)
+    this.update()
+  },
+
+  methods: {
+    update() {
+      window.requestAnimationFrame(this.update)
+      this.darkness = this.lerp(
+        this.darkness,
+        ((this.currentForm - 1) / 4) * 0.9,
+        0.5
+      )
+      this.sandbox.setUniform('u_darkness', this.darkness)
+      console.log(this.darkness)
+    },
+
+    lerp(start, end, amt) {
+      return (1 - amt) * start + amt * end
+    },
   },
 }
 </script>
