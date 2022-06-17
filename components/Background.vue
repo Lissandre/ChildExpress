@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="backgroundCanvas" id="backgroundCanvas"></canvas>
+  <canvas ref="backgroundCanvas" id="backgroundCanvas" class="z-[-10000] fixed"></canvas>
 </template>
 
 
@@ -122,10 +122,3 @@ export default {
   },
 }
 </script>
-
-<style>
-#backgroundCanvas {
-  z-index: -10000;
-  position: fixed;
-}
-</style>

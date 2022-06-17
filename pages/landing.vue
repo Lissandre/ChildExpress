@@ -1,6 +1,5 @@
 <template>
   <div class="container overflow-x-hidden">
-    <Background :dark="false" />
     <section
       id="0"
       class="min-h-screen flex flex-col items-center justify-center px-8"

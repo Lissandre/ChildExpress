@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <Background :dark="$route.name.includes('landing') ? false : true" />
     <Nuxt />
     <Footer />
   </div>

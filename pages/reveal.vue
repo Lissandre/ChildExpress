@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Background :dark="true" />
     <h1>Reveal page</h1>
   </div>
 </template>
