@@ -194,6 +194,7 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
         this.xtraBlur.classList.add('hide')
         setTimeout(() => {
           $nuxt.$emit('updateSound', 'form3', 'speech', 'loading', 'speech1')
+
           const indicator = document.querySelector('.progress-bar-indicator')
           indicator.classList.add('animate-progressbargrow')
 

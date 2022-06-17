@@ -1,5 +1,5 @@
 import { Object3D, RepeatWrapping, Vector2 } from 'three'
-import gsap, { Power3 } from 'gsap'
+import gsap, { Power3, Bounce } from 'gsap'
 
 export default class Baby {
   constructor(options) {
@@ -33,20 +33,24 @@ export default class Baby {
   }
   createBaby() {
     this.baby = this.assets.models.baby.scene.children[0]
-    this.container.add(this.baby)
 
     if (this.debug) {
-      const morphMeshes = []
+      this.morphMeshes = []
       this.baby.traverse((node) => {
         if (node.isMesh && node.morphTargetInfluences) {
-          morphMeshes.push(node)
+          this.morphMeshes.push(node)
         }
       })
 
-      if (morphMeshes.length) {
-        morphMeshes.forEach((mesh) => {
+      console.log(this.morphMeshes)
+
+      console.log(this.morphTargetDictionary)
+
+      if (this.morphMeshes.length) {
+        this.morphMeshes.forEach((mesh) => {
           mesh.material.needsUpdate = true
           for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
+            console.log(mesh.morphTargetDictionary)
             mesh.morphTargetInfluences[i] = 1
             const ctrl = this.debugFolder.addInput(
               mesh.morphTargetInfluences,
@@ -230,9 +234,46 @@ export default class Baby {
       ease: Power3.easeOut,
     })
   }
+  setXtras() {
+    console.log('setXtras')
+    this.baby.position.set(0, 5, -1)
+
+    if (this.morphMeshes.length) {
+      this.morphMeshes.forEach((mesh) => {
+        for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
+          mesh.morphTargetInfluences[i] = 0
+        }
+      })
+    }
+  }
+
+  babyAppearForm4() {
+    console.log('appear')
+
+    this.baby.scale.set(1.2, 1.2, 1.2)
+    gsap.to(this.baby.position, {
+      x: 0,
+      y: 0,
+      z: -1,
+      duration: 2,
+      ease: Bounce.easeInOut
+    })
+  }
+
+  shrinkGlasses() {
+
+    console.log(this.morphMeshes[0].morphTargetInfluences)
+
+    gsap.to(this.morphMeshes[0].morphTargetInfluences, {
+      1: 0.8,
+      duration: 2,
+      ease: Bounce.easeInOut
+    })
+  }
 
   setMovement() {
     this.time.on('tick', () => {
+      console.log(this.baby.isFace)
       if (!this.shader) return
       this.shader.uniforms.time.value = this.time.current * 100
 

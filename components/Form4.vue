@@ -192,6 +192,7 @@ export default {
       requestAnimationFrame(() => {
         if ($nuxt) {
           $nuxt.$emit('updateSound', 'form4', 'speech', 'intro', 'speech1')
+          this.$nuxt.$scene.world.baby.babyAppearForm4()
           const store = this.store
           setTimeout(() => {
             if (this.$scene) {
@@ -292,13 +293,16 @@ export default {
       setTimeout(() => {
         this.$refs.content.classList.add('animate-slideup')
         this.store.focusBox()
-        $nuxt.$emit('updateSound', 'form4', 'text', 'box')
 
         // lancer ici la bonne anim de boite
       }, 6000)
+
+      setTimeout(() => {
+        $nuxt.$emit('updateSound', 'form4', 'text', 'box')
+      }, 8000)
       setTimeout(() => {
         this.$helpers.updateInput('submit', 'keep', 'true')
-      }, 8000)
+      }, 11000)
     },
     unkeepBaby() {
       $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')

@@ -30,11 +30,12 @@ export default {
   mounted() {},
   methods: {
     update(e) {
+      this.input.value == '0' ? this.input.value = 1 : this.input.value = 0
       this.$emit(
         'updateInput',
         this.input.type,
         this.input.name,
-        e.target.value
+        this.input.value
       )
     },
   },

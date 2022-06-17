@@ -63,7 +63,7 @@
         </div>
       </div>
     </fieldset>
-    <label class="w-20 mr-3 w-max text-white relative left-[20px] z-[1]">{{
+    <label class="w-20 mr-3 w-max text-white relative animate-bounce-in left-[20px] z-[1]">{{
       locale.labelMiddle
     }}</label>
   </div>

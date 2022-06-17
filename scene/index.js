@@ -126,8 +126,8 @@ export default class App {
 
   changeFocus(options) {
     this.isFace = options.face
+    this.world.baby.isFace = options.face
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
-
     if (this.isFace === 'face') {
       gsap
         .to(this.camera.camera.controls.target, {
@@ -138,7 +138,7 @@ export default class App {
           ease: Power3.easeOut,
         })
         .then(this.resetCamera())
-    } else {
+    } else if (this.isFace === 'middle') {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
         y: 0,
@@ -190,6 +190,8 @@ export default class App {
   }
 
   focusOnBox() {
+
+    this.world.baby.shrinkGlasses()
     // this.camera.camera.lookAt(this.world.box.box.position)
     if (this.world.box) {
       var tlBox = gsap.timeline()
@@ -198,7 +200,7 @@ export default class App {
       tlBox.fromTo(
         [this.world.box.box.position],
         { x: 0, y: -5, z: 0 },
-        { x: 0, y: 0, z: 0, duration: 1 }
+        { x: 0, y: 0, z: 0, duration: 1, delay: 3}
       )
       tlBox.fromTo(
         [this.world.box.box.rotation],
@@ -260,16 +262,19 @@ export default class App {
   }
 
   focusOnBin() {
+
+    this.world.baby.shrinkGlasses()
+
     if (this.world.bin) {
       gsap.fromTo(
         this.world.bin.bin.children[0].position,
         { y: 5 },
-        { y: 0.4, duration: 0.5 }
+        { y: 0.4, duration: 0.5, delay: 3}
       )
       gsap.fromTo(
         this.world.bin.bin.children[1].position,
         { y: -5 },
-        { y: -0.175, duration: 0.5 }
+        { y: -0.175, duration: 0.5, delay: 3}
       )
     }
   }

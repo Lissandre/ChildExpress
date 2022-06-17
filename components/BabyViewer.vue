@@ -165,7 +165,6 @@ export default {
         0.5
       )
       this.sandbox.setUniform('u_darkness', this.darkness)
-      console.log(this.darkness)
     },
 
     lerp(start, end, amt) {
