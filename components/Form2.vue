@@ -68,7 +68,7 @@ export default {
         }
       })
       setTimeout(() => {
-        console.log(this.store.isFace)
+        // console.log(this.store.isFace)
         if (this.store.isFace === 'middle') {
           this.$helpers.updateInput(e.type, e.type, e.type)
           this.store.isFace = 'body'

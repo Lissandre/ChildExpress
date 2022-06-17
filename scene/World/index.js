@@ -22,13 +22,13 @@ export default class World {
       this.container.add(new AxesHelper(5))
       this.debugFolder = this.debug.addFolder({
         title: 'World',
-        expanded: false,
+        expanded: true,
       })
     }
 
     this.init()
 
-    console.log('initWorld')
+    // console.log('initWorld')
   }
   init() {
     this.setAmbientLight()
@@ -60,6 +60,7 @@ export default class World {
     this.baby = new Baby({
       time: this.time,
       assets: this.assets,
+      debug: this.debugFolder,
     })
     this.container.add(this.baby.container)
   }

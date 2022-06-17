@@ -3,6 +3,7 @@ import EventEmitter from './EventEmitter'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js'
 // import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 
 import { AudioLoader, TextureLoader } from 'three'
@@ -32,6 +33,7 @@ export default class Loader extends EventEmitter {
 
     const gltfLoader = new GLTFLoader()
     gltfLoader.setDRACOLoader(dracoLoader)
+    gltfLoader.setMeshoptDecoder(MeshoptDecoder)
 
     const fbxLoader = new FBXLoader()
 

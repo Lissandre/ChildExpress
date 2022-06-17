@@ -30,7 +30,7 @@ export default class Helpers {
         // this.store.changeJob()
         break
       case 'checkbox':
-        console.log('checkbox')
+        // console.log('checkbox')
         this.store.changeCheckbox(
           this.store.constants[name.toUpperCase()],
           value,

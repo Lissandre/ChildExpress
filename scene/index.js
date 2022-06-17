@@ -17,7 +17,7 @@ import Plane from './World/Plane'
 export default class App {
   constructor(options) {
     // Set options
-    this.debug = false
+    this.debug = true
     this.time = new Time()
     this.sizes = new Sizes()
     this.assets = new Loader()
@@ -33,7 +33,7 @@ export default class App {
     this.setRenderer()
     this.setCamera()
     if (this.elementApp.id === '_canvas1') {
-      console.log('yes')
+      // console.log('yes')
       this.setWorld()
     } else {
       this.setBackgroundShader()
@@ -74,7 +74,6 @@ export default class App {
     })
 
     this.time.on('tick', () => {
-
       this.debug && this.fpsGraph.begin()
 
       this.camera.camera.controls.update()
@@ -161,7 +160,7 @@ export default class App {
 
     var tl = gsap.timeline({
       onComplete: () => {
-        ; (this.camera.camera.controls.maxAzimuthAngle = Infinity),
+        ;(this.camera.camera.controls.maxAzimuthAngle = Infinity),
           (this.camera.camera.controls.minAzimuthAngle = -Infinity)
       },
     })
@@ -191,30 +190,87 @@ export default class App {
   }
 
   focusOnBox() {
-
     // this.camera.camera.lookAt(this.world.box.box.position)
     if (this.world.box) {
-      var tlBox = gsap.timeline();
-      var tlBaby = gsap.timeline();
+      var tlBox = gsap.timeline()
+      var tlBaby = gsap.timeline()
 
-      tlBox.fromTo([this.world.box.box.position], { x: 0, y: -5, z: 0 }, { x: 0, y: 0, z: 0, duration: 1 })
-      tlBox.fromTo([this.world.box.box.rotation], { x: Math.PI, y: 0, z: 0 }, { x: Math.PI, y: 2 * Math.PI, z: 0, duration: 4, delay: 3 })
-      tlBox.to([this.world.box.box.position], { x: -3.5, y: 0, z: -3, duration: 3, delay: 3 })
-      tlBox.fromTo([this.world.box.box.rotation], { x: Math.PI, y: 2 * Math.PI, z: 0 }, { x: Math.PI, y: 4 * Math.PI, z: 0, duration: 12, ease: Linear.easeNone, delay: 1, repeat: -1 })
+      tlBox.fromTo(
+        [this.world.box.box.position],
+        { x: 0, y: -5, z: 0 },
+        { x: 0, y: 0, z: 0, duration: 1 }
+      )
+      tlBox.fromTo(
+        [this.world.box.box.rotation],
+        { x: Math.PI, y: 0, z: 0 },
+        { x: Math.PI, y: 2 * Math.PI, z: 0, duration: 4, delay: 3 }
+      )
+      tlBox.to([this.world.box.box.position], {
+        x: -3.5,
+        y: 0,
+        z: -3,
+        duration: 3,
+        delay: 3,
+      })
+      tlBox.fromTo(
+        [this.world.box.box.rotation],
+        { x: Math.PI, y: 2 * Math.PI, z: 0 },
+        {
+          x: Math.PI,
+          y: 4 * Math.PI,
+          z: 0,
+          duration: 12,
+          ease: Linear.easeNone,
+          delay: 1,
+          repeat: -1,
+        }
+      )
 
-
-      tlBaby.fromTo([this.world.baby.baby.position], { x: 0, y: 0, z: 0 }, { x: 0, y: 0, z: 0, duration: 1 })
-      tlBaby.fromTo([this.world.baby.baby.rotation], { x: 0, y: 0, z: 0 }, { x: 0, y: 2 * -Math.PI, z: 0, duration: 4, delay: 3 })
-      tlBaby.to([this.world.baby.baby.position], { x: -3.5, y: 0, z: -3, duration: 3, delay: 3 })
-      tlBaby.fromTo([this.world.baby.baby.rotation], { x: 0, y: 2 * Math.PI, z: 0 }, { x: 0, y: 0, z: 0, duration: 12, ease: Linear.easeNone, delay: 1, repeat: -1 })
-
+      tlBaby.fromTo(
+        [this.world.baby.baby.position],
+        { x: 0, y: 0, z: 0 },
+        { x: 0, y: 0, z: 0, duration: 1 }
+      )
+      tlBaby.fromTo(
+        [this.world.baby.baby.rotation],
+        { x: 0, y: 0, z: 0 },
+        { x: 0, y: 2 * -Math.PI, z: 0, duration: 4, delay: 3 }
+      )
+      tlBaby.to([this.world.baby.baby.position], {
+        x: -3.5,
+        y: 0,
+        z: -3,
+        duration: 3,
+        delay: 3,
+      })
+      tlBaby.fromTo(
+        [this.world.baby.baby.rotation],
+        { x: 0, y: 2 * Math.PI, z: 0 },
+        {
+          x: 0,
+          y: 0,
+          z: 0,
+          duration: 12,
+          ease: Linear.easeNone,
+          delay: 1,
+          repeat: -1,
+        }
+      )
     }
   }
 
   focusOnBin() {
     if (this.world.bin) {
-      gsap.fromTo(this.world.bin.bin.children[0].position, { y: 5 }, { y: 0.4, duration: 0.5 })
-      gsap.fromTo(this.world.bin.bin.children[1].position, { y: -5 }, { y: -0.175, duration: 0.5 })
+      gsap.fromTo(
+        this.world.bin.bin.children[0].position,
+        { y: 5 },
+        { y: 0.4, duration: 0.5 }
+      )
+      gsap.fromTo(
+        this.world.bin.bin.children[1].position,
+        { y: -5 },
+        { y: -0.175, duration: 0.5 }
+      )
     }
   }
 
@@ -222,7 +278,7 @@ export default class App {
     if (this.debug === true) {
       this.debug = new Pane({
         title: 'DEBUG',
-        expanded: false,
+        expanded: true,
       })
       this.debug.containerElem_.classList.add('z-50')
 
