@@ -229,8 +229,9 @@ export default class Box {
 
       /* poids */
       this.ctx.save()
-      this.ctx.translate(1024, 1024)
-      this.ctx.rotate(2 * Math.PI)
+      this.ctx.translate(1079, 1394)
+      // this.ctx.rotate(0.5 * Math.PI)
+      this.ctx.rotate(Math.PI)
 
       this.ctx.font = `420px bold "roc-grotesk-wide"`
       this.ctx.fillText(weight + 'KG', 0, 0)
