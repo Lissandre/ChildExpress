@@ -186,4 +186,18 @@ fieldset > input[type='submit'],
   border-radius: 40px !important;
   box-shadow: inset 0px 3.5px 21px rgba(255, 255, 255, 0.86) !important;
 }
+.weight,
+.weight button {
+  box-shadow: inset 0px 12px 20px rgba(255, 255, 255, 0.86),
+    inset -5px -4.5px 6.5px rgba(255, 255, 255, 0.7) !important;
+}
+
+.weight {
+  border-radius: 80px !important;
+}
+
+.weight .content {
+  flex-direction: row !important;
+  margin: 0 20px;
+}
 </style>

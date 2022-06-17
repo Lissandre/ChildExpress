@@ -140,4 +140,8 @@ export default {
 #form2 > .hair-color label {
   flex-basis: 0;
 }
+
+div > fieldset {
+  backdrop-filter: blur(20px);
+}
 </style>

@@ -73,6 +73,10 @@ fieldset .content {
   align-items: center;
 }
 
+h2 {
+  font-size: 36px;
+  margin-right: 5px;
+}
 .counter-label {
   color: white;
   font-size: 22px;

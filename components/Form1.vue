@@ -381,28 +381,7 @@ export default {
   margin-top: 0;
 }
 
-.weight,
-.weight button {
-  /*background: radial-gradient(
-    rgba(0, 0, 0, 0),
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.8)
-  ) !important;*/
-  box-shadow: inset 0px 12px 20px rgba(255, 255, 255, 0.86),
-    inset -5px -4.5px 6.5px rgba(255, 255, 255, 0.7) !important;
-}
-
-.weight {
-  border-radius: 80px !important;
-}
-
-.weight .content {
-  flex-direction: row !important;
-  margin: 0 20px;
-}
-
-.counter-wrapper {
+#form1 .counter-wrapper {
   border: 1px solid white;
   width: fit-content;
   padding: 20px;

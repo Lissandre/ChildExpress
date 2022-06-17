@@ -397,7 +397,7 @@
         "value": 0.5,
         "length": 3,
         "unit": "kg",
-        "class": "flex flex-col justify-center text-2xl body left-60"
+        "class": "flex justify-center text-2xl body left-60 weight"
       },
       "eyesColor": {
         "locales": {
