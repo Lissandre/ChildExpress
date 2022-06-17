@@ -7,8 +7,8 @@ export default [
   { id: 'logic', value: 0 },
   { id: 'hyperactive', value: 0 },
   { id: 'creative', value: 0 },
-  { id: 'silent', value: 0 },
+  { id: 'silent', value: 1 },
   { id: 'independant', value: 0 },
-  { id: 'clean', value: 0 },
+  { id: 'clean', value: 1 },
   { id: 'visionary', value: 0 }
 ]

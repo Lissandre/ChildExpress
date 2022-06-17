@@ -123,7 +123,7 @@ export default class Box {
     }
   }
 
-  makeCanvas(job, name, xtras, personality, iq, weight, height) {
+  makeCanvas(job, name, xtras, personality, iq, weight, babyHeight) {
     const borderSize = 200
     this.ctx = document.createElement('canvas').getContext('2d')
     this.ctx.canvas.width = 2048
@@ -229,18 +229,23 @@ export default class Box {
 
       /* poids */
       this.ctx.save()
-      this.ctx.translate(1079, 1394)
+      this.ctx.translate(1130, 1394)
       // this.ctx.rotate(0.5 * Math.PI)
       this.ctx.rotate(Math.PI)
 
       this.ctx.font = `420px bold "roc-grotesk-wide"`
-      this.ctx.fillText(weight + 'KG', 0, 0)
+      this.ctx.fillText(weight + 'KG', -100, 65)
       this.ctx.restore()
 
       /* taille */
-      // this.ctx.font = `42px bold "roc-grotesk-wide"`;
+      this.ctx.save()
+      this.ctx.translate(1130, 1394)
+      this.ctx.rotate(Math.PI)
 
-      // ctx.fillText(height, 50, 300);
+      this.ctx.font = `28px bold "roc-grotesk"`;
+      this.ctx.fillText(babyHeight + 'cm', 175, 65);
+      this.ctx.restore()
+
       /* qi */
       // ctx.fillText(iq, 50, 200);
 
