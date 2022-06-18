@@ -118,7 +118,11 @@ export default {
               $nuxt.$emit('updateSound', 'form2', type, name, 'different')
           }, 9000)
         $nuxt.$emit('updateSound', 'form2', type, name, 'change')
-      } else {
+      } else if (name === 'hairStyle') {
+          setTimeout(() => {
+          $nuxt.$emit('updateSound', 'form2', type, name, 'different')
+          }, 5000)
+        } else {
         $nuxt.$emit('updateSound', 'form2', type, name, value)
 
       }
