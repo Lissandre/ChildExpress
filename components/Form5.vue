@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col relative h-full w-full " ref="content">
     <form @submit.prevent="prevent" class="h-full w-full form5 " ref="form5">
-      <div class="payment-wrapper z-[1]">
+      <div class="payment-wrapper z-[2]">
         <div class="payment-category-wrapper relative">
           <h3 class="payment-category roc">Récapitulatif de commande</h3>
           <div class="payment-resume">

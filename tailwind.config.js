@@ -38,6 +38,11 @@ module.exports = {
         'opacityfadeout': 'opacityFadeOut 1.5s ease forwards',
         'revealtext': 'revealText 1.5s ease forwards',
         'dollar-opacity':'dollarOpacity 0.5s ease forwards',
+        'fade-up-out':'fadeUpOut 0.5s ease forwards',
+        'fade-up-in':'fadeUpIn 0.5s ease  forwards',
+        'fade-up-in2':'fadeUpIn2 0.5s ease  forwards',
+        'fade-up-in3':'fadeUpIn3 0.5s ease  forwards',
+
       },
       keyframes: {
         bounceIn: {
@@ -167,7 +172,51 @@ module.exports = {
           '100%': {
             opacity: 1,
           }
-        }
+        },
+        fadeUpOut: {
+          '0%': {
+            opacity: 1,
+            left: "-0px",
+            top: "-0px"
+          },
+          '100%': {
+            opacity: 0,
+            left: "-25px",
+            top: "-25px"
+          }
+        },
+        fadeUpIn: {
+          '0%': {
+            opacity: 0,
+            left: "75px",
+            top: "75px"
+          },
+          '100%': {
+            opacity: 1,
+            left: "50px",
+            top: "50px"
+          }
+        },
+        fadeUpIn2: {
+          '0%': {
+            left: "50px",
+            top: "50px"
+          },
+          '100%': {
+            left: "25px",
+            top: "25px"
+          }
+        },
+        fadeUpIn3: {
+          '0%': {
+            left: "25px",
+            top: "25px"
+          },
+          '100%': {
+            left: "0px",
+            top: "0px"
+          }
+        },
       }
 
     },

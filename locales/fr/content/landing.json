@@ -51,5 +51,24 @@
   "standard": "enfant\nstandard",
   "recond": "enfant\nreconditionné",
   "occas": "enfant\nd'occasion",
-  "unsell": "too good to go\nles invendus"
+  "unsell": "too good to go\nles invendus",
+
+  "community": "Child Community",
+  "satisfaction_percent": "99,9%",
+  "satisfaction_text": "de nos clients satisfaits!",
+  "comu_1_name": "Thierry",
+  "comu_1_ago": "Il y a 2 jours",
+  "comu_1_comment": "Merci à E-gène pour cette mise au monde rapide, efficace et sans douleur. Notre petit boutchou se porte très bien et le mode silencieux est un vrai plus !",
+  "comu_2_name": "Vero",
+  "comu_2_ago": "Il y a 1 semaine",
+  "comu_2_comment": "Très satisfait de mon achat, reçu dans les 5 minutes après la commande, je recommande la livraison par cigogne supersonique!",
+  "comu_3_name": "David",
+  "comu_3_ago": "Il y a 5 heures",
+  "comu_3_comment": "Toujours les meilleurs sur le marché, c'est mon 5éme enfant de chez Child Express et ils trouvent encore le moyen de me surprendre!",
+  "comu_premium": "(Premium)",
+
+
+
+  "jump": "Je saute le pas"
+
 }
