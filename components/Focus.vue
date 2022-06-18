@@ -69,6 +69,8 @@ button {
   transition: all ease-out 0.2s;
   transform: scale3d(0.8, 0.8, 0.8);
   perspective-origin: 500% 200%;
+  right: 35%;
+  top: 12.5rem;
 }
 button:hover {
   transform: scale3d(1, 1, 1);

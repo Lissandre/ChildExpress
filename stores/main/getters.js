@@ -8,6 +8,9 @@ export const getters = {
   getJob() {
     return this.newJob
   },
+  getMoney(state) {
+    return (id) => state.jobs.find((job) => job.id === id).money
+  },
   getXtras(state) {
     return (id) => state.checkboxs.find((xtra) => xtra.id === id).value
   },

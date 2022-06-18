@@ -311,6 +311,7 @@ export default {
   color: white;
   font-size: 32px;
   box-shadow: 0px 4px 7px rgb(15 84 228 / 56%);
+  background: #B4D2E5;
 }
 
 .custom-option {

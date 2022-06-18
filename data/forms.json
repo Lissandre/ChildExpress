@@ -330,13 +330,55 @@
   },
   "form2": {
     "inputs": {
+      "hairStyle": {
+        "locales": {
+          "fr": "Style des cheveux",
+          "en": "Hair Style"
+        },
+        "type": "range",
+        "name": "hairStyle",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "range face"
+      },
+      "mouthStyle": {
+        "locales": {
+          "fr": "Style de bouche",
+          "en": "Mouth Style"
+        },
+        "type": "range",
+        "name": "mouthStyle",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "range face"
+      },
       "noseSize": {
         "locales": {
-          "fr": "Taille Nez",
-          "en": "Nose Size"
+          "fr": "Taille du nez",
+          "en": "Nose size"
         },
         "type": "range",
         "name": "noseSize",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "range face"
+      },
+      "noseStyle": {
+        "locales": {
+          "fr": "Style de nez",
+          "en": "Nose style"
+        },
+        "type": "range",
+        "name": "noseStyle",
         "component": "InputRange",
         "value": 0.5,
         "from": 0,
@@ -399,23 +441,6 @@
         "unit": "kg",
         "class": "flex justify-center text-2xl body left-60 weight"
       },
-      "eyesColor": {
-        "locales": {
-          "fr": {
-            "labelMiddle": "Yeux"
-          },
-          "en": {
-            "labelMiddle": "Eyes"
-          }
-        },
-        "type": "radio",
-        "name": "eyesColor",
-        "effect": "eyesColor",
-        "component": "InputRadios",
-        "value": 2,
-        "length": 4,
-        "class": "eyes-color middle"
-      },
       "hairColor": {
         "locales": {
           "fr": {
@@ -432,6 +457,23 @@
         "value": 2,
         "length": 6,
         "class": "hair-color middle"
+      },
+      "eyesColor": {
+        "locales": {
+          "fr": {
+            "labelMiddle": "Yeux"
+          },
+          "en": {
+            "labelMiddle": "Eyes"
+          }
+        },
+        "type": "radio",
+        "name": "eyesColor",
+        "effect": "eyesColor",
+        "component": "InputRadios",
+        "value": 2,
+        "length": 4,
+        "class": "eyes-color middle"
       },
       "skin": {
         "locales": {
@@ -722,103 +764,120 @@
         "locales": {
           "fr": "Sans-abris",
           "en": "Homeless"
-        }
+        },
+        "money": 0
       },
       "1000": {
         "locales": {
           "fr": "Avocat d'intelligence artificielle",
           "en": "Artificial intelligence lawyer"
-        }
+        },
+        "money": 6
       },
       "1100": {
         "locales": {
           "fr": "Rappeur cosmique",
           "en": "Cosmic MC"
-        }
+        },
+        "money": 5
       },
       "1010": {
         "locales": {
           "fr": "Arnaqueur de Tinder",
           "en": "Tinder Swindler"
-        }
+        },
+        "money": 10
       },
       "1001": {
         "locales": {
           "fr": "Ingénieur dans les collants indestructibles",
           "en": "Engineer in indestructible tights"
-        }
+        },
+        "money": 6
       },
       "1110": {
         "locales": {
           "fr": "Maçon de base spatiale",
           "en": "Space base mason"
-        }
+        },
+        "money": 2
       },
       "1011": {
         "locales": {
           "fr": "Musicien VR",
           "en": "VR musician"
-        }
+        },
+        "money": 3
       },
       "1101": {
         "locales": {
           "fr": "Médecin de robot",
           "en": "Robot doctor"
-        }
+        },
+        "money": 8
       },
       "1111": {
         "locales": {
           "fr": "Artisan NFT",
           "en": "NFT artisan"
-        }
+        },
+        "money": 3
       },
       "0111": {
         "locales": {
           "fr": "Sans-abris",
           "en": "Homeless Jobless"
-        }
+        },
+        "money": 0
       },
       "0011": {
         "locales": {
           "fr": "Influenceur dans la pantouffle",
           "en": "Slipper influencer"
-        }
+        },
+        "money": 4
       },
       "0101": {
         "locales": {
           "fr": "Comptable de cryptos",
           "en": "Crypto accountant"
-        }
+        },
+        "money": 4
       },
       "0110": {
         "locales": {
           "fr": "Sportif cyborg",
           "en": "Sporty cyborg"
-        }
+        },
+        "money": 9
       },
       "0001": {
         "locales": {
           "fr": "Président de l'internet",
           "en": "Internet President"
-        }
+        },
+        "money": 9
       },
       "0100": {
         "locales": {
           "fr": "Conseiller en FaceTime",
           "en": "FaceTime Consultant"
-        }
+        },
+        "money": 1
       },
       "0010": {
         "locales": {
           "fr": "Agent immobilier metaverse",
           "en": "Metaverse realtor"
-        }
+        },
+        "money": 8
       },
       "0000": {
         "locales": {
           "fr": "Chatbot",
           "en": "Chatbot"
-        }
+        },
+        "money": 1
       }
     }
   }

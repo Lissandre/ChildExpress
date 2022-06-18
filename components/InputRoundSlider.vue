@@ -204,8 +204,8 @@ export default {
 
 .IQ {
   box-shadow: inset 0px 11.5px 20px white, inset -5.82px -4.5px 6.5px 0px white;
-  left: 15%;
-  top: 30vh;
+  top: 20%;
+  left: 100%;
   padding-bottom: 50px;
 }
 

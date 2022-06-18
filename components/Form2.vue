@@ -3,7 +3,7 @@
     <Focus />
 
     <form @submit.prevent="prevent" class="h-full w-full" id="form2">
-      <div class="face">
+      <div class="body" ref="content">
         <component
           v-for="input in inputs"
           v-if="input.class.includes(store.isFace)"
@@ -53,7 +53,22 @@ export default {
     this.inputs = form2.inputs
 
     this.soundEvents()
+
+
+    this.store.$onAction(({ name, store, args, after, onError }) => {
+      if (name != 'toggleIsFace') return
+      after(
+        (result) => {
+      if(store.face === 'face')
+        this.replaceContent('body', 'face')
+        else if(store.face === 'middle')
+        this.replaceContent('face', 'middle')
+        },
+        { once: true }
+      )
+    })
   },
+  
   methods: {
     changeRange(id, e) {
       this.store.changeRange(id, e.target.value)
@@ -67,16 +82,25 @@ export default {
           fieldset.classList.add('animate-bounce-out')
         }
       })
-      setTimeout(() => {
 
-        // console.log(this.store.isFace)
-        if (this.store.isFace === 'middle') {
+      setTimeout(() => {
+        if (this.store.face === 'middle') {
           this.$helpers.updateInput(e.type, e.type, e.type)
-          this.store.isFace = 'body'
-        } else this.store.toggleIsFace('middle')
+          this.store.toggleIsFace('body')
+          this.replaceContent('body', 'middle')
+        } else {
+          this.store.toggleIsFace('middle')
+        }
       }, 1000)
     },
 
+    replaceContent(oldClasslist, newClasslist) {
+      if(this.$refs.content) {
+        this.$refs.content.classList.remove(oldClasslist)
+        this.$refs.content.classList.add(newClasslist)
+
+      }
+      },
     soundEvents() {
       requestAnimationFrame(() => {
         if ($nuxt)
@@ -87,7 +111,6 @@ export default {
       this.storeChange(type, name, value)
       if ((name === 'skin')) {
 
-        console.log(value)
         if(value.b < 150 && value.r > 150 && value.g > 150 )
           $nuxt.$emit('updateSound', 'form2', type, name, 'small')
         else
@@ -96,7 +119,6 @@ export default {
           }, 9000)
         $nuxt.$emit('updateSound', 'form2', type, name, 'change')
       } else {
-        console.log(type, name, value)
         $nuxt.$emit('updateSound', 'form2', type, name, value)
 
       }
@@ -109,33 +131,78 @@ export default {
       if(name === 'scale') {
         value = (value * 100).toFixed(0)
       }
-      console.log(value)
       this.$helpers.updateInput(type, name, value)
     }
   },
 }
 </script>
 
+<style>
+
+ .face.range input {
+  display: block;
+  margin: 12px auto;
+} 
+.face .range-label {
+  margin: 0 !important;
+  text-align: center;
+  color: black;
+}
+</style>
+
 <style scoped>
 
-.face div {
+.face div, .body > div, .middle div {
   z-index: 2;
-}
-.face div:nth-child(1) {
   position: absolute;
+}
+
+.face > div:nth-child(1) {
+  left: 20%;
+  top: 20%;
+}
+.face > div:nth-child(2) {
+  left: 15%;
+  top: 40%;
+}
+.face > div:nth-child(3) {
+  left: 20%;
+  bottom: 20%;
+}
+
+.face > div:nth-child(4) {
+  right: 20%;
+  bottom: 40%;
+}
+
+.face > div:nth-child(5) {
+  right: 25%;
+  bottom: 60%;
+}
+.body > div:nth-child(1) {
   right: 30%;
   top: 50%;
 }
-.face div:nth-child(2) {
-  position: absolute;
+.body > div:nth-child(2) {
   right: 10%;
   top: 30%;
 }
-
-.face div:nth-child(3) {
-  position: absolute;
+.body > div:nth-child(3) {
   left: 10%;
   top: 30%;
+}
+
+.middle > div:nth-child(1) {
+  left: 20%;
+  top: 25%;
+}
+.middle > div:nth-child(2) {
+  right: 30%;
+  top: 50%;
+}
+.middle > div:nth-child(3) {
+  left: 20%;
+  bottom: 15%;
 }
 
 

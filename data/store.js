@@ -38,6 +38,7 @@ for (const form in forms) {
       for (const input in element) {
         content.job.push({
           name: input,
+          money: element[input].money
         })
       }
     } else {
@@ -130,7 +131,7 @@ stores.types.forEach((type) => {
     case 'job':
       content[type] = `export default [\n${content[type]
         .map(function (elem) {
-          return `  { id: '${elem.name}' }`
+          return `  { id: '${elem.name}', money: '${elem.money}'}`
         })
         .join(',\n')}\n]`
       break

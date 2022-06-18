@@ -59,10 +59,17 @@ export const actions = {
     const roundSlider = this.roundSliders.find((roundSlider) => roundSlider.id === id)
     roundSlider.value = newValue
     console.log('yes')
-    if (step != 'form1')
-      this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    // A DECOMMENTER LEITH
+    // if (step != 'form1')
+      //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
-  changeBox(job, name, xtras, personality, iq, weight, height) {
+  changeCurrentMoney(value) {
+    this.currentMoney = value
+    console.log(this.currentMoney)
+  },
+  changeBox(job, name, money, xtras, personality, iq, weight, height) {
+
+    console.log(money)
     // // console.log(this.$scene.world.baby.updateUniform('test', "test"))
     // console.log(this.$nuxt.$scene.world)
     if (this.$nuxt.$scene.world)

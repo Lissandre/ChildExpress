@@ -205,6 +205,7 @@ export default {
               store.changeBox(
                 this.getJob,
                 this.getText,
+                this.getCurrentMoney,
                 this.splittedXtra,
                 boxPersonnality,
                 this.getRoundSlider,
@@ -343,6 +344,9 @@ export default {
     getRadios: function () {
       return (id) => this.store.getRadio(id)
     },
+    getCurrentMoney: function () {
+      return this.store.currentMoney
+    }
   },
 }
 </script>

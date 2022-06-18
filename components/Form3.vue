@@ -63,7 +63,7 @@
       </div>
     </form>
 
-    <div class="fieldJob absolute bottom-1/3 z-[1]" style="left: 15%">
+    <div class="fieldJob absolute top-2/4 z-[1]" style="left: 15%">
       <p class="text-5xl text-white font-semibold roc" v-if="newJob === 'none'">
         {{ splitJob($t(`job.${this.newJob}`), true) }}
         <span class="text-3xl neueBit block">{{
@@ -80,10 +80,15 @@
         }}</span>
       </p>
       <p class="text-5xl text-white font-semibold roc" v-else>
-        {{ splitJob($t(`${this.newJob}`), true) }}
+        {{ splitJob($t(`job.${this.newJob}`), true) }}
         <span class="text-3xl neueBit block">{{
           splitJob($t(`job.${this.newJob}`), false)
         }}</span>
+      </p>
+
+      <p class="text-2xl text-white font-semibold roc relative h-[30px]">
+        <span class="text-4xl neueBit block absolute money"> $$$$$$$$$$</span>
+        <span class="text-4xl neueBit block absolute current-money" ref="currentMoney"> {{ this.displayedMoney }}</span>
       </p>
     </div>
   </div>
@@ -105,6 +110,8 @@ export default {
       newJob: 'none',
       blurry: true,
       xtra_selected: false,
+      money: 0,
+      displayedMoney: ''
     }
   },
   setup() {
@@ -127,6 +134,9 @@ export default {
         })
     }
         */
+      setTimeout(() => {
+      this.$refs.currentMoney.classList.add('animate-dollar-opacity')
+      }, 500)
   },
   methods: {
     changeRange(id, e) {
@@ -138,16 +148,16 @@ export default {
       // Quickfix, trouver un moyen d'update les locales ailleurs ? Sinon rajouter un if locale fr/en
       switch (fieldsetToUpdate) {
         case 0:
-          if (value === 0) this.newJob = 'Agent immobilier metaverse'
-          else this.newJob = 'Maçon de base spatiale'
+          if (value === 0) this.newJob = this.temporaryJob('0010')
+          else this.newJob = this.temporaryJob('1110')
           break
         case 1:
-          if (value === 0) this.newJob = 'Rappeur cosmique'
-          else this.newJob = 'Arnaqueur de Tindeur'
+          if (value === 0) this.newJob = this.temporaryJob('1100')
+          else this.newJob = this.temporaryJob('1010')
           break
         case 2:
-          if (value === 0) this.newJob = 'Musicien VR'
-          else this.newJob = 'Ingénieur dans les collants indestructibles'
+          if (value === 0) this.newJob = this.temporaryJob('1011')
+          else this.newJob = this.temporaryJob('1001')
           break
       }
 
@@ -156,16 +166,35 @@ intelligent (100 et 160) : Médecin de robot
 Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
       if (!this.jobs.includes(undefined) && this.jobs.length === 4) {
         this.newJob = this.jobs.join('')
+        this.money = this.store.getMoney(this.newJob)
+        this.displayMoney()
+
         $nuxt.$emit('updateSound', 'form3', 'radio', 'personality', this.newJob)
       }
     },
+
+    temporaryJob(id) {
+      this.money = this.store.getMoney(id)
+        this.displayMoney()
+
+      return this.newJob = id
+    },
+    displayMoney() {
+      const dollar = '$'
+      this.displayedMoney = dollar.repeat(this.money)
+      this.store.changeCurrentMoney(this.displayedMoney)
+      this.$refs.currentMoney.classList.remove('animate-dollar-opacity')
+      requestAnimationFrame(() => {
+        this.$refs.currentMoney.classList.add('animate-dollar-opacity')
+      })
+    },
     updateIQ(value) {
       if (value > 160 || value < 30) {
-        this.newJob = 'Sans-abris'
+        this.newJob =  this.temporaryJob('0111')
       } else if (value > 100 && value < 160) {
-        this.newJob = 'Médecin de robot'
+        this.newJob =  this.temporaryJob('1101')
       } else if (value > 30 && value < 80) {
-        this.newJob = 'Influenceur dans la pantoufle'
+        this.newJob =  this.temporaryJob('0011')
       }
 
       if (value !== 100 && this.blurry === true) {
@@ -247,6 +276,8 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     },
 
     inputChange(type, name, value, optional) {
+
+      console.log(this.jobs)
       this.$helpers.updateInput(type, name, value)
       if (type === 'roundSlider') {
         value = value / optional
@@ -404,5 +435,13 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 
 #form3 > fieldset {
   backdrop-filter: blur(20px);
+}
+
+.money {
+  color: rgba(50, 50, 50, 0.5)
+}
+.current-money {
+  opacity: 0;
+  color: white;
 }
 </style>

@@ -248,6 +248,7 @@ export default {
   border-radius: 0; /* pris en compte sur Webkit et Edge */
   background: black; /* pris en compte sur Webkit only */
   height: 2px;
+  cursor: pointer;
 }
 .range span {
   display: none;
@@ -398,8 +399,8 @@ export default {
 .range-label {
   color: white;
   font-size: 22px;
-      margin-left: 20px;
-
+  margin-left: 20px;
+  white-space: nowrap;
 }
 
 #skinTint,
