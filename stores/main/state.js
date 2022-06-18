@@ -19,7 +19,7 @@ export const state = () => {
 
     //   // << END CONSTANTS >>
     // },5
-    activeForm: 3,
+    activeForm: 4,
     totalForms: 5,
     health: true,
     face: 'body',
@@ -28,6 +28,6 @@ export const state = () => {
     IQ: 122,
     newJob: 'test',
     subtitle: '',
-    currentMoney: ''
+    currentMoney: '$$$$$',
   }
 }

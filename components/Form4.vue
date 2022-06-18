@@ -192,7 +192,7 @@ export default {
       requestAnimationFrame(() => {
         if ($nuxt) {
           $nuxt.$emit('updateSound', 'form4', 'speech', 'intro', 'speech1')
-          this.$nuxt.$scene.world.baby.babyAppearForm4()
+          //this.$nuxt.$scene.world.baby.babyAppearForm4()
           const store = this.store
           setTimeout(() => {
             if (this.$scene) {

@@ -76,6 +76,7 @@ export const actions = {
       this.$nuxt.$scene.world.box.createBox(
         job,
         name,
+        money,
         xtras,
         personality,
         iq,

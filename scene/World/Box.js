@@ -25,7 +25,7 @@ export default class Box {
 
     // this.createBox()
   }
-  createBox(job, name, xtras, personality, iq, weight, height) {
+  createBox(job, name, money, xtras, personality, iq, weight, height) {
     var link = document.createElement('link')
     link.rel = 'stylesheet'
     link.type = 'text/css'
@@ -38,6 +38,7 @@ export default class Box {
       const canvas = this.makeCanvas(
         job,
         name,
+        money,
         xtras,
         personality,
         iq,
@@ -123,7 +124,7 @@ export default class Box {
     }
   }
 
-  makeCanvas(job, name, xtras, personality, iq, weight, babyHeight) {
+  makeCanvas(job, name, money, xtras, personality, iq, weight, babyHeight) {
     const borderSize = 200
     this.ctx = document.createElement('canvas').getContext('2d')
     this.ctx.canvas.width = 2048
@@ -166,6 +167,25 @@ export default class Box {
       this.ctx.rotate(-0.5 * Math.PI)
       this.ctx.font = `40px "roc-grotesk"`
       this.ctx.fillText(job, 0, 0)
+      this.ctx.restore()
+
+      /* Money */
+
+      console.log(money)
+      this.ctx.save()
+      this.ctx.translate(610, 1200)
+      this.ctx.rotate(-0.5 * Math.PI)
+      this.ctx.fillStyle = 'lightgrey'
+      this.ctx.font = `32px "roc-grotesk"`
+      this.ctx.fillText('$$$$$$$$$$', 0, 50)
+      this.ctx.restore()
+
+      this.ctx.save()
+      this.ctx.translate(610, 1200)
+      this.ctx.rotate(-0.5 * Math.PI)
+      this.ctx.fillStyle = 'black'
+      this.ctx.font = `32px "roc-grotesk"`
+      this.ctx.fillText(money, 0, 50)
       this.ctx.restore()
 
       /* xtras */
