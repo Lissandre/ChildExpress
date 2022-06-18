@@ -39,9 +39,9 @@ module.exports = {
         'revealtext': 'revealText 1.5s ease forwards',
         'dollar-opacity':'dollarOpacity 0.5s ease forwards',
         'fade-up-out':'fadeUpOut 0.5s ease forwards',
-        'fade-up-in':'fadeUpIn 0.5s ease  forwards',
-        'fade-up-in2':'fadeUpIn2 0.5s ease  forwards',
-        'fade-up-in3':'fadeUpIn3 0.5s ease  forwards',
+        'fade-up-in':'fadeUpIn 0.5s ease forwards',
+        'fade-up-in2':'fadeUpIn2 0.5s ease forwards',
+        'fade-up-in3':'fadeUpIn3 0.5s ease forwards',
 
       },
       keyframes: {
@@ -217,6 +217,24 @@ module.exports = {
             top: "0px"
           }
         },
+        pinkRectangle1: {
+          '0%': {
+            width: "0",
+            height: "0",
+          },
+          '100%': {
+            width: "584",
+            height: "100",
+          },
+        },
+        pinkRectangle2: {
+          '0%': {
+            transform: "rotate3d(0, 0, 1, 0)",
+          },
+          '100%': {
+            transform: "rotate3d(0, 0, 1, -2.6deg)",
+          },
+        }
       }
 
     },

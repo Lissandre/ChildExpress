@@ -11,8 +11,17 @@
           class="font-bold text-8xl mb-10 whitespace-pre-line"
         >
           <template v-slot:pink>
-            <span class="text-pink">
-              {{ $t('landing.h1_title_pink') }}
+
+            <span class="text-pink relative ">
+               <div class="typed-out">{{ $t('landing.h1_title_pink') }} </div>
+              <svg ref="rectangle" class="absolute" width="623" height="180" viewBox="0 0 603 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect class="pinkRectangle" x="9.18359" y="30.4434" width="584" height="100" stroke="#E893AD" stroke-width="2"/>
+                <rect class="whiteRectangle" x="7.16992" y="28.7646" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
+                <rect class="whiteRectangle" x="590.564" y="27.1797" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
+                <rect class="whiteRectangle" x="6.80469" y="127.659" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
+                <rect class="whiteRectangle" x="590.199" y="126.074" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
+              </svg>
+
             </span>
           </template>
         </i18n>
@@ -101,9 +110,7 @@
               left-[65%]
               top-[65%]
               h-2/3
-            "
-            style="transform-origin:center center"
-          />
+            "/>
         </div>
       </div>
       <nuxt-link
@@ -118,7 +125,10 @@
     >
       <h2 class="text-7xl font-bold uppercase">{{ $t('landing.values') }}</h2>
       <div class="flex flex-wrap gap-8 justify-between m-24">
-        <div class="w-[47%] flex rounded-lg border py-4 pr-8">
+        <div class="w-[47%] flex relative py-4 pr-8">
+          <svg class="absolute top-0 draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
+          </svg>
           <img
             src="@/assets/images/sticker_ecologie.png"
             alt=""
@@ -135,7 +145,10 @@
             </p>
           </div>
         </div>
-        <div class="w-[47%] flex rounded-lg border py-4 pr-8">
+        <div class="w-[47%] flex relative py-4 pr-8">
+          <svg class="absolute top-0 draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
+          </svg>
           <img
             src="@/assets/images/sticker_positivite.png"
             alt=""
@@ -153,7 +166,10 @@
             </p>
           </div>
         </div>
-        <div class="w-[47%] flex rounded-lg border py-4 pr-8">
+        <div class="w-[47%] flex relative py-4 pr-8">
+          <svg class="absolute top-0 draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
+          </svg>
           <img
             src="@/assets/images/sticker_egalite.png"
             alt=""
@@ -171,7 +187,10 @@
             </p>
           </div>
         </div>
-        <div class="w-[47%] flex rounded-lg border py-4 pr-8">
+        <div class="w-[47%] flex relative py-4 pr-8">
+          <svg class="absolute top-0 draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
+          </svg>
           <img
             src="@/assets/images/sticker_innovation.png"
             alt=""
@@ -202,7 +221,10 @@
     >
       <h2 class="text-7xl font-bold uppercase">{{ $t('landing.solution') }}</h2>
       <div class="w-10/12 flex m-24 relative">
-        <div class="w-11/12 flex gap-12 rounded-lg border" ref="border">
+        <div class="w-11/12 flex gap-12 relative" ref="border">
+          <svg class="absolute top-0 big-draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
+          </svg>
           <div class="pl-20 py-16">
             <h3 class="font-bold text-3xl uppercase mb-6">
               {{ $t('landing.give_title') }}
@@ -239,6 +261,7 @@
               bg-white
               neue
             "
+            ref="DNA"
           >
             <div class="pl-20 py-16">
               <h3 class="font-bold text-3xl uppercase mb-6">
@@ -268,7 +291,7 @@
     >
       <h2 class="text-7xl font-bold uppercase">{{ $t('landing.offer') }}</h2>
       <div class="w-10/12 flex gap-4 justify-between items-start m-24">
-        <div class="rounded-md flex flex-col items-center w-full neue">
+        <div class="rounded-md flex flex-col items-center w-full neue offer-item">
           <img
             src="@/assets/images/donutPremium.svg"
             alt=""
@@ -293,7 +316,10 @@
             >{{ $t('landing.discover') }}</nuxt-link
           >
         </div>
-        <div class="rounded-md border flex flex-col items-center w-full" ref="offerBorder1">
+        <div class="relative flex flex-col items-center w-full offer-item">
+          <svg class="absolute top-0 little-draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
+          </svg>
           <img
             src="@/assets/images/donutStandard.svg"
             alt=""
@@ -304,7 +330,10 @@
           </h3>
           <span class="text-5xl mb-16 stroke-text">$$$</span>
         </div>
-        <div class="rounded-md border flex flex-col items-center w-full" ref="offerBorder2">
+        <div class="relative flex flex-col items-center w-full offer-item">
+          <svg class="absolute top-0 little-draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
+          </svg>
           <img
             src="@/assets/images/donutReconditionne.svg"
             alt=""
@@ -315,7 +344,10 @@
           </h3>
           <span class="text-5xl mb-16 stroke-text">$$</span>
         </div>
-        <div class="rounded-md border flex flex-col items-center w-full" ref="offerBorder3">
+        <div class="relative flex flex-col items-center w-full offer-item">
+          <svg class="absolute top-0 little-draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
+          </svg>
           <img
             src="@/assets/images/donutOccasion.svg"
             alt=""
@@ -326,7 +358,10 @@
           </h3>
           <span class="text-5xl mb-16 stroke-text">$</span>
         </div>
-        <div class="rounded-md border flex flex-col items-center w-full" ref="offerBorder4">
+        <div class="relative flex flex-col items-center w-full offer-item">
+          <svg class="absolute top-0 little-draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
+            <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
+          </svg>
           <img
             src="@/assets/images/donutFree.svg"
             alt=""
@@ -358,6 +393,7 @@
             src="@/assets/images/stickers_love.png"
             alt=""
             class="w-1/2 -translate-y-1/3 absolute translate-x-2/3"
+            ref="love"
           />
         </div>
 
@@ -517,46 +553,181 @@ export default {
     }
     },
   animations() {
-    gsap.fromTo(this.$refs.flames, { transform: 'rotate3d(0, 0, 1, -20deg)',},{
-      transform: 'rotate3d(0, 0, 1, 20deg)',
-      duration: 2,
-      repeat: -1,
-      ease: 'none',
-      yoyo: true
-    })
-    gsap.fromTo(this.$refs.ecologie, { transform: 'translateX(-25%) rotate3d(0, 0, 1, -20deg)'},{
-      transform: 'translateX(-25%) rotate3d(0, 0, 1, 20deg)',
-      duration: 2,
-      repeat: -1,
-      ease: 'none',
-      stagger: 0.1,
-      yoyo: true
-    })
 
-    gsap.fromTo(this.$refs.positive, { transform: 'translate3d(-25%, -25%, 0) '},{
-      transform: 'translate3d(-25%, 25%, 0)',
+    /* pink rectangle */
+
+    const pinkRectangle = this.$el.querySelector('.pinkRectangle')
+    gsap.fromTo(pinkRectangle, { width: 0, height: 0},{
+      height: 100,
+      width: 590,
+      scrollTrigger: pinkRectangle,
       duration: 2,
-      repeat: -1,
       ease: Power3.easeIn,
-      stagger: 0.3,
-      yoyo: true
     })
-    gsap.fromTo(this.$refs.innovation, { transform: 'translate3d(-25%, -10%, 0) '},{
-      transform: 'translate3d(-25%, 10%, 0)',
+    const textPink = this.$el.querySelector('.text-pink')
+
+    console.log(textPink)
+      gsap.fromTo(textPink, { transform: 'rotate3d(0, 0, -1, 0)'},{
+      transform: 'rotate3d(0, 0, -1, 2.6deg)',
+      scrollTrigger: textPink,
       duration: 1,
-      repeat: -1,
-      ease: Power3.easeIn,
-      delay: 0.5,
-      yoyo: true
+      delay: 2,
+      ease: Power3.easeIn
     })
 
-    gsap.fromTo(this.$refs.egalite, { transform: 'translateX(-25%) scale3d(0.9, 0.9, 0.9)'},{
+    const whiteRectangle = this.$el.querySelectorAll('.whiteRectangle')
+    console.log(whiteRectangle)
+    gsap.to(whiteRectangle, { width: 0, height: 0 },{
+      width: 6, height: 6,
+      duration: 1,
+      ease: Power3.easeIn,
+    })
+    /* draw svg */
+    const drawSvg = this.$el.querySelectorAll('.draw-svg')
+    gsap.fromTo(drawSvg, { strokeDashoffset: '2000'},{
+      strokeDashoffset: '0',
+      scrollTrigger: drawSvg,
+      delay: 2,
+      duration: 2,
+      stagger: 0.3,
+      ease: Power3.easeInOut,
+    })
+
+    const bigDrawSvg = this.$el.querySelector('.big-draw-svg')
+    gsap.fromTo(bigDrawSvg, { strokeDashoffset: '4000'},{
+      strokeDashoffset: '0',
+      scrollTrigger: bigDrawSvg,
+      duration: 2,
+      ease: Power3.easeInOut,
+    })
+
+
+    const offerItem = this.$el.querySelectorAll('.offer-item')
+    gsap.fromTo(offerItem, { transform: 'translate3d(600%, 0, 0)'},{
+      transform: 'translate3d(0, 0, 0)',
+      scrollTrigger: offerItem,
+      duration: 2,
+      delay: 1,
+      stagger: 0.3,
+      ease: Power3.easeInOut,
+    }).then(() => {
+      const littleDrawSvg = this.$el.querySelectorAll('.little-draw-svg')
+      gsap.fromTo(littleDrawSvg, { strokeDashoffset: '2000'},{
+        strokeDashoffset: '0',
+        scrollTrigger: littleDrawSvg,
+        duration: 2,
+        ease: Power3.easeInOut,
+      })
+    })
+     /* emojis */
+    gsap.fromTo(this.$refs.flames, { transform: 'scale3d(0, 0, 0)',},{
+      transform: 'scale3d(1, 1, 1)',
+      duration: 2,
+      scrollTrigger: this.$refs.flames,
+      ease: Power3.easeInOut,
+    }).then(() => {
+        gsap.fromTo(this.$refs.flames, { transform: 'scale3d(1, 1, 1) rotate3d(0, 0, 1, -20deg)',},{
+        transform: 'scale3d(1, 1, 1) rotate3d(0, 0, 1, 20deg)',
+        duration: 2,
+        repeat: -1,
+        scrollTrigger: this.$refs.flames,
+        ease: 'none',
+        yoyo: true
+      })
+    })
+
+
+    gsap.fromTo(this.$refs.egalite, { transform: 'scale3d(0, 0, 0)',},{
+      transform: 'translateX(-25%) scale3d(1, 1, 1)',
+      duration: 2,
+      scrollTrigger: this.$refs.egalite,
+      ease: Power3.easeIn,
+    }).then(() => {
+      gsap.fromTo(this.$refs.egalite, { transform: 'translateX(-25%) scale3d(1, 1, 1)'},{
       transform: 'translateX(-25%) scale3d(1.5, 1.5, 1.5)',
       duration: 2,
       repeat: -1,
       ease: 'none',
+      scrollTrigger: this.$refs.egalite,
       stagger: 0.1,
       yoyo: true
+    })
+    })
+
+
+    gsap.fromTo(this.$refs.love, { transform: 'scale3d(0, 0, 0) translate3d(66%, -33%, 0) ',},{
+      transform: 'scale3d(1, 1, 1) translate3d(66%, -33%, 0)',
+      duration: 2,
+      scrollTrigger: this.$refs.love,
+      ease: Power3.easeIn,
+    }).then(() => {
+    gsap.fromTo(this.$refs.love, { transform: ' translate3d(66%, -33%, 0) rotate3d(0, 0, 1, -20deg)',},{
+      transform: '  translate3d(66%, -33%, 0) rotate3d(0, 0, 1, 20deg)',
+      duration: 2,
+      repeat: -1,
+      scrollTrigger: this.$refs.love,
+      ease: 'none',
+      yoyo: true
+    })
+    })
+
+    gsap.fromTo(this.$refs.ecologie, { transform: 'translateX(-25%) scale3d(0, 0, 0) ',},{
+      transform: 'translateX(-25%) scale3d(1, 1, 1)',
+      duration: 2,
+      scrollTrigger: this.$refs.ecologie,
+      ease: Power3.easeIn,
+    }).then(() => {
+      gsap.fromTo(this.$refs.ecologie, { transform: ' translateX(-25%) rotate3d(0, 0, 1, -20deg)'},{
+        transform: ' translateX(-25%) rotate3d(0, 0, 1, 20deg)',
+        duration: 2,
+        repeat: -1,
+        scrollTrigger: this.$refs.ecologie,
+        ease: 'none',
+        stagger: 0.1,
+        yoyo: true
+      })
+    })
+
+    gsap.fromTo(this.$refs.positive, { transform: ' scale3d(0, 0, 0) ',},{
+      transform: 'translate3d(-25%, -25%, 0) scale3d(1, 1, 1)',
+      duration: 2,
+      scrollTrigger: this.$refs.ecologie,
+      ease: Power3.easeIn,
+    }).then(() => {
+    gsap.fromTo(this.$refs.positive, { transform: 'translate3d(-25%, -25%, 0) '},{
+      transform: 'translate3d(-25%, 25%, 0)',
+      duration: 2,
+      repeat: -1,
+      scrollTrigger: this.$refs.positive,
+      ease: Power3.easeIn,
+      stagger: 0.3,
+      yoyo: true
+    })
+    })
+    
+    gsap.fromTo(this.$refs.innovation, { transform: ' scale3d(0, 0, 0) ',},{
+      transform: 'translate3d(-25%, -10%, 0)  scale3d(1, 1, 1)',
+      duration: 2,
+      scrollTrigger: this.$refs.innovation,
+      ease: Power3.easeIn,
+    }).then(() => {
+      gsap.fromTo(this.$refs.innovation, { transform: 'translate3d(-25%, -10%, 0) '},{
+        transform: 'translate3d(-25%, 10%, 0)',
+        duration: 1,
+        repeat: -1,
+        ease: Power3.easeIn,
+        scrollTrigger: this.$refs.innovation,
+        delay: 0.5,
+        yoyo: true
+      })
+    })
+
+    gsap.fromTo(this.$refs.DNA, { transform: 'translate3d(150%, 0, 0) '},{
+      transform: 'translate3d(0, 0, 0)',
+      duration: 2,
+      ease: Power3.easeOut,
+      scrollTrigger: this.$refs.DNA,
+      delay: 0.5,
     })
   }
   },
@@ -566,7 +737,7 @@ export default {
 <style scoped>
 h1 span {
   display: inline-block;
-  transform: rotate(-2.6deg);
+  /*transform: rotate(-2.6deg);*/
 }
 
 .name {
@@ -596,6 +767,8 @@ button.neue:not(.bgo) {
 .pink-neue {
   filter: drop-shadow(-3.26669px -5.44448px 18.5112px rgba(255, 255, 255, 0.87))
     drop-shadow(9.80006px 27.2551px 32.6669px rgba(232, 147, 173, 0.47));
+
+    transform-origin: center center;
 }
 
 .limited {
@@ -640,6 +813,20 @@ button.neue:not(.bgo) {
   left: 50px;
   top: 50px;
 }
+.draw-svg, .little-draw-svg {
+  stroke-dashoffset: 1000;
+  stroke-dasharray: 2000;
+}
+
+.little-draw-svg {
+  stroke-dashoffset: 2000;
+
+}
+
+.big-draw-svg {
+  stroke-dashoffset: 1000;
+  stroke-dasharray: 4000;
+}
 
 /*
 .clientList .client:nth-child(2) {
@@ -677,4 +864,43 @@ ul.good li::before {
 section {
   scroll-margin-top: 4rem;
 }
+
+.pinkRectangle {
+  height: 0;
+  width: 0;
+  animation: pinkRectangle 2.5s ease forwards
+}
+
+.text-pink {
+  height: 6rem;
+  min-width: 600px;
+
+}
+
+.text-pink svg {
+  top: -35%;
+  right: -5%;
+}
+
+.whiteRectangle {
+  opacity: 1;
+  height: 0;
+  width: 0;
+}
+
+
 </style>
+
+<style>
+
+.typed-out{
+  overflow: hidden;
+  border-right: 5px solid white;
+  white-space: nowrap;
+  animation: typing 1s  4s forwards;
+  width: 0;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}</style>
