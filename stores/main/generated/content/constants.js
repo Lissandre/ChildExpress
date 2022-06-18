@@ -14,6 +14,7 @@ export default {
   WEIGHT: 'weight',
   PARENTSCALE: 'parentScale',
   HEALTH: 'health',
+  PARENTSKIN: 'parentSkin',
   LIFEQUALITY: 'lifeQuality',
   BABYNAME: 'babyName',
   GENDER: 'gender',

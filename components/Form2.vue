@@ -85,19 +85,20 @@ export default {
     },
     inputChange(type, name, value, optional) {
       this.storeChange(type, name, value)
-      if (!(name === 'skinTint' || name === 'skinType')) {
-        $nuxt.$emit('updateSound', 'form2', type, name, value)
-      } else if (name == 'skinTint') {
-        const parentSkinTint = this.store.ranges.find(
-          (el) => el.id === 'parentSkinTint'
-        )
-        if (value <= 0.2) {
-          $nuxt.$emit('updateSound', 'form2', type, name, value)
-        } else if (Math.abs(parentSkinTint.value - value) > 0.2) {
-          $nuxt.$emit('updateSound', 'form2', type, name, 'different')
-        }
-      } else if (name == 'skinType') {
+      if ((name === 'skin')) {
+
+        console.log(value)
+        if(value.b < 150 && value.r > 150 && value.g > 150 )
+          $nuxt.$emit('updateSound', 'form2', type, name, 'small')
+        else
+          setInterval(() => {
+              $nuxt.$emit('updateSound', 'form2', type, name, 'different')
+          }, 9000)
         $nuxt.$emit('updateSound', 'form2', type, name, 'change')
+      } else {
+        console.log(type, name, value)
+        $nuxt.$emit('updateSound', 'form2', type, name, value)
+
       }
     },
 

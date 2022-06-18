@@ -279,6 +279,7 @@ fieldset input[type='radio']:hover::before {
 }
 .eyes-color input:checked,
 .eyes-color input:hover,
+.hair-color input:hover,
 .hair-color input:checked {
   outline: 4px solid rgba(15, 84, 228, 1);
 }

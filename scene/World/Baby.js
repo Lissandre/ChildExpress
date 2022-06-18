@@ -227,12 +227,15 @@ export default class Baby {
   }
 
   updateUniform = (uniform, value) => {
-    // console.log(uniform, value)
-    gsap.to(this.shader.uniforms[uniform], {
+    //Yo Leith, les valeurs dont tu as besoin pour les uniforms vont descendre ici,
+    // notemment IQ pour la taille du crâne, scale pour la taille, overallSize pour la grosseur
+    // handsSize pour les mains, hairColor, eyesColor, mouthSize, noseShape et noseSize
+    console.log(uniform, value)
+    /*gsap.to(this.shader.uniforms[uniform], {
       value,
       duration: 1,
       ease: Power3.easeOut,
-    })
+    })*/
   }
   setXtras() {
     console.log('setXtras')

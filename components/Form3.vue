@@ -251,7 +251,7 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
       if (type === 'roundSlider') {
         value = value / optional
         console.log(value * 250 )
-        this.store.changeRoundSlider('IQ', value * 250)
+        this.store.changeRoundSlider('IQ', value * 250, 'form3')
 
       }
       if (this.jobs.length === 4) return

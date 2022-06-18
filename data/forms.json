@@ -248,7 +248,7 @@
         "type": "color",
         "name": "parentSkin",
         "component": "InputSkinPicker",
-        "skinColor": true,
+        "value": 0.5,
         "class": "slide1"
       },
       "lifeQuality": {

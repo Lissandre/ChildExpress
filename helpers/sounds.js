@@ -59,6 +59,10 @@ export default class Sounds {
             this.defaultCase(value, step, name)
           }
           break
+        case 'color':
+          console.log('color')
+          this.store.updateSubtitle(`${step}_${name}_${value}`)
+          break
         case 'face':
           this.store.updateSubtitle(`${step}_${type}_change`)
           break

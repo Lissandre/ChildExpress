@@ -22,6 +22,7 @@ export default class Helpers {
         )
         break
       case 'radio':
+        console.log(step)
         this.store.changeRadio(
           this.store.constants[name.toUpperCase()],
           value,
