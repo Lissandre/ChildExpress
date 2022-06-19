@@ -29,5 +29,6 @@ export const state = () => {
     newJob: 'test',
     subtitle: '',
     currentMoney: '',
+    overallSize: 4
   }
 }

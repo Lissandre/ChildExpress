@@ -109,6 +109,7 @@ export default {
     },
     inputChange(type, name, value, optional) {
       this.storeChange(type, name, value)
+
       if ((name === 'skin')) {
 
         if(value.b < 150 && value.r > 150 && value.g > 150 )
@@ -152,6 +153,10 @@ export default {
   text-align: center;
   color: black;
 }
+
+#form2 .circle-slider {
+  box-shadow: none !important;
+}
 </style>
 
 <style scoped>
@@ -185,15 +190,15 @@ export default {
 }
 .body > div:nth-child(1) {
   right: 30%;
-  top: 50%;
+  top: 45%;
 }
 .body > div:nth-child(2) {
-  right: 10%;
-  top: 30%;
+  left: 30%;
+  top: 20%;
 }
 .body > div:nth-child(3) {
-  left: 10%;
-  top: 30%;
+  right: 35%;
+  top: 45%;
 }
 
 .middle > div:nth-child(1) {
@@ -208,7 +213,6 @@ export default {
   left: 20%;
   bottom: 15%;
 }
-
 
 #form2 > .hair-color label {
   flex-basis: 0;

@@ -33,6 +33,9 @@ export const getters = {
     return (id) =>
       state.roundSliders.find((roundSlider) => roundSlider.id === id).value
   },
+  getOverallSize() {
+    return this.overallSize
+  },
   isHealthy() {
     return this.health
   },

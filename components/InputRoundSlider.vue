@@ -32,7 +32,7 @@
         :side="150"
         :min="sliderMin"
         :max="sliderMax"
-        :step-size="1"
+        :step-size="0.5"
         :circle-width-rel="20"
         :progress-width-rel="10"
         :circleColor="'transparent'"
@@ -43,7 +43,7 @@
         src="@/assets/images/heart.svg"
         class="heart"
         alt=""
-        v-if="this.input.name.includes('health')"
+        v-if="this.input.name.includes('health') || this.input.name.includes('parentHealth')"
       />
 
       <svg
@@ -98,6 +98,7 @@
 <script>
 import Vue from 'vue'
 import VueCircleSlider from 'vue-circle-slider'
+import { useStore } from '@/stores'
 
 Vue.use(VueCircleSlider)
 
@@ -107,16 +108,30 @@ export default {
 
   data() {
     return {
-      sliderValue: 50,
+      sliderValue: 4,
       sliderMin: this.input.name.includes('IQ') ? 50 : 0,
-      sliderMax: this.input.name.includes('IQ') ? 250 : 100,
+      sliderMax: this.input.name.includes('IQ') ? 250 : 8,
     }
+  },
+  setup() {
+    const store = useStore()
+    return { store }
   },
   mounted() {
     if (this.input.skinColor) {
     } else if (this.input.name.includes('IQ')) {
       this.$refs['circleSlider'].appendChild(this.$refs['IQvalue'])
       this.sliderValue = 100
+    } else if(this.input.name.includes('health')) {
+      this.store.$onAction(({ name, store, args, after, onError }) => {
+        if (name != 'changeOverallSize') return
+        after(
+          (result) => {
+            this.sliderValue = this.store.overallSize
+          },
+          { once: true }
+        )
+      })
     }
   },
   watch: {
@@ -129,6 +144,9 @@ export default {
         this.sliderMax
       )
       if (this.input.name.includes('IQ')) this.$emit('updateIQ', newValue)
+      if(this.input.name.includes('health')) {
+        this.store.changeOverallSize(newValue)
+      }
     },
   },
   methods: {
@@ -139,6 +157,8 @@ export default {
         this.input.name,
         e.target.value
       )
+
+
     },
     checkValue() {},
   },

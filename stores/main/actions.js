@@ -67,6 +67,11 @@ export const actions = {
     this.currentMoney = value
     console.log(this.currentMoney)
   },
+  changeOverallSize(newValue) {
+    this.overallSize = newValue
+    this.$nuxt.$scene.world.baby.updateUniform('overallSize', newValue)
+
+  },
   changeBox(job, name, money, xtras, personality, iq, weight, height) {
 
     console.log(money)

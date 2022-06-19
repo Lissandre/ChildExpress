@@ -641,7 +641,7 @@ export default {
       transform: 'translateX(-25%) scale3d(1, 1, 1)',
       duration: 2,
       scrollTrigger: this.$refs.egalite,
-      ease: Power3.easeIn,
+      ease: Power3.easeInOut,
     }).then(() => {
       gsap.fromTo(this.$refs.egalite, { transform: 'translateX(-25%) scale3d(1, 1, 1)'},{
       transform: 'translateX(-25%) scale3d(1.5, 1.5, 1.5)',
@@ -659,7 +659,7 @@ export default {
       transform: 'scale3d(1, 1, 1) translate3d(66%, -33%, 0)',
       duration: 2,
       scrollTrigger: this.$refs.love,
-      ease: Power3.easeIn,
+      ease: Power3.easeInOut,
     }).then(() => {
     gsap.fromTo(this.$refs.love, { transform: ' translate3d(66%, -33%, 0) rotate3d(0, 0, 1, -20deg)',},{
       transform: '  translate3d(66%, -33%, 0) rotate3d(0, 0, 1, 20deg)',
@@ -675,7 +675,7 @@ export default {
       transform: 'translateX(-25%) scale3d(1, 1, 1)',
       duration: 2,
       scrollTrigger: this.$refs.ecologie,
-      ease: Power3.easeIn,
+      ease: Power3.easeInOut,
     }).then(() => {
       gsap.fromTo(this.$refs.ecologie, { transform: ' translateX(-25%) rotate3d(0, 0, 1, -20deg)'},{
         transform: ' translateX(-25%) rotate3d(0, 0, 1, 20deg)',
@@ -692,7 +692,7 @@ export default {
       transform: 'translate3d(-25%, -25%, 0) scale3d(1, 1, 1)',
       duration: 2,
       scrollTrigger: this.$refs.ecologie,
-      ease: Power3.easeIn,
+      ease: Power3.easeInOut,
     }).then(() => {
     gsap.fromTo(this.$refs.positive, { transform: 'translate3d(-25%, -25%, 0) '},{
       transform: 'translate3d(-25%, 25%, 0)',
@@ -709,7 +709,7 @@ export default {
       transform: 'translate3d(-25%, -10%, 0)  scale3d(1, 1, 1)',
       duration: 2,
       scrollTrigger: this.$refs.innovation,
-      ease: Power3.easeIn,
+      ease: Power3.easeInOut,
     }).then(() => {
       gsap.fromTo(this.$refs.innovation, { transform: 'translate3d(-25%, -10%, 0) '},{
         transform: 'translate3d(-25%, 10%, 0)',

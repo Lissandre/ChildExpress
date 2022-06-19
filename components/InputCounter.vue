@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { useStore } from '@/stores'
+
 export default {
   name: 'InputCounter',
   props: ['input', 'locale'],
@@ -26,7 +28,23 @@ export default {
       counterValue: this.input.value,
     }
   },
-  mounted() {},
+  setup() {
+    const store = useStore()
+    return { store }
+  },
+  mounted() {
+    if(this.input.name === 'overallSize' ) {
+      this.store.$onAction(({ name, store, args, after, onError }) => {
+        if (name != 'changeOverallSize') return
+        after(
+          (result) => {
+            this.counterValue = store.overallSize
+          },
+          { once: true }
+        )
+      })
+    }
+  },
   methods: {
     update(e, way) {
       e.preventDefault()
@@ -34,6 +52,10 @@ export default {
         this.counterValue++
       } else {
         this.counterValue--
+      }
+
+      if(this.input.name === 'overallSize') {
+        this.store.changeOverallSize(this.counterValue)
       }
       this.$emit(
         'updateInput',
