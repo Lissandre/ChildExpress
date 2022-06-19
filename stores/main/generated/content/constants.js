@@ -13,7 +13,7 @@ export default {
   CREATIVE: 'creative',
   WEIGHT: 'weight',
   PARENTSCALE: 'parentScale',
-  HEALTH: 'health',
+  PARENTHEALTH: 'parentHealth',
   PARENTSKIN: 'parentSkin',
   LIFEQUALITY: 'lifeQuality',
   BABYNAME: 'babyName',

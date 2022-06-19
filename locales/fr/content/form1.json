@@ -39,7 +39,7 @@
     "label1": "Poids"
   },
   "range_parentscale": "Taille",
-  "roundslider_health": {
+  "roundslider_parenthealth": {
     "label1": "Santé"
   },
   "color_parentskin": "Peau",

@@ -14,12 +14,14 @@
 
             <span class="text-pink relative ">
                <div class="typed-out">{{ $t('landing.h1_title_pink') }} </div>
+                <div class="typed-wrapper">{{ $t('landing.h1_title_pink') }}</div> 
+                <div class="typed-write"></div> 
               <svg ref="rectangle" class="absolute" width="623" height="180" viewBox="0 0 603 160" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect class="pinkRectangle" x="9.18359" y="30.4434" width="584" height="100" stroke="#E893AD" stroke-width="2"/>
                 <rect class="whiteRectangle" x="7.16992" y="28.7646" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
-                <rect class="whiteRectangle" x="590.564" y="27.1797" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
+                <rect class="whiteRectangle" x="595.564" y="27.1797" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
                 <rect class="whiteRectangle" x="6.80469" y="127.659" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
-                <rect class="whiteRectangle" x="590.199" y="126.074" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
+                <rect class="whiteRectangle" x="595.199" y="126.074" width="6" height="6" fill="white" stroke="#E893AD" stroke-width="2"/>
               </svg>
 
             </span>
@@ -67,7 +69,7 @@
             $t('landing.name_1')
           }}</span>
           <video muted loop autoplay class="rounded-sm">
-            <source src="@/assets/images/webm/bebe1.webm" type="video/webm" />
+            <source src="@/assets/images/webm/bebe1-unscreen.webm" type="video/webm" />
           </video>
         </div>
         <div class="w-[19%] flex flex-col items-center">
@@ -571,15 +573,16 @@ export default {
       transform: 'rotate3d(0, 0, -1, 2.6deg)',
       scrollTrigger: textPink,
       duration: 1,
-      delay: 2,
-      ease: Power3.easeIn
+      delay: 4.5,
+      ease: Power3.easeOut
     })
 
     const whiteRectangle = this.$el.querySelectorAll('.whiteRectangle')
     console.log(whiteRectangle)
-    gsap.to(whiteRectangle, { width: 0, height: 0 },{
+    gsap.to(whiteRectangle,{
       width: 6, height: 6,
       duration: 1,
+      delay: 2,
       ease: Power3.easeIn,
     })
     /* draw svg */
@@ -873,8 +876,7 @@ section {
 
 .text-pink {
   height: 6rem;
-  min-width: 600px;
-
+  top: 5rem;
 }
 
 .text-pink svg {
@@ -893,14 +895,58 @@ section {
 
 <style>
 
+.video {
+background-blend-mode: difference;
+}
+.typed-wrapper {
+  width: 100%;
+  color: transparent;
+  font-size: 6rem;
+  height: 0px;
+
+}
 .typed-out{
   overflow: hidden;
-  border-right: 5px solid white;
   white-space: nowrap;
   animation: typing 1s  4s forwards;
   width: 0;
 }
+.typed-write {
+  width: 0;
+  position: relative;
+  animation: typing-move 1s 4s  forwards;
+}
+
+.typed-write::after {
+  content: '';
+  background: white;
+  width: 3px;
+  height: 5rem;
+  position: absolute;
+  bottom: -50%;
+  opacity: 0;
+  animation: typing-writing 4s 3s forwards;
+}
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
+}
+@keyframes typing-writing {
+  0%  { left: 0; opacity: 0; }
+  10% { opacity: 1; }
+  15% { opacity: 0; }
+  20% { opacity: 1; }
+  25% { opacity: 0; }
+  30% { opacity: 1; }
+
+
+  70% { opacity: 1; }
+  75% { opacity: 0; }
+  80% { opacity: 1; }
+  85% { opacity: 0; }
+}
+
+@keyframes typing-move {
+  0% { left: 0%; }
+  100% { left: 100%; }
 }</style>
