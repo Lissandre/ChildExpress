@@ -1,5 +1,9 @@
 <template>
   <div class="flex flex-col relative h-full w-full" style="overflow: hidden">
+    <video muted loop autoplay class="rounded-sm absolute" ref="loaderVideo">
+      <source src="@/assets/images/webm/loader.webm" type="video/webm" />
+    </video>
+    
     <form
       @submit.prevent="prevent"
       id="form1"
@@ -150,13 +154,18 @@ export default {
     prevent(e) {
       e.preventDefault()
       const fieldset = this.$el.querySelector('.second-slide-wrapper')
-      // console.log(fieldset)
+      const controls = this.$el.querySelector('.tns-controls')
       if (fieldset) {
         fieldset.classList.add('animate-bounce-out')
+        controls.classList.add('animate-bounce-out')
       }
       setTimeout(() => {
-        this.$helpers.updateInput(e.type, e.type, e.type, 'form1')
+        this.$refs.loaderVideo.classList.add('animate-scale-up')
       }, 1000)
+      
+      setTimeout(() => {
+        this.$helpers.updateInput(e.type, e.type, e.type, 'form1')
+      }, 8000)
     },
     inputChange(type, name, value, optional) {
       this.$helpers.updateInput(type, name, value, 'form1')
@@ -430,5 +439,11 @@ export default {
   width: 900px;
   height: fit-content;
   padding: 52px 63px;
+}
+
+video {
+  transform: scale3d(0, 0, 0);
+  mix-blend-mode: screen;
+  z-index: 2;
 }
 </style>

@@ -42,7 +42,7 @@ module.exports = {
         'fade-up-in':'fadeUpIn 0.5s ease forwards',
         'fade-up-in2':'fadeUpIn2 0.5s ease forwards',
         'fade-up-in3':'fadeUpIn3 0.5s ease forwards',
-
+        'scale-up':'scaleUp 6s ease forwards',
       },
       keyframes: {
         bounceIn: {
@@ -233,6 +233,20 @@ module.exports = {
           },
           '100%': {
             transform: "rotate3d(0, 0, 1, -2.6deg)",
+          },
+        },
+        scaleUp: {
+          '0%': {
+            transform: "scale3d(0, 0, 0)",
+          },
+          '10%': {
+            transform: "scale3d(1, 1, 1)",
+          },
+          '90%': {
+            transform: "scale3d(1, 1, 1)",
+          },
+          '100%': {
+            transform: "scale3d(0, 0, 0)",
           },
         }
       }

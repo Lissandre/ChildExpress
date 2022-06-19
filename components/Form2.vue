@@ -1,7 +1,17 @@
 <template>
   <div class="flex flex-col relative h-full w-full">
     <Focus />
-
+    <div class="videoList" ref="videoList">
+      <video muted loop autoplay class="rounded-sm">
+        <source src="@/assets/images/webm/graphic_1.webm" type="video/webm" />
+      </video>
+      <video muted loop autoplay class="rounded-sm babyGraphic">
+        <source src="@/assets/images/webm/graphic_2.webm" type="video/webm" />
+      </video>
+      <video muted loop autoplay class="rounded-sm">
+        <source src="@/assets/images/webm/graphic_3.webm" type="video/webm" />
+      </video>
+    </div>
     <form @submit.prevent="prevent" class="h-full w-full" id="form2">
       <div class="body" ref="content">
         <component
@@ -161,6 +171,26 @@ export default {
 
 <style scoped>
 
+.videoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  position: absolute;
+  right: 0;
+  top: 20%;
+}
+video {
+  mix-blend-mode: screen;
+  z-index: 2;
+  width: 250px;
+  margin-bottom: 50px;
+}
+
+.babyGraphic {
+  width: 200px;
+}
 .face div, .body > div, .middle div {
   z-index: 2;
   position: absolute;

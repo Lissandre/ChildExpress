@@ -76,7 +76,7 @@
             $t('landing.name_1')
           }}</span>
           <video muted loop autoplay class="rounded-sm">
-            <source src="@/assets/images/webm/bebe1-unscreen.webm" type="video/webm" />
+            <source src="@/assets/images/webm/bebe1.webm" type="video/webm" />
           </video>
         </div>
         <div class="w-[19%] flex flex-col items-center">
@@ -981,10 +981,6 @@ section {
 </style>
 
 <style>
-
-.video {
-background-blend-mode: difference;
-}
 .typed-wrapper {
   width: 100%;
   color: transparent;
