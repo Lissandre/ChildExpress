@@ -6,6 +6,8 @@
     <ProgressBar />
     <component :is="`Form${store.activeForm}`" />
     <BabyViewer />
+
+    <AmbiantSound />
   </div>
 </template>
 
