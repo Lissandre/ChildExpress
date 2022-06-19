@@ -44,9 +44,11 @@ export default {
           comment.classList.add('chatbot-text')
           comment.innerText = this.$i18n.t(`chatbot.${key}.text`)
 
-          const button = document.createElement('button')
+          const button = document.createElement('a')
           button.classList ='chatbot-button z-[1] bg-blue px-20 py-4 flex justify-center rounded shadow cursor-pointer hover:shadow-hoverState hover:bg-white hover:text-grey transition neueBit text-2xl'
           button.innerText = this.$i18n.t(`chatbot.${key}.button`)
+          button.href = this.$i18n.t(`chatbot.${key}.link`)
+
 
           commentDiv.appendChild(comment)
           commentDiv.appendChild(button)
