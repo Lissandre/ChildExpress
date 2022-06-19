@@ -36,7 +36,7 @@ module.exports = {
         'slideup': 'slideUp 1.5s ease forwards',
         'opacityfadein': 'opacityFadeIn 1.5s ease forwards',
         'opacityfadeout': 'opacityFadeOut 1.5s ease forwards',
-        'revealtext': 'revealText 1.5s ease forwards',
+        'revealtext': 'revealText 1.5s cubic-bezier(0.7, 0, 0.3, 1) forwards',
         'dollar-opacity':'dollarOpacity 0.5s ease forwards',
         'fade-up-out':'fadeUpOut 0.5s ease forwards',
         'fade-up-in':'fadeUpIn 0.5s ease forwards',
@@ -156,7 +156,7 @@ module.exports = {
           }
         },
         revealText: {
-          '0%': { opacity: 0, transform: 'translate(0%, 25%) matrix(1, 0, 0, 1, 0, 0)' },
+          '0%': { opacity: 0, transform: 'translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0)' },
           '100%': { opacity: 1, transform: 'translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0)' }
         },
         dollarOpacity: {

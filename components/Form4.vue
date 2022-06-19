@@ -629,9 +629,9 @@ svg {
 .Title {
   font-size: 2rem;
   opacity: 0;
-  transform: translate(0%, 25%) matrix(1, 0, 0, 1, 0, 0);
+  transform: translate(0%, 50%) matrix(1, 0, 0, 1, 0, 0);
   will-change: opacity, transform;
-  animation-delay: 3000ms;
+  animation-delay: 400ms;
 }
 
 .Title-mask {
@@ -644,7 +644,7 @@ svg {
 .Title-line {
   display: inline-block;
   opacity: 0;
-  transform: translate(0%, 25%) matrix(1, 0, 0, 1, 0, 0);
+  transform: translate(0%, 50%) matrix(1, 0, 0, 1, 0, 0);
   will-change: opacity, transform;
 }
 

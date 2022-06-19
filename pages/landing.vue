@@ -60,9 +60,16 @@
       id="1"
       class="min-h-screen flex flex-col items-center justify-center px-8"
     >
-      <h2 class="text-7xl font-bold uppercase">
+
+    
+    <div class="Title">
+      <span class="Title-mask">
+      <h2 class="text-7xl font-bold uppercase Title-line">
         {{ $t('landing.realisations') }}
       </h2>
+      </span>
+    </div>
+
       <div class="flex gap-4 justify-center m-24">
         <div class="w-[19%] flex flex-col items-center">
           <span class="name px-4 py-2 uppercase">{{
@@ -125,7 +132,14 @@
       id="2"
       class="min-h-screen flex flex-col items-center justify-center px-8"
     >
-      <h2 class="text-7xl font-bold uppercase">{{ $t('landing.values') }}</h2>
+
+    <div class="Title ">
+      <span class="Title-mask">
+      <h2 class="text-7xl font-bold uppercase Title-line">
+        {{ $t('landing.values') }}
+      </h2>
+      </span>
+    </div>
       <div class="flex flex-wrap gap-8 justify-between m-24">
         <div class="w-[47%] flex relative py-4 pr-8">
           <svg class="absolute top-0 draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
@@ -221,8 +235,14 @@
       id="3"
       class="min-h-screen flex flex-col items-center justify-center px-8"
     >
-      <h2 class="text-7xl font-bold uppercase">{{ $t('landing.solution') }}</h2>
-      <div class="w-10/12 flex m-24 relative">
+    <div class="Title">
+      <span class="Title-mask">
+      <h2 class="text-7xl font-bold uppercase Title-line">
+        {{ $t('landing.solution') }}
+      </h2>
+      </span>
+    </div>
+    <div class="w-10/12 flex m-24 relative">
         <div class="w-11/12 flex gap-12 relative" ref="border">
           <svg class="absolute top-0 big-draw-svg" viewBox="0 0 100% 100%" fill="none" stroke="black" width="100%" height="100%">
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
@@ -291,8 +311,15 @@
       id="4"
       class="min-h-screen flex flex-col items-center justify-center px-8"
     >
-      <h2 class="text-7xl font-bold uppercase">{{ $t('landing.offer') }}</h2>
-      <div class="w-10/12 flex gap-4 justify-between items-start m-24">
+
+    <div class="Title">
+      <span class="Title-mask">
+      <h2 class="text-7xl font-bold uppercase Title-line">
+        {{ $t('landing.offer') }}
+      </h2>
+      </span>
+    </div>
+      <div class="w-10/12 flex gap-4 justify-between items-start m-24 offer-list">
         <div class="rounded-md flex flex-col items-center w-full neue offer-item">
           <img
             src="@/assets/images/donutPremium.svg"
@@ -380,7 +407,14 @@
       id="5"
       class="min-h-screen flex flex-col items-center justify-center px-8"
     >
-      <h2 class="text-7xl font-bold uppercase">{{ $t('landing.community') }}</h2>
+
+      <div class="Title">
+        <span class="Title-mask">
+        <h2 class="text-7xl font-bold uppercase Title-line">
+          {{ $t('landing.community') }}
+        </h2>
+        </span>
+      </div>
       <div class="w-10/12 flex gap-4 justify-between items-start m-24">
         <div class="relative w-[350px]">
         <h2 class="text-7xl font-bold uppercase">{{ $t('landing.satisfaction_percent') }}</h2>
@@ -504,7 +538,7 @@ export default {
   if (process.client) {
     gsap.registerPlugin(ScrollTrigger);
   }
-  setInterval(() => this.moveCarousel(), 10000);
+  setInterval(() => this.moveCarousel(), 5000);
     this.animations()
   },
   methods: {
@@ -585,6 +619,21 @@ export default {
       delay: 2,
       ease: Power3.easeIn,
     })
+
+    /* Titles */ 
+
+
+    var titles = gsap.utils.toArray('.Title, .Title-line');
+    titles.forEach((title) => {
+      gsap.fromTo(title, {opacity: 0, transform: 'translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0)'},
+      { opacity: 1, transform: 'translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0)',
+        scrollTrigger: title,
+        duration: 2,
+        ease: Power3.easeInOut,
+      })
+    })
+    
+   
     /* draw svg */
     const drawSvg = this.$el.querySelectorAll('.draw-svg')
     gsap.fromTo(drawSvg, { strokeDashoffset: '2000'},{
@@ -604,21 +653,23 @@ export default {
       ease: Power3.easeInOut,
     })
 
+    var offerItem = gsap.utils.toArray('.offer-item');
+    const offerList = this.$el.querySelector('.offer-list')
 
-    const offerItem = this.$el.querySelectorAll('.offer-item')
+    const littleDrawSvg = this.$el.querySelectorAll('.little-draw-svg')
     gsap.fromTo(offerItem, { transform: 'translate3d(600%, 0, 0)'},{
       transform: 'translate3d(0, 0, 0)',
-      scrollTrigger: offerItem,
+      scrollTrigger: offerList,
       duration: 2,
       delay: 1,
       stagger: 0.3,
       ease: Power3.easeInOut,
     }).then(() => {
-      const littleDrawSvg = this.$el.querySelectorAll('.little-draw-svg')
       gsap.fromTo(littleDrawSvg, { strokeDashoffset: '2000'},{
         strokeDashoffset: '0',
         scrollTrigger: littleDrawSvg,
         duration: 2,
+        stagger: 0.3,
         ease: Power3.easeInOut,
       })
     })
@@ -795,6 +846,15 @@ button.neue:not(.bgo) {
   filter: drop-shadow(-3px -5px 17px rgba(255, 255, 255, 0.9)) drop-shadow(9px 25px 30px rgba(110, 143, 242, 0.4))
 }
 
+.client .text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.client h3 {
+  margin-right: 10px;
+}
+
 .clientList {
   width: 850px;
 }
@@ -813,6 +873,11 @@ button.neue:not(.bgo) {
 
 .clientList .client:nth-child(3) {
   z-index: 1;
+  left: 50px;
+  top: 50px;
+}
+.clientList .client:nth-child(4) {
+  z-index: 0;
   left: 50px;
   top: 50px;
 }
@@ -890,6 +955,28 @@ section {
   width: 0;
 }
 
+.Title {
+  font-size: 2rem;
+  opacity: 0;
+  transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);
+  will-change: opacity, transform;
+  animation-delay: 400ms;
+}
+
+.Title-mask {
+  display: block;
+  position: relative;
+  text-align: start;
+  overflow: hidden;
+}
+
+.Title-line {
+  display: inline-block;
+  opacity: 0;
+  transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);
+  will-change: opacity, transform;
+}
+
 
 </style>
 
@@ -919,7 +1006,7 @@ background-blend-mode: difference;
 
 .typed-write::after {
   content: '';
-  background: white;
+  background: #E893AD;
   width: 3px;
   height: 5rem;
   position: absolute;
