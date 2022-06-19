@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="container overflow-x-hidden">
     <h1>Reveal page</h1>
+  <Chatbot />
   </div>
 </template>
 

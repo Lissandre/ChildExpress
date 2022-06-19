@@ -1,0 +1,23 @@
+{
+    "1": "Ça fait peur n'est ce pas ?",
+    "2": "Quête de perfection ? Besoin de contrôle sur la nature ? Dérivés de la science ? Eugénisme ?",
+    "3": "'Théorie et méthodes visant à améliorer l'espece humaine, fondées sur la génétique'",
+    "4": {
+        "text": "Aldous Huxley ça vous parle ?",
+        "button": "En savoir +",
+        "link": "https://fr.wikipedia.org/wiki/Le_Meilleur_des_mondes"
+    },
+    "5": {
+        "image": "/_nuxt/assets/images/aldous.png"
+    },
+    "6": "Vu que je doute de votre culture littéraire, ça vous dit peut être plus quelque chose ça non ?",
+    "7": {
+        "image": "/_nuxt/assets/images/gattaca.png"
+    },
+    "8": "De la science fiction n'est ce pas ?",
+    "9": "Et bien je n'en serais pas si sûre à votre place...",
+    "10":{
+        "linked": "https://www.rtbf.be/article/creer-des-enfants-sur-mesure-est-ce-possible-10556432"
+    }
+  }
+  

@@ -1,0 +1,22 @@
+{
+    "1": "Scary, isn't it?",
+    "2": "Quest for perfection? Need for control over nature? Derived from science? Eugenics?",
+    "3": "'Theory and methods to improve the human species, based on genetics'",
+    "4": {
+        "text": "Does Aldous Huxley speak to you?",
+        "button": "Learn more",
+        "link": "https://fr.wikipedia.org/wiki/Le_Meilleur_des_mondes"
+    },
+    "5": {
+        "image": "/_nuxt/assets/images/aldous.png"
+    },
+    "6": "Since I doubt your literary culture, maybe this tells you something more, no?",
+    "7": {
+        "image": "/_nuxt/assets/images/gattaca.png"
+    },
+    "8": "Science fiction, isn't it?",
+    "9": "Well, I wouldn't be so sure if I were you...",
+    "10":{
+        "linked": "https://www.rtbf.be/article/creer-des-enfants-sur-mesure-est-ce-possible-10556432"
+    }
+}
