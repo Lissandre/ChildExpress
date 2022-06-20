@@ -263,9 +263,24 @@ export default class App {
 
   focusOnBin() {
 
-    this.world.baby.shrinkGlasses()
+    // this.world.baby.shrinkGlasses()
 
     if (this.world.bin) {
+
+      gsap.to(
+        this.world.baby.baby.scale,
+        { x: 0.7, y: 0.7, z: 0.7, duration: 0.5, delay: 2}
+      )
+      gsap.to(
+        this.world.baby.baby.position,
+        { x: 0, y: -1, z: 0, duration: 0.5, delay: 2}
+      )
+      
+      gsap.fromTo(
+        this.world.bin.bin.children[0].position,
+        { y: 5 },
+        { y: 0.4, duration: 0.5, delay: 3}
+      )
       gsap.fromTo(
         this.world.bin.bin.children[0].position,
         { y: 5 },

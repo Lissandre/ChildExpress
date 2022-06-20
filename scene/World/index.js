@@ -2,6 +2,7 @@ import { AxesHelper, Object3D } from 'three'
 
 import AmbientLightSource from './AmbientLight'
 import PointLightSource from './PointLight'
+import Spotlights from './Spotlights'
 import Cube from './Cube'
 import Baby from './Baby'
 import Box from './Box'
@@ -49,6 +50,10 @@ export default class World {
       debug: this.debugFolder,
     })
     this.container.add(this.light.container)
+  }
+  setSpotLights() {
+    this.spotlights = new Spotlights({})
+    this.container.add(this.spotlights.container)
   }
   setCube() {
     this.cube = new Cube({

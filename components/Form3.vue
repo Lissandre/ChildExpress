@@ -125,15 +125,15 @@ export default {
     this.xtraWrapper = this.$refs.xtraWrapper
 
     this.soundEvents()
-    /*
+    
       requestAnimationFrame(() => {
         if (this.$nuxt.$scene.assets.needsLoad) {
       this.$nuxt.$scene.assets.on('ressourcesReady', () => {
         this.$nuxt.$scene.init()
-      })
+           })
+        }
         })
-    }
-        */
+        
       setTimeout(() => {
       this.$refs.currentMoney.classList.add('animate-dollar-opacity')
       }, 500)
@@ -443,5 +443,6 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 .current-money {
   opacity: 0;
   color: white;
+  text-shadow: #FFF 1px 0 10px;
 }
 </style>
