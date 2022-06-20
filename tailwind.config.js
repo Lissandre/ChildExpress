@@ -243,6 +243,24 @@ module.exports = {
             transform: 'rotate3d(0, 0, 1, -2.6deg)',
           },
         },
+        greenRectangle1: {
+          '0%': {
+            width: '0',
+            height: '0',
+          },
+          '100%': {
+            width: '584',
+            height: '100',
+          },
+        },
+        greenRectangle2: {
+          '0%': {
+            transform: 'rotate3d(0, 0, 1, 0)',
+          },
+          '100%': {
+            transform: 'rotate3d(0, 0, 1, -2.6deg)',
+          },
+        },
         scaleUp: {
           '0%': {
             transform: 'scale3d(0, 0, 0)',
