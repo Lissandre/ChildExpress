@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="py-12 w-full flex justify-center"
+    class="py-12 w-full flex justify-center roc"
     :class="$route.name.includes('landing') ? 'text-black' : 'text-white'"
   >
     <div class="container flex flex-col items-center justify-center">

@@ -1,5 +1,5 @@
 <template>
-  <div class="container overflow-x-hidden text-white">
+  <div class="container overflow-x-hidden text-white roc">
     <section
       id="0"
       class="min-h-screen flex flex-col items-center justify-center px-8"
@@ -84,7 +84,7 @@
             <span class="font-light text-2xl">{{ $t('reveal.subtitle') }}</span>
             <nuxt-link
               :to="localePath('customization')"
-              class="font-bold text-3xl px-8 py-4 rounded-full neue"
+              class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
               >{{ $t('reveal.create_child') }}</nuxt-link
             >
           </div>
@@ -158,7 +158,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue"
+        class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
         >{{ $t('reveal.wants_mine') }}</nuxt-link
       >
     </section>
@@ -285,7 +285,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue"
+        class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
         >{{ $t('reveal.more') }}</nuxt-link
       >
     </section>
@@ -387,10 +387,10 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('reveal.premium') }}
           </h3>
-          <span class="text-5xl mb-16 text-center">$$$<br />$$</span>
+          <span class="text-5xl mb-16 text-center neueBit">$$$<br />$$</span>
           <nuxt-link
             :to="localePath('customization')"
-            class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo"
+            class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
             >{{ $t('reveal.discover') }}</nuxt-link
           >
         </div>
@@ -413,7 +413,7 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('reveal.standard') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text">$$$</span>
+          <span class="text-5xl mb-16 stroke-text neueBit">$$$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -434,7 +434,7 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('reveal.recond') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text">$$</span>
+          <span class="text-5xl mb-16 stroke-text neueBit">$$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -455,7 +455,7 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('reveal.occas') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text">$</span>
+          <span class="text-5xl mb-16 stroke-text neueBit">$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -476,7 +476,7 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('reveal.unsell') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text">FREE</span>
+          <span class="text-5xl mb-16 stroke-text neueBit">FREE</span>
         </div>
       </div>
     </section>
@@ -606,7 +606,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue mt-[100px]"
+        class="font-bold text-3xl px-8 py-4 rounded-full neue mt-[100px] neueBit"
         >{{ $t('reveal.jump') }}</nuxt-link
       >
     </section>
@@ -981,6 +981,19 @@ button.neue:not(.bgo) {
 }
 .bgo {
   background: #1d1d1b;
+}
+
+a.neue:not(.bgo):hover,
+button.neue:not(.bgo):hover {
+  background: #1d1d1b;
+  box-shadow: inset 2.54201px 5.36px 12.43px #000000,
+    inset -3.87656px -5.4px 9.57px rgba(255, 255, 255, 0.44);
+}
+
+.bgo:hover {
+  background: #1d1d1b;
+  box-shadow: inset 2.54201px 5.36px 12.43px #000000,
+    inset -3.87656px -5.4px 9.57px rgba(255, 255, 255, 0.44);
 }
 
 .green-neue {

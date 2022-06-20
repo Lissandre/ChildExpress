@@ -1,5 +1,5 @@
 <template>
-  <div class="container overflow-x-hidden">
+  <div class="container overflow-x-hidden roc">
     <section
       id="0"
       class="min-h-screen flex flex-col items-center justify-center px-8"
@@ -84,7 +84,7 @@
             }}</span>
             <nuxt-link
               :to="localePath('customization')"
-              class="font-bold text-3xl px-8 py-4 rounded-full neue"
+              class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
               >{{ $t('landing.create_child') }}</nuxt-link
             >
           </div>
@@ -158,7 +158,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue"
+        class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
         >{{ $t('landing.wants_mine') }}</nuxt-link
       >
     </section>
@@ -285,7 +285,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue"
+        class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
         >{{ $t('landing.more') }}</nuxt-link
       >
     </section>
@@ -387,10 +387,10 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.premium') }}
           </h3>
-          <span class="text-5xl mb-16 text-center">$$$<br />$$</span>
+          <span class="text-5xl mb-16 text-center neueBit">$$$<br />$$</span>
           <nuxt-link
             :to="localePath('customization')"
-            class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo"
+            class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
             >{{ $t('landing.discover') }}</nuxt-link
           >
         </div>
@@ -413,7 +413,7 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.standard') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text">$$$</span>
+          <span class="text-5xl mb-16 stroke-text neueBit">$$$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -434,7 +434,7 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.recond') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text">$$</span>
+          <span class="text-5xl mb-16 stroke-text neueBit">$$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -455,7 +455,7 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.occas') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text">$</span>
+          <span class="text-5xl mb-16 stroke-text neueBit">$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -476,7 +476,7 @@
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.unsell') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text">FREE</span>
+          <span class="text-5xl mb-16 stroke-text neueBit">FREE</span>
         </div>
       </div>
     </section>
@@ -594,7 +594,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue mt-[100px]"
+        class="font-bold text-3xl px-8 py-4 rounded-full neue mt-[100px] neueBit"
         >{{ $t('landing.jump') }}</nuxt-link
       >
     </section>
@@ -969,7 +969,21 @@ a.neue:not(.bgo),
 button.neue:not(.bgo) {
   background: rgba(229, 230, 230, 0.31);
 }
+
+a.neue:not(.bgo):hover,
+button.neue:not(.bgo):hover {
+  background: rgba(229, 230, 230, 0.64);
+  box-shadow: inset 1.82px 7.41px 12.62px rgba(15, 84, 228, 0.34),
+    inset -2px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
 .bgo {
+  background: rgba(229, 230, 230, 1);
+}
+
+.bgo:hover {
+  box-shadow: inset 1.82px 7.41px 12.62px rgba(15, 84, 228, 0.34),
+    inset -2px -3px 6px rgba(255, 255, 255, 0.8);
   background: rgba(229, 230, 230, 1);
 }
 

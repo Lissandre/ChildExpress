@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed top-0 w-full z-[9999]"
+    class="fixed top-0 w-full z-[9999] roc"
     :class="$route.name.includes('landing') ? 'text-black' : 'text-white'"
   >
     <div class="container flex justify-between py-4 px-8">
@@ -63,5 +63,6 @@ header {
 }
 nav a:hover {
   text-decoration: underline;
+  text-underline-offset: 6px;
 }
 </style>
