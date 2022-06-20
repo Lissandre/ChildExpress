@@ -23,5 +23,7 @@ export default {}
   font-family: 'roc-grotesk';
 }
 
-/* html{scroll-behavior:smooth} */
+html {
+  scroll-behavior: smooth;
+}
 </style>
