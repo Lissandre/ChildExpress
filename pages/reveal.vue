@@ -355,8 +355,8 @@
             </ul>
           </div>
           <img
-            src="@/assets/images/ADN.svg"
-            alt="ADN illustration"
+            src="@/assets/images/darkADN.svg"
+            alt="Broken ADN illustration"
             class="pb-16 absolute bottom-[-10%] right-[10%]"
           />
         </div>
@@ -1073,19 +1073,13 @@ button.neue:not(.bgo) {
 ul li:not(:last-child) {
   margin-bottom: 8px;
 }
-ul.bad li::before {
-  content: url(@/assets/images/cross.png);
-  margin-right: 16px;
-}
 ul.good li::before {
-  content: url(@/assets/images/tick.png);
+  content: url(@/assets/images/whitecross.png);
   margin-right: 16px;
 }
-
-.stroke-text {
-  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, -1px 1px 0 #fff,
-    1px -1px 0 #fff;
-  color: white;
+ul.bad li::before {
+  content: url(@/assets/images/whitetick.png);
+  margin-right: 16px;
 }
 
 .border {
