@@ -100,7 +100,6 @@ export default {
       this.xtrasToPlay = []
       this.xtras.forEach((xtra) => {
         if (this.store.getXtras(xtra.id) === 1) {
-          // console.log(xtra.id)
           this.xtrasToPlay.push({
             id: xtra.id,
             value: this.store.getXtras(xtra.id),

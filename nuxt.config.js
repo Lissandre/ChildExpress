@@ -19,12 +19,11 @@ export default {
       { rel: 'stylesheet', href: 'https://use.typekit.net/tju5ktt.css' },
     ],
   },
-  css: [
-    '@/assets/fonts/style.css'
-  ],
+  css: ['@/assets/fonts/style.css'],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~plugins/scene.js', mode: 'client' },
+    { src: '~plugins/scene.client.js', mode: 'client' },
+    { src: '~plugins/gsap.client.js', mode: 'client' },
     { src: '~plugins/pinia.js', mode: 'all' },
     { src: '~plugins/helpers.js', mode: 'all' },
   ],
@@ -63,44 +62,6 @@ export default {
     },
     langDir: '~/locales/',
     strategy: 'prefix',
-  },
-  webpackOptimisations: {
-    risky: false,
-    debug: false,
-    measure: false,
-    measureMode: 'all',
-    esbuildMinifyOptions: {
-      client: {
-        target: 'es2017',
-      },
-      server: {
-        target: 'node14',
-      },
-      modern: {
-        target: 'es2017',
-      },
-    },
-    esbuildLoaderOptions: {
-      client: {
-        target: 'es2017',
-      },
-      server: {
-        target: 'node14',
-      },
-      modern: {
-        target: 'es2017',
-      },
-    },
-    features: {
-      postcssNoPolyfills: true,
-      esbuildLoader: true,
-      esbuildMinifier: true,
-      imageFileLoader: true,
-      webpackOptimisations: true,
-      //cacheLoader: true,
-      //hardSourcePlugin: true,
-      //parallelPlugin: true,
-    },
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

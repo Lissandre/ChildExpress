@@ -119,8 +119,6 @@ export default {
   },
   methods: {
     changeFocus() {
-
-      console.log('changefocus')
       if (this.currentFocus === 'face' || this.currentFocus === 'middle') {
         this.personaFace.classList.add('active')
         this.personaBody.classList.remove('active')

@@ -28,8 +28,6 @@ export default class World {
     }
 
     this.init()
-
-    // console.log('initWorld')
   }
   init() {
     this.setAmbientLight()

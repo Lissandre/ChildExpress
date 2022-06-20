@@ -1,7 +1,10 @@
 <template>
-  <canvas ref="backgroundCanvas" id="backgroundCanvas" class="z-[-10000] fixed"></canvas>
+  <canvas
+    ref="backgroundCanvas"
+    id="backgroundCanvas"
+    class="z-[-10000] fixed h-screen w-full"
+  ></canvas>
 </template>
-
 
 <script>
 let glslCanvas = null
@@ -100,24 +103,16 @@ export default {
     }
 
     this.sandbox.setUniform('u_scroll', 0)
-    window.addEventListener('scroll', (e) => {
-      var winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop
-      var scrolled = winScroll / window.innerHeight
-
-      this.sandbox.setUniform('u_scroll', scrolled)
+    this.$ScrollTrigger.create({
+      onUpdate: (self) => {
+        this.sandbox.setUniform('u_scroll', Number(self.progress.toFixed(4)))
+      },
     })
   },
   methods: {
     setSize() {
-      this.canvas.setAttribute(
-        'width',
-        window.innerWidth * window.devicePixelRatio
-      )
-      this.canvas.setAttribute(
-        'height',
-        window.innerHeight * window.devicePixelRatio
-      )
+      this.canvas.setAttribute('width', window.innerWidth)
+      this.canvas.setAttribute('height', window.innerHeight)
     },
   },
 }

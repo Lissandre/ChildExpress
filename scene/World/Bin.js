@@ -22,7 +22,6 @@ export default class Bin {
     this.setMovement()
   }
   createBin() {
-    // console.log('createBin')
     this.bin = this.assets.models.bin.scene
     this.texture = this.assets.textures.map_bin
 
@@ -37,16 +36,10 @@ export default class Bin {
     })
 
     this.bin.material = material
-    // console.log(this.bin.material)
-
     /*
                 this.bin.traverse((child) => {
         
                     if (child.isMesh) {
-        
-                        // console.log(this.texture)
-        
-                        // console.log(child.geometry.attributes.uv);
                         child.metalnessMap = material2; // assign your diffuse texture here
         
                     }

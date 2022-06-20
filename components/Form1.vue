@@ -172,7 +172,6 @@ export default {
 
       if ((type === 'radio' || type === 'roundSlider') && name !== 'gender') {
         value = value / optional
-        // console.log(value)
       }
 
       if (type === 'text') {
@@ -204,11 +203,9 @@ export default {
 
     checkBoxsInDiv() {
       const div = document.createElement('div')
-      // console.log(this.$refs)
 
       for (const [key, value] of Object.entries(this.inputs)) {
         if (value.class.includes('checkbox-slide1')) {
-          // console.log(key, value)
         }
       }
     },

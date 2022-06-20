@@ -43,14 +43,14 @@ export default class Baby {
           this.morphMeshes.push(node)
         }
       })
-      console.log(this.morphMeshes.length)
       if (this.morphMeshes.length) {
         this.morphMeshes.forEach((mesh) => {
           mesh.material.needsUpdate = true
 
           let i = 0
-          for (const [key, value] of Object.entries(mesh.morphTargetDictionary)) {
-            console.log(mesh.morphTargetDictionary)
+          for (const [key, value] of Object.entries(
+            mesh.morphTargetDictionary
+          )) {
             mesh.morphTargetInfluences[i] = 0
             const ctrl = this.debugFolder.addInput(
               mesh.morphTargetInfluences,
@@ -231,7 +231,6 @@ export default class Baby {
     //Yo Leith, les valeurs dont tu as besoin pour les uniforms vont descendre ici,
     // notemment IQ pour la taille du crâne, scale pour la taille, overallSize pour la grosseur
     // handsSize pour les mains, hairColor, eyesColor, mouthSize, noseStyle et noseSize
-    console.log(uniform, value)
     /*gsap.to(this.shader.uniforms[uniform], {
       value,
       duration: 1,
@@ -239,8 +238,8 @@ export default class Baby {
     })*/
   }
   setXtras() {
-    console.log('setXtras')
     // this.baby.position.set(0, 5, -1)
+
     if (this.morphMeshes.length) {
       this.morphMeshes.forEach((mesh) => {
         for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
@@ -251,9 +250,7 @@ export default class Baby {
   }
 
   babyAppearForm4() {
-    console.log('appear')
-
-    var tl = gsap.timeline({delay: 2});
+    var tl = gsap.timeline({ delay: 2 })
 
     /*tl.fromTo(this.baby.position, { x: 0, y: 0, z: -2},{
       x: Math.sin(tl.progress() * Math.PI),
@@ -263,23 +260,24 @@ export default class Baby {
       ease: Power3.easeIn
     })*/
 
-    tl.fromTo(this.baby.rotation, { x: 0, y: 0, z: 0},{
-      x: 0,
-      y: Math.PI * 2,
-      z: 0,
-      duration: 2,
-      ease: Power3.easeInOut
-    })
+    tl.fromTo(
+      this.baby.rotation,
+      { x: 0, y: 0, z: 0 },
+      {
+        x: 0,
+        y: Math.PI * 2,
+        z: 0,
+        duration: 2,
+        ease: Power3.easeInOut,
+      }
+    )
   }
 
   shrinkGlasses() {
-
-    console.log(this.morphMeshes[0].morphTargetInfluences)
-
     gsap.to(this.morphMeshes[0].morphTargetInfluences, {
       1: 0.8,
       duration: 2,
-      ease: Bounce.easeInOut
+      ease: Bounce.easeInOut,
     })
   }
 
@@ -310,7 +308,7 @@ export default class Baby {
     return x === 0
       ? 0
       : x === 1
-        ? 1
-        : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
+      ? 1
+      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
   }
 }
