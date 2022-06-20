@@ -101,7 +101,7 @@
 
 <script>
 import { useStore } from '@/stores/'
-import { form3 } from '@/data/forms.json'
+import form3 from '@/data/forms/form3.json'
 import slugify from 'slugify'
 
 export default {

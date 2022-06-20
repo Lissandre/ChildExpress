@@ -1,0 +1,329 @@
+{
+  "texts": {
+    "titleSlide2": "Carte d'identité"
+  },
+  "inputs": {
+    "parentGender": {
+      "locales": {
+        "fr": {
+          "label1": "Sexe"
+        },
+        "en": {
+          "label1": "Gender"
+        }
+      },
+      "type": "radio",
+      "name": "parentGender",
+      "component": "InputRadios",
+      "value": 0.5,
+      "length": 2,
+      "class": "gender parentGender slide1"
+    },
+    "parentEyesColor": {
+      "locales": {
+        "fr": {
+          "label1": "Yeux"
+        },
+        "en": {
+          "label1": "Eyes"
+        }
+      },
+      "type": "radio",
+      "name": "parentEyesColor",
+      "effect": "parentEyesColor",
+      "component": "InputRadios",
+      "value": 2,
+      "length": 4,
+      "class": "eyes-color slide1"
+    },
+    "parentHairStyle": {
+      "locales": {
+        "fr": {
+          "label1": "Style des cheveux"
+        },
+        "en": {
+          "label1": "Hair Type"
+        }
+      },
+      "type": "radio",
+      "name": "parentHairStyle",
+      "effect": "parentHairStyle",
+      "component": "InputRadios",
+      "value": 2,
+      "length": 4,
+      "class": "hair-type slide1"
+    },
+    "parentHairColor": {
+      "locales": {
+        "fr": {
+          "label1": "Couleur des cheveux"
+        },
+        "en": {
+          "label1": "Hair color"
+        }
+      },
+      "type": "radio",
+      "name": "parentHairColor",
+      "effect": "parentHairColor",
+      "component": "InputRadios",
+      "value": 2,
+      "length": 6,
+      "class": "hair-color slide1"
+    },
+    "courageous": {
+      "locales": {
+        "fr": {
+          "label1": "Courageux"
+        },
+        "en": {
+          "label1": "Brave"
+        }
+      },
+      "type": "checkbox",
+      "name": "courageous",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "slide1 light-background checkbox-slide1"
+    },
+    "eloquent": {
+      "locales": {
+        "fr": {
+          "label1": "Éloquent"
+        },
+        "en": {
+          "label1": "Eloquent"
+        }
+      },
+      "type": "checkbox",
+      "name": "eloquent",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "slide1 light-background checkbox-slide1"
+    },
+    "honest": {
+      "locales": {
+        "fr": {
+          "label1": "Honnête"
+        },
+        "en": {
+          "label1": "Honest"
+        }
+      },
+      "type": "checkbox",
+      "name": "honest",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "slide1 light-background checkbox-slide1"
+    },
+    "greedy": {
+      "locales": {
+        "fr": {
+          "label1": "Econome"
+        },
+        "en": {
+          "label1": "Greedy"
+        }
+      },
+      "type": "checkbox",
+      "name": "greedy",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "slide1 light-background checkbox-slide1"
+    },
+    "hypersensitive": {
+      "locales": {
+        "fr": {
+          "label1": "Hypersensible"
+        },
+        "en": {
+          "label1": "Hypersensitive"
+        }
+      },
+      "type": "checkbox",
+      "name": "hypersensitive",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "slide1 light-background checkbox-slide1"
+    },
+    "logic": {
+      "locales": {
+        "fr": {
+          "label1": "Logique"
+        },
+        "en": {
+          "label1": "Logic"
+        }
+      },
+      "type": "checkbox",
+      "name": "logic",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "slide1 light-background checkbox-slide1"
+    },
+    "hyperactive": {
+      "locales": {
+        "fr": {
+          "label1": "Hyperactif"
+        },
+        "en": {
+          "label1": "Hyperactive"
+        }
+      },
+      "type": "checkbox",
+      "name": "hyperactive",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "slide1 light-background checkbox-slide1"
+    },
+    "creative": {
+      "locales": {
+        "fr": {
+          "label1": "Créatif"
+        },
+        "en": {
+          "label1": "Creative"
+        }
+      },
+      "type": "checkbox",
+      "name": "creative",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "slide1 light-background checkbox-slide1"
+    },
+    "parentWeight": {
+      "locales": {
+        "fr": {
+          "label1": "Poids"
+        },
+        "en": {
+          "label1": "Weight"
+        }
+      },
+      "type": "counter",
+      "name": "parentWeight",
+      "component": "InputCounter",
+      "value": 65,
+      "length": 3,
+      "unit": "kg",
+      "class": "flex flex-row justify-center text-2xl slide1 weight"
+    },
+    "parentScale": {
+      "locales": {
+        "fr": "Taille",
+        "en": "Height"
+      },
+      "type": "range",
+      "name": "parentScale",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range slide1 bubble-range parent-scale"
+    },
+    "parentHealth": {
+      "locales": {
+        "fr": {
+          "label1": "Santé"
+        },
+        "en": {
+          "label1": "Health"
+        }
+      },
+      "type": "roundSlider",
+      "name": "parentHealth",
+      "component": "InputRoundSlider",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "slide1"
+    },
+    "parentSkin": {
+      "locales": {
+        "fr": "Peau",
+        "en": "Skin"
+      },
+      "type": "color",
+      "name": "parentSkin",
+      "component": "InputSkinPicker",
+      "value": 0.5,
+      "class": "slide1"
+    },
+    "lifeQuality": {
+      "locales": {
+        "fr": {
+          "label1": "Qualité de vie"
+        },
+        "en": {
+          "label1": "Life quality"
+        }
+      },
+      "type": "radio",
+      "name": "lifeQuality",
+      "component": "InputRadios",
+      "value": 1,
+      "length": 5,
+      "class": "rating slide1"
+    },
+    "babyName": {
+      "locales": {
+        "fr": {
+          "label1": "Prénom"
+        },
+        "en": {
+          "label1": "Name"
+        }
+      },
+      "type": "text",
+      "name": "babyName",
+      "component": "InputText",
+      "value": "'Margaux'",
+      "class": "baby-name slide2 second-slide-component"
+    },
+    "gender": {
+      "locales": {
+        "fr": {
+          "label1": "Sexe"
+        },
+        "en": {
+          "label1": "Gender"
+        }
+      },
+      "type": "radio",
+      "name": "gender",
+      "component": "InputRadios",
+      "value": 0.5,
+      "length": 3,
+      "class": " gender slide2 genderSlide2 second-slide-component"
+    },
+    "age": {
+      "locales": {
+        "fr": {
+          "label1": "Âge d'expiration"
+        },
+        "en": {
+          "label1": "Expiry age"
+        }
+      },
+      "type": "select",
+      "name": "age",
+      "component": "InputSelect",
+      "value": 120,
+      "from": 0,
+      "to": 150,
+      "step": 1,
+      "class": "slide2 second-slide-component age"
+    },
+    "submit": {
+      "locales": {
+        "fr": "Suivant",
+        "en": "Submit"
+      },
+      "type": "submit",
+      "name": "submit",
+      "component": "InputSubmit",
+      "class": "slide2 neueBit"
+    }
+  }
+}

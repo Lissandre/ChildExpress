@@ -3,7 +3,7 @@
     <video muted loop autoplay class="rounded-sm absolute" ref="loaderVideo">
       <source src="@/assets/images/webm/loader.webm" type="video/webm" />
     </video>
-    
+
     <form
       @submit.prevent="prevent"
       id="form1"
@@ -112,7 +112,7 @@
 
 <script>
 import { useStore } from '@/stores/'
-import { form1 } from '@/data/forms.json'
+import form1 from '@/data/forms/form1.json'
 import slugify from 'slugify'
 import files from '~/locales/en'
 
@@ -162,9 +162,8 @@ export default {
       setTimeout(() => {
         this.$refs.loaderVideo.classList.add('animate-scale-up')
         $nuxt.$emit('updateSound', 'form1', 'speech', 'loading', 'speech1')
-
       }, 1000)
-      
+
       setTimeout(() => {
         this.$helpers.updateInput(e.type, e.type, e.type, 'form1')
       }, 8000)

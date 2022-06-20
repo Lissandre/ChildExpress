@@ -43,7 +43,7 @@
 
 <script>
 import { useStore } from '@/stores/'
-import { form2 } from '@/data/forms.json'
+import form2 from '@/data/forms/form2.json'
 import slugify from 'slugify'
 
 export default {
@@ -134,10 +134,10 @@ export default {
           $nuxt.$emit('updateSound', 'form2', type, name, 'different')
         }, 5000)
       } else if (name === 'health' || name === 'scale') {
-          $nuxt.$emit('updateSound', 'form2', 'speech', name, 'speech1')
-          console.log(type, name, value)
-        } else {
-          $nuxt.$emit('updateSound', 'form2', type, name, value)
+        $nuxt.$emit('updateSound', 'form2', 'speech', name, 'speech1')
+        console.log(type, name, value)
+      } else {
+        $nuxt.$emit('updateSound', 'form2', type, name, value)
       }
     },
 
@@ -236,7 +236,6 @@ video {
   right: 35%;
   top: 25%;
 }
-
 
 .body > div:nth-child(1) {
   right: 30%;

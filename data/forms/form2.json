@@ -1,0 +1,236 @@
+{
+  "inputs": {
+    "hairLength": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "hairLength",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range face hairLength"
+    },
+    "earsSize": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "earsSize",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range face earsSize"
+    },
+
+    "mouthSize": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "mouthSize",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range face mouthSize"
+    },
+
+    "mouthWidth": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "mouthWidth",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range face mouthWidth"
+    },
+    "noseSize": {
+      "locales": {
+        "fr": "Taille du nez",
+        "en": "Nose size"
+      },
+      "type": "range",
+      "name": "noseSize",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range face noseSize"
+    },
+    "noseHeight": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "noseHeight",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range face noseHeight"
+    },
+    "eyeSize": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "eyeSize",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range face eyeSize"
+    },
+    "eye_squint": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "eye_squint",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range face eyesSquint"
+    },
+
+    "handsSize": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "handsSize",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range handsSize"
+    },
+    "scale": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "range",
+      "name": "scale",
+      "component": "InputRange",
+      "value": 0.5,
+      "from": 0,
+      "to": 1,
+      "step": 0.01,
+      "class": "range body bubble-range"
+    },
+
+    "health": {
+      "locales": {
+        "fr": "",
+        "en": ""
+      },
+      "type": "roundSlider",
+      "name": "health",
+      "component": "InputRoundSlider",
+      "class": "body"
+    },
+    "overallSize": {
+      "locales": {
+        "fr": "Taille Globale",
+        "en": "Overall Size"
+      },
+      "type": "counter",
+      "name": "weight",
+      "component": "InputCounter",
+      "value": 4,
+      "length": 3,
+      "unit": "kg",
+      "class": "flex justify-center text-2xl body left-60 weight"
+    },
+    "hairColor": {
+      "locales": {
+        "fr": {
+          "labelMiddle": "Cheveux"
+        },
+        "en": {
+          "labelMiddle": "Hair"
+        }
+      },
+      "type": "radio",
+      "name": "hairColor",
+      "effect": "hairColor",
+      "component": "InputRadios",
+      "value": 2,
+      "length": 6,
+      "class": "hair-color middle"
+    },
+    "eyesColor": {
+      "locales": {
+        "fr": {
+          "labelMiddle": "Yeux"
+        },
+        "en": {
+          "labelMiddle": "Eyes"
+        }
+      },
+      "type": "radio",
+      "name": "eyesColor",
+      "effect": "eyesColor",
+      "component": "InputRadios",
+      "value": 2,
+      "length": 4,
+      "class": "eyes-color middle"
+    },
+    "skin": {
+      "locales": {
+        "fr": "Peau",
+        "en": "Skin"
+      },
+      "type": "color",
+      "name": "skin",
+      "component": "InputSkinPicker",
+      "value": 0.5,
+      "class": "middle skinform2"
+    },
+    "submitFace": {
+      "locales": {
+        "fr": "Suivant",
+        "en": "Submit"
+      },
+      "type": "submit",
+      "name": "submit",
+      "component": "InputSubmit",
+      "class": "face neueBit"
+    },
+    "submitMiddle": {
+      "locales": {
+        "fr": "Suivant",
+        "en": "Submit"
+      },
+      "type": "submit",
+      "name": "submit",
+      "component": "InputSubmit",
+      "class": "middle neueBit"
+    }
+  }
+}

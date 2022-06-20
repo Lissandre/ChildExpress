@@ -35,7 +35,7 @@
   "checkbox_creative": {
     "label1": "Creative"
   },
-  "counter_weight": {
+  "counter_parentweight": {
     "label1": "Weight"
   },
   "range_parentscale": "Height",

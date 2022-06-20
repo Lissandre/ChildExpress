@@ -1,0 +1,178 @@
+{
+  "inputs": {
+    "eloquentHonest": {
+      "locales": {
+        "fr": {
+          "label1": "Éloquent",
+          "label2": "Honnête"
+        },
+        "en": {
+          "label1": "Eloquent",
+          "label2": "Honest"
+        }
+      },
+      "type": "radio",
+      "name": "eloquentHonest",
+      "effect": "mouthSize",
+      "component": "InputRadios",
+      "value": 1,
+      "length": 6,
+      "class": "blurry personality1"
+    },
+    "creativeLogic": {
+      "locales": {
+        "fr": {
+          "label1": "Créatif",
+          "label2": "Logique"
+        },
+        "en": {
+          "label1": "Creative",
+          "label2": "Logic"
+        }
+      },
+      "type": "radio",
+      "name": "creativeLogic",
+      "effect": "mouthSize",
+      "component": "InputRadios",
+      "value": 1,
+      "length": 6,
+      "class": "blurry personality2"
+    },
+    "courageousGreedy": {
+      "locales": {
+        "fr": {
+          "label1": "Courageux",
+          "label2": "Avare"
+        },
+        "en": {
+          "label1": "Courageous",
+          "label2": "Greedy"
+        }
+      },
+      "type": "radio",
+      "name": "courageousGreedy",
+      "effect": "mouthSize",
+      "component": "InputRadios",
+      "value": 0.2,
+      "length": 6,
+      "class": "blurry personality3"
+    },
+    "hyperactiveSensitive": {
+      "locales": {
+        "fr": {
+          "label1": "Hyperactif",
+          "label2": "Hypersensible"
+        },
+        "en": {
+          "label1": "Hyperactive",
+          "label2": "Sensitive"
+        }
+      },
+      "type": "radio",
+      "name": "hyperactiveSensitive",
+      "effect": "mouthSize",
+      "component": "InputRadios",
+      "value": 1,
+      "length": 6,
+      "class": "blurry personality4"
+    },
+    "headSize": {
+      "locales": {
+        "fr": {
+          "label1": "QI"
+        },
+        "en": {
+          "label1": "IQ"
+        }
+      },
+      "type": "roundSlider",
+      "name": "headSize",
+      "component": "InputRoundSlider",
+      "value": 100,
+      "from": 0,
+      "to": 300,
+      "step": 1,
+      "class": "IQ"
+    },
+    "submit": {
+      "locales": {
+        "fr": "Suivant",
+        "en": "Submit"
+      },
+      "type": "submit",
+      "name": "submit",
+      "component": "InputSubmit",
+      "class": "neueBit"
+    },
+    "silent": {
+      "locales": {
+        "fr": {
+          "label1": "Bébé-silencieux"
+        },
+        "en": {
+          "label1": "Silent-Baby"
+        }
+      },
+      "type": "checkbox",
+      "name": "silent",
+      "component": "InputCheckbox",
+      "value": 1,
+      "class": "silent xtra-component xtra-checkbox"
+    },
+    "independant": {
+      "locales": {
+        "fr": {
+          "label1": "Bébé-autonome"
+        },
+        "en": {
+          "label1": "Independant-Baby"
+        }
+      },
+      "type": "checkbox",
+      "name": "independant",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "silent xtra-component xtra-checkbox"
+    },
+    "clean": {
+      "locales": {
+        "fr": {
+          "label1": "Bébé-propre"
+        },
+        "en": {
+          "label1": "Clean-Baby"
+        }
+      },
+      "type": "checkbox",
+      "name": "clean",
+      "component": "InputCheckbox",
+      "value": 1,
+      "class": "silent xtra-component xtra-checkbox"
+    },
+    "visionary": {
+      "locales": {
+        "fr": {
+          "label1": "Bébé-visionnaire"
+        },
+        "en": {
+          "label1": "Visionary-Baby"
+        }
+      },
+      "type": "checkbox",
+      "name": "visionary",
+      "component": "InputCheckbox",
+      "value": 0,
+      "class": "silent xtra-component xtra-checkbox"
+    },
+    "submitXtra": {
+      "locales": {
+        "fr": "Suivant",
+        "en": "Submit"
+      },
+      "type": "submit",
+      "name": "submitXtra",
+      "component": "InputSubmit",
+      "class": "neueBit xtra-component xtra-submit"
+    }
+  }
+}

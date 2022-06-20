@@ -1,0 +1,34 @@
+{
+  "inputs": {
+    "1": {
+      "locales": {
+        "fr": "Identité",
+        "en": "Identity"
+      }
+    },
+    "2": {
+      "locales": {
+        "fr": "Physique",
+        "en": "Physic"
+      }
+    },
+    "3": {
+      "locales": {
+        "fr": "Personnalité",
+        "en": "Personnality"
+      }
+    },
+    "4": {
+      "locales": {
+        "fr": "Validation",
+        "en": "Validation"
+      }
+    },
+    "5": {
+      "locales": {
+        "fr": "Achat",
+        "en": "Purchase"
+      }
+    }
+  }
+}

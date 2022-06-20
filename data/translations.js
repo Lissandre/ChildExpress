@@ -1,6 +1,7 @@
 const fs = require('fs')
 const slugify = require('slugify')
-const forms = require('./forms.json')
+const forms = require('./forms/index.js')
+
 const locales = {
   path: 'locales/',
   types: ['en', 'fr'],
