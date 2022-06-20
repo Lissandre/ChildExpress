@@ -1114,8 +1114,9 @@ section {
 }
 
 .text-green svg {
-  top: -35%;
+  top: -50%;
   right: -5%;
+  width: 110%;
 }
 
 .whiteRectangle {
@@ -1167,7 +1168,8 @@ section {
   width: 3px;
   height: 5rem;
   position: absolute;
-  bottom: -50%;
+  bottom: 3.2rem;
+  transform: translateY(50%);
   opacity: 0;
   animation: typing-writing 4s 3s forwards;
 }

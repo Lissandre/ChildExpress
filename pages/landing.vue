@@ -1,5 +1,5 @@
 <template>
-  <div class="container overflow-x-hidden roc">
+  <div class="container overflow-x-hidden text-black roc">
     <section
       id="0"
       class="min-h-screen flex flex-col items-center justify-center px-8"
@@ -1114,7 +1114,7 @@ section {
 }
 
 .text-pink svg {
-  top: -35%;
+  top: -50%;
   right: -5%;
   width: 110%;
 }
@@ -1168,7 +1168,8 @@ section {
   width: 3px;
   height: 5rem;
   position: absolute;
-  bottom: -50%;
+  bottom: 3.2rem;
+  transform: translateY(50%);
   opacity: 0;
   animation: typing-writing 4s 3s forwards;
 }
