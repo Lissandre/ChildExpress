@@ -285,7 +285,6 @@ export default class Baby {
 
   setMovement() {
     this.time.on('tick', () => {
-      console.log(this.baby.isFace)
       if (!this.shader) return
       this.shader.uniforms.time.value = this.time.current * 100
 
