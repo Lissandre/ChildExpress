@@ -126,7 +126,7 @@ export default {
   width: fit-content;
   height: fit-content;
   word-break: break-word;
-  z-index: 1;
+  z-index: 5;
   overflow-y: scroll;
   max-height: 100%;
   display: flex;

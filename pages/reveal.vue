@@ -84,7 +84,7 @@
             <span class="font-light text-2xl">{{ $t('reveal.subtitle') }}</span>
             <nuxt-link
               :to="localePath('customization')"
-              class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
+              class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit hover:shadow-hoverStateNone"
               >{{ $t('reveal.create_child') }}</nuxt-link
             >
           </div>
@@ -102,7 +102,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+            {{ $t('reveal.realisations') }}
+          </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
+            {{ $t('reveal.realisations') }}
+          </h2>
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
             {{ $t('reveal.realisations') }}
           </h2>
         </span>
@@ -149,7 +155,7 @@
             <source src="@/assets/images/webm/bebe5.webm" type="video/webm" />
           </video>
           <img
-            src="@/assets/images/flames.png"
+            src="@/assets/images/landing_fin/sticker_flamme.png"
             ref="flames"
             alt=""
             class="absolute left-[65%] top-[65%] h-2/3"
@@ -168,7 +174,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+            {{ $t('reveal.values') }}
+          </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
+            {{ $t('reveal.values') }}
+          </h2>
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
             {{ $t('reveal.values') }}
           </h2>
         </span>
@@ -186,7 +198,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/sticker_ecologie.png"
+            src="@/assets/images/landing_fin/sticker_smile.png"
             alt=""
             class="green-neue"
             ref="ecologie"
@@ -213,7 +225,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/sticker_positivite.png"
+            src="@/assets/images/landing_fin/sticker_sheep.png"
             alt=""
             class="green-neue"
             ref="positive"
@@ -240,7 +252,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/sticker_egalite.png"
+            src="@/assets/images/landing_fin/sticker_rocket.png"
             alt=""
             class="green-neue"
             ref="egalite"
@@ -267,7 +279,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/sticker_innovation.png"
+            src="@/assets/images/landing_fin/sticker_rocket.png"
             alt=""
             class="green-neue"
             ref="innovation"
@@ -295,7 +307,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+            {{ $t('reveal.solution') }}
+          </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
+            {{ $t('reveal.solution') }}
+          </h2>
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
             {{ $t('reveal.solution') }}
           </h2>
         </span>
@@ -355,7 +373,7 @@
             </ul>
           </div>
           <img
-            src="@/assets/images/darkADN.svg"
+            src="@/assets/images/landing_fin/ADN.svg"
             alt="Broken ADN illustration"
             class="pb-16 absolute bottom-[-10%] right-[10%]"
           />
@@ -368,7 +386,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+            {{ $t('reveal.offer') }}
+          </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
+            {{ $t('reveal.offer') }}
+          </h2>
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
             {{ $t('reveal.offer') }}
           </h2>
         </span>
@@ -380,14 +404,16 @@
           class="rounded-md flex flex-col items-center w-full neue offer-item"
         >
           <img
-            src="@/assets/images/donutPremium.svg"
+            src="@/assets/images/landing_fin/diam.png"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
+          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
             {{ $t('reveal.premium') }}
           </h3>
-          <span class="text-5xl mb-16 text-center neueBit">$$$<br />$$</span>
+          <span class="text-9xl text-center neueBit">70%</span>
+
+          <span class="text-xl mb-16 text-center">Ont préférés privilégier le physique aux qualités humaines</span>
           <nuxt-link
             :to="localePath('customization')"
             class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
@@ -406,14 +432,15 @@
             <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
           </svg>
           <img
-            src="@/assets/images/donutStandard.svg"
+            src="@/assets/images/landing_fin/silent.png"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
+          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
             {{ $t('reveal.standard') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text neueBit">$$$</span>
+          <span class="text-9xl text-center neueBit">50%</span>
+          <span class="text-xl mb-16 text-center">Ne veulent pas que leur enfant fasse du bruit..</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -427,14 +454,16 @@
             <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
           </svg>
           <img
-            src="@/assets/images/donutReconditionne.svg"
+            src="@/assets/images/landing_fin/balance.png"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
+          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
             {{ $t('reveal.recond') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text neueBit">$$</span>
+          <span class="text-9xl text-center neueBit">2KG</span>
+          <span class="text-xl mb-16 text-center">Ont privilégié la minceur du bébé à la santé</span>
+
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -448,14 +477,16 @@
             <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
           </svg>
           <img
-            src="@/assets/images/donutOccasion.svg"
+            src="@/assets/images/landing_fin/eye.png"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
+          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
             {{ $t('reveal.occas') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text neueBit">$</span>
+          <span class="text-9xl text-center neueBit">70%</span>
+          <span class="text-xl mb-16 text-center">Ont choisi les yeux bleus pour leur bébé</span>
+
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -469,14 +500,16 @@
             <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
           </svg>
           <img
-            src="@/assets/images/donutFree.svg"
+            src="@/assets/images/landing_fin/faces.png"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
+          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
             {{ $t('reveal.unsell') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text neueBit">FREE</span>
+          <span class="text-9xl text-center neueBit">90%</span>
+          <span class="text-xl mb-16 text-center">Ont écoutés les suggestions d’E-gène</span>
+
         </div>
       </div>
     </section>
@@ -486,7 +519,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+            {{ $t('reveal.community') }}
+          </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
+            {{ $t('reveal.community') }}
+          </h2>
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
             {{ $t('reveal.community') }}
           </h2>
         </span>
@@ -502,13 +541,13 @@
             {{ $t('reveal.satisfaction_text') }}
           </h3>
           <img
-            src="@/assets/images/solarsystem.svg"
+            src="@/assets/images/landing_debut/solarsystem.svg"
             alt=""
             class="top-0 absolute"
             style="transform: translate(-20%, -20%)"
           />
           <img
-            src="@/assets/images/stickers_love.png"
+            src="@/assets/images/landing_fin/mdr.png"
             alt=""
             class="w-1/2 -translate-y-1/3 absolute translate-x-2/3"
             ref="love"
@@ -1087,11 +1126,11 @@ ul li:not(:last-child) {
   margin-bottom: 8px;
 }
 ul.good li::before {
-  content: url(@/assets/images/whitecross.png);
+  content: url(@/assets/images/landing_debut/whitecross.png);
   margin-right: 16px;
 }
 ul.bad li::before {
-  content: url(@/assets/images/whitetick.png);
+  content: url(@/assets/images/landing_debut/whitetick.png);
   margin-right: 16px;
 }
 
@@ -1110,12 +1149,12 @@ section {
 
 .text-green {
   height: 6rem;
-  top: 5rem;
+  top: 12rem;
 }
 
 .text-green svg {
   top: -50%;
-  right: -5%;
+  right: -7.5%;
   width: 110%;
 }
 
@@ -1131,7 +1170,7 @@ section {
 }
 
 .Title-mask {
-  display: block;
+  display: flex;
   position: relative;
   text-align: start;
   overflow: hidden;
@@ -1140,6 +1179,15 @@ section {
 .Title-line {
   display: inline-block;
   opacity: 1;
+  white-space: nowrap;
+  margin: 0 20px;
+}
+
+.text-withborders {
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  color: #111;
+  white-space: nowrap;
+
 }
 </style>
 
@@ -1155,6 +1203,7 @@ section {
   white-space: nowrap;
   animation: typing 1s 4s forwards;
   width: 0;
+  margin-left: 20px;
 }
 .typed-write {
   width: 0;

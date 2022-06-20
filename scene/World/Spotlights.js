@@ -27,7 +27,7 @@ export default class Spotlights {
 
         this.mesh1 = new Mesh(geometry, this.material);
 
-        this.light1 = new SpotLight('#aaaaaa', 1, 100, 0.2, 1)
+        this.light1 = new SpotLight('#ccc', 1, 100, 0.2, 1)
 
         this.container.add(this.mesh1);
         this.container.position.set(
@@ -103,7 +103,7 @@ export default class Spotlights {
                 },
                 anglePower: {
                     type: "f",
-                    value: 1.7
+                    value: 1
                 },
                 spotPosition: {
                     type: "v3",

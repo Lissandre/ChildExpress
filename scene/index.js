@@ -194,13 +194,13 @@ export default class App {
     this.world.baby.shrinkGlasses()
     // this.camera.camera.lookAt(this.world.box.box.position)
     if (this.world.box) {
-      var tlBox = gsap.timeline()
-      var tlBaby = gsap.timeline()
+      var tlBox = gsap.timeline({delay: 8})
+      var tlBaby = gsap.timeline({delay: 6})
 
       tlBox.fromTo(
         [this.world.box.box.position],
         { x: 0, y: -5, z: 0 },
-        { x: 0, y: 0, z: 0, duration: 1, delay: 3 }
+        { x: 0, y: 0, z: 0, duration: 1 }
       )
       tlBox.fromTo(
         [this.world.box.box.rotation],
@@ -228,11 +228,19 @@ export default class App {
         }
       )
 
-      tlBaby.fromTo(
-        [this.world.baby.baby.position],
-        { x: 0, y: 0, z: 0 },
-        { x: 0, y: 0, z: 0, duration: 1 }
-      )
+      tlBaby.to(this.world.baby.baby.scale, {
+        x: 0.9,
+        y: 0.9,
+        z: 0.9,
+        duration: 0.5
+      })
+      tlBaby.to(this.world.baby.baby.position, {
+        x: 0,
+        y: -1,
+        z: 0,
+        duration: 0.5,
+        delay: 2,
+      })
       tlBaby.fromTo(
         [this.world.baby.baby.rotation],
         { x: 0, y: 0, z: 0 },
@@ -240,7 +248,7 @@ export default class App {
       )
       tlBaby.to([this.world.baby.baby.position], {
         x: -3.5,
-        y: 0,
+        y: -1,
         z: -3,
         duration: 3,
         delay: 3,
@@ -262,7 +270,7 @@ export default class App {
   }
 
   focusOnBin() {
-    this.world.baby.shrinkGlasses()
+    this.world.baby.shrinkGlasses({delay: 2})
 
     if (this.world.bin) {
       gsap.to(this.world.baby.baby.scale, {
