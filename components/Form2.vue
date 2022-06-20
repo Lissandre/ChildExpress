@@ -119,7 +119,7 @@ export default {
       })
     },
     inputChange(type, name, value, optional) {
-      this.storeChange(type, name, value)
+      this.storeChange(type, name, value, 'form2')
 
       if (name === 'skin') {
         if (value.b < 150 && value.r > 150 && value.g > 150)
@@ -141,7 +141,7 @@ export default {
       }
     },
 
-    storeChange(type, name, value) {
+    storeChange(type, name, value, step) {
       if (name === 'overallSize') {
         value = value * 4
       }
@@ -149,8 +149,8 @@ export default {
         value = (value * 100).toFixed(0)
       }
 
-      console.log(type, name, value)
-      this.$helpers.updateInput(type, name, value)
+      console.log(type, name, value, step)
+      this.$helpers.updateInput(type, name, value, step)
     },
   },
 }

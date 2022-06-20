@@ -432,6 +432,7 @@ export default {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  min-height: 750px;
 }
 
 .second-slide-wrapper {
