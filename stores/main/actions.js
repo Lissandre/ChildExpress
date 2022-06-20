@@ -28,7 +28,7 @@ export const actions = {
   changeRadio(id, newValue, step) {
     const radio = this.radios.find((radio) => radio.id === id)
     radio.value = newValue
-    console.log(step)
+    console.log(id, newValue, step)
     if (step == 'form2')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
