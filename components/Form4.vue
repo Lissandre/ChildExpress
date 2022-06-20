@@ -51,7 +51,7 @@
         >
         <span class="Title-mask"
           ><p class="info_data roc Title-line animate-revealtext eight">
-            {{ getCounter }} KG
+            {{ getOverallSize }} KG
           </p></span
         >
       </div>
@@ -165,24 +165,26 @@ export default {
     }
     */
 
-    this.getExtras()
-    this.$refs.blur.classList.remove('blurWrapper')
+   this.$refs.blur.classList.remove('blurWrapper')
 
+    setTimeout(() => {
+      this.getExtras()
+    }, 2000)
     setTimeout(() => {
       const lines = document.querySelectorAll('.line1, .line2')
       lines.forEach((line) => {
         line.classList.add('animate-linegrow')
       })
-    }, 2000)
+    }, 7000)
 
     setTimeout(() => {
       const tag = document.querySelector('.tag-wrapper')
       tag.classList.add('animate-fromleft')
-    }, 3000)
+    }, 8000)
     setTimeout(() => {
       const ticket = document.querySelector('.ticket')
       ticket.classList.add('animate-fromright')
-    }, 4000)
+    }, 9000)
     this.soundEvents()
   },
   methods: {
@@ -330,9 +332,9 @@ export default {
     getText: function () {
       return this.store.getText('babyName')
     },
-    getCounter: function () {
-      return this.store.getCounter('overallSize')
-    },
+    getOverallSize() {
+        return this.store.getOverallSize
+      },
     getRange: function () {
       return this.store.getRange('scale')
     },

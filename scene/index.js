@@ -262,7 +262,7 @@ export default class App {
   }
 
   focusOnBin() {
-    // this.world.baby.shrinkGlasses()
+    this.world.baby.shrinkGlasses()
 
     if (this.world.bin) {
       gsap.to(this.world.baby.baby.scale, {

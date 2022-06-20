@@ -88,7 +88,12 @@
 
       <p class="text-2xl text-white font-semibold roc relative h-[30px]">
         <span class="text-4xl neueBit block absolute money"> $$$$$$$$$$</span>
-        <span class="text-4xl neueBit block absolute current-money" ref="currentMoney"> {{ this.displayedMoney }}</span>
+        <span
+          class="text-4xl neueBit block absolute current-money"
+          ref="currentMoney"
+        >
+          {{ this.displayedMoney }}</span
+        >
       </p>
     </div>
   </div>
@@ -111,7 +116,7 @@ export default {
       blurry: true,
       xtra_selected: false,
       money: 0,
-      displayedMoney: ''
+      displayedMoney: '',
     }
   },
   setup() {
@@ -125,18 +130,18 @@ export default {
     this.xtraWrapper = this.$refs.xtraWrapper
 
     this.soundEvents()
-    
-      requestAnimationFrame(() => {
-        if (this.$nuxt.$scene.assets.needsLoad) {
-      this.$nuxt.$scene.assets.on('ressourcesReady', () => {
-        this.$nuxt.$scene.init()
-           })
-        }
+
+    requestAnimationFrame(() => {
+      if (this.$nuxt.$scene.assets.needsLoad) {
+        this.$nuxt.$scene.assets.on('ressourcesReady', () => {
+          this.$nuxt.$scene.init()
         })
-        
-      setTimeout(() => {
+      }
+    })
+
+    setTimeout(() => {
       this.$refs.currentMoney.classList.add('animate-dollar-opacity')
-      }, 500)
+    }, 500)
   },
   methods: {
     changeRange(id, e) {
@@ -175,9 +180,9 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 
     temporaryJob(id) {
       this.money = this.store.getMoney(id)
-        this.displayMoney()
+      this.displayMoney()
 
-      return this.newJob = id
+      return (this.newJob = id)
     },
     displayMoney() {
       const dollar = '$'
@@ -190,11 +195,11 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     },
     updateIQ(value) {
       if (value > 160 || value < 30) {
-        this.newJob =  this.temporaryJob('0111')
+        this.newJob = this.temporaryJob('0111')
       } else if (value > 100 && value < 160) {
-        this.newJob =  this.temporaryJob('1101')
+        this.newJob = this.temporaryJob('1101')
       } else if (value > 30 && value < 80) {
-        this.newJob =  this.temporaryJob('0011')
+        this.newJob = this.temporaryJob('0011')
       }
 
       if (value !== 100 && this.blurry === true) {
@@ -214,7 +219,7 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
             'personality',
             'speech1'
           )
-        }, 5000)
+        }, 2000)
       }
     },
     prevent(e) {
@@ -276,11 +281,12 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     },
 
     inputChange(type, name, value, optional) {
+      console.log('here')
 
       this.$helpers.updateInput(type, name, value)
       if (type === 'roundSlider') {
         value = value / optional
-        this.store.changeRoundSlider('IQ', value * 250, 'form3')
+        this.store.changeRoundSlider('headSize', value * 250, 'form3')
       }
       if (this.jobs.length === 4) return
 
@@ -311,7 +317,6 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     inset -5px -4.5px 6.5px rgba(255, 255, 255, 0.7);
   background: none;
   z-index: 2;
-
 }
 .personality1 {
   top: 40%;
@@ -435,11 +440,11 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 }
 
 .money {
-  color: rgba(50, 50, 50, 0.5)
+  color: rgba(50, 50, 50, 0.5);
 }
 .current-money {
   opacity: 0;
   color: white;
-  text-shadow: #FFF 1px 0 10px;
+  text-shadow: #fff 1px 0 10px;
 }
 </style>

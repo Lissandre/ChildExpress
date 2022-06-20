@@ -13,6 +13,8 @@ export default class Baby {
     this.container.name = 'Baby'
 
     this.morphCtrls = []
+    this.xtrasToAdd = []
+
     this.transition = 0
 
     this.noseSize = 0
@@ -36,10 +38,13 @@ export default class Baby {
     this.baby = this.assets.models.baby.scene.children[0]
     console.log(this.assets.models, this.baby)
 
-    if (this.debug) {
+    if (!this.debug) {
       this.morphMeshes = []
       this.baby.traverse((node) => {
+        console.log(node)
         if (node.isMesh && node.morphTargetInfluences) {
+          console.log(node.morphTargetInfluences)
+
           this.morphMeshes.push(node)
         }
       })
@@ -48,7 +53,7 @@ export default class Baby {
           mesh.material.needsUpdate = true
 
           let i = 0
-          for (const [key, value] of Object.entries(
+          /*for (const [key, value] of Object.entries(
             mesh.morphTargetDictionary
           )) {
             mesh.morphTargetInfluences[i] = 0
@@ -64,7 +69,7 @@ export default class Baby {
             )
             this.morphCtrls.push(ctrl)
             i++
-          }
+          }*/
         })
       }
     }
@@ -237,9 +242,15 @@ export default class Baby {
       ease: Power3.easeOut,
     })*/
   }
-  setXtras() {
+  setXtras(id) {
     // this.baby.position.set(0, 5, -1)
+    console.log(id)
+    console.log(this.morphMeshes)
 
+    if(this.xtrasToAdd.includes(id)) {
+      this.xtrasToAdd.findIndex(el => el === id)
+    }
+    this.xtrasToAdd.push(id)
     if (this.morphMeshes.length) {
       this.morphMeshes.forEach((mesh) => {
         for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {

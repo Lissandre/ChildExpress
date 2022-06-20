@@ -201,7 +201,7 @@
           }
         },
         "type": "counter",
-        "name": "weight",
+        "name": "parentWeight",
         "component": "InputCounter",
         "value": 65,
         "length": 3,
