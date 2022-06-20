@@ -1,4 +1,4 @@
-import { Object3D, RepeatWrapping, Vector2 } from 'three'
+import { Object3D, RepeatWrapping, SpotLight } from 'three'
 import gsap, { Power3, Bounce } from 'gsap'
 
 export default class Baby {
@@ -6,7 +6,7 @@ export default class Baby {
     // Options
     this.time = options.time
     this.assets = options.assets
-    this.debug = options.debug
+    this.debug = false //options.debug
 
     // Set up
     this.container = new Object3D()
@@ -29,10 +29,12 @@ export default class Baby {
 
     this.createBaby()
     // this.modifyShader()
+    this.container.add(this.baby)
     this.setMovement()
   }
   createBaby() {
     this.baby = this.assets.models.baby.scene.children[0]
+    console.log(this.assets.models, this.baby)
 
     if (this.debug) {
       this.morphMeshes = []
@@ -41,28 +43,27 @@ export default class Baby {
           this.morphMeshes.push(node)
         }
       })
-
-      console.log(this.morphMeshes)
-
-      console.log(this.morphTargetDictionary)
-
+      console.log(this.morphMeshes.length)
       if (this.morphMeshes.length) {
         this.morphMeshes.forEach((mesh) => {
           mesh.material.needsUpdate = true
-          for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
+
+          let i = 0
+          for (const [key, value] of Object.entries(mesh.morphTargetDictionary)) {
             console.log(mesh.morphTargetDictionary)
-            mesh.morphTargetInfluences[i] = 1
+            mesh.morphTargetInfluences[i] = 0
             const ctrl = this.debugFolder.addInput(
               mesh.morphTargetInfluences,
               `${i}`,
               {
-                label: mesh.morphTargetDictionary[i],
+                label: key,
                 min: 0,
                 max: 1,
                 step: 0.01,
               }
             )
             this.morphCtrls.push(ctrl)
+            i++
           }
         })
       }
@@ -82,13 +83,13 @@ export default class Baby {
 
     this.baby.scale.set(1.5, 1.5, 1.5)
 
-    this.baby.children.forEach((bone) => {
-      bone.position.set(0, -0.5, 0)
-    })
-    this.baby.position.set(0, 0, -1)
+    // this.baby.children.forEach((bone) => {
+    //   bone.position.set(0, -0.5, 0)
+    // })
+    this.baby.position.set(0, -2, 0)
 
-    this.baby.children[2].material.metalness = 1
-    this.baby.children[3].material.metalness = 1
+    // this.baby.children[2].material.metalness = 1
+    // this.baby.children[3].material.metalness = 1
   }
 
   modifyShader() {
@@ -239,8 +240,7 @@ export default class Baby {
   }
   setXtras() {
     console.log('setXtras')
-    this.baby.position.set(0, 5, -1)
-
+    // this.baby.position.set(0, 5, -1)
     if (this.morphMeshes.length) {
       this.morphMeshes.forEach((mesh) => {
         for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
@@ -253,13 +253,22 @@ export default class Baby {
   babyAppearForm4() {
     console.log('appear')
 
-    this.baby.scale.set(1.2, 1.2, 1.2)
-    gsap.to(this.baby.position, {
-      x: 0,
+    var tl = gsap.timeline({delay: 2});
+
+    /*tl.fromTo(this.baby.position, { x: 0, y: 0, z: -2},{
+      x: Math.sin(tl.progress() * Math.PI),
       y: 0,
-      z: -1,
+      z: Math.cos(tl.progress() * Math.PI) * 2,
       duration: 2,
-      ease: Bounce.easeInOut
+      ease: Power3.easeIn
+    })*/
+
+    tl.fromTo(this.baby.rotation, { x: 0, y: 0, z: 0},{
+      x: 0,
+      y: Math.PI * 2,
+      z: 0,
+      duration: 2,
+      ease: Power3.easeInOut
     })
   }
 
@@ -302,7 +311,7 @@ export default class Baby {
     return x === 0
       ? 0
       : x === 1
-      ? 1
-      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
+        ? 1
+        : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
   }
 }

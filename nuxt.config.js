@@ -33,7 +33,6 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
     ['@pinia/nuxt', { disableVuex: false }],
-    'nuxt-webpack-optimisations',
   ],
   modules: ['@nuxtjs/axios', '@nuxtjs/i18n'],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -66,7 +65,7 @@ export default {
     strategy: 'prefix',
   },
   webpackOptimisations: {
-    risky: true,
+    risky: false,
     debug: false,
     measure: false,
     measureMode: 'all',

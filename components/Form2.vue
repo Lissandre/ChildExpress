@@ -64,6 +64,9 @@ export default {
 
     this.soundEvents()
 
+      this.$nuxt.$scene.assets.on('ressourcesReady', () => {
+        this.$nuxt.$scene.init()
+      })
 
     this.store.$onAction(({ name, store, args, after, onError }) => {
       if (name != 'toggleIsFace') return
