@@ -21,10 +21,11 @@ export const actions = {
   changeColor(id, newValue, step) {
     const color = this.colors.find((color) => color.id === id)
     color.value = newValue
+    console.log(color.value)
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
-  changeRadio(id, newValue, step) { 
+  changeRadio(id, newValue, step) {
     const radio = this.radios.find((radio) => radio.id === id)
     radio.value = newValue
     console.log(step)
@@ -42,15 +43,15 @@ export const actions = {
     checkbox.value = newValue
     console.log(checkbox.value)
 
-    if(id === ('visionary' || 'silent' || 'independant' || 'clean'))
-    this.$nuxt.$scene.world.baby.setXtras(id, newValue)
+    if (id === ('visionary' || 'silent' || 'independant' || 'clean'))
+      this.$nuxt.$scene.world.baby.setXtras(id, newValue)
   },
   changeCounter(id, newValue, step) {
-    console.log(id,newValue)
+    console.log(id, newValue)
     const counter = this.counters.find((counter) => counter.id === id)
     counter.value = newValue
     //if (step != 'form1')
-      //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeJob(value) {
     this.newJob = value
@@ -61,7 +62,7 @@ export const actions = {
     console.log('yes')
     // A DECOMMENTER LEITH
     // if (step != 'form1')
-      //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeCurrentMoney(value) {
     this.currentMoney = value

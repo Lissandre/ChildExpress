@@ -143,7 +143,7 @@ export default {
         color = mix(mainC, accentC, max(0., smoothstep(0.3, 0.9,noise(vec3(st*2., u_time*0.1))) - 0.6));
         color *= 1. - u_darkness;
         float ground = (smoothstep(0.7,0.85,1.-st.y) * (sin(st.x*PI)/2.+0.6));
-        
+        ground = mix(0., ground, smoothstep(0.1, 0.2, u_darkness));
         color += ground * 0.2;
         
         color -= grain(st)*1.5*u_darkness;

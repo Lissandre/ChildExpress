@@ -1,4 +1,4 @@
-import { Object3D, RepeatWrapping, Vector2 } from 'three'
+import { Object3D, RepeatWrapping, Vector2, Vector3 } from 'three'
 import gsap, { Power3, Bounce } from 'gsap'
 
 export default class Baby {
@@ -34,6 +34,8 @@ export default class Baby {
   }
   createBaby() {
     this.baby = this.assets.models.baby.scene.children[0]
+    this.baby.scale.set(1.2, 1.2, 1.2)
+    this.baby.position.set(0, -1.2, 0)
     console.log(this.assets.models, this.baby)
 
     if (this.debug) {
@@ -70,57 +72,88 @@ export default class Baby {
       }
     }
 
-    // this.babyMin = this.baby.geometry.boundingBox.min.z
-    // this.babyMax = this.baby.geometry.boundingBox.max.z
+    this.babyMin = this.baby.children[1].geometry.boundingBox.min.z
+    this.babyMax = this.baby.children[1].geometry.boundingBox.max.z
 
-    // this.babyMin = this.baby.children[2].geometry.boundingBox.min.z
-    // this.babyMax = this.baby.children[2].geometry.boundingBox.max.z
-    // this.baby.children[2].material.transparent = true
+    this.babyMin = this.baby.children[1].geometry.boundingBox.min.z
+    this.babyMax = this.baby.children[1].geometry.boundingBox.max.z
+    this.baby.children[1].material.transparent = true
 
     // faire des variables
-    this.map1 = this.assets.textures.map1
+    this.map1 = this.assets.textures.magic1
+    this.map2 = this.assets.textures.magic2
+    this.map3 = this.assets.textures.magic3
+
     this.map1.wrapS = RepeatWrapping
     this.map1.wrapT = RepeatWrapping
-
-    this.baby.scale.set(1.5, 1.5, 1.5)
-
-    // this.baby.children.forEach((bone) => {
-    //   bone.position.set(0, -0.5, 0)
-    // })
-    this.baby.position.set(0, -2, 0)
-
-    // this.baby.children[2].material.metalness = 1
-    // this.baby.children[3].material.metalness = 1
+    this.map2.wrapS = RepeatWrapping
+    this.map2.wrapT = RepeatWrapping
+    this.map3.wrapS = RepeatWrapping
+    this.map3.wrapT = RepeatWrapping
   }
 
   modifyShader() {
-    // this.baby.children[1].geometry = new PlaneBufferGeometry(15, 15, 1, 1)
-    // this.baby.rotation.x = Math.PI / 2.
-    this.baby.material.onBeforeCompile = (s) => {
+    this.baby.children[1].material.needsUpdate = true
+    this.baby.children[1].material.onBeforeCompile = (s) => {
       s.uniforms.map1 = { value: this.map1 }
-      s.uniforms.noseSize = { value: 0 }
-      s.uniforms.earsSize = { value: 0 }
-      s.uniforms.handsSize = { value: 0 }
-      s.uniforms.overallSize = { value: 0 }
+      s.uniforms.map2 = { value: this.map2 }
+      s.uniforms.map3 = { value: this.map3 }
+
+      s.uniforms.hairColor = { value: new Vector3(1, 0, 0) } //map1 R
+      s.uniforms.eyeColor = { value: new Vector3(0, 1, 0) }  //map1 G
+      s.uniforms.skinColor = { value: new Vector3(0, 0, 1) } //map1 B
+
+      s.uniforms.titSize = { value: 0.5 }    //map2 R
+      s.uniforms.handsSize = { value: 0.5 }  //map2 G
+      s.uniforms.noseHeight = { value: 0.5 } //map2 B
+      s.uniforms.headSize = { value: 0.5 }   //map2 A
+
+      s.uniforms.noseSize = { value: 0.5 }   //map3 R
+      s.uniforms.earsSize = { value: 0.5 }   //map3 G
+      s.uniforms.mouthSize = { value: 0.5 }  //map3 B
+      s.uniforms.mouthWidth = { value: 0.5 } //map3 B
+      s.uniforms.eyeSize = { value: 0.5 }    //map3 A
+
+      s.uniforms.weight = { value: 0.5 }
+
       s.uniforms.time = { value: 0 }
       s.uniforms.startAnimation = { value: 0 }
+
       s.uniforms.babyMin = { value: this.babyMin }
       s.uniforms.babyMax = { value: this.babyMax }
-      s.uniforms.scale = { value: 0 }
+
+      s.uniforms.scale = { value: 0.5 }
+
       s.vertexShader =
         `
         uniform sampler2D map1;
+        uniform sampler2D map2;
+        uniform sampler2D map3;
+        
+        uniform vec3 hairColor;
+        uniform vec3 eyeColor;
+        uniform vec3 skinColor;
+
+        uniform float titSize;
+        uniform float handsSize;
+        uniform float noseHeight;
+        uniform float headSize;
+
         uniform float noseSize;
         uniform float earsSize;
-        uniform float handsSize;
-        uniform float overallSize;
+        uniform float mouthSize;
+        uniform float eyeSize;
+
+        uniform float weight;
+        uniform float mouthWidth;
+        uniform float eyeHeight;
+
         uniform float time;
         uniform float startAnimation;
         uniform float babyMin;
         uniform float babyMax;
         uniform float scale;
 
-        varying float normHeight;
         varying float startProgress;
 
         vec2 rotate(vec2 v, float a) {
@@ -156,6 +189,10 @@ export default class Baby {
             return o4.y * d.y + o4.x * (1.0 - d.y);
         }
 
+        float map(float value, float min, float max) {
+          return min + value * (max - min);
+        }
+
       ` + s.vertexShader
 
       s.fragmentShader =
@@ -165,31 +202,38 @@ export default class Baby {
       s.vertexShader = s.vertexShader.replace(
         '#include <begin_vertex>',
         /*glsl*/ `
-                vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
-                float nose = tex1.r*  noseSize;
-                float ears = tex1.g* earsSize;
-                float hands = tex1.b*  handsSize;
-                float transformation = overallSize + nose + ears + hands;
-                float n = noise(position*0.5)*(1.-startAnimation);
-                normHeight = (position.z-babyMax)/(babyMin-babyMax)+n;
-                startProgress = smoothstep(0.6,1.,startAnimation*2.-normHeight)*0.98;
-                startProgress += smoothstep(0.,0.4,startAnimation*2.-normHeight)*0.02;
-                
-                float effect = smoothstep(0.9,1.,1.-distance(startAnimation*2.-normHeight+0.1,1.));
-                vec3 pos = position * (0.8 + scale * 0.4);
-                pos.xy *=  1. + effect/length(pos.xy);
-                
-                vec3 transformed = pos + transformation * normal;
-                
+              vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
+              vec4 tex2 = texture2D(map2, vUv*vec2(1., -1.));
+              vec4 tex3 = texture2D(map3, vUv*vec2(1., -1.));
+              
+              float tit = tex2.r * (titSize - 0.5);
+              float hands = tex2.g * (handsSize - 0.5);
+              float noiseH = tex2.b * (noseHeight - 0.5);
+              float head = tex2.a * (headSize - 0.5);
 
+              float nose = tex3.r * map(noseSize,-0.004, 0.02);
+              float ears = tex3.g *  map(earsSize,-0.004, 0.03);
+              float mouth = tex3.b * map(mouthSize,-0.004, 0.01);
+              float mouthW = tex3.b * map(sin(time)/2.+0.5,-1., 1.);//mouthWidth
+              float eye = (1.-tex3.a) * map(eyeSize,-0.003, 0.005);
+
+              float transformation = tit + hands + noiseH + head + nose + ears + mouth + eye;
+              float n = noise(position * 0.5) * (1. - startAnimation);
+              vec3 pos = position;
+              // pos.x += 0.5;
+              // pos.x *= 1. + mouthW;
+              // pos.x -= 0.5;
+              vec3 transformed = pos + transformation * normal;
             `
       )
 
       s.fragmentShader =
         `
             uniform float startAnimation;
-            varying float startProgress;
-            varying float normHeight;
+            uniform float time;
+            uniform vec3 hairColor;
+            uniform vec3 eyeColor;
+            uniform vec3 skinColor;
 
             vec2 rotate(vec2 v, float a) {
                 float s = sin(a);
@@ -204,23 +248,14 @@ export default class Baby {
           /*glsl*/ `
                vec3 diff = diffuse;
                vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
+               float hair = tex1.r;
+               float eye = tex1.g;
+               float skin = tex1.b;
+               diff = mix(diff,diff.rrr * hairColor, hair);
+               diff = mix(diff,diff.rrr * eyeColor, eye);
+               diff = mix(diff,diff.rrr * skinColor, skin);
 
-                vec2 uv = vUv;
-                uv -= vec2(0.5);
-                uv = rotate(uv, (1.- startProgress)*PI/4.);
-                uv += vec2(0.5);
-
-                float grid = 0.;
-                grid += step(0.1 + startProgress*0.3,abs(sin(uv.x*300.*(0.8+ 0.2*startProgress))));
-                grid *= step(0.1 + startProgress*0.3,abs(sin(uv.y*300.*(0.8+ 0.2*startProgress))));
-                grid /= 2.;
-                grid = 1. - grid;
-                grid = step((1.-startProgress)*1.01 - 0.005, grid);
-                
-                float colorness = step(0.9, startProgress);
-                diff = mix(vec3(0.), diff, colorness);
-
-                vec4 diffuseColor = vec4(diff*startProgress, grid);
+               vec4 diffuseColor = vec4(diff, 1.);
             `
         )
       this.shader = s
@@ -229,19 +264,18 @@ export default class Baby {
   }
 
   updateUniform = (uniform, value) => {
-    //Yo Leith, les valeurs dont tu as besoin pour les uniforms vont descendre ici,
-    // notemment IQ pour la taille du crâne, scale pour la taille, overallSize pour la grosseur
-    // handsSize pour les mains, hairColor, eyesColor, mouthSize, noseStyle et noseSize
-    console.log(uniform, value)
-    /*gsap.to(this.shader.uniforms[uniform], {
+    if (value.r)
+      value = new Vector3(value.r, value.g, value.b)
+
+    gsap.to(this.shader.uniforms[uniform], {
       value,
       duration: 1,
       ease: Power3.easeOut,
-    })*/
+    })
+    console.log(value, this.shader.uniforms[uniform], uniform)
   }
   setXtras() {
     console.log('setXtras')
-    this.baby.position.set(0, 5, -1)
 
     if (this.morphMeshes.length) {
       this.morphMeshes.forEach((mesh) => {
@@ -254,8 +288,6 @@ export default class Baby {
 
   babyAppearForm4() {
     console.log('appear')
-
-    this.baby.scale.set(1.2, 1.2, 1.2)
     gsap.to(this.baby.position, {
       x: 0,
       y: 0,
@@ -278,11 +310,9 @@ export default class Baby {
 
   setMovement() {
     this.time.on('tick', () => {
-      console.log(this.baby.isFace)
-      if (!this.shader) return
-      this.shader.uniforms.time.value = this.time.current * 100
 
-      // this.shader.uniforms.startAnimation.value = Math.sin(this.time.current * 0.0008) / 2. + 0.5
+      if (!this.shader) return
+      this.shader.uniforms.time.value += 0.1
     })
   }
 
