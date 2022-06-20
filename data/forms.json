@@ -330,33 +330,63 @@
   },
   "form2": {
     "inputs": {
-      "hairStyle": {
+      "hairLength": {
         "locales": {
-          "fr": "Style des cheveux",
-          "en": "Hair Style"
+          "fr": "",
+          "en": ""
         },
         "type": "range",
-        "name": "hairStyle",
+        "name": "hairLength",
         "component": "InputRange",
         "value": 0.5,
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range face"
+        "class": "range face hairLength"
       },
-      "mouthStyle": {
+      "earsSize": {
         "locales": {
-          "fr": "Style de bouche",
-          "en": "Mouth Style"
+          "fr": "",
+          "en": ""
         },
         "type": "range",
-        "name": "mouthStyle",
+        "name": "earsSize",
         "component": "InputRange",
         "value": 0.5,
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range face"
+        "class": "range face earsSize"
+      },
+
+      "mouthSize": {
+        "locales": {
+          "fr": "",
+          "en": ""
+        },
+        "type": "range",
+        "name": "mouthSize",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "range face mouthSize"
+      },
+
+      "mouthWidth": {
+        "locales": {
+          "fr": "",
+          "en": ""
+        },
+        "type": "range",
+        "name": "mouthWidth",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "range face mouthWidth"
       },
       "noseSize": {
         "locales": {
@@ -370,40 +400,55 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range face"
+        "class": "range face noseSize"
       },
-      "noseStyle": {
+      "noseHeight": {
         "locales": {
-          "fr": "Style de nez",
-          "en": "Nose style"
+          "fr": "",
+          "en": ""
         },
         "type": "range",
-        "name": "noseStyle",
+        "name": "noseHeight",
         "component": "InputRange",
         "value": 0.5,
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range face"
+        "class": "range face noseHeight"
       },
-      "earsSize": {
+      "eyeSize": {
         "locales": {
-          "fr": "Taille Oreilles",
-          "en": "Ears Size"
+          "fr": "",
+          "en": ""
         },
         "type": "range",
-        "name": "earsSize",
+        "name": "eyeSize",
         "component": "InputRange",
         "value": 0.5,
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range face"
+        "class": "range face eyeSize"
       },
+      "eye_squint": {
+        "locales": {
+          "fr": "",
+          "en": ""
+        },
+        "type": "range",
+        "name": "eye_squint",
+        "component": "InputRange",
+        "value": 0.5,
+        "from": 0,
+        "to": 1,
+        "step": 0.01,
+        "class": "range face eyesSquint"
+      },
+
       "handsSize": {
         "locales": {
-          "fr": "Taille Mains",
-          "en": "Hands Size"
+          "fr": "",
+          "en": ""
         },
         "type": "range",
         "name": "handsSize",
@@ -412,7 +457,7 @@
         "from": 0,
         "to": 1,
         "step": 0.01,
-        "class": "range"
+        "class": "range handsSize"
       },
       "scale": {
         "locales": {
@@ -428,6 +473,7 @@
         "step": 0.01,
         "class": "range body bubble-range"
       },
+
       "health": {
         "locales": {
           "fr": "",
@@ -444,7 +490,7 @@
           "en": "Overall Size"
         },
         "type": "counter",
-        "name": "overallSize",
+        "name": "weight",
         "component": "InputCounter",
         "value": 4,
         "length": 3,
@@ -596,7 +642,7 @@
         "length": 6,
         "class": "blurry personality4"
       },
-      "IQ": {
+      "headSize": {
         "locales": {
           "fr": {
             "label1": "QI"
@@ -606,7 +652,7 @@
           }
         },
         "type": "roundSlider",
-        "name": "IQ",
+        "name": "headSize",
         "component": "InputRoundSlider",
         "value": 100,
         "from": 0,

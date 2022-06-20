@@ -337,7 +337,7 @@ export default {
       return this.store.getRange('scale')
     },
     getRoundSlider: function () {
-      return this.store.getRoundSlider('IQ')
+      return this.store.getRoundSlider('headSize')
     },
     getJob: function () {
       return this.store.getJob

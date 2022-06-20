@@ -1,13 +1,16 @@
 {
-  "range_hairstyle": "Style des cheveux",
-  "range_mouthstyle": "Style de bouche",
+  "range_hairlength": "",
+  "range_earssize": "",
+  "range_mouthsize": "",
+  "range_mouthwidth": "",
   "range_nosesize": "Taille du nez",
-  "range_nosestyle": "Style de nez",
-  "range_earssize": "Taille Oreilles",
-  "range_handssize": "Taille Mains",
+  "range_noseheight": "",
+  "range_eyesize": "",
+  "range_eye_squint": "",
+  "range_handssize": "",
   "range_scale": "",
   "roundslider_health": "",
-  "counter_overallsize": "Taille Globale",
+  "counter_weight": "Taille Globale",
   "radio_haircolor": {
     "labelMiddle": "Cheveux"
   },

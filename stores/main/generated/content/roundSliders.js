@@ -1,4 +1,4 @@
 export default [
   { id: 'parentHealth', value: '0.5' },
-  { id: 'IQ', value: '100' }
+  { id: 'headSize', value: '100' }
 ]

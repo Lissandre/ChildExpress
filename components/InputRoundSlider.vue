@@ -24,7 +24,7 @@
     >
     <label class="w-20 mr-3 w-max text-white absolute">{{ locale.label1 }}</label>
 
-      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('IQ')">
+      <p class="IQvalue" ref="IQvalue" v-if="this.input.name.includes('headSize')">
         {{ this.sliderValue }}
       </p>
       <circle-slider
@@ -51,7 +51,7 @@
         height="175px"
         viewBox="0 0 150 150"
         class="fake-background"
-        v-if="!this.input.name.includes('IQ')"
+        v-if="!this.input.name.includes('headSize')"
       >
         <g>
           <defs>
@@ -78,7 +78,7 @@
         height="175px"
         viewBox="0 0 150 150"
         class="fake-background"
-        v-if="this.input.name.includes('IQ')"
+        v-if="this.input.name.includes('headSize')"
       >
         <g>
           <circle
@@ -109,8 +109,8 @@ export default {
   data() {
     return {
       sliderValue: 4,
-      sliderMin: this.input.name.includes('IQ') ? 50 : 0,
-      sliderMax: this.input.name.includes('IQ') ? 250 : 8,
+      sliderMin: this.input.name.includes('headSize') ? 50 : 0,
+      sliderMax: this.input.name.includes('headSize') ? 250 : 8,
     }
   },
   setup() {
@@ -119,7 +119,7 @@ export default {
   },
   mounted() {
     if (this.input.skinColor) {
-    } else if (this.input.name.includes('IQ')) {
+    } else if (this.input.name.includes('headSize')) {
       this.$refs['circleSlider'].appendChild(this.$refs['IQvalue'])
       this.sliderValue = 100
     } else if(this.input.name.includes('health')) {
@@ -143,7 +143,7 @@ export default {
         newValue,
         this.sliderMax
       )
-      if (this.input.name.includes('IQ')) this.$emit('updateIQ', newValue)
+      if (this.input.name.includes('headSize')) this.$emit('updateIQ', newValue)
       if(this.input.name.includes('health')) {
         this.store.changeOverallSize(newValue)
       }

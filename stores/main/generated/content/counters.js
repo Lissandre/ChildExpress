@@ -1,4 +1,4 @@
 export default [
   { id: 'weight', value: 65 },
-  { id: 'overallSize', value: 4 }
+  { id: 'weight', value: 4 }
 ]

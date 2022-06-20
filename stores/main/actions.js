@@ -14,7 +14,7 @@ export const actions = {
   changeRange(id, newValue, step) {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
-
+    
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
