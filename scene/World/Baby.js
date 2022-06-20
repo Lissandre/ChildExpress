@@ -1,4 +1,4 @@
-import { Object3D, RepeatWrapping, Vector3 } from 'three'
+import { Color, Object3D, RepeatWrapping, Vector3 } from 'three'
 import gsap, { Power3, Bounce } from 'gsap'
 
 export default class Baby {
@@ -115,8 +115,6 @@ export default class Baby {
       s.uniforms.babyMin = { value: this.babyMin }
       s.uniforms.babyMax = { value: this.babyMax }
 
-      s.uniforms.scale = { value: 0.5 }
-
       s.vertexShader =
         `
         uniform sampler2D map1;
@@ -144,7 +142,6 @@ export default class Baby {
         uniform float startAnimation;
         uniform float babyMin;
         uniform float babyMax;
-        uniform float scale;
 
         varying float startProgress;
 
@@ -210,10 +207,11 @@ export default class Baby {
 
               float transformation = tit + hands + noiseH + head + nose + ears + mouth + eye;
               float n = noise(position * 0.5) * (1. - startAnimation);
-              vec3 pos = position * map(scale,1., 1.5);
-              vec3 transformed = pos + (transformation + map(overallSize,-0.008,0.008)) * normal;
+              vec3 pos = position;
+              vec3 transformed = (pos + (transformation + map(overallSize,-0.008,0.008)) * normal);
             `
       )
+      console.log(s.vertexShader)
 
       s.fragmentShader =
         `
@@ -239,9 +237,9 @@ export default class Baby {
                float hair = tex1.r;
                float eye = tex1.g;
                float skin_ = tex1.b;
-               diff = mix(diff,length(diff)/3. * hairColor, hair);
-               diff = mix(diff,length(diff)/3. * eyesColor, eye);
-               diff = mix(diff,length(diff)/3. * skin, skin_);
+               diff = mix(diff, hairColor, hair);
+               diff = mix(diff, eyesColor, eye);
+               diff = mix(diff, skin, skin_);
 
                vec4 diffuseColor = vec4(diff, 1.);
             `
@@ -252,15 +250,101 @@ export default class Baby {
   }
 
   updateUniform = (uniform, value) => {
-    if (value.r)
-      value = new Vector3(value.r, value.g, value.b)
+    if (uniform == 'scale') {
+      let v = value / 100
+      v -= 0.5
+      v *= 0.2
+      v += 1.2
+      console.log(v)
+      this.baby.scale.set(v, v, v)
+      return
+    }
+
+
+
+    if (value.r) {
+      this.shader.uniforms[uniform].value.x = value.r / 255
+      this.shader.uniforms[uniform].value.y = value.g / 255
+      this.shader.uniforms[uniform].value.z = value.b / 255
+      return
+    }
+
+    if (uniform == 'hairColor') {
+      value *= 5;
+      switch (value) {
+        case 0:
+          this.shader.uniforms[uniform].value.x = 221 / 255
+          this.shader.uniforms[uniform].value.y = 192 / 255
+          this.shader.uniforms[uniform].value.z = 117 / 255
+          break;
+        case 1:
+          this.shader.uniforms[uniform].value.x = 188 / 255
+          this.shader.uniforms[uniform].value.y = 88 / 255
+          this.shader.uniforms[uniform].value.z = 15 / 255
+          break;
+        case 2:
+          this.shader.uniforms[uniform].value.x = 161 / 255
+          this.shader.uniforms[uniform].value.y = 129 / 255
+          this.shader.uniforms[uniform].value.z = 90 / 255
+          break;
+        case 3:
+          this.shader.uniforms[uniform].value.x = 133 / 255
+          this.shader.uniforms[uniform].value.y = 99 / 255
+          this.shader.uniforms[uniform].value.z = 59 / 255
+          break;
+        case 4:
+          this.shader.uniforms[uniform].value.x = 94 / 255
+          this.shader.uniforms[uniform].value.y = 57 / 255
+          this.shader.uniforms[uniform].value.z = 13 / 255
+          break;
+        case 5:
+          this.shader.uniforms[uniform].value.x = 50 / 255
+          this.shader.uniforms[uniform].value.y = 28 / 255
+          this.shader.uniforms[uniform].value.z = 7 / 255
+          break;
+
+      }
+
+      console.log(value)
+      return;
+    }
+
+    if (uniform == 'eyesColor') {
+      value *= 3;
+      switch (value) {
+        case 0:
+          this.shader.uniforms[uniform].value.x = 177 / 255
+          this.shader.uniforms[uniform].value.y = 207 / 255
+          this.shader.uniforms[uniform].value.z = 153 / 255
+          break;
+        case 1:
+          this.shader.uniforms[uniform].value.x = 75 / 255
+          this.shader.uniforms[uniform].value.y = 110 / 255
+          this.shader.uniforms[uniform].value.z = 184 / 255
+          break;
+        case 2:
+          this.shader.uniforms[uniform].value.x = 133 / 255
+          this.shader.uniforms[uniform].value.y = 99 / 255
+          this.shader.uniforms[uniform].value.z = 59 / 255
+          break;
+        case 3:
+          this.shader.uniforms[uniform].value.x = 50 / 255
+          this.shader.uniforms[uniform].value.y = 28 / 255
+          this.shader.uniforms[uniform].value.z = 7 / 255
+          break;
+
+      }
+
+      console.log(value)
+      return;
+    }
+
 
     gsap.to(this.shader.uniforms[uniform], {
       value,
       duration: 1,
       ease: Power3.easeOut,
     })
-    console.log(value, this.shader.uniforms[uniform], uniform)
   }
   setXtras() {
     console.log('setXtras')

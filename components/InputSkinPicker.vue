@@ -1,12 +1,23 @@
 <template>
-  <div class="relative pointer-events-auto h-[240px] w-fit">
-    <fieldset :class="`animate-bounce-in ${input.class} flex flex-col h-full w-full`">
-      <div class="skinpicker-wrapper">
-        <div class="borderbox"></div>
-          <span ref="skinThumb" id="skinpicker-thumb"></span>
-          <canvas ref="skinCanvas" id="skinCanvas"></canvas>
-        </div>
-    <label class="w-20 mt-5 w-max text-white text-[22px]">{{ locale }}</label>
+  <div
+    class="
+      relative
+      pointer-events-auto
+      h-[240px]
+      w-fit
+      pointer-events-none
+      user-select-none
+    "
+  >
+    <fieldset
+      :class="`animate-bounce-in ${input.class} flex flex-col h-full w-full`"
+    >
+      <div class="skinpicker-wrapper pointer-events-none user-select-none">
+        <div class="borderbox pointer-events-none"></div>
+        <span ref="skinThumb" id="skinpicker-thumb"></span>
+        <canvas ref="skinCanvas" id="skinCanvas"></canvas>
+      </div>
+      <label class="w-20 mt-5 w-max text-white text-[22px]">{{ locale }}</label>
     </fieldset>
   </div>
 </template>
@@ -101,15 +112,22 @@ export default {
     )
 
     this.mouseDown = false
-    this.$el.addEventListener('mousedown', (e) => {
+    this.canvas.addEventListener('mousedown', (e) => {
+      e.preventDefault()
       this.mouseDown = true
       this.updateColor(e)
     })
-    this.$el.addEventListener('mouseup', () => {
+    this.canvas.addEventListener('mouseup', (e) => {
+      e.preventDefault()
+      this.mouseDown = false
+    })
+    this.canvas.addEventListener('mouseleave', (e) => {
+      e.preventDefault()
       this.mouseDown = false
     })
 
     this.canvas.addEventListener('mousemove', (e) => {
+      e.preventDefault()
       if (!this.mouseDown) return
       this.updateColor(e)
     })
@@ -126,9 +144,10 @@ export default {
     },
 
     updateColor(e) {
+      console.log(e)
       this.thumb.style.transform = `translate3d(${e.offsetX - 15}px, ${
-        e.offsetY - 
-      15}px, 0px)`
+        e.offsetY - 15
+      }px, 0px)`
       let c = this.getColor(
         this.ctx,
         e.offsetX,
@@ -160,11 +179,11 @@ export default {
 }
 
 .skinpicker-wrapper {
-      width: fit-content;
-    height: fit-content;
-    position: relative;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
 }
-.borderbox{
+.borderbox {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -175,7 +194,9 @@ export default {
 #skinCanvas {
   pointer-events: all;
   border-radius: 13px;
-  
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 }
 
 .skinform2 {
