@@ -15,11 +15,6 @@ export default class Baby {
     this.morphCtrls = []
     this.transition = 0
 
-    this.noseSize = 0
-    this.earsSize = 0
-    this.handsSize = 0
-    this.overallSize = 0
-
     if (this.debug) {
       this.debugFolder = this.debug.addFolder({
         title: 'Baby',
@@ -28,7 +23,7 @@ export default class Baby {
     }
 
     this.createBaby()
-    // this.modifyShader()
+    this.modifyShader()
     this.container.add(this.baby)
     this.setMovement()
   }
@@ -99,8 +94,8 @@ export default class Baby {
       s.uniforms.map3 = { value: this.map3 }
 
       s.uniforms.hairColor = { value: new Vector3(1, 0, 0) } //map1 R
-      s.uniforms.eyeColor = { value: new Vector3(0, 1, 0) }  //map1 G
-      s.uniforms.skinColor = { value: new Vector3(0, 0, 1) } //map1 B
+      s.uniforms.eyesColor = { value: new Vector3(0, 1, 0) }  //map1 G
+      s.uniforms.skin = { value: new Vector3(0, 0, 1) } //map1 B
 
       s.uniforms.titSize = { value: 0.5 }    //map2 R
       s.uniforms.handsSize = { value: 0.5 }  //map2 G
@@ -110,10 +105,9 @@ export default class Baby {
       s.uniforms.noseSize = { value: 0.5 }   //map3 R
       s.uniforms.earsSize = { value: 0.5 }   //map3 G
       s.uniforms.mouthSize = { value: 0.5 }  //map3 B
-      s.uniforms.mouthWidth = { value: 0.5 } //map3 B
       s.uniforms.eyeSize = { value: 0.5 }    //map3 A
 
-      s.uniforms.weight = { value: 0.5 }
+      s.uniforms.overallSize = { value: 0.5 }
 
       s.uniforms.time = { value: 0 }
       s.uniforms.startAnimation = { value: 0 }
@@ -130,7 +124,7 @@ export default class Baby {
         uniform sampler2D map3;
         
         uniform vec3 hairColor;
-        uniform vec3 eyeColor;
+        uniform vec3 eyesColor;
         uniform vec3 skinColor;
 
         uniform float titSize;
@@ -143,8 +137,7 @@ export default class Baby {
         uniform float mouthSize;
         uniform float eyeSize;
 
-        uniform float weight;
-        uniform float mouthWidth;
+        uniform float overallSize;
         uniform float eyeHeight;
 
         uniform float time;
@@ -213,16 +206,12 @@ export default class Baby {
               float nose = tex3.r * map(noseSize,-0.004, 0.02);
               float ears = tex3.g *  map(earsSize,-0.004, 0.03);
               float mouth = tex3.b * map(mouthSize,-0.004, 0.01);
-              float mouthW = tex3.b * map(sin(time)/2.+0.5,-1., 1.);//mouthWidth
               float eye = (1.-tex3.a) * map(eyeSize,-0.003, 0.005);
 
               float transformation = tit + hands + noiseH + head + nose + ears + mouth + eye;
               float n = noise(position * 0.5) * (1. - startAnimation);
-              vec3 pos = position;
-              // pos.x += 0.5;
-              // pos.x *= 1. + mouthW;
-              // pos.x -= 0.5;
-              vec3 transformed = pos + transformation * normal;
+              vec3 pos = position * map(scale,1., 1.5);
+              vec3 transformed = pos + (transformation + map(overallSize,-0.008,0.008)) * normal;
             `
       )
 
@@ -231,8 +220,8 @@ export default class Baby {
             uniform float startAnimation;
             uniform float time;
             uniform vec3 hairColor;
-            uniform vec3 eyeColor;
-            uniform vec3 skinColor;
+            uniform vec3 eyesColor;
+            uniform vec3 skin;
 
             vec2 rotate(vec2 v, float a) {
                 float s = sin(a);
@@ -249,10 +238,10 @@ export default class Baby {
                vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
                float hair = tex1.r;
                float eye = tex1.g;
-               float skin = tex1.b;
-               diff = mix(diff,diff.rrr * hairColor, hair);
-               diff = mix(diff,diff.rrr * eyeColor, eye);
-               diff = mix(diff,diff.rrr * skinColor, skin);
+               float skin_ = tex1.b;
+               diff = mix(diff,length(diff)/3. * hairColor, hair);
+               diff = mix(diff,length(diff)/3. * eyesColor, eye);
+               diff = mix(diff,length(diff)/3. * skin, skin_);
 
                vec4 diffuseColor = vec4(diff, 1.);
             `
