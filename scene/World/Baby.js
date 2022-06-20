@@ -42,15 +42,10 @@ export default class Baby {
         }
       })
 
-      console.log(this.morphMeshes)
-
-      console.log(this.morphTargetDictionary)
-
       if (this.morphMeshes.length) {
         this.morphMeshes.forEach((mesh) => {
           mesh.material.needsUpdate = true
           for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
-            console.log(mesh.morphTargetDictionary)
             mesh.morphTargetInfluences[i] = 1
             const ctrl = this.debugFolder.addInput(
               mesh.morphTargetInfluences,
@@ -230,7 +225,6 @@ export default class Baby {
     //Yo Leith, les valeurs dont tu as besoin pour les uniforms vont descendre ici,
     // notemment IQ pour la taille du crâne, scale pour la taille, overallSize pour la grosseur
     // handsSize pour les mains, hairColor, eyesColor, mouthSize, noseStyle et noseSize
-    console.log(uniform, value)
     /*gsap.to(this.shader.uniforms[uniform], {
       value,
       duration: 1,
@@ -238,7 +232,6 @@ export default class Baby {
     })*/
   }
   setXtras() {
-    console.log('setXtras')
     this.baby.position.set(0, 5, -1)
 
     if (this.morphMeshes.length) {
@@ -251,32 +244,26 @@ export default class Baby {
   }
 
   babyAppearForm4() {
-    console.log('appear')
-
     this.baby.scale.set(1.2, 1.2, 1.2)
     gsap.to(this.baby.position, {
       x: 0,
       y: 0,
       z: -1,
       duration: 2,
-      ease: Bounce.easeInOut
+      ease: Bounce.easeInOut,
     })
   }
 
   shrinkGlasses() {
-
-    console.log(this.morphMeshes[0].morphTargetInfluences)
-
     gsap.to(this.morphMeshes[0].morphTargetInfluences, {
       1: 0.8,
       duration: 2,
-      ease: Bounce.easeInOut
+      ease: Bounce.easeInOut,
     })
   }
 
   setMovement() {
     this.time.on('tick', () => {
-      console.log(this.baby.isFace)
       if (!this.shader) return
       this.shader.uniforms.time.value = this.time.current * 100
 

@@ -249,7 +249,6 @@ export default {
     getExtras() {
       this.xtras.forEach((xtra) => {
         if (this.store.getXtras(xtra.id) === 1) {
-          // console.log(xtra.id)
           this.xtrasToPlay.push({
             id: xtra.id,
             value: this.store.getXtras(xtra.id),
@@ -277,7 +276,6 @@ export default {
       return Math.round(Math.random()) * 2 - 1
     },
     getSplittedExtra(id) {
-      // console.log(id)
       if (this.$i18n.locale === 'fr')
         this.splittedXtra.push(
           form3.inputs[id].locales[this.$i18n.locale].label1.split('-')[1]

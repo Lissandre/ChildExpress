@@ -22,7 +22,6 @@ export default class Helpers {
         )
         break
       case 'radio':
-        console.log(step)
         this.store.changeRadio(
           this.store.constants[name.toUpperCase()],
           value,
@@ -31,7 +30,6 @@ export default class Helpers {
         // this.store.changeJob()
         break
       case 'checkbox':
-        // console.log('checkbox')
         this.store.changeCheckbox(
           this.store.constants[name.toUpperCase()],
           value,

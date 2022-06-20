@@ -87,8 +87,6 @@ export default {
         e.target.value,
         this.input.length
       )
-
-      // console.log('upd')
     },
     emitJob(e, fieldsetIndex) {
       if (e.target.value === undefined) return

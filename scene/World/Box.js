@@ -102,9 +102,6 @@ export default class Box {
 
         this.box.traverse(function (child) {
           if (child.isMesh) {
-            // console.log(material)
-
-            // console.log(child.geometry.attributes.uv);
             child.material = material // assign your diffuse texture here
           }
         })
@@ -132,7 +129,6 @@ export default class Box {
     var imageObj = new Image()
     imageObj.src = this.assets.textures.map_box.image.src
     imageObj.addEventListener('load', () => {
-      // console.log(this)
       this.ctx.drawImage(this.assets.textures.map_box.image, 0, 0, 2048, 2048)
       this.ctx.font = '40pt "roc-grotesk"'
       this.ctx.fillText('My TEXT!', 20, 20)
@@ -170,8 +166,6 @@ export default class Box {
       this.ctx.restore()
 
       /* Money */
-
-      console.log(money)
       this.ctx.save()
       this.ctx.translate(610, 1200)
       this.ctx.rotate(-0.5 * Math.PI)
@@ -208,13 +202,10 @@ export default class Box {
           20
         )
         this.oldMeasure = measure
-        // console.log(this.oldMeasure)
         this.ctx.restore()
       }
 
       /* personnalité */
-
-      // console.log(personality)
       var height = 80
       personality.forEach((perso) => {
         this.ctx.save()
@@ -239,7 +230,6 @@ export default class Box {
       })
 
       /* qi */
-      // console.log(iq)
       this.ctx.save()
       this.ctx.translate(1800, 800)
       this.ctx.rotate(0.5 * Math.PI)
@@ -262,8 +252,8 @@ export default class Box {
       this.ctx.translate(1130, 1394)
       this.ctx.rotate(Math.PI)
 
-      this.ctx.font = `28px bold "roc-grotesk"`;
-      this.ctx.fillText(babyHeight + 'cm', 175, 65);
+      this.ctx.font = `28px bold "roc-grotesk"`
+      this.ctx.fillText(babyHeight + 'cm', 175, 65)
       this.ctx.restore()
 
       /* qi */

@@ -17,5 +17,5 @@ export default {
   max-width: 1920px;
   margin: 0 auto;
 }
-html{scroll-behavior:smooth}
+/* html{scroll-behavior:smooth} */
 </style>

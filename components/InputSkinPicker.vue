@@ -116,8 +116,6 @@ export default {
   },
   methods: {
     onChange(value) {
-
-      // console.log('change', value)
       this.$emit(
         'updateInput',
         this.input.type,
