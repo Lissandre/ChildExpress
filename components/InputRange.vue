@@ -434,4 +434,87 @@ export default {
 #parentSkinType::-ms-thumb {
   background: var(--background2);
 }
+
+
+
+
+/* icons */
+
+
+.face {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.face::before, .face::after {
+  width: 50px;
+  height: 50px;
+}
+.hairLength::before {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/hairLengthLittle.png');
+}
+.hairLength::after {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/hairLengthBig.png');
+}
+
+.earsSize::before {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/earsSizeLittle.png');
+}
+.earsSize::after {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/earsSizeBig.png');
+}
+
+.eyeSize::before {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/eyeSizeLittle.png');
+}
+.eyeSize::after {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/eyeSizeBig.png');
+}
+
+.eyesSquint::before {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/eyesSquintLittle.png');
+}
+.eyesSquint::after {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/eyesSquintBig.png');
+}
+
+.noseHeight::before {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/noseHeightLittle.png');
+}
+.noseHeight::after {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/noseHeightBig.png');
+}
+
+.noseSize::before {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/noseSizeLittle.png');
+}
+.noseSize::after {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/noseSizeBig.png');
+}
+
+.mouthSize::before {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/mouthSize.png');
+}
+
+.mouthWidth::before {
+  content: '';
+  background: no-repeat center center url('@/assets/images/icons/mouthWidth.png');
+}
+
+
 </style>

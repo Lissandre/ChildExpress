@@ -161,6 +161,8 @@ export default {
       }
       setTimeout(() => {
         this.$refs.loaderVideo.classList.add('animate-scale-up')
+        $nuxt.$emit('updateSound', 'form1', 'speech', 'loading', 'speech1')
+
       }, 1000)
       
       setTimeout(() => {

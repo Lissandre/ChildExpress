@@ -201,27 +201,43 @@ video {
 }
 
 .face > div:nth-child(1) {
-  left: 20%;
+  left: 15%;
   top: 20%;
 }
 .face > div:nth-child(2) {
-  left: 15%;
+  left: 10%;
   top: 40%;
 }
 .face > div:nth-child(3) {
-  left: 20%;
-  bottom: 20%;
-}
-
-.face > div:nth-child(4) {
-  right: 20%;
+  left: 15%;
   bottom: 40%;
 }
 
+.face > div:nth-child(4) {
+  left: 15%;
+  bottom: 30%;
+}
 .face > div:nth-child(5) {
-  right: 25%;
+  right: 40%;
   bottom: 60%;
 }
+
+.face > div:nth-child(6) {
+  right: 40%;
+  bottom: 50%;
+}
+
+.face > div:nth-child(7) {
+  right: 35%;
+  top: 10%;
+}
+
+.face > div:nth-child(8) {
+  right: 35%;
+  top: 25%;
+}
+
+
 .body > div:nth-child(1) {
   right: 30%;
   top: 45%;

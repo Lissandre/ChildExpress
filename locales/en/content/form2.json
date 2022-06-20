@@ -1,13 +1,16 @@
 {
-  "range_hairstyle": "Hair Style",
-  "range_mouthstyle": "Mouth Style",
+  "range_hairlength": "",
+  "range_earssize": "",
+  "range_mouthsize": "",
+  "range_mouthwidth": "",
   "range_nosesize": "Nose size",
-  "range_nosestyle": "Nose style",
-  "range_earssize": "Ears Size",
-  "range_handssize": "Hands Size",
+  "range_noseheight": "",
+  "range_eyesize": "",
+  "range_eye_squint": "",
+  "range_handssize": "",
   "range_scale": "",
   "roundslider_health": "",
-  "counter_overallsize": "Overall Size",
+  "counter_weight": "Overall Size",
   "radio_haircolor": {
     "labelMiddle": "Hair"
   },
