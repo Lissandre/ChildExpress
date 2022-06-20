@@ -5,10 +5,12 @@ module.exports = {
   theme: {
     colors: {
       blue: '#0F54E4',
+      black: '#000000',
+      green: '#61E4B4',
+      grey: '#8998A8',
       greyblue: '#BECEE1',
-      white: '#FFFFFF',
       pink: '#E893AD',
-      grey: '#8998A8'
+      white: '#FFFFFF',
     },
     borderRadius: {
       DEFAULT: '80px',
@@ -27,22 +29,22 @@ module.exports = {
       animation: {
         'bounce-in': 'bounceIn 1s ease forwards',
         'bounce-out': 'bounceOut 1s ease forwards',
-        'unblur': 'unBlur 1s ease forwards',
-        'progressbargrow': 'progressBarGrow 8s ease forwards',
-        'linegrow': 'lineGrow 0.8s ease forwards',
-        'fromright': 'fromRight 1.5s ease forwards',
-        'fromrightpayement': 'fromRightPayement 2.5s ease forwards',
-        'fromleft': 'fromLeft 1.5s ease forwards',
-        'slideup': 'slideUp 1.5s ease forwards',
-        'opacityfadein': 'opacityFadeIn 1.5s ease forwards',
-        'opacityfadeout': 'opacityFadeOut 1.5s ease forwards',
-        'revealtext': 'revealText 1.5s cubic-bezier(0.7, 0, 0.3, 1) forwards',
-        'dollar-opacity':'dollarOpacity 0.5s ease forwards',
-        'fade-up-out':'fadeUpOut 0.5s ease forwards',
-        'fade-up-in':'fadeUpIn 0.5s ease forwards',
-        'fade-up-in2':'fadeUpIn2 0.5s ease forwards',
-        'fade-up-in3':'fadeUpIn3 0.5s ease forwards',
-        'scale-up':'scaleUp 6s ease forwards',
+        unblur: 'unBlur 1s ease forwards',
+        progressbargrow: 'progressBarGrow 8s ease forwards',
+        linegrow: 'lineGrow 0.8s ease forwards',
+        fromright: 'fromRight 1.5s ease forwards',
+        fromrightpayement: 'fromRightPayement 2.5s ease forwards',
+        fromleft: 'fromLeft 1.5s ease forwards',
+        slideup: 'slideUp 1.5s ease forwards',
+        opacityfadein: 'opacityFadeIn 1.5s ease forwards',
+        opacityfadeout: 'opacityFadeOut 1.5s ease forwards',
+        revealtext: 'revealText 1.5s cubic-bezier(0.7, 0, 0.3, 1) forwards',
+        'dollar-opacity': 'dollarOpacity 0.5s ease forwards',
+        'fade-up-out': 'fadeUpOut 0.5s ease forwards',
+        'fade-up-in': 'fadeUpIn 0.5s ease forwards',
+        'fade-up-in2': 'fadeUpIn2 0.5s ease forwards',
+        'fade-up-in3': 'fadeUpIn3 0.5s ease forwards',
+        'scale-up': 'scaleUp 6s ease forwards',
       },
       keyframes: {
         bounceIn: {
@@ -137,7 +139,7 @@ module.exports = {
           },
           '100%': {
             transform: 'translate3d(0, -100%, 0)',
-          }
+          },
         },
         opacityFadeIn: {
           '0%': {
@@ -145,7 +147,7 @@ module.exports = {
           },
           '100%': {
             opacity: 1,
-          }
+          },
         },
         opacityFadeOut: {
           '0%': {
@@ -153,11 +155,17 @@ module.exports = {
           },
           '100%': {
             opacity: 0,
-          }
+          },
         },
         revealText: {
-          '0%': { opacity: 0, transform: 'translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0)' },
-          '100%': { opacity: 1, transform: 'translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0)' }
+          '0%': {
+            opacity: 0,
+            transform: 'translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0)',
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0)',
+          },
         },
         dollarOpacity: {
           '0%': {
@@ -171,86 +179,85 @@ module.exports = {
           },
           '100%': {
             opacity: 1,
-          }
+          },
         },
         fadeUpOut: {
           '0%': {
             opacity: 1,
-            left: "-0px",
-            top: "-0px"
+            left: '-0px',
+            top: '-0px',
           },
           '100%': {
             opacity: 0,
-            left: "-25px",
-            top: "-25px"
-          }
+            left: '-25px',
+            top: '-25px',
+          },
         },
         fadeUpIn: {
           '0%': {
             opacity: 0,
-            left: "75px",
-            top: "75px"
+            left: '75px',
+            top: '75px',
           },
           '100%': {
             opacity: 1,
-            left: "50px",
-            top: "50px"
-          }
+            left: '50px',
+            top: '50px',
+          },
         },
         fadeUpIn2: {
           '0%': {
-            left: "50px",
-            top: "50px"
+            left: '50px',
+            top: '50px',
           },
           '100%': {
-            left: "25px",
-            top: "25px"
-          }
+            left: '25px',
+            top: '25px',
+          },
         },
         fadeUpIn3: {
           '0%': {
-            left: "25px",
-            top: "25px"
+            left: '25px',
+            top: '25px',
           },
           '100%': {
-            left: "0px",
-            top: "0px"
-          }
+            left: '0px',
+            top: '0px',
+          },
         },
         pinkRectangle1: {
           '0%': {
-            width: "0",
-            height: "0",
+            width: '0',
+            height: '0',
           },
           '100%': {
-            width: "584",
-            height: "100",
+            width: '584',
+            height: '100',
           },
         },
         pinkRectangle2: {
           '0%': {
-            transform: "rotate3d(0, 0, 1, 0)",
+            transform: 'rotate3d(0, 0, 1, 0)',
           },
           '100%': {
-            transform: "rotate3d(0, 0, 1, -2.6deg)",
+            transform: 'rotate3d(0, 0, 1, -2.6deg)',
           },
         },
         scaleUp: {
           '0%': {
-            transform: "scale3d(0, 0, 0)",
+            transform: 'scale3d(0, 0, 0)',
           },
           '10%': {
-            transform: "scale3d(1, 1, 1)",
+            transform: 'scale3d(1, 1, 1)',
           },
           '90%': {
-            transform: "scale3d(1, 1, 1)",
+            transform: 'scale3d(1, 1, 1)',
           },
           '100%': {
-            transform: "scale3d(0, 0, 0)",
+            transform: 'scale3d(0, 0, 0)',
           },
-        }
-      }
-
+        },
+      },
     },
   },
   variants: {

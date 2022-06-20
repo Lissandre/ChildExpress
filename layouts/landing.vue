@@ -8,8 +8,7 @@
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
 <style>
@@ -17,5 +16,14 @@ export default {
   max-width: 1920px;
   margin: 0 auto;
 }
-html{scroll-behavior:smooth}
+.neueBit {
+  font-family: 'NeueBit';
+}
+.roc {
+  font-family: 'roc-grotesk';
+}
+
+html {
+  scroll-behavior: smooth;
+}
 </style>

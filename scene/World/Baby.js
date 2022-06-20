@@ -40,14 +40,14 @@ export default class Baby {
           this.morphMeshes.push(node)
         }
       })
-      console.log(this.morphMeshes.length)
       if (this.morphMeshes.length) {
         this.morphMeshes.forEach((mesh) => {
           mesh.material.needsUpdate = true
 
           let i = 0
-          for (const [key, value] of Object.entries(mesh.morphTargetDictionary)) {
-            console.log(mesh.morphTargetDictionary)
+          for (const [key, value] of Object.entries(
+            mesh.morphTargetDictionary
+          )) {
             mesh.morphTargetInfluences[i] = 0
             const ctrl = this.debugFolder.addInput(
               mesh.morphTargetInfluences,
@@ -274,9 +274,7 @@ export default class Baby {
   }
 
   babyAppearForm4() {
-    console.log('appear')
-
-    var tl = gsap.timeline({ delay: 2 });
+    var tl = gsap.timeline({ delay: 2 })
 
     /*tl.fromTo(this.baby.position, { x: 0, y: 0, z: -2},{
       x: Math.sin(tl.progress() * Math.PI),
@@ -296,13 +294,10 @@ export default class Baby {
   }
 
   shrinkGlasses() {
-
-    console.log(this.morphMeshes[0].morphTargetInfluences)
-
     gsap.to(this.morphMeshes[0].morphTargetInfluences, {
       1: 0.8,
       duration: 2,
-      ease: Bounce.easeInOut
+      ease: Bounce.easeInOut,
     })
   }
 

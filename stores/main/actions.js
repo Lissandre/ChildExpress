@@ -19,7 +19,6 @@ export const actions = {
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeColor(id, newValue, step) {
-
     const color = this.colors.find((color) => color.id === id)
     color.value = newValue
     if (step != 'form1')
@@ -28,7 +27,6 @@ export const actions = {
   changeRadio(id, newValue, step) {
     const radio = this.radios.find((radio) => radio.id === id)
     radio.value = newValue
-    console.log(id, newValue, step)
     if (step == 'form2')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
@@ -37,17 +35,14 @@ export const actions = {
     text.value = newValue
   },
   changeCheckbox(id, newValue) {
-    console.log('here')
     const checkbox = this.checkboxs.find((checkbox) => checkbox.id === id)
     //if (checkbox.value === 0) checkbox.value = 1
     checkbox.value = newValue
-    console.log(checkbox.value)
 
     if (id === ('visionary' || 'silent' || 'independant' || 'clean'))
       this.$nuxt.$scene.world.baby.setXtras(id, newValue)
   },
   changeCounter(id, newValue, step) {
-    console.log(id, newValue)
     const counter = this.counters.find((counter) => counter.id === id)
     counter.value = newValue
     //if (step != 'form1')
@@ -57,27 +52,22 @@ export const actions = {
     this.newJob = value
   },
   changeRoundSlider(id, newValue, step) {
-    const roundSlider = this.roundSliders.find((roundSlider) => roundSlider.id === id)
+    const roundSlider = this.roundSliders.find(
+      (roundSlider) => roundSlider.id === id
+    )
     roundSlider.value = newValue
-    console.log('yes')
     // A DECOMMENTER LEITH
     // if (step != 'form1')
     //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeCurrentMoney(value) {
     this.currentMoney = value
-    console.log(this.currentMoney)
   },
   changeOverallSize(newValue) {
     this.overallSize = newValue
     this.$nuxt.$scene.world.baby.updateUniform('overallSize', newValue / 8)
-
   },
   changeBox(job, name, money, xtras, personality, iq, weight, height) {
-
-    console.log(money)
-    // // console.log(this.$scene.world.baby.updateUniform('test', "test"))
-    // console.log(this.$nuxt.$scene.world)
     if (this.$nuxt.$scene.world)
       this.$nuxt.$scene.world.box.createBox(
         job,

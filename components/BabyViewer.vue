@@ -75,7 +75,6 @@ export default {
       after(
         (result) => {
           this.currentForm = store.activeForm
-          console.log(this.currentForm)
         },
         { once: true }
       )
