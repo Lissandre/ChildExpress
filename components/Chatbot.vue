@@ -130,9 +130,29 @@ export default {
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   opacity: 0;
   transition: opacity ease-in 0.5s
+}
+
+.chatbot-comments::-webkit-scrollbar {
+  -webkit-overflow-scrolling: auto;
+  width: 6px;
+  right: 4px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.chatbot-comments::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #3D3D3B;
+  -webkit-box-shadow: 0 0 1px transparent;
+}
+
+.chatbot-comments::-webkit-scrollbar-track {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
 }
 
 .open {
