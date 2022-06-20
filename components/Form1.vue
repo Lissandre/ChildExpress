@@ -421,7 +421,6 @@ export default {
   width: 800px;
   height: 60%;
   max-height: 1200px;
-  min-height: 750px;
 }
 
 .first-slide-wrapper {
@@ -430,11 +429,12 @@ export default {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  min-height: 750px;
 }
 
 .second-slide-wrapper {
   width: 900px;
-  height: fit-content;
+  height: 600px;
   padding: 52px 63px;
 }
 

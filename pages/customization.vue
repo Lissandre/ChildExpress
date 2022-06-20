@@ -117,11 +117,15 @@ fieldset > input[type='submit'],
   );
   border-radius: 34px;
   position: relative;
+  transition: all ease 0.5s;
 }
 
 .tns-controls button:not(:disabled) {
   width: 27px;
   height: 27px;
+}
+.tns-controls button:not(:disabled):hover {
+  transform: scale3d(1.3,1.3,1.3);
 }
 
 .tns-controls button:disabled {

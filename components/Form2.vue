@@ -64,21 +64,23 @@ export default {
 
     this.soundEvents()
 
+    this.$nuxt.$scene.assets.on('ressourcesReady', () => {
+      this.$nuxt.$scene.init()
+    })
 
     this.store.$onAction(({ name, store, args, after, onError }) => {
       if (name != 'toggleIsFace') return
       after(
         (result) => {
-      if(store.face === 'face')
-        this.replaceContent('body', 'face')
-        else if(store.face === 'middle')
-        this.replaceContent('face', 'middle')
+          if (store.face === 'face') this.replaceContent('body', 'face')
+          else if (store.face === 'middle')
+            this.replaceContent('face', 'middle')
         },
         { once: true }
       )
     })
   },
-  
+
   methods: {
     changeRange(id, e) {
       this.store.changeRange(id, e.target.value)
@@ -105,12 +107,11 @@ export default {
     },
 
     replaceContent(oldClasslist, newClasslist) {
-      if(this.$refs.content) {
+      if (this.$refs.content) {
         this.$refs.content.classList.remove(oldClasslist)
         this.$refs.content.classList.add(newClasslist)
-
       }
-      },
+    },
     soundEvents() {
       requestAnimationFrame(() => {
         if ($nuxt)
@@ -118,46 +119,48 @@ export default {
       })
     },
     inputChange(type, name, value, optional) {
-      this.storeChange(type, name, value)
+      this.storeChange(type, name, value, 'form2')
 
-      if ((name === 'skin')) {
-
-        if(value.b < 150 && value.r > 150 && value.g > 150 )
+      if (name === 'skin') {
+        if (value.b < 150 && value.r > 150 && value.g > 150)
           $nuxt.$emit('updateSound', 'form2', type, name, 'small')
         else
           setInterval(() => {
-              $nuxt.$emit('updateSound', 'form2', type, name, 'different')
+            $nuxt.$emit('updateSound', 'form2', type, name, 'different')
           }, 9000)
         $nuxt.$emit('updateSound', 'form2', type, name, 'change')
       } else if (name === 'hairStyle') {
-          setTimeout(() => {
+        setTimeout(() => {
           $nuxt.$emit('updateSound', 'form2', type, name, 'different')
-          }, 5000)
+        }, 5000)
+      } else if (name === 'health' || name === 'scale') {
+          $nuxt.$emit('updateSound', 'form2', 'speech', name, 'speech1')
+          console.log(type, name, value)
         } else {
-        $nuxt.$emit('updateSound', 'form2', type, name, value)
-
+          $nuxt.$emit('updateSound', 'form2', type, name, value)
       }
     },
 
-    storeChange(type, name, value) {
-      if(name === 'overallSize') {
+    storeChange(type, name, value, step) {
+      if (name === 'overallSize') {
         value = value * 4
       }
-      if(name === 'scale') {
+      if (name === 'scale') {
         value = (value * 100).toFixed(0)
       }
-      this.$helpers.updateInput(type, name, value)
-    }
+
+      console.log(type, name, value, step)
+      this.$helpers.updateInput(type, name, value, step)
+    },
   },
 }
 </script>
 
 <style>
-
- .face.range input {
+.face.range input {
   display: block;
   margin: 12px auto;
-} 
+}
 .face .range-label {
   margin: 0 !important;
   text-align: center;
@@ -170,7 +173,6 @@ export default {
 </style>
 
 <style scoped>
-
 .videoList {
   display: flex;
   flex-direction: column;
@@ -191,7 +193,9 @@ video {
 .babyGraphic {
   width: 200px;
 }
-.face div, .body > div, .middle div {
+.face div,
+.body > div,
+.middle div {
   z-index: 2;
   position: absolute;
 }
