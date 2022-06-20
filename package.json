@@ -26,7 +26,6 @@
     "gsap": "^3.9.1",
     "howler": "^2.2.3",
     "nuxt": "^2.15.8",
-    "nuxt-webpack-optimisations": "^2.2.0",
     "pinia": "^2.0.13",
     "raw-loader": "^4.0.2",
     "three": "^0.139.2",

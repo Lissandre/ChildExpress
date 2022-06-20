@@ -6,7 +6,7 @@ export default class Baby {
     // Options
     this.time = options.time
     this.assets = options.assets
-    this.debug = options.debug
+    this.debug = false //options.debug
 
     // Set up
     this.container = new Object3D()
@@ -28,11 +28,13 @@ export default class Baby {
     }
 
     this.createBaby()
-    // this.modifyShader()
+    this.modifyShader()
+    this.container.add(this.baby)
     this.setMovement()
   }
   createBaby() {
     this.baby = this.assets.models.baby.scene.children[0]
+    console.log(this.assets.models, this.baby)
 
     if (this.debug) {
       this.morphMeshes = []
@@ -42,27 +44,27 @@ export default class Baby {
         }
       })
 
-      console.log(this.morphMeshes)
-
-      console.log(this.morphTargetDictionary)
 
       if (this.morphMeshes.length) {
         this.morphMeshes.forEach((mesh) => {
           mesh.material.needsUpdate = true
-          for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
+
+          let i = 0
+          for (const [key, value] of Object.entries(mesh.morphTargetDictionary)) {
             console.log(mesh.morphTargetDictionary)
-            mesh.morphTargetInfluences[i] = 1
+            mesh.morphTargetInfluences[i] = 0
             const ctrl = this.debugFolder.addInput(
               mesh.morphTargetInfluences,
               `${i}`,
               {
-                label: mesh.morphTargetDictionary[i],
+                label: key,
                 min: 0,
                 max: 1,
                 step: 0.01,
               }
             )
             this.morphCtrls.push(ctrl)
+            i++
           }
         })
       }
@@ -82,13 +84,13 @@ export default class Baby {
 
     this.baby.scale.set(1.5, 1.5, 1.5)
 
-    this.baby.children.forEach((bone) => {
-      bone.position.set(0, -0.5, 0)
-    })
-    this.baby.position.set(0, 0, -1)
+    // this.baby.children.forEach((bone) => {
+    //   bone.position.set(0, -0.5, 0)
+    // })
+    this.baby.position.set(0, -2, 0)
 
-    this.baby.children[2].material.metalness = 1
-    this.baby.children[3].material.metalness = 1
+    // this.baby.children[2].material.metalness = 1
+    // this.baby.children[3].material.metalness = 1
   }
 
   modifyShader() {
@@ -302,7 +304,7 @@ export default class Baby {
     return x === 0
       ? 0
       : x === 1
-      ? 1
-      : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
+        ? 1
+        : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1
   }
 }
