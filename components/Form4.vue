@@ -313,14 +313,14 @@ export default {
       setTimeout(() => {
         this.store.focusBin()
         $nuxt.$emit('updateSound', 'form4', 'text', 'bin')
-      }, 9000)
+      }, 11000)
       setTimeout(() => {
         this.$refs.content.classList.add('fadeToBlack')
         this.$refs.fade.classList.add('fadeToBlack')
-      }, 12000)
+      }, 14000)
       setTimeout(() => {
         this.redirectToEnd()
-      }, 15000)
+      }, 17000)
     },
 
     redirectToEnd() {
