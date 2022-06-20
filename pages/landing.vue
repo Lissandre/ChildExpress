@@ -947,6 +947,7 @@ section {
 .text-pink svg {
   top: -35%;
   right: -5%;
+  width: 110%;
 }
 
 .whiteRectangle {

@@ -19,9 +19,9 @@ export const actions = {
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeColor(id, newValue, step) {
+
     const color = this.colors.find((color) => color.id === id)
     color.value = newValue
-    console.log(color.value)
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
@@ -70,7 +70,7 @@ export const actions = {
   },
   changeOverallSize(newValue) {
     this.overallSize = newValue
-    this.$nuxt.$scene.world.baby.updateUniform('overallSize', newValue)
+    this.$nuxt.$scene.world.baby.updateUniform('overallSize', newValue / 8)
 
   },
   changeBox(job, name, money, xtras, personality, iq, weight, height) {

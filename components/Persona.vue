@@ -114,13 +114,8 @@ export default {
     this.personaBody = document.querySelector('.persona_body')
     this.personaFace = document.querySelector('.persona_face')
 
+      this.currentFocus = this.store.face
     this.changeFocus()
-
-    this.store.$subscribe((mutation, state) => {
-      this.currentFocus = state.face
-
-      this.changeFocus()
-    })
   },
   methods: {
     changeFocus() {

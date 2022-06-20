@@ -1,4 +1,4 @@
-import { Object3D, RepeatWrapping, Vector2, Vector3 } from 'three'
+import { Object3D, RepeatWrapping, Vector3 } from 'three'
 import gsap, { Power3, Bounce } from 'gsap'
 
 export default class Baby {
@@ -28,7 +28,7 @@ export default class Baby {
     }
 
     this.createBaby()
-    this.modifyShader()
+    // this.modifyShader()
     this.container.add(this.baby)
     this.setMovement()
   }
@@ -45,8 +45,7 @@ export default class Baby {
           this.morphMeshes.push(node)
         }
       })
-
-
+      console.log(this.morphMeshes.length)
       if (this.morphMeshes.length) {
         this.morphMeshes.forEach((mesh) => {
           mesh.material.needsUpdate = true
@@ -276,7 +275,6 @@ export default class Baby {
   }
   setXtras() {
     console.log('setXtras')
-
     if (this.morphMeshes.length) {
       this.morphMeshes.forEach((mesh) => {
         for (let i = 0; i < mesh.morphTargetInfluences.length; i++) {
@@ -288,12 +286,23 @@ export default class Baby {
 
   babyAppearForm4() {
     console.log('appear')
-    gsap.to(this.baby.position, {
-      x: 0,
+
+    var tl = gsap.timeline({ delay: 2 });
+
+    /*tl.fromTo(this.baby.position, { x: 0, y: 0, z: -2},{
+      x: Math.sin(tl.progress() * Math.PI),
       y: 0,
-      z: -1,
+      z: Math.cos(tl.progress() * Math.PI) * 2,
       duration: 2,
-      ease: Bounce.easeInOut
+      ease: Power3.easeIn
+    })*/
+
+    tl.fromTo(this.baby.rotation, { x: 0, y: 0, z: 0 }, {
+      x: 0,
+      y: Math.PI * 2,
+      z: 0,
+      duration: 2,
+      ease: Power3.easeInOut
     })
   }
 

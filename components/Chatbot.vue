@@ -1,5 +1,5 @@
 <template>
-  <div class="chatbot-wrapper h-full w-full">
+  <div class="chatbot-wrapper h-fit w-fit">
 
     <div class="chatbot-logo" @click="toggle"></div>
     <div class="chatbot-comments open" ref="comments" id="comments"></div>
@@ -105,6 +105,7 @@ export default {
 <style>
 
 .chatbot-wrapper {
+  background: black;
   }
 .chatbot-logo{
   position: fixed;
@@ -130,9 +131,33 @@ export default {
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   opacity: 0;
-  transition: opacity ease-in 0.5s
+  transition: opacity ease-in 0.5s;
+  border-radius: 30px;
+  padding: 25px;
+  background: #222;
+  max-height: 80%;
+}
+
+.chatbot-comments::-webkit-scrollbar {
+  -webkit-overflow-scrolling: auto;
+  width: 6px;
+  right: 4px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.chatbot-comments::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #3D3D3B;
+  -webkit-box-shadow: 0 0 1px transparent;
+}
+
+.chatbot-comments::-webkit-scrollbar-track {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
 }
 
 .open {
@@ -155,7 +180,6 @@ export default {
   font-family: 'NeueBit';
   font-size: 26px;
   padding: 30px 50px;
-  backdrop-filter: blur(20px);
   box-shadow: inset 0 12px 20px rgba(255, 255, 255, 0.35), inset -6px -4.5px 6.5px rgba(255, 255, 255, 0.35);
   border-radius: 40px;
   width: fit-content;
@@ -169,7 +193,6 @@ export default {
 
 .chatbot-image {
   padding: 30px 50px;
-  backdrop-filter: blur(20px);
   box-shadow: inset 0 12px 20px rgba(255, 255, 255, 0.35), inset -6px -4.5px 6.5px rgba(255, 255, 255, 0.35);
   border-radius: 40px;
   width: fit-content;
