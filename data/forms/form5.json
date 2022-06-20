@@ -1,24 +1,14 @@
 {
   "inputs": {
-    "submitBin": {
+    "submit": {
       "locales": {
-        "fr": "Abandonner",
-        "en": "Drop"
+        "fr": "Recevoir mon bébé",
+        "en": "Ship my baby"
       },
       "type": "submit",
-      "name": "submitBin",
+      "name": "submitFinal",
       "component": "InputSubmit",
-      "class": "neueBit submit-bin hover:shadow-hoverStateNone hover:bg-white hover:text-grey transition "
-    },
-    "submitChild": {
-      "locales": {
-        "fr": "Valider",
-        "en": "Submit"
-      },
-      "type": "submit",
-      "name": "submitChild",
-      "component": "InputSubmit",
-      "class": "neueBit submit-child"
+      "class": "neueBit submitFinal transition animate-opacityfadein"
     }
   }
 }
