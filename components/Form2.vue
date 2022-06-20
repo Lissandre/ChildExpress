@@ -148,6 +148,8 @@ export default {
       if (name === 'scale') {
         value = (value * 100).toFixed(0)
       }
+
+      console.log(type, name, value)
       this.$helpers.updateInput(type, name, value)
     },
   },

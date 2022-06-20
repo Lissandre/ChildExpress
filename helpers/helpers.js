@@ -15,6 +15,7 @@ export default class Helpers {
         )
         break
       case 'color':
+        console.log(this.store.constants[name.toUpperCase()])
         this.store.changeColor(
           this.store.constants[name.toUpperCase()],
           value,

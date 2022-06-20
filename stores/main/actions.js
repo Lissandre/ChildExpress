@@ -19,8 +19,10 @@ export const actions = {
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeColor(id, newValue, step) {
+
     const color = this.colors.find((color) => color.id === id)
     color.value = newValue
+    console.log(id, newValue, step)
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },

@@ -116,6 +116,8 @@ export default class App {
     })
     // Add world to scene
     this.scene.add(this.world.container)
+
+    this.camera.camera.add(this.world.light.container)
   }
   setBackgroundShader() {
     this.plane = new Plane({
