@@ -22,6 +22,7 @@
     "@pinia/nuxt": "^0.1.8",
     "@tweakpane/plugin-camerakit": "^0.2.1",
     "@tweakpane/plugin-essentials": "^0.1.4",
+    "axios": "^0.27.2",
     "core-js": "^3.19.3",
     "express": "^4.18.1",
     "file-loader": "^6.2.0",

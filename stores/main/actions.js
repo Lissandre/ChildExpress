@@ -133,27 +133,20 @@ export const actions = {
       }
     })
 
-    const data = JSON.stringify({
-      parent: { database_id: 'ac8c6a801c3d4f5a80136c862373545d' },
-      properties: properties.properties,
-    })
+    // const data = JSON.stringify({
+    //   parent: { database_id: 'ac8c6a801c3d4f5a80136c862373545d' },
+    //   properties: properties.properties,
+    // })
 
-    console.log(data)
-    this.$nuxt.$axios.setToken(
-      'secret_ytJwjM4cSGKzFFG6hZNMjMWMYqVYOfGW82xLJAZVzdE',
-      'Bearer'
-    )
-    this.$nuxt.$axios.setHeader(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept'
-    )
-    this.$nuxt.$axios.$post('/api/pages/', data, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization:
-          'Bearer secret_ytJwjM4cSGKzFFG6hZNMjMWMYqVYOfGW82xLJAZVzdE',
-        'Notion-Version': '2022-02-22',
-      },
-    })
+    // console.log(data
+    // this.$nuxt.$axios.setToken(
+    //   'secret_ytJwjM4cSGKzFFG6hZNMjMWMYqVYOfGW82xLJAZVzdE',
+    //   'Bearer'
+    // )
+    // this.$nuxt.$axios.setHeader(
+    //   'Access-Control-Allow-Headers',
+    //   'Origin, X-Requested-With, Content-Type, Accept'
+    // )
+    this.$nuxt.$axios.$post('/api/pages/', properties)
   },
 }

@@ -4,7 +4,7 @@ import { addBabyRequest } from './lib/notion'
 const app = express()
 app.use(express.json())
 
-app.post('/request-project', async (req, res) => {
+app.post('/pages/', async (req, res) => {
   const body = req.body
 
   await addBabyRequest(body)
