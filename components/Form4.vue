@@ -137,7 +137,7 @@ export default {
         { id: 'clean' },
         { id: 'visionary' },
       ],
-      xtrasToPlay: [],
+      xtrasToPlay: [{id: 'silent', value: 'silent'}],
       splittedXtra: [],
     }
   },
@@ -244,12 +244,16 @@ export default {
 
     getExtras() {
       this.xtras.forEach((xtra) => {
+        console.log(xtra)
         if (this.store.getXtras(xtra.id) === 1) {
+          console.log('pass', xtra)
           this.xtrasToPlay.push({
             id: xtra.id,
             value: this.store.getXtras(xtra.id),
           })
         }
+
+        this.xtrasToPlay
       })
 
       this.xtrasToPlay.forEach((xtra) => this.getSplittedExtra(xtra.id))
