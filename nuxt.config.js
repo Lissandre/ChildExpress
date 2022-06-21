@@ -45,7 +45,7 @@ export default {
     // proxy: true,
     debug: true,
     credentials: true,
-    // baseURL: '/',
+    baseURL: '/',
     // headers: {
     //   common: {
     //     Authorization: `Bearer ${process.env.TOKEN}`,
