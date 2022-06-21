@@ -7,8 +7,6 @@
 </template>
 
 <script>
-
-import gsap from 'gsap'
 export default {
   name: 'Chatbot',
   nuxtI18n: {
@@ -114,7 +112,7 @@ export default {
   width: 200px;
   height: 200px;
   background: no-repeat center center url('@/assets/images/chatbot.png');
-  z-index: 2;
+  z-index: 20;
   transform: scale3d(0.75, 0.75, 0.75);
   cursor: pointer;
 }

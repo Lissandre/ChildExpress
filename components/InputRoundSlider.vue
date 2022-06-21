@@ -214,7 +214,7 @@ export default {
 
 .IQvalue {
   color: black;
-  font-size: 32px;
+  font-size: 42px;
   position: absolute;
   left: 50%;
   top: 50%;

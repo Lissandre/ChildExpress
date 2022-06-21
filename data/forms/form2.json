@@ -1,18 +1,18 @@
 {
   "inputs": {
-    "hairLength": {
+    "hair": {
       "locales": {
         "fr": "",
         "en": ""
       },
       "type": "range",
-      "name": "hairLength",
+      "name": "hair",
       "component": "InputRange",
       "value": 0.5,
       "from": 0,
       "to": 1,
       "step": 0.01,
-      "class": "range face hairLength"
+      "class": "range face hair"
     },
     "earsSize": {
       "locales": {
@@ -100,19 +100,19 @@
       "step": 0.01,
       "class": "range face eyeSize"
     },
-    "eye_squint": {
+    "eyesHeight": {
       "locales": {
         "fr": "",
         "en": ""
       },
       "type": "range",
-      "name": "eye_squint",
+      "name": "eyesHeight",
       "component": "InputRange",
       "value": 0.5,
       "from": 0,
       "to": 1,
       "step": 0.01,
-      "class": "range face eyesSquint"
+      "class": "range face eyesHeight"
     },
 
     "handsSize": {

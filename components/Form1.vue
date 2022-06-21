@@ -107,6 +107,7 @@
         </div>
       </div>
     </form>
+    <div class="fadewhite" ref="fadewhite"></div>
   </div>
 </template>
 
@@ -115,6 +116,7 @@ import { useStore } from '@/stores/'
 import form1 from '@/data/forms/form1.json'
 import slugify from 'slugify'
 import files from '~/locales/en'
+import gsap from 'gsap'
 
 let tinySlider = null
 
@@ -137,6 +139,11 @@ export default {
   },
   mounted() {
     this.inputs = form1.inputs
+
+    gsap.to(this.$refs.fadewhite, {
+        opacity: 0,
+        duration: 1
+    })
 
     this.slider = tinySlider.tns({
       container: '.my-slider',
@@ -443,5 +450,15 @@ video {
   transform: scale3d(0, 0, 0);
   mix-blend-mode: screen;
   z-index: 2;
+}
+.fadewhite {
+  z-index: 10000;
+  opacity: 0;
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
 }
 </style>

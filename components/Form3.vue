@@ -64,14 +64,14 @@
     </form>
 
     <div class="fieldJob absolute top-2/4 z-[1]" style="left: 15%">
-      <p class="text-5xl text-white font-semibold roc" v-if="newJob === 'none'">
+      <p class="text-5xl text-white font-semibold roc job" v-if="newJob === 'none'">
         {{ splitJob($t(`job.${this.newJob}`), true) }}
         <span class="text-3xl neueBit block">{{
           splitJob($t(`job.${this.newJob}`), false)
         }}</span>
       </p>
       <p
-        class="text-5xl text-white font-semibold roc"
+        class="text-5xl text-white font-semibold roc job"
         v-else-if="newJob !== 'none' && jobs.length > 3"
       >
         {{ splitJob($t(`job.${this.newJob}`), true) }}
@@ -79,7 +79,7 @@
           splitJob($t(`job.${this.newJob}`), false)
         }}</span>
       </p>
-      <p class="text-5xl text-white font-semibold roc" v-else>
+      <p class="text-5xl text-white font-semibold roc job" v-else>
         {{ splitJob($t(`job.${this.newJob}`), true) }}
         <span class="text-3xl neueBit block">{{
           splitJob($t(`job.${this.newJob}`), false)
@@ -327,6 +327,10 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 }
 .personality4 {
   top: 70%;
+}
+
+.job {
+  text-shadow: #aaa 1px 0 10px;
 }
 
 .xtra_wrapper {

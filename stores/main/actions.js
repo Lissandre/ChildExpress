@@ -15,6 +15,8 @@ export const actions = {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
 
+    if((id === 'hair' || id === 'mouthWidth' | id === 'eyesHeight') && step != 'form1')
+      this.$nuxt.$scene.world.baby.updateOneBlend(id, newValue)
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
@@ -49,8 +51,8 @@ export const actions = {
   changeCounter(id, newValue, step) {
     const counter = this.counters.find((counter) => counter.id === id)
     counter.value = newValue
-    //if (step != 'form1')
-    //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    if (step != 'form1')
+    this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeJob(value) {
     this.newJob = value

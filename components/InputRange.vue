@@ -452,11 +452,11 @@ export default {
   width: 50px;
   height: 50px;
 }
-.hairLength::before {
+.hair::before {
   content: '';
   background: no-repeat center center url('@/assets/images/icons/hairLengthLittle.png');
 }
-.hairLength::after {
+.hair::after {
   content: '';
   background: no-repeat center center url('@/assets/images/icons/hairLengthBig.png');
 }
@@ -472,20 +472,20 @@ export default {
 
 .eyeSize::before {
   content: '';
-  background: no-repeat center center url('@/assets/images/icons/eyeSizeLittle.png');
+  background: no-repeat center center url('@/assets/images/icons/eyeSizeBig.png');
 }
 .eyeSize::after {
   content: '';
-  background: no-repeat center center url('@/assets/images/icons/eyeSizeBig.png');
+  background: no-repeat center center url('@/assets/images/icons/eyeSizeLittle.png');
 }
 
-.eyesSquint::before {
+.eyesHeight::before {
   content: '';
-  background: no-repeat center center url('@/assets/images/icons/eyesSquintLittle.png');
+  background: no-repeat center center url('@/assets/images/icons/eyesHeightLittle.png');
 }
-.eyesSquint::after {
+.eyesHeight::after {
   content: '';
-  background: no-repeat center center url('@/assets/images/icons/eyesSquintBig.png');
+  background: no-repeat center center url('@/assets/images/icons/eyesHeightBig.png');
 }
 
 .noseHeight::before {

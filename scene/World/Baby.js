@@ -353,44 +353,100 @@ export default class Baby {
     })
   }
 
+  updateOneBlend(id, value) {
+    console.log(id, value)
+
+    if(id === 'mouthWidth') {
+      const blend1 = this.findOneBlend('L_mouth_L')
+      const blend2 = this.findOneBlend('R_mouth_R')
+
+
+      console.log(blend1, blend2)
+      gsap.to(this.morphMeshes[0].morphTargetInfluences, {
+        [blend1]: 1 - value,
+        [blend2]: 1 - value,
+        duration: 1,
+        ease: Power3.easeOut,
+      })
+
+    } else if (id === 'eyesHeight') {
+      const blend1 = this.findOneBlend('L_eye_squint')
+      const blend2 = this.findOneBlend('L_oeil_squit_down')
+      const blend3 = this.findOneBlend('R_eye_squint')
+      const blend4 = this.findOneBlend('R_eye_squint_down')
+      
+      gsap.to(this.morphMeshes[0].morphTargetInfluences, {
+        [blend1]: 1 - value,
+        [blend2]: 1 - value,
+        [blend3]: 1 - value,
+        [blend4]: 1 - value,
+        duration: 1,
+        ease: Power3.easeOut,
+      })
+    } else {
+      const blend1 = this.findOneBlend(id)
+      
+      gsap.to(this.morphMeshes[0].morphTargetInfluences, {
+        [blend1]: 1 - value,
+        duration: 1,
+        ease: Power3.easeOut,
+      })
+    }
+  }
+
+  findOneBlend(id) {
+    console.log(id)
+    console.log(this.morphMeshes[0].morphTargetDictionary)
+    console.log(this.morphMeshes[0].morphTargetDictionary[id])
+    if (this.morphMeshes) {
+      console.log('uyes')
+      if (this.morphMeshes[0].morphTargetDictionary.hasOwnProperty(id)) {
+          console.log('uyes2')
+          return this.morphMeshes[0].morphTargetDictionary[id]
+        }
+      }
+    }
+
   updateBlendShapes(id, newValue) {
     console.log(id, newValue)
     const blendShapestoChange = []
     if (newValue > 1) this.inversed = 1 - newValue
     switch (id) {
       case 'eloquentHonest':
-        blendShapestoChange.push('L_mouth_L', 'R_mouth_R')
-        this.findBlendShapes(blendShapestoChange, newValue, false)
+        blendShapestoChange.push({ id:'L_mouth_corner_L', inversed: true}, { id:'R_eyebrow_what', inversed: true}, { id:'L_mouth_L', inversed: true}, { id:'R_mouth_R', inversed: true})
+        this.findBlendShapes(blendShapestoChange, newValue)
         break;
       case 'creativeLogic':
-        blendShapestoChange.push('hair')
-        this.findBlendShapes(blendShapestoChange, newValue, true)
+        blendShapestoChange.push({ id:'hair', inversed: false})
+        this.findBlendShapes(blendShapestoChange, newValue)
         break;
       case 'courageousGreedy':
         break;
       case 'hyperactiveSensitive':
+        blendShapestoChange.push({ id:'hyperactive', inversed: false }, { id:'L_mouth_down', inversed: false }, { id:'R_mouth_down', inversed: false }, { id:'L_eyebrow_sad', inversed: false }, { id:'R_eyebrow_sad', inversed: false })
+        this.findBlendShapes(blendShapestoChange, newValue)
+
         break;
     }
   }
 
-  findBlendShapes(blendShapestoChange, value, inversed) {
+  findBlendShapes(blendShapestoChange, value) {
     this.blendShapesId = []
     if (blendShapestoChange && this.morphMeshes) {
       blendShapestoChange.forEach((blend) => {
-        if (this.morphMeshes[0].morphTargetDictionary.hasOwnProperty(blend)) {
-          this.blendShapesId.push(this.morphMeshes[0].morphTargetDictionary[blend])
+        if (this.morphMeshes[0].morphTargetDictionary.hasOwnProperty(blend.id)) {
+          this.blendShapesId.push({ id: this.morphMeshes[0].morphTargetDictionary[blend.id], inversed: blend.inversed })
         }
       })
     }
 
 
-    this.changeBlendShapes(this.blendShapesId, value, inversed)
+    this.changeBlendShapes(this.blendShapesId, value)
   }
-  changeBlendShapes(blendShapesId, value, inversed) {
+  changeBlendShapes(blendShapesId, value) {
     blendShapesId.forEach((blend) => {
-      const current = this.morphMeshes[0].morphTargetInfluences
-      gsap.to(current, {
-        [blend]: inversed ? value : 1 - value,
+      gsap.to(this.morphMeshes[0].morphTargetInfluences, {
+        [blend.id]: blend.inversed ? 1 - value : value,
         duration: 1,
         ease: Power3.easeOut,
       })

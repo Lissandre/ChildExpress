@@ -1,5 +1,5 @@
 <template>
-  <div class="container overflow-x-hidden text-black roc">
+  <div class="container overflow-x-hidden text-black roc relative">
     <section
       id="0"
       class="min-h-screen flex flex-col items-center justify-center px-8"
@@ -82,14 +82,25 @@
             <span class="font-light text-2xl">{{
               $t('landing.subtitle')
             }}</span>
-            <nuxt-link
-              :to="localePath('customization')"
+            <button
+              @click="redirect"
               class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
-              >{{ $t('landing.create_child') }}</nuxt-link
             >
+              {{ $t('landing.create_child') }}
+            </button>
           </div>
           <div
-            class="h-48 w-48 flex justify-center items-center rounded-full overflow-hidden limited neue"
+            class="
+              h-48
+              w-48
+              flex
+              justify-center
+              items-center
+              rounded-full
+              overflow-hidden
+              limited
+              neue
+            "
           >
             <span class="block">{{ $t('landing.limited') }}</span>
           </div>
@@ -156,11 +167,12 @@
           />
         </div>
       </div>
-      <nuxt-link
-        :to="localePath('customization')"
+      <button
+        @click="redirect"
         class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
-        >{{ $t('landing.wants_mine') }}</nuxt-link
       >
+        {{ $t('landing.wants_mine') }}
+      </button>
     </section>
     <section
       id="2"
@@ -283,11 +295,12 @@
           </div>
         </div>
       </div>
-      <nuxt-link
-        :to="localePath('customization')"
+      <button
+        @click="redirect"
         class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
-        >{{ $t('landing.more') }}</nuxt-link
       >
+        {{ $t('landing.more') }}
+      </button>
     </section>
     <section
       id="3"
@@ -338,7 +351,17 @@
           </div>
         </div>
         <div
-          class="w-6/12 h-full flex rounded-lg absolute right-0 top-1/4 bg-white neue"
+          class="
+            w-6/12
+            h-full
+            flex
+            rounded-lg
+            absolute
+            right-0
+            top-1/4
+            bg-white
+            neue
+          "
           ref="DNA"
         >
           <div class="pl-20 py-16">
@@ -388,11 +411,22 @@
             {{ $t('landing.premium') }}
           </h3>
           <span class="text-5xl mb-16 text-center neueBit">$$$<br />$$</span>
-          <nuxt-link
-            :to="localePath('customization')"
-            class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
-            >{{ $t('landing.discover') }}</nuxt-link
+          <button
+            @click="redirect"
+            class="
+              font-bold
+              text-3xl
+              px-8
+              py-4
+              rounded-full
+              neue
+              translate-y-1/2
+              bgo
+              neueBit
+            "
           >
+            {{ $t('landing.discover') }}
+          </button>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -497,7 +531,14 @@
             {{ $t('landing.satisfaction_percent') }}
           </h2>
           <h3
-            class="text-3xl font-bold text-left mb-12 whitespace-pre-line max-w-[300px]"
+            class="
+              text-3xl
+              font-bold
+              text-left
+              mb-12
+              whitespace-pre-line
+              max-w-[300px]
+            "
           >
             {{ $t('landing.satisfaction_text') }}
           </h3>
@@ -535,7 +576,11 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
+                    <img
+                      src="@/assets/images/landing_debut/etoiles.png"
+                      alt=""
+                      class=""
+                    />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_1_comment') }}</p>
@@ -559,7 +604,11 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
+                    <img
+                      src="@/assets/images/landing_debut/etoiles.png"
+                      alt=""
+                      class=""
+                    />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_2_comment') }}</p>
@@ -583,7 +632,11 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
+                    <img
+                      src="@/assets/images/landing_debut/etoiles.png"
+                      alt=""
+                      class=""
+                    />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_3_comment') }}</p>
@@ -592,18 +645,30 @@
           </ul>
         </div>
       </div>
-      <nuxt-link
-        :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue mt-[100px] neueBit"
-        >{{ $t('landing.jump') }}</nuxt-link
+      <button
+        @click="redirect"
+        class="
+          font-bold
+          text-3xl
+          px-8
+          py-4
+          rounded-full
+          neue
+          mt-[100px]
+          neueBit
+        "
       >
+        {{ $t('landing.jump') }}
+      </button>
     </section>
+
+    <div class="fadewhite" ref="fadewhite"></div>
   </div>
 </template>
 
 <script>
 import Background from '~/components/Background.vue'
-import { Power3 } from 'gsap'
+import gsap, { Power3 } from 'gsap'
 // import { ScrollTrigger } from "this.$gsap/dist/ScrollTrigger";
 
 export default {
@@ -623,6 +688,16 @@ export default {
   methods: {
     //this.moveCarousel()
 
+    redirect() {
+      console.log('yes')
+      gsap.to(this.$refs.fadewhite, {
+        opacity: 1,
+        duration: 1
+      }).then(() => {
+        if (this.$i18n.locale === 'fr') this.$router.push('/fr/videointro')
+      else this.$router.push('/en/videointro')
+      })
+    },
     moveCarousel() {
       //const clients = this.$el.querySelectorAll('.client')
 
@@ -1140,6 +1215,17 @@ section {
 .Title-line {
   display: inline-block;
   opacity: 1;
+}
+
+.fadewhite {
+  z-index: 10000;
+  opacity: 0;
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
 }
 </style>
 
