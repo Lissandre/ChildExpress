@@ -1047,7 +1047,7 @@ button.neue:not(.bgo):hover {
   display: flex;
   flex-direction: row;
   transition: all ease 0.5s;
-  width: 800px;
+  width: 820px;
   filter: drop-shadow(-3px -5px 17px rgba(255, 255, 255, 0.9))
     drop-shadow(9px 25px 30px rgba(110, 143, 242, 0.4));
 }
