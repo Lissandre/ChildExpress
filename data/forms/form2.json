@@ -160,7 +160,7 @@
         "en": "Overall Size"
       },
       "type": "counter",
-      "name": "weight",
+      "name": "overallSize",
       "component": "InputCounter",
       "value": 4,
       "length": 3,

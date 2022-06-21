@@ -3,14 +3,14 @@
   "range_earssize": "",
   "range_mouthsize": "",
   "range_mouthwidth": "",
-  "range_nosesize": "Taille du nez",
+  "range_nosesize": "",
   "range_noseheight": "",
   "range_eyesize": "",
   "range_eyesheight": "",
   "range_handssize": "",
   "range_scale": "",
   "roundslider_health": "",
-  "counter_weight": "Taille Globale",
+  "counter_overallsize": "Taille Globale",
   "radio_haircolor": {
     "labelMiddle": "Cheveux"
   },

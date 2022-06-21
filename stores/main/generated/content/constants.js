@@ -29,7 +29,7 @@ export default {
   EYESHEIGHT: 'eyesHeight',
   HANDSSIZE: 'handsSize',
   SCALE: 'scale',
-  WEIGHT: 'weight',
+  OVERALLSIZE: 'overallSize',
   HAIRCOLOR: 'hairColor',
   EYESCOLOR: 'eyesColor',
   SKIN: 'skin',

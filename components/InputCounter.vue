@@ -54,7 +54,7 @@ export default {
         this.counterValue--
       }
 
-      if(this.input.name === 'overallSize') {
+      if(this.input.name === 'weight') {
         this.store.changeOverallSize(this.counterValue)
       }
       this.$emit(
