@@ -84,7 +84,7 @@
             }}</span>
             <nuxt-link
               :to="localePath('customization')"
-              class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
+              class="font-bold text-3xl px-16 py-4 rounded-full neue neueBit"
               >{{ $t('landing.create_child') }}</nuxt-link
             >
           </div>
@@ -158,7 +158,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
+        class="font-bold text-3xl px-16 py-4 rounded-full neue neueBit"
         >{{ $t('landing.wants_mine') }}</nuxt-link
       >
     </section>
@@ -285,7 +285,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue neueBit"
+        class="font-bold text-3xl px-16 py-4 rounded-full neue neueBit"
         >{{ $t('landing.more') }}</nuxt-link
       >
     </section>
@@ -338,7 +338,7 @@
           </div>
         </div>
         <div
-          class="w-6/12 h-full flex rounded-lg absolute right-0 top-1/4 bg-white neue"
+          class="w-6/12 h-full flex rounded-lg absolute right-0 top-1/4 bg-white-800 neue"
           ref="DNA"
         >
           <div class="pl-20 py-16">
@@ -390,7 +390,7 @@
           <span class="text-5xl mb-16 text-center neueBit">$$$<br />$$</span>
           <nuxt-link
             :to="localePath('customization')"
-            class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
+            class="font-bold text-3xl px-16 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
             >{{ $t('landing.discover') }}</nuxt-link
           >
         </div>
@@ -496,21 +496,19 @@
           <h2 class="text-7xl font-bold uppercase">
             {{ $t('landing.satisfaction_percent') }}
           </h2>
-          <h3
-            class="text-3xl font-bold text-left mb-12 whitespace-pre-line max-w-[300px]"
-          >
+          <h3 class="text-3xl font-bold text-left mb-12 max-w-[300px]">
             {{ $t('landing.satisfaction_text') }}
           </h3>
           <img
             src="@/assets/images/landing_debut/solarsystem.svg"
             alt=""
             class="top-0 absolute"
-            style="transform: translate(-20%, -20%)"
+            style="transform: translate(-20%, -10%)"
           />
           <img
             src="@/assets/images/landing_debut/stickers_love.png"
             alt=""
-            class="w-1/2 -translate-y-1/3 absolute translate-x-2/3"
+            class="w-1/2 -translate-y-1/2 absolute translate-x-2/3"
             ref="love"
           />
         </div>
@@ -535,7 +533,11 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
+                    <img
+                      src="@/assets/images/landing_debut/etoiles.png"
+                      alt=""
+                      class=""
+                    />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_1_comment') }}</p>
@@ -559,7 +561,11 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
+                    <img
+                      src="@/assets/images/landing_debut/etoiles.png"
+                      alt=""
+                      class=""
+                    />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_2_comment') }}</p>
@@ -583,7 +589,11 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
+                    <img
+                      src="@/assets/images/landing_debut/etoiles.png"
+                      alt=""
+                      class=""
+                    />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_3_comment') }}</p>
@@ -594,7 +604,7 @@
       </div>
       <nuxt-link
         :to="localePath('customization')"
-        class="font-bold text-3xl px-8 py-4 rounded-full neue mt-[100px] neueBit"
+        class="font-bold text-3xl px-16 py-4 rounded-full neue mt-[100px] neueBit"
         >{{ $t('landing.jump') }}</nuxt-link
       >
     </section>
@@ -1165,7 +1175,7 @@ section {
 .typed-write::after {
   content: '';
   background: #e893ad;
-  width: 3px;
+  width: 1px;
   height: 5rem;
   position: absolute;
   bottom: 3.2rem;
