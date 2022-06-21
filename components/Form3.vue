@@ -64,7 +64,10 @@
     </form>
 
     <div class="fieldJob absolute top-2/4 z-[1]" style="left: 15%">
-      <p class="text-5xl text-white font-semibold roc job" v-if="newJob === 'none'">
+      <p
+        class="text-5xl text-white font-semibold roc job"
+        v-if="newJob === 'none'"
+      >
         {{ splitJob($t(`job.${this.newJob}`), true) }}
         <span class="text-3xl neueBit block">{{
           splitJob($t(`job.${this.newJob}`), false)
@@ -407,8 +410,8 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 .progress-bar-container {
   margin: 50px 0px;
   position: absolute; /* relative here */
-  height: 30px;
-  border-radius: 34px;
+  height: 20px;
+  border-radius: 10px;
   bottom: 10%;
   left: 50%;
   transform: translate3d(-50%, 0, 0);

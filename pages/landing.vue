@@ -1,5 +1,5 @@
 <template>
-  <div class="container overflow-x-hidden text-black roc relative">
+  <div class="container overflow-x-hidden text-black roc relative land">
     <section
       id="0"
       class="min-h-screen flex flex-col items-center justify-center px-8"
@@ -90,17 +90,7 @@
             </button>
           </div>
           <div
-            class="
-              h-48
-              w-48
-              flex
-              justify-center
-              items-center
-              rounded-full
-              overflow-hidden
-              limited
-              neue
-            "
+            class="h-48 w-48 flex justify-center items-center rounded-full overflow-hidden limited neue"
           >
             <span class="block">{{ $t('landing.limited') }}</span>
           </div>
@@ -351,17 +341,7 @@
           </div>
         </div>
         <div
-          class="
-            w-6/12
-            h-full
-            flex
-            rounded-lg
-            absolute
-            right-0
-            top-1/4
-            bg-white
-            neue
-          "
+          class="w-6/12 h-full flex rounded-lg absolute right-0 top-1/4 bg-white neue"
           ref="DNA"
         >
           <div class="pl-20 py-16">
@@ -413,17 +393,7 @@
           <span class="text-5xl mb-16 text-center neueBit">$$$<br />$$</span>
           <button
             @click="redirect"
-            class="
-              font-bold
-              text-3xl
-              px-8
-              py-4
-              rounded-full
-              neue
-              translate-y-1/2
-              bgo
-              neueBit
-            "
+            class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
           >
             {{ $t('landing.discover') }}
           </button>
@@ -531,14 +501,7 @@
             {{ $t('landing.satisfaction_percent') }}
           </h2>
           <h3
-            class="
-              text-3xl
-              font-bold
-              text-left
-              mb-12
-              whitespace-pre-line
-              max-w-[300px]
-            "
+            class="text-3xl font-bold text-left mb-12 whitespace-pre-line max-w-[300px]"
           >
             {{ $t('landing.satisfaction_text') }}
           </h3>
@@ -647,16 +610,7 @@
       </div>
       <button
         @click="redirect"
-        class="
-          font-bold
-          text-3xl
-          px-8
-          py-4
-          rounded-full
-          neue
-          mt-[100px]
-          neueBit
-        "
+        class="font-bold text-3xl px-8 py-4 rounded-full neue mt-[100px] neueBit"
       >
         {{ $t('landing.jump') }}
       </button>
@@ -689,13 +643,15 @@ export default {
     //this.moveCarousel()
 
     redirect() {
-      gsap.to(this.$refs.fadewhite, {
-        opacity: 1,
-        duration: 1
-      }).then(() => {
-        if (this.$i18n.locale === 'fr') this.$router.push('/fr/videointro')
-      else this.$router.push('/en/videointro')
-      })
+      gsap
+        .to(this.$refs.fadewhite, {
+          opacity: 1,
+          duration: 1,
+        })
+        .then(() => {
+          if (this.$i18n.locale === 'fr') this.$router.push('/fr/videointro')
+          else this.$router.push('/en/videointro')
+        })
     },
     moveCarousel() {
       //const clients = this.$el.querySelectorAll('.client')
@@ -1018,6 +974,12 @@ export default {
 </script>
 
 <style scoped>
+.land {
+  background-image: url(@/assets/images/bgland.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 h1 span {
   display: inline-block;
   /*transform: rotate(-2.6deg);*/

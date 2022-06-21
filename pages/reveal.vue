@@ -1,5 +1,5 @@
 <template>
-  <div class="container overflow-x-hidden text-white roc">
+  <div class="container overflow-x-hidden text-white roc land">
     <section
       id="0"
       class="min-h-screen flex flex-col items-center justify-center px-8"
@@ -102,13 +102,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.realisations') }}
           </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
             {{ $t('reveal.realisations') }}
           </h2>
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.realisations') }}
           </h2>
         </span>
@@ -174,13 +174,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.values') }}
           </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
             {{ $t('reveal.values') }}
           </h2>
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.values') }}
           </h2>
         </span>
@@ -307,13 +307,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.solution') }}
           </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
             {{ $t('reveal.solution') }}
           </h2>
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.solution') }}
           </h2>
         </span>
@@ -386,13 +386,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.offer') }}
           </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
             {{ $t('reveal.offer') }}
           </h2>
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.offer') }}
           </h2>
         </span>
@@ -408,12 +408,16 @@
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
+          <h3
+            class="text-3xl font-light text-center whitespace-pre-line uppercase"
+          >
             {{ $t('reveal.premium') }}
           </h3>
           <span class="text-9xl text-center neueBit">70%</span>
 
-          <span class="text-xl mb-16 text-center">Ont préférés privilégier le physique aux qualités humaines</span>
+          <span class="text-xl mb-16 text-center"
+            >Ont préférés privilégier le physique aux qualités humaines</span
+          >
           <nuxt-link
             :to="localePath('customization')"
             class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
@@ -436,11 +440,15 @@
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
+          <h3
+            class="text-3xl font-light text-center whitespace-pre-line uppercase"
+          >
             {{ $t('reveal.standard') }}
           </h3>
           <span class="text-9xl text-center neueBit">50%</span>
-          <span class="text-xl mb-16 text-center">Ne veulent pas que leur enfant fasse du bruit..</span>
+          <span class="text-xl mb-16 text-center"
+            >Ne veulent pas que leur enfant fasse du bruit..</span
+          >
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -458,12 +466,15 @@
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
+          <h3
+            class="text-3xl font-light text-center whitespace-pre-line uppercase"
+          >
             {{ $t('reveal.recond') }}
           </h3>
           <span class="text-9xl text-center neueBit">2KG</span>
-          <span class="text-xl mb-16 text-center">Ont privilégié la minceur du bébé à la santé</span>
-
+          <span class="text-xl mb-16 text-center"
+            >Ont privilégié la minceur du bébé à la santé</span
+          >
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -481,12 +492,15 @@
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
+          <h3
+            class="text-3xl font-light text-center whitespace-pre-line uppercase"
+          >
             {{ $t('reveal.occas') }}
           </h3>
           <span class="text-9xl text-center neueBit">70%</span>
-          <span class="text-xl mb-16 text-center">Ont choisi les yeux bleus pour leur bébé</span>
-
+          <span class="text-xl mb-16 text-center"
+            >Ont choisi les yeux bleus pour leur bébé</span
+          >
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -504,12 +518,15 @@
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
-          <h3 class="text-3xl font-light text-center whitespace-pre-line uppercase">
+          <h3
+            class="text-3xl font-light text-center whitespace-pre-line uppercase"
+          >
             {{ $t('reveal.unsell') }}
           </h3>
           <span class="text-9xl text-center neueBit">90%</span>
-          <span class="text-xl mb-16 text-center">Ont écoutés les suggestions d’E-gène</span>
-
+          <span class="text-xl mb-16 text-center"
+            >Ont écoutés les suggestions d’E-gène</span
+          >
         </div>
       </div>
     </section>
@@ -519,13 +536,13 @@
     >
       <div class="Title">
         <span class="Title-mask">
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.community') }}
           </h2>
           <h2 class="text-7xl font-bold uppercase Title-line">
             {{ $t('reveal.community') }}
           </h2>
-          <h2 class="text-7xl font-bold uppercase Title-line text-withborders ">
+          <h2 class="text-7xl font-bold uppercase Title-line text-withborders">
             {{ $t('reveal.community') }}
           </h2>
         </span>
@@ -994,6 +1011,12 @@ export default {
 </script>
 
 <style scoped>
+.land {
+  background-image: url(@/assets/images/bglanddark.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 h1 span {
   display: inline-block;
   /*transform: rotate(-2.6deg);*/
@@ -1184,7 +1207,8 @@ section {
 }
 
 .text-withborders {
-  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff,
+    1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
   color: #111;
   white-space: nowrap;
 }

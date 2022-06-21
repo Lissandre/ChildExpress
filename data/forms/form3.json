@@ -166,8 +166,8 @@
     },
     "submitXtra": {
       "locales": {
-        "fr": "Suivant",
-        "en": "Submit"
+        "fr": "Valider",
+        "en": "Validation"
       },
       "type": "submit",
       "name": "submitXtra",
