@@ -47,7 +47,6 @@ export default class World {
     this.light = new PointLightSource({
       debug: this.debugFolder,
     })
-    console.log(this.light)
     // this.container.add(this.light.container)
   }
   setSpotLights() {
