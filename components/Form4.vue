@@ -32,7 +32,7 @@
         >
         <span class="Title-mask"
           ><p class="info_data roc Title-line animate-revealtext six">
-            {{ getRange }} CM <span class="line2"></span></p
+            {{ getRange * 100 }} CM <span class="line2"></span></p
         ></span>
 
         <span class="Title-mask"
@@ -42,7 +42,7 @@
         >
         <span class="Title-mask"
           ><p class="info_data roc Title-line animate-revealtext eight">
-            {{ getOverallSize }} KG
+            3 KG
           </p></span
         >
       </div>
@@ -298,10 +298,10 @@ export default {
 
       setTimeout(() => {
         $nuxt.$emit('updateSound', 'form4', 'text', 'box')
-      }, 8000)
+      }, 9500)
       setTimeout(() => {
         this.$helpers.updateInput('submit', 'keep', 'true')
-      }, 23000)
+      }, 17000)
     },
     unkeepBaby() {
       $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')

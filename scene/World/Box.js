@@ -222,11 +222,11 @@ export default class Box {
           )
           this.oldMeasure = measure
         } else {
-          this.ctx.fillText(uppercase, this.oldMeasure.width - 90, 132)
+          this.ctx.fillText(uppercase, this.oldMeasure.width - 115, 132)
           const measure = this.ctx.measureText(uppercase)
   
           this.ctx.strokeRect(
-            this.oldMeasure.width -110,
+            this.oldMeasure.width -125,
             132,
             measure.width + 20,
             20
@@ -276,7 +276,9 @@ export default class Box {
       this.ctx.rotate(Math.PI)
 
       this.ctx.font = `420px bold "roc-grotesk-wide"`
-      this.ctx.fillText(weight + 'KG', -100, 65)
+      //this.ctx.fillText(weight + 'KG', -100, 65)
+      this.ctx.fillText(3 + 'KG', -100, 65)
+
       this.ctx.restore()
 
       /* taille */
@@ -285,7 +287,7 @@ export default class Box {
       this.ctx.rotate(Math.PI)
 
       this.ctx.font = `28px bold "roc-grotesk"`
-      this.ctx.fillText(babyHeight + 'cm', 175, 65)
+      this.ctx.fillText(babyHeight * 100 + 'cm', 175, 65)
       this.ctx.restore()
 
       /* qi */
