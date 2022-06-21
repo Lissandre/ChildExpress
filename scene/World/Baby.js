@@ -253,21 +253,25 @@ export default class Baby {
     switch(id) {
         case 'eloquentHonest':
           blendShapestoChange.push('L_mouth_L', 'R_mouth_R')
-          this.findBlendShapes(blendShapestoChange)
-        break
+          this.findBlendShapes(blendShapestoChange, newValue, false)
+        break;
         case 'creativeLogic':
-        break
+          blendShapestoChange.push('hair')
+          this.findBlendShapes(blendShapestoChange, newValue, true)
+        break;
         case 'courageousGreedy':
-        break
+        break;
         case 'hyperactiveSensitive':
-        break
+        break;
     }
     console.log('there')
   }
 
-  findBlendShapes(blendShapestoChange) {
+  findBlendShapes(blendShapestoChange, value, inversed) {
+    this.blendShapesId = []
     if (blendShapestoChange && this.morphMeshes) {
       blendShapestoChange.forEach((blend) => {
+        console.log(this.morphMeshes[0].morphTargetDictionary)
         if(this.morphMeshes[0].morphTargetDictionary.hasOwnProperty(blend)) {
           this.blendShapesId.push(this.morphMeshes[0].morphTargetDictionary[blend])
         }
@@ -276,13 +280,14 @@ export default class Baby {
 
     console.log(this.blendShapesId)
 
-    this.changeBlendShapes(this.blendShapesId)
+    this.changeBlendShapes(this.blendShapesId, value, inversed)
   }
-  changeBlendShapes(blendShapestoChange) {
-    blendShapestoChange.forEach((blend) => {
+  changeBlendShapes(blendShapesId, value, inversed) {
+    blendShapesId.forEach((blend) => {
+      console.log(blend)
       const current = this.morphMeshes[0].morphTargetInfluences
       gsap.to(current, {
-        [blend]: 1,
+        [blend]: inversed ? value : 1 - value,
         duration: 1,
         ease: Power3.easeOut,
       })
