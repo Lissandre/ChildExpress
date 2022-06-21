@@ -332,13 +332,13 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 }
 
 .xtra_wrapper {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 100;
-  backdrop-filter: blur(0px);
+  /*backdrop-filter: blur(0px);*/
   visibility: hidden;
   opacity: 0;
   color: white;
@@ -392,7 +392,8 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
 }
 
 .openPopin {
-  backdrop-filter: blur(10px) contrast(30%);
+  -webkit-backdrop-filter: blur(10px) contrast(30%) !important;
+  backdrop-filter: blur(10px) contrast(30%) !important;
   visibility: visible;
   opacity: 1;
 }
