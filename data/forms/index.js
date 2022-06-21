@@ -1,21 +1,8 @@
 const glob = require('glob')
 const path = require('path')
-const files = {}
-
-// require
-//   .context('./', true, /\.json$/)
-//   .keys()
-//   .forEach((url) => {
-//     const file = require('./' + url.substring(2))
-//     createNestedObject(
-//       files,
-//       url.substring(2).replace('.json', '').split('/'),
-//       file
-//     )
-//   })
-
 const dir_root = path.join(__dirname, './')
 const patt = path.join(dir_root, '*.json')
+const files = {}
 
 glob.sync(patt).forEach(function (file) {
   const fileContent = require(file)
@@ -38,6 +25,4 @@ function createNestedObject(base, names, value) {
   return base
 }
 
-console.log(files)
-
-module.exports = files
+module.exports.files = files

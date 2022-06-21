@@ -7,6 +7,7 @@
     <form
       @submit.prevent="prevent"
       id="form1"
+      ref="formEl"
       class="absolute h-full w-full flex flex-col justify-center"
     >
       <div class="my-slider">
@@ -113,8 +114,9 @@
 <script>
 import { useStore } from '@/stores/'
 import form1 from '@/data/forms/form1.json'
+import properties from '@/data/dbModData'
+
 import slugify from 'slugify'
-import files from '~/locales/en'
 
 let tinySlider = null
 
@@ -137,7 +139,6 @@ export default {
   },
   mounted() {
     this.inputs = form1.inputs
-
     this.slider = tinySlider.tns({
       container: '.my-slider',
       slideBy: 'page',
@@ -159,6 +160,11 @@ export default {
         fieldset.classList.add('animate-bounce-out')
         controls.classList.add('animate-bounce-out')
       }
+
+      const formData = new FormData(this.$refs.formEl)
+
+      this.store.setUserValues(1, formData)
+
       setTimeout(() => {
         this.$refs.loaderVideo.classList.add('animate-scale-up')
         $nuxt.$emit('updateSound', 'form1', 'speech', 'loading', 'speech1')

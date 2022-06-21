@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "babyName": {
+      "title": [
+        {
+          "text": { "content": "name", "link": "null" },
+          "plain_text": "name"
+        }
+      ]
+    }
+  }
+}

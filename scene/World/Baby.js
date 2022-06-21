@@ -37,15 +37,11 @@ export default class Baby {
   }
   createBaby() {
     this.baby = this.assets.models.baby.scene.children[0]
-    console.log(this.assets.models, this.baby)
 
     if (!this.debug) {
       this.morphMeshes = []
       this.baby.traverse((node) => {
-        console.log(node)
         if (node.isMesh && node.morphTargetInfluences) {
-          console.log(node.morphTargetInfluences)
-
           this.morphMeshes.push(node)
         }
       })
@@ -245,39 +241,35 @@ export default class Baby {
   }
   setXtras(id) {
     // this.baby.position.set(0, 5, -1)
-    console.log(id)
-    console.log(this.morphMeshes)
-
     const index = this.xtrasToAdd.indexOf(id)
     if (index > -1) {
-      this.xtrasToAdd.splice(index, 1); // 2nd parameter means remove one item only
+      this.xtrasToAdd.splice(index, 1) // 2nd parameter means remove one item only
     } else {
       this.xtrasToAdd.push(id)
     }
 
     if (this.xtrasToAdd.length && this.morphMeshes) {
       this.xtrasToAdd.forEach((xtra) => {
-        if(this.morphMeshes[0].morphTargetDictionary.hasOwnProperty(xtra)) {
-          this.xtrasToChange.push(this.morphMeshes[0].morphTargetDictionary[xtra])
+        if (this.morphMeshes[0].morphTargetDictionary.hasOwnProperty(xtra)) {
+          this.xtrasToChange.push(
+            this.morphMeshes[0].morphTargetDictionary[xtra]
+          )
         }
       })
     }
-
-    console.log(this.xtrasToAdd)
   }
 
   babyAppearForm4() {
     var tl = gsap.timeline({ delay: 2 })
-      this.xtrasToChange.forEach((xtra) => {
-        console.log(this.morphMeshes[0].morphTargetInfluences[xtra])
-        const current = this.morphMeshes[0].morphTargetInfluences
-        gsap.to(current, {
-          [xtra]: 0,
-          duration: 2,
-          ease: Bounce.easeOut,
-          delay: 3.5
-        })
+    this.xtrasToChange.forEach((xtra) => {
+      const current = this.morphMeshes[0].morphTargetInfluences
+      gsap.to(current, {
+        [xtra]: 0,
+        duration: 2,
+        ease: Bounce.easeOut,
+        delay: 3.5,
       })
+    })
 
     /*tl.fromTo(this.baby.position, { x: 0, y: 0, z: -2},{
       x: Math.sin(tl.progress() * Math.PI),
@@ -301,9 +293,7 @@ export default class Baby {
   }
 
   shrinkGlasses() {
-
     this.xtrasToChange.forEach((xtra) => {
-      console.log(this.morphMeshes[0].morphTargetInfluences[xtra])
       const current = this.morphMeshes[0].morphTargetInfluences
       gsap.to(current, {
         [xtra]: 0.8,
@@ -311,7 +301,6 @@ export default class Baby {
         ease: Bounce.easeInOut,
       })
     })
-
   }
 
   setMovement() {

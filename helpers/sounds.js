@@ -90,8 +90,7 @@ export default class Sounds {
             return
           }
           break
-          default:
-          console.log('here', value, step, name)
+        default:
           this.defaultCase(value, step, name)
           break
       }

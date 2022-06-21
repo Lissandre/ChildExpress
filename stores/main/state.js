@@ -1,25 +1,11 @@
 import generatedValues from './generated'
+import { userState } from './userState'
 
 export const state = () => {
   return {
+    userState,
     ...generatedValues,
-    // ranges: [
-    //   { id: 'scale', value: 2 },
-    //   { id: 'position', value: 5 },
-    //   { id: 'rotation', value: 2 },
-    //   // << BEGIN RANGES >>
-
-    //   // << END RANGES >>
-    // ],
-    // constants: {
-    //   POSITION: 'position',
-    //   SCALE: 'scale',
-    //   ROTATION: 'rotation',
-    //   // << BEGIN CONSTANTS >>
-
-    //   // << END CONSTANTS >>
-    // },5
-    activeForm: 3,
+    activeForm: 1,
     totalForms: 5,
     health: true,
     face: 'body',
@@ -29,6 +15,6 @@ export const state = () => {
     newJob: 'test',
     subtitle: '',
     currentMoney: '',
-    overallSize: 4
+    overallSize: 4,
   }
 }

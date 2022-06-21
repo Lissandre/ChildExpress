@@ -13,9 +13,11 @@
     "lintfix": "prettier --write --list-different ."
   },
   "dependencies": {
+    "@notionhq/client": "^1.0.4",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/composition-api": "^0.32.0",
     "@nuxtjs/i18n": "^7.2.0",
+    "@nuxtjs/proxy": "^2.1.0",
     "@pinia/nuxt": "^0.1.8",
     "@tweakpane/plugin-camerakit": "^0.2.1",
     "@tweakpane/plugin-essentials": "^0.1.4",

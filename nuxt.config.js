@@ -1,5 +1,5 @@
 export default {
-  target: 'static',
+  target: 'server',
   generate: {
     fallback: true,
   },
@@ -24,6 +24,7 @@ export default {
   plugins: [
     { src: '~plugins/scene.client.js', mode: 'client' },
     { src: '~plugins/gsap.client.js', mode: 'client' },
+    { src: '~plugins/notion.js', mode: 'all' },
     { src: '~plugins/pinia.js', mode: 'all' },
     { src: '~plugins/helpers.js', mode: 'all' },
   ],
@@ -33,10 +34,25 @@ export default {
     '@nuxtjs/composition-api/module',
     ['@pinia/nuxt', { disableVuex: false }],
   ],
-  modules: ['@nuxtjs/axios', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/i18n', '@nuxtjs/proxy'],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: '/',
+    proxy: true,
+    debug: true,
+    credentials: true,
+    // baseURL: '/',
+    // headers: {
+    //   common: {
+    //     Authorization: `Bearer ${process.env.TOKEN}`,
+    //     'Content-Type': 'application/json',
+    //   },
+    // },
+  },
+  proxy: {
+    '/api/': {
+      target: 'https://api.notion.com/v1/',
+      pathRewrite: { '^/api/': '' },
+    },
   },
   tailwindcss: {
     exposeConfig: false,
