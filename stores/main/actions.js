@@ -138,7 +138,10 @@ export const actions = {
       properties: properties.properties,
     })
 
-    this.$nuxt.$axios.setToken(process.env.TOKEN, 'Bearer')
+    this.$nuxt.$axios.setToken(
+      'secret_ytJwjM4cSGKzFFG6hZNMjMWMYqVYOfGW82xLJAZVzdE',
+      'Bearer'
+    )
     this.$nuxt.$axios.setHeader(
       'Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept'
