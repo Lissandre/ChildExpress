@@ -356,12 +356,10 @@
               <li>{{ $t('landing.childexpresser_5') }}</li>
               <li>{{ $t('landing.childexpresser_6') }}</li>
             </ul>
-          </div>
-          <img
-            src="@/assets/images/landing_debut/ADN.svg"
-            alt="ADN illustration"
-            class="pb-16 absolute bottom-[-10%] right-[10%]"
-          />
+          <video muted loop autoplay class="rounded-sm pb-16 absolute bottom-[-10%] right-[10%] h-[90%] mix-blend-difference	">
+            <source src="@/assets/images/landing_debut/ADN1.webm" type="video/webm" />
+          </video>
+            </div>
         </div>
       </div>
     </section>

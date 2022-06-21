@@ -371,12 +371,10 @@
               <li>{{ $t('reveal.childexpresser_5') }}</li>
               <li>{{ $t('reveal.childexpresser_6') }}</li>
             </ul>
+          <video muted loop autoplay class="rounded-sm pb-16 absolute bottom-[-10%] right-[10%] h-[90%]">
+            <source src="@/assets/images/landing_debut/ADN1.webm" type="video/webm" />
+          </video>
           </div>
-          <img
-            src="@/assets/images/landing_fin/ADN.svg"
-            alt="Broken ADN illustration"
-            class="pb-16 absolute bottom-[-10%] right-[10%]"
-          />
         </div>
       </div>
     </section>
