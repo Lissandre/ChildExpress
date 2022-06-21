@@ -1057,7 +1057,7 @@ button.neue:not(.bgo):hover {
   display: flex;
   flex-direction: row;
   transition: all ease 0.5s;
-  width: 800px;
+  width: 820px;
   box-shadow: 10px 29px 40px #000000, -8px -11px 19px rgba(97, 228, 180, 0.25);
 }
 
