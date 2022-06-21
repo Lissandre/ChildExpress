@@ -38,6 +38,11 @@ export const actions = {
 
     if (step == 'form3')
       this.$nuxt.$scene.world.baby.updateBlendShapes(id, newValue)
+
+    if(step == 'form3' && id == 'eloquentHonest') {
+      console.log('tit', newValue)
+      // add this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    }
   },
   changeText(id, newValue) {
     const text = this.texts.find((text) => text.id === id)
