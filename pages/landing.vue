@@ -689,7 +689,6 @@ export default {
     //this.moveCarousel()
 
     redirect() {
-      console.log('yes')
       gsap.to(this.$refs.fadewhite, {
         opacity: 1,
         duration: 1

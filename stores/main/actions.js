@@ -97,6 +97,7 @@ export const actions = {
   },
   toggleIsFace(newValue) {
     this.face = newValue
+    console.log(this.face)
     this.$nuxt.$scene?.changeFocus({ face: newValue })
   },
   updateSubtitle(id) {

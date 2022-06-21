@@ -385,7 +385,7 @@ export default class Baby {
       })
     } else {
       const blend1 = this.findOneBlend(id)
-      
+
       gsap.to(this.morphMeshes[0].morphTargetInfluences, {
         [blend1]: 1 - value,
         duration: 1,

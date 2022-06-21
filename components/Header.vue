@@ -25,7 +25,7 @@
           <a href="#5">{{ $t('header.community') }}</a>
         </nav>
       </div>
-      <button>
+      <button class="neue rounded-full px-4 py-2">
         <img
           src="@/assets/images/cartBlack.svg"
           alt="Cart button"
@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 header {
   background: linear-gradient(
     180deg,
@@ -64,5 +64,16 @@ header {
 nav a:hover {
   text-decoration: underline;
   text-underline-offset: 6px;
+}
+
+.neue {
+  box-shadow: -3px -5px 17px rgba(255, 255, 255, 0.87),
+    9px 25.03px 30px rgba(110, 163, 242, 0.38);
+  /* backdrop-filter: blur(40px); */
+}
+.neue:hover {
+  background: rgba(229, 230, 230, 0.64);
+  box-shadow: inset 1.82px 7.41px 12.62px rgba(15, 84, 228, 0.34),
+    inset -2px -3px 6px rgba(255, 255, 255, 0.8);
 }
 </style>
