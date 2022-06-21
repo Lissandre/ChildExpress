@@ -30,6 +30,9 @@ export const actions = {
     radio.value = newValue
     if (step == 'form2')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+
+    if (step == 'form3')
+      this.$nuxt.$scene.world.baby.updateBlendShapes(id, newValue)
   },
   changeText(id, newValue) {
     const text = this.texts.find((text) => text.id === id)

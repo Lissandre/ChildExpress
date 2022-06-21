@@ -15,6 +15,8 @@ export default class Baby {
     this.morphCtrls = []
     this.xtrasToAdd = []
     this.xtrasToChange = []
+    this.blendShapes = ['R_mouth_R,', 'L_mouth_L']
+    this.blendShapesId = []
 
     this.transition = 0
 
@@ -243,6 +245,49 @@ export default class Baby {
       ease: Power3.easeOut,
     })*/
   }
+
+  updateBlendShapes(id, newValue) {
+    console.log(id, newValue)
+    const blendShapestoChange = []
+    if(newValue > 1) this.inversed = 1 - newValue
+    switch(id) {
+        case 'eloquentHonest':
+          blendShapestoChange.push('L_mouth_L', 'R_mouth_R')
+          this.findBlendShapes(blendShapestoChange)
+        break
+        case 'creativeLogic':
+        break
+        case 'courageousGreedy':
+        break
+        case 'hyperactiveSensitive':
+        break
+    }
+    console.log('there')
+  }
+
+  findBlendShapes(blendShapestoChange) {
+    if (blendShapestoChange && this.morphMeshes) {
+      blendShapestoChange.forEach((blend) => {
+        if(this.morphMeshes[0].morphTargetDictionary.hasOwnProperty(blend)) {
+          this.blendShapesId.push(this.morphMeshes[0].morphTargetDictionary[blend])
+        }
+      })
+    }
+
+    console.log(this.blendShapesId)
+
+    this.changeBlendShapes(this.blendShapesId)
+  }
+  changeBlendShapes(blendShapestoChange) {
+    blendShapestoChange.forEach((blend) => {
+      const current = this.morphMeshes[0].morphTargetInfluences
+      gsap.to(current, {
+        [blend]: 1,
+        duration: 1,
+        ease: Power3.easeOut,
+      })
+    })
+  }
   setXtras(id) {
     // this.baby.position.set(0, 5, -1)
     console.log(id)
@@ -250,7 +295,7 @@ export default class Baby {
 
     const index = this.xtrasToAdd.indexOf(id)
     if (index > -1) {
-      this.xtrasToAdd.splice(index, 1); // 2nd parameter means remove one item only
+      this.xtrasToAdd.splice(index, 1);
     } else {
       this.xtrasToAdd.push(id)
     }
@@ -311,7 +356,6 @@ export default class Baby {
         ease: Bounce.easeInOut,
       })
     })
-
   }
 
   setMovement() {

@@ -191,6 +191,9 @@ export default class App {
   }
 
   focusOnBox() {
+    setTimeout(() => {
+      this.world.container.remove(this.world.spotlights.container)
+    }, 7000)
     this.world.baby.shrinkGlasses()
     // this.camera.camera.lookAt(this.world.box.box.position)
     if (this.world.box) {
@@ -270,6 +273,9 @@ export default class App {
   }
 
   focusOnBin() {
+    setTimeout(() => {
+      this.world.container.remove(this.world.spotlights.container)
+    }, 7000)
     this.world.baby.shrinkGlasses({delay: 2})
 
     if (this.world.bin) {

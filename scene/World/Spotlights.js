@@ -18,7 +18,7 @@ export default class Spotlights {
     constructor() {
         this.container = new Object3D()
 
-        var geometry = new CylinderGeometry(0.15, 2, 15, 32 * 2, 20, false);
+        var geometry = new CylinderGeometry(0.15, 5, 15, 32 * 2, 20, false);
 
         geometry.applyMatrix(new Matrix4().makeTranslation(0, -geometry.parameters.height / 2, 0));
         geometry.applyMatrix(new Matrix4().makeRotationX(-Math.PI / 2));
@@ -27,7 +27,7 @@ export default class Spotlights {
 
         this.mesh1 = new Mesh(geometry, this.material);
 
-        this.light1 = new SpotLight('#ccc', 1, 100, 0.2, 1)
+        this.light1 = new SpotLight('#555', 1, 100, 0.2, 1)
 
         this.container.add(this.mesh1);
         this.container.position.set(
@@ -85,10 +85,10 @@ export default class Spotlights {
             'float intensity;',
 
             'intensity	= distance(vWorldPosition, spotPosition)/attenuation;',
-            'intensity	= 0.5 - clamp(intensity, 0.0, 1.0);',
+            'intensity	= 0.45 - clamp(intensity, 0.0, 1.0);',
 
             'vec3 normal	= vec3(vNormal.x, vNormal.y, abs(vNormal.z));',
-            'float angleIntensity	= 0.2 + pow( dot(normal, vec3(0.0, 0.0, 1.0)), anglePower );',
+            'float angleIntensity	= 0.5 + pow( dot(normal, vec3(0.0, 0.0, 1.0)), anglePower );',
             'intensity	= intensity * angleIntensity;',
 
             'gl_FragColor	= vec4(lightColor+vec3(intensity*0.6), intensity);',
