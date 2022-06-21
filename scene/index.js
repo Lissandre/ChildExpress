@@ -128,22 +128,37 @@ export default class App {
   changeFocus(options) {
     this.isFace = options.face
     this.world.baby.isFace = options.face
+    console.log(this.camera.camera.controls)
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
     if (this.isFace === 'face') {
       gsap
         .to(this.camera.camera.controls.target, {
           x: 0,
-          y: 1.5,
-          z: -2,
+          y: 1.2,
+          z: 0,
           duration: 1,
           ease: Power3.easeOut,
         })
+
+      gsap.to(this.camera.camera.controls, {
+        minDistance: 1,
+        maxDistance: 1,
+        duration: 1,
+        ease: Power3.easeOut,
+      })
         .then(this.resetCamera())
     } else if (this.isFace === 'middle') {
       gsap.to(this.camera.camera.controls.target, {
         x: 0,
         y: 0,
         z: 0,
+        duration: 1,
+        ease: Power3.easeOut,
+      })
+
+      gsap.to(this.camera.camera.controls, {
+        minDistance: 3,
+        maxDistance: 3,
         duration: 1,
         ease: Power3.easeOut,
       })
@@ -161,7 +176,7 @@ export default class App {
 
     var tl = gsap.timeline({
       onComplete: () => {
-        ;(this.camera.camera.controls.maxAzimuthAngle = Infinity),
+        ; (this.camera.camera.controls.maxAzimuthAngle = Infinity),
           (this.camera.camera.controls.minAzimuthAngle = -Infinity)
       },
     })
