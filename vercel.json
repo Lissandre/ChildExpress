@@ -3,23 +3,18 @@
     {
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder",
-      "config": {}
+      "config": {
+        "serverFiles": [
+          "api/**",
+          "package.json"
+        ]
+      }
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/:match*",
-      "destination": "https://api.notion.com/v1/:match*"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Headers", "value": "Origin, X-Requested-With, Content-Type, Accept" },
-        { "key": "Authorization", "value": "Bearer secret_ytJwjM4cSGKzFFG6hZNMjMWMYqVYOfGW82xLJAZVzdE" },
-        { "key": "Notion-Version", "value": "2022-02-22" }
-      ]
+      "src": "/api/pages",
+      "dest": "/api/index.js"
     }
   ]
 }

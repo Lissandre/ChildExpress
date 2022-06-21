@@ -1,4 +1,6 @@
 export default {
+  mode: 'universal',
+  ssr: true,
   target: 'server',
   // generate: {
   //   fallback: true,
@@ -28,6 +30,9 @@ export default {
     { src: '~plugins/pinia.js', mode: 'all' },
     { src: '~plugins/helpers.js', mode: 'all' },
   ],
+  serverMiddleware: {
+    '/api': '~/api',
+  },
   components: true,
   buildModules: [
     '@nuxtjs/tailwindcss',
@@ -37,7 +42,7 @@ export default {
   modules: ['@nuxtjs/axios', '@nuxtjs/i18n', '@nuxtjs/proxy'],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    proxy: true,
+    // proxy: true,
     debug: true,
     credentials: true,
     // baseURL: '/',
@@ -48,13 +53,13 @@ export default {
     //   },
     // },
   },
-  proxy: {
-    '/api/': {
-      target: 'https://api.notion.com/v1/',
-      pathRewrite: { '^/api/': '' },
-      changeOrigin: true,
-    },
-  },
+  // proxy: {
+  //   '/api/': {
+  //     target: 'https://api.notion.com/v1/',
+  //     pathRewrite: { '^/api/': '' },
+  //     changeOrigin: true,
+  //   },
+  // },
   tailwindcss: {
     exposeConfig: false,
     viewer: false,
