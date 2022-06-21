@@ -368,8 +368,8 @@ export default class Baby {
               gl_FragColor = mix(b, c, progress - 2.);
             }
             
-            else if(progress <= 4.){
-              gl_FragColor = mix(c, d, progress - 3.);
+            else {
+              gl_FragColor = mix(c, d, min(progress, 4.) - 3.);
             }
             
           `
