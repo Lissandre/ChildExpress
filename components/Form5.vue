@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col relative h-full w-full " ref="content">
-    <form @submit.prevent="prevent" class="h-full w-full form5 " ref="form5">
+  <div class="flex flex-col relative h-full w-full" ref="content">
+    <form @submit.prevent="prevent" class="h-full w-full form5" ref="form5">
       <div class="payment-wrapper z-[2]">
         <div class="payment-category-wrapper relative">
           <h3 class="payment-category roc">Récapitulatif de commande</h3>
@@ -57,7 +57,7 @@
         </div>
         <div class="payment-category-wrapper relative">
           <h3 class="payment-category">Mail de facturation</h3>
-          <input type="email" placeholder="badparent@gmail.com"/>
+          <input type="email" placeholder="badparent@gmail.com" />
           <div class="underline"></div>
           <div class="fake-underline"></div>
         </div>
@@ -88,7 +88,7 @@
 
 <script>
 import { useStore } from '@/stores/'
-import { form5 } from '@/data/forms.json'
+import form5 from '@/data/forms/form5.json'
 import slugify from 'slugify'
 
 export default {
@@ -132,7 +132,6 @@ export default {
   },
 }
 </script>
-
 
 <style>
 .payment-wrapper {
@@ -271,7 +270,8 @@ input[type='radio']::before {
   height: 15px;
   box-shadow: 1px 5px 5px rgb(15 84 228 / 56%);
 }
-input[type='radio']:checked::before, input[type='radio']:hover::before {
+input[type='radio']:checked::before,
+input[type='radio']:hover::before {
   transform: translate3d(-50%, -50%, 0) scale(1);
 }
 
@@ -304,7 +304,6 @@ label {
   height: 2px;
   width: 50%;
   background-color: rgba(255, 255, 255, 0.521);
-
 }
 input[type='email'] {
   appearance: none;

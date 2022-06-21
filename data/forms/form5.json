@@ -1,0 +1,14 @@
+{
+  "inputs": {
+    "submit": {
+      "locales": {
+        "fr": "Recevoir mon bébé",
+        "en": "Ship my baby"
+      },
+      "type": "submit",
+      "name": "submitFinal",
+      "component": "InputSubmit",
+      "class": "neueBit submitFinal transition animate-opacityfadein"
+    }
+  }
+}

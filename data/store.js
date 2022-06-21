@@ -1,6 +1,5 @@
-const { constants } = require('buffer')
 const fs = require('fs')
-const forms = require('./forms.json')
+const forms = require('./forms/index.js')
 const stores = {
   path: 'stores/main/generated/content/',
   types: [
@@ -38,7 +37,7 @@ for (const form in forms) {
       for (const input in element) {
         content.job.push({
           name: input,
-          money: element[input].money
+          money: element[input].money,
         })
       }
     } else {

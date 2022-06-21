@@ -149,7 +149,7 @@
             <source src="@/assets/images/webm/bebe5.webm" type="video/webm" />
           </video>
           <img
-            src="@/assets/images/flames.png"
+            src="@/assets/images/landing_debut/flames.png"
             ref="flames"
             alt=""
             class="absolute left-[65%] top-[65%] h-2/3"
@@ -186,7 +186,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/sticker_ecologie.png"
+            src="@/assets/images/landing_debut/sticker_ecologie.png"
             alt=""
             class="pink-neue"
             ref="ecologie"
@@ -213,7 +213,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/sticker_positivite.png"
+            src="@/assets/images/landing_debut/sticker_positivite.png"
             alt=""
             class="pink-neue"
             ref="positive"
@@ -240,7 +240,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/sticker_egalite.png"
+            src="@/assets/images/landing_debut/sticker_egalite.png"
             alt=""
             class="pink-neue"
             ref="egalite"
@@ -267,7 +267,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/sticker_innovation.png"
+            src="@/assets/images/landing_debut/sticker_innovation.png"
             alt=""
             class="pink-neue"
             ref="innovation"
@@ -355,7 +355,7 @@
             </ul>
           </div>
           <img
-            src="@/assets/images/ADN.svg"
+            src="@/assets/images/landing_debut/ADN.svg"
             alt="ADN illustration"
             class="pb-16 absolute bottom-[-10%] right-[10%]"
           />
@@ -380,7 +380,7 @@
           class="rounded-md flex flex-col items-center w-full neue offer-item"
         >
           <img
-            src="@/assets/images/donutPremium.svg"
+            src="@/assets/images/landing_debut/donutPremium.svg"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
@@ -406,7 +406,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
           </svg>
           <img
-            src="@/assets/images/donutStandard.svg"
+            src="@/assets/images/landing_debut/donutStandard.svg"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
@@ -427,7 +427,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
           </svg>
           <img
-            src="@/assets/images/donutReconditionne.svg"
+            src="@/assets/images/landing_debut/donutReconditionne.svg"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
@@ -448,7 +448,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
           </svg>
           <img
-            src="@/assets/images/donutOccasion.svg"
+            src="@/assets/images/landing_debut/donutOccasion.svg"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
@@ -469,7 +469,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="25" href="rect" />
           </svg>
           <img
-            src="@/assets/images/donutFree.svg"
+            src="@/assets/images/landing_debut/donutFree.svg"
             alt=""
             class="w-1/2 -translate-y-1/3"
           />
@@ -502,13 +502,13 @@
             {{ $t('landing.satisfaction_text') }}
           </h3>
           <img
-            src="@/assets/images/solarsystem.svg"
+            src="@/assets/images/landing_debut/solarsystem.svg"
             alt=""
             class="top-0 absolute"
             style="transform: translate(-20%, -20%)"
           />
           <img
-            src="@/assets/images/stickers_love.png"
+            src="@/assets/images/landing_debut/stickers_love.png"
             alt=""
             class="w-1/2 -translate-y-1/3 absolute translate-x-2/3"
             ref="love"
@@ -519,7 +519,7 @@
           <ul class="text-xl font-light clientList" ref="clientList">
             <li class="client">
               <img
-                src="@/assets/images/client1.png"
+                src="@/assets/images/landing_debut/client1.png"
                 alt=""
                 class="w-[100px] h-[100px] mr-[20px]"
               />
@@ -535,7 +535,7 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/etoiles.png" alt="" class="" />
+                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_1_comment') }}</p>
@@ -543,7 +543,7 @@
             </li>
             <li class="client">
               <img
-                src="@/assets/images/client1.png"
+                src="@/assets/images/landing_debut/client1.png"
                 alt=""
                 class="w-[100px] h-[100px] mr-[20px]"
               />
@@ -559,7 +559,7 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/etoiles.png" alt="" class="" />
+                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_2_comment') }}</p>
@@ -567,7 +567,7 @@
             </li>
             <li class="client">
               <img
-                src="@/assets/images/client1.png"
+                src="@/assets/images/landing_debut/client1.png"
                 alt=""
                 class="w-[100px] h-[100px] mr-[20px]"
               />
@@ -583,7 +583,7 @@
                     </p>
                   </div>
                   <div>
-                    <img src="@/assets/images/etoiles.png" alt="" class="" />
+                    <img src="@/assets/images/landing_debut/etoiles.png" alt="" class="" />
                   </div>
                 </div>
                 <p>{{ $t('landing.comu_3_comment') }}</p>
@@ -1081,11 +1081,11 @@ ul li:not(:last-child) {
   margin-bottom: 8px;
 }
 ul.bad li::before {
-  content: url(@/assets/images/cross.png);
+  content: url(@/assets/images/landing_debut/cross.png);
   margin-right: 16px;
 }
 ul.good li::before {
-  content: url(@/assets/images/tick.png);
+  content: url(@/assets/images/landing_debut/tick.png);
   margin-right: 16px;
 }
 

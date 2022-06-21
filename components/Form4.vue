@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="flex flex-col relative h-full w-full fadeWrapper"
-    ref="content"
-  >
+  <div class="flex flex-col relative h-full w-full fadeWrapper" ref="content">
     <div class="fadeWrapper" ref="fade"></div>
     <div class="babyInfos">
       <div class="Title animate-revealtext">
@@ -13,13 +10,7 @@
         >
         <span class="Title-mask"
           ><p
-            class="
-              info_data info-name
-              outline
-              Title-line
-              animate-revealtext
-              second
-            "
+            class="info_data info-name outline Title-line animate-revealtext second"
           >
             {{ getText }}
           </p></span
@@ -56,7 +47,7 @@
         >
       </div>
     </div>
-    <form @submit.prevent="prevent" class="h-full w-full ">
+    <form @submit.prevent="prevent" class="h-full w-full">
       <component
         v-for="input in inputs"
         :key="input.name"
@@ -123,8 +114,8 @@
 
 <script>
 import { useStore } from '@/stores/'
-import { form4 } from '@/data/forms.json'
-import { form3 } from '@/data/forms.json'
+import form4 from '@/data/forms/form4.json'
+import form3 from '@/data/forms/form3.json'
 import slugify from 'slugify'
 
 export default {
@@ -157,7 +148,7 @@ export default {
   mounted() {
     this.inputs = form4.inputs
 
-/*
+    /*
     if (this.$nuxt.$scene.assets.needsLoad) {
       this.$nuxt.$scene.assets.on('ressourcesReady', () => {
         this.$nuxt.$scene.init()
@@ -165,7 +156,7 @@ export default {
     }
     */
 
-   this.$refs.blur.classList.remove('blurWrapper')
+    this.$refs.blur.classList.remove('blurWrapper')
 
     setTimeout(() => {
       this.getExtras()
@@ -306,21 +297,21 @@ export default {
       }, 8000)
       setTimeout(() => {
         this.$helpers.updateInput('submit', 'keep', 'true')
-      }, 11000)
+      }, 23000)
     },
     unkeepBaby() {
       $nuxt.$emit('updateSound', 'form4', 'submit', 'unkeep', 'true1')
       setTimeout(() => {
         this.store.focusBin()
         $nuxt.$emit('updateSound', 'form4', 'text', 'bin')
-      }, 9000)
+      }, 11000)
       setTimeout(() => {
         this.$refs.content.classList.add('fadeToBlack')
         this.$refs.fade.classList.add('fadeToBlack')
-      }, 12000)
+      }, 14000)
       setTimeout(() => {
         this.redirectToEnd()
-      }, 15000)
+      }, 17000)
     },
 
     redirectToEnd() {
@@ -333,8 +324,8 @@ export default {
       return this.store.getText('babyName')
     },
     getOverallSize() {
-        return this.store.getOverallSize
-      },
+      return this.store.getOverallSize
+    },
     getRange: function () {
       return this.store.getRange('scale')
     },
@@ -349,7 +340,7 @@ export default {
     },
     getCurrentMoney: function () {
       return this.store.currentMoney
-    }
+    },
   },
 }
 </script>

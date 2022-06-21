@@ -11,7 +11,7 @@ export default {
   LOGIC: 'logic',
   HYPERACTIVE: 'hyperactive',
   CREATIVE: 'creative',
-  WEIGHT: 'weight',
+  PARENTWEIGHT: 'parentWeight',
   PARENTSCALE: 'parentScale',
   PARENTHEALTH: 'parentHealth',
   PARENTSKIN: 'parentSkin',

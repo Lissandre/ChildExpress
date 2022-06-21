@@ -101,7 +101,7 @@
 
 <script>
 import { useStore } from '@/stores/'
-import { form3 } from '@/data/forms.json'
+import form3 from '@/data/forms/form3.json'
 import slugify from 'slugify'
 
 export default {
@@ -283,7 +283,7 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     inputChange(type, name, value, optional) {
       console.log('here')
 
-      this.$helpers.updateInput(type, name, value)
+      this.$helpers.updateInput(type, name, value, 'form3')
       if (type === 'roundSlider') {
         value = value / optional
         this.store.changeRoundSlider('headSize', value * 250, 'form3')

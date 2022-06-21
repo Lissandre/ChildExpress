@@ -1,0 +1,24 @@
+{
+  "inputs": {
+    "submitBin": {
+      "locales": {
+        "fr": "Abandonner",
+        "en": "Drop"
+      },
+      "type": "submit",
+      "name": "submitBin",
+      "component": "InputSubmit",
+      "class": "neueBit submit-bin hover:shadow-hoverStateNone hover:bg-white hover:text-grey transition "
+    },
+    "submitChild": {
+      "locales": {
+        "fr": "Valider",
+        "en": "Submit"
+      },
+      "type": "submit",
+      "name": "submitChild",
+      "component": "InputSubmit",
+      "class": "neueBit submit-child"
+    }
+  }
+}

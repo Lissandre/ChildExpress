@@ -45,7 +45,7 @@ Also the store is connected to our Three JS scene, which get instantly the value
 
 In order to save time and never do a work that is repetitive, we optimize intelligence through scripts.
 
-Based on a simple forms.json that contains everything about our inputs, we fullfill our Store (values of those inputs), and the translations files.
+Based on a simple forms/{file}.json that contains everything about our inputs, we fullfill our Store (values of those inputs), and the translations files.
 We have create Nuxt components for each Input types, and adapt every datas that goes through each of them.
 
 In other words, we now just have to describe our inputs in a file, then press a button, and everything build itself correctly !
