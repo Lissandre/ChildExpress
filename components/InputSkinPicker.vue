@@ -144,7 +144,6 @@ export default {
     },
 
     updateColor(e) {
-      console.log(e)
       this.thumb.style.transform = `translate3d(${e.offsetX - 15}px, ${
         e.offsetY - 15
       }px, 0px)`

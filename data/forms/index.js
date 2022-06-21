@@ -38,6 +38,5 @@ function createNestedObject(base, names, value) {
   return base
 }
 
-console.log(files)
 
 module.exports = files

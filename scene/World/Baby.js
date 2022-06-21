@@ -43,7 +43,6 @@ export default class Baby {
     if (!this.debug) {
       this.morphMeshes = []
       this.baby.traverse((node) => {
-        console.log(node)
         if (node.isMesh && node.morphTargetInfluences) {
 
           this.morphMeshes.push(node)
@@ -268,13 +267,11 @@ export default class Baby {
   }
 
   updateUniform = (uniform, value) => {
-    console.log(uniform, value)
     if (uniform == 'scale') {
       let v = value / 100
       v -= 0.5
       v *= 0.2
       v += 1.2
-      console.log(v)
       this.baby.scale.set(v, v, v)
       return
     }
@@ -324,7 +321,6 @@ export default class Baby {
 
       }
 
-      console.log(value)
       return;
     }
 
@@ -354,7 +350,6 @@ export default class Baby {
 
       }
 
-      console.log(value)
       return;
     }
 
@@ -367,7 +362,6 @@ export default class Baby {
   }
 
   updateBlendShapes(id, newValue) {
-    console.log(id, newValue)
     const blendShapestoChange = []
     if (newValue > 1) this.inversed = 1 - newValue
     switch (id) {

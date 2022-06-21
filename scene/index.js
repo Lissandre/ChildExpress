@@ -128,7 +128,6 @@ export default class App {
   changeFocus(options) {
     this.isFace = options.face
     this.world.baby.isFace = options.face
-    console.log(this.camera.camera.controls)
     //const vec = new Vector3(this.camera.camera.position, this.camera.camera.position, this.camera.camera.position)
     if (this.isFace === 'face') {
       gsap
@@ -227,7 +226,6 @@ export default class App {
       )
       tlBox.add(() => {
         this.camera.camera.controls.enabled = false
-        console.log(this.camera.camera.controls)
       })
       tlBox.to([this.world.box.container.position], {
         x: -3.5,

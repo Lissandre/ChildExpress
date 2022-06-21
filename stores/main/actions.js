@@ -42,7 +42,6 @@ export const actions = {
     //if (checkbox.value === 0) checkbox.value = 1
     checkbox.value = newValue
 
-    console.log(id)
     if (id === 'visionary' || id === 'silent' || id === 'independant' || id === 'clean')
       this.$nuxt.$scene.world.baby.setXtras(id, newValue)
   },
