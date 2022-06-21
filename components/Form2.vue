@@ -135,7 +135,6 @@ export default {
         }, 5000)
       } else if (name === 'health' || name === 'scale') {
         $nuxt.$emit('updateSound', 'form2', 'speech', name, 'speech1')
-        console.log(type, name, value)
       } else {
         $nuxt.$emit('updateSound', 'form2', type, name, value)
       }
@@ -149,7 +148,6 @@ export default {
         value = (value * 100).toFixed(0)
       }
 
-      console.log(type, name, value, step)
       this.$helpers.updateInput(type, name, value, step)
     },
   },

@@ -281,8 +281,6 @@ Bête (entre 30 et 80) : Influenceur dans la pantoufle*/
     },
 
     inputChange(type, name, value, optional) {
-      console.log('here')
-
       this.$helpers.updateInput(type, name, value, 'form3')
       if (type === 'roundSlider') {
         value = value / optional

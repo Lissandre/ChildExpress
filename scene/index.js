@@ -208,12 +208,12 @@ export default class App {
   focusOnBox() {
     setTimeout(() => {
       this.world.container.remove(this.world.spotlights.container)
-    }, 7000)
+    }, 2000)
     this.world.baby.shrinkGlasses()
     // this.camera.camera.lookAt(this.world.box.container.position)
     if (this.world.box) {
-      var tlBox = gsap.timeline({ delay: 8 })
-      var tlBaby = gsap.timeline({ delay: 6 })
+      var tlBox = gsap.timeline({ delay: 2 })
+      var tlBaby = gsap.timeline()
 
       tlBox.fromTo(
         [this.world.box.container.position],
@@ -223,7 +223,7 @@ export default class App {
       tlBox.fromTo(
         [this.world.box.container.rotation],
         { x: Math.PI, y: 0, z: 0 },
-        { x: Math.PI, y: 2 * Math.PI, z: 0, duration: 4, delay: 3 }
+        { x: Math.PI, y: 2 * Math.PI, z: 0, duration: 4, delay: 2 }
       )
       tlBox.add(() => {
         this.camera.camera.controls.enabled = false
@@ -233,8 +233,8 @@ export default class App {
         x: -3.5,
         y: 0,
         z: -3,
-        duration: 3,
-        delay: 3,
+        duration: 1,
+        delay: 1,
       })
       tlBox.fromTo(
         [this.world.box.container.rotation],
@@ -266,14 +266,14 @@ export default class App {
       tlBaby.fromTo(
         [this.world.baby.baby.rotation],
         { x: 0, y: 0, z: 0 },
-        { x: 0, y: 2 * -Math.PI, z: 0, duration: 4, delay: 3 }
+        { x: 0, y: 2 * -Math.PI, z: 0, duration: 4, delay: 2 }
       )
       tlBaby.to([this.world.baby.baby.position], {
         x: -3.5,
         y: -1,
         z: -3,
-        duration: 3,
-        delay: 3,
+        duration: 1,
+        delay: 1,
       })
       tlBaby.fromTo(
         [this.world.baby.baby.rotation],

@@ -146,6 +146,10 @@ fieldset > input[type='submit'],
   filter: drop-shadow(0px 4px 7px rgba(15, 84, 228, 0.56));
 }
 
+.tns-liveregion{
+  display: none;
+}
+
 #tns1-mw,
 .tns-inner {
   width: 100%;
