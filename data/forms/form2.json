@@ -60,8 +60,8 @@
     },
     "noseSize": {
       "locales": {
-        "fr": "Taille du nez",
-        "en": "Nose size"
+        "fr": "",
+        "en": ""
       },
       "type": "range",
       "name": "noseSize",

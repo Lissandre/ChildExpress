@@ -3,7 +3,7 @@
     <iframe
       width="100%"
       height="100%"
-      src="https://www.youtube-nocookie.com/embed/Wch3gJG2GJ4?controls=0"
+      src="https://www.youtube.com/embed/1kF2r46EHuM?controls=1&vq=hd720"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
@@ -52,7 +52,7 @@ export default {
             this.$router.push('/en/customization')
           }
         })
-    }, 3000)
+    }, 65000)
   },
   methods: {},
 }

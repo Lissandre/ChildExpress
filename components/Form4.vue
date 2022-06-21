@@ -32,7 +32,7 @@
         >
         <span class="Title-mask"
           ><p class="info_data roc Title-line animate-revealtext six">
-            {{ getRange * 100 }} CM <span class="line2"></span></p
+            {{ getRange }} CM <span class="line2"></span></p
         ></span>
 
         <span class="Title-mask"
