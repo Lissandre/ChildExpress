@@ -1,8 +1,8 @@
 export default {
   target: 'server',
-  generate: {
-    fallback: true,
-  },
+  // generate: {
+  //   fallback: true,
+  // },
   head: {
     title: 'ChildExpress',
     htmlAttrs: {
@@ -52,6 +52,7 @@ export default {
     '/api/': {
       target: 'https://api.notion.com/v1/',
       pathRewrite: { '^/api/': '' },
+      changeOrigin: true,
     },
   },
   tailwindcss: {

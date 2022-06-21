@@ -116,20 +116,20 @@ export const actions = {
         )
       }
     })
-    console.log(this.userState)
+    // console.log(this.userState)
   },
   setDatabase() {
     Object.keys(properties.properties).forEach((key) => {
       if (properties.properties[key].hasOwnProperty('rich_text')) {
         properties.properties[key].rich_text[0].plain_text =
-          this.userState[key] || ''
+          this.userState[key] || ' '
         properties.properties[key].rich_text[0].text.content =
-          this.userState[key] || ''
+          this.userState[key] || ' '
       } else {
         properties.properties[key].title[0].plain_text =
-          this.userState[key] || ''
+          this.userState[key] || ' '
         properties.properties[key].title[0].text.content =
-          this.userState[key] || ''
+          this.userState[key] || ' '
       }
     })
 
@@ -138,6 +138,7 @@ export const actions = {
       properties: properties.properties,
     })
 
+    console.log(data)
     this.$nuxt.$axios.setToken(
       'secret_ytJwjM4cSGKzFFG6hZNMjMWMYqVYOfGW82xLJAZVzdE',
       'Bearer'
@@ -149,6 +150,9 @@ export const actions = {
     this.$nuxt.$axios.$post('/api/pages/', data, {
       headers: {
         'Content-Type': 'application/json',
+        Authorization:
+          'Bearer secret_ytJwjM4cSGKzFFG6hZNMjMWMYqVYOfGW82xLJAZVzdE',
+        'Notion-Version': '2022-02-22',
       },
     })
   },
