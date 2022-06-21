@@ -1,4 +1,5 @@
-import { state } from './state'
+// import { state } from './state'
+import properties from '@/data/dbModData'
 
 export const actions = {
   changeActiveForm() {
@@ -10,18 +11,18 @@ export const actions = {
     } else if (this.activeForm === 2 && !this.$nuxt.$scene.assets.needsLoad) {
       this.$nuxt.$scene.init()
     }
+    this.setDatabase()
   },
   changeRange(id, newValue, step) {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
-    
+
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeColor(id, newValue, step) {
     const color = this.colors.find((color) => color.id === id)
     color.value = newValue
-    console.log(id, newValue, step)
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
@@ -43,8 +44,12 @@ export const actions = {
     //if (checkbox.value === 0) checkbox.value = 1
     checkbox.value = newValue
 
-    console.log(id)
-    if (id === 'visionary' || id ==='silent' || id ==='independant' || id ==='clean')
+    if (
+      id === 'visionary' ||
+      id === 'silent' ||
+      id === 'independant' ||
+      id === 'clean'
+    )
       this.$nuxt.$scene.world.baby.setXtras(id, newValue)
   },
   changeCounter(id, newValue, step) {
@@ -101,5 +106,47 @@ export const actions = {
   },
   updateSubtitle(id) {
     this.subtitle = id
+  },
+  setUserValues(step, formData) {
+    const tempForm = require(`@/data/forms/form${step}.json`)
+    Object.keys(tempForm.inputs).forEach((key) => {
+      if (tempForm.inputs[key]['name'] != 'submit') {
+        this.userState[tempForm.inputs[key]['name']] = formData.get(
+          tempForm.inputs[key]['name']
+        )
+      }
+    })
+    console.log(this.userState)
+  },
+  setDatabase() {
+    Object.keys(properties.properties).forEach((key) => {
+      if (properties.properties[key].hasOwnProperty('rich_text')) {
+        properties.properties[key].rich_text[0].plain_text =
+          this.userState[key] || ''
+        properties.properties[key].rich_text[0].text.content =
+          this.userState[key] || ''
+      } else {
+        properties.properties[key].title[0].plain_text =
+          this.userState[key] || ''
+        properties.properties[key].title[0].text.content =
+          this.userState[key] || ''
+      }
+    })
+
+    const data = JSON.stringify({
+      parent: { database_id: 'ac8c6a801c3d4f5a80136c862373545d' },
+      properties: properties.properties,
+    })
+
+    this.$nuxt.$axios.setToken(process.env.TOKEN, 'Bearer')
+    this.$nuxt.$axios.setHeader(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+    )
+    this.$nuxt.$axios.$post('/api/pages/', data, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
   },
 }
