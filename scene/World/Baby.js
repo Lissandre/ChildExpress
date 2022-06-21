@@ -36,7 +36,9 @@ export default class Baby {
     this.baby = this.assets.models.baby.scene.children[0]
     this.baby.scale.set(1.2, 1.2, 1.2)
     this.baby.position.set(0, -1.2, 0)
-    console.log(this.assets.models, this.baby)
+
+
+    // this.barycentric = this.calculateBarycentric(vertices.length)
 
     if (!this.debug) {
       this.morphMeshes = []
@@ -51,6 +53,7 @@ export default class Baby {
       if (this.morphMeshes.length) {
         this.morphMeshes.forEach((mesh) => {
           mesh.material.needsUpdate = true
+          // mesh.material.wireframe = true
 
           let i = 0
           /*for (const [key, value] of Object.entries(
@@ -92,6 +95,13 @@ export default class Baby {
     this.map2.wrapT = RepeatWrapping
     this.map3.wrapS = RepeatWrapping
     this.map3.wrapT = RepeatWrapping
+  }
+
+  calculateBarycentric(length) {
+    const n = length / 6
+    const barycentric = []
+    for (let i = 0; i < n; i++) barycentric.push(1, 0, 0, 0, 1, 0, 0, 0, 1)
+    return new Float32Array(barycentric)
   }
 
   modifyShader() {
@@ -227,6 +237,8 @@ export default class Baby {
             uniform vec3 hairColor;
             uniform vec3 eyesColor;
             uniform vec3 skin;
+
+            
 
             vec2 rotate(vec2 v, float a) {
                 float s = sin(a);
@@ -487,6 +499,14 @@ export default class Baby {
   lerp(start, end, amt) {
     return (1 - amt) * start + amt * end
   }
+
+  calculateBarycentric(length) {
+    const n = length / 6
+    const barycentric = []
+    for (let i = 0; i < n; i++) barycentric.push(1, 0, 0, 0, 1, 0, 0, 0, 1)
+    return new Float32Array(barycentric)
+  }
+
 
   easeOutElastic(x) {
     const c4 = (2 * Math.PI) / 3
