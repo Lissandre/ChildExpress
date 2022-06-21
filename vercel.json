@@ -5,5 +5,11 @@
       "use": "@nuxtjs/vercel-builder",
       "config": {}
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:match*",
+      "destination": "https://api.notion.com/v1/:match*"
+    }
   ]
 }
