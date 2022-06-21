@@ -116,29 +116,13 @@ export default class Box {
         this.box.position.set(0, -10, 0)
 
         this.box.children[0].position.set(0, 0, 0)
-        this.container.add(this.box)
 
 
         console.log(this.box)
-
-        const blackPlane1 = new PlaneGeometry( 0.5, 0.5 );
-        blackPlane1.position.set(0, 0, -0.5)
-        const blackPlane2 = new PlaneGeometry( 0.5, 0.5 );
-        blackPlane2.position.set(0, 0, -0.5)
-        blackPlane2.rotation.set(0, Math.PI / 2, -0.5)
-
-        const blackPlane3 = new PlaneGeometry( 0.5, 0.5 );
-        blackPlane3.position.set(0, 0, -0.5)
-        blackPlane3.rotation.set(0, Math.PI / 2, -0.5)
-
-        const blackmaterial = new MeshBasicMaterial( {color: 0x000000} );
-        const blackPlaneMesh1 = new Mesh( blackPlane1, blackmaterial );
-        const blackPlaneMesh2 = new Mesh( blackPlane2, blackmaterial );
-        const blackPlaneMesh3 = new Mesh( blackPlane3, blackmaterial );
-
-        this.box.add(blackPlaneMesh1)
-        this.box.add(blackPlaneMesh2)
-        this.box.add(blackPlaneMesh3)
+        const black = material.clone()
+        // const blackmaterial = new MeshBasicMaterial( {color: 0x000000} );
+        this.blackBox = new Mesh(this.box.geometry, black)
+        this.container.add(this.box, this.blackBox)
 
 
         // this.setMovement()
@@ -217,6 +201,7 @@ export default class Box {
         this.ctx.strokeStyle = 'black'
         this.ctx.font = `20px "roc-grotesk"`
         const uppercase = value.toUpperCase()
+        // if(key > 1 ) {}
         this.ctx.fillText(uppercase, this.oldMeasure.width + 20, 102)
         const measure = this.ctx.measureText(uppercase)
 
