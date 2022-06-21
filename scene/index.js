@@ -17,7 +17,7 @@ import Plane from './World/Plane'
 export default class App {
   constructor(options) {
     // Set options
-    this.debug = true
+    this.debug = false
     this.time = new Time()
     this.sizes = new Sizes()
     this.assets = new Loader()

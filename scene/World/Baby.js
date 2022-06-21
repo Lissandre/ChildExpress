@@ -1,4 +1,4 @@
-import { Color, Object3D, RepeatWrapping, Vector3 } from 'three'
+import { Color, Object3D, RepeatWrapping, Vector3, BufferAttribute, Mesh, SphereBufferGeometry, ShaderMaterial } from 'three'
 import gsap, { Power3, Bounce } from 'gsap'
 
 export default class Baby {
@@ -17,6 +17,7 @@ export default class Baby {
     this.xtrasToChange = []
     this.blendShapes = ['R_mouth_R,', 'L_mouth_L']
     this.blendShapesId = []
+    this.progress = 1
 
     this.transition = 0
 
@@ -37,9 +38,62 @@ export default class Baby {
     this.baby.scale.set(1.2, 1.2, 1.2)
     this.baby.position.set(0, -1.2, 0)
 
+    //   let s = new Mesh(new SphereBufferGeometry(5), new ShaderMaterial({
+    //     vertexShader: `
+    //       varying vec2 vUv;
+    //       attribute vec3 barycentric;
+    //       varying vec3 vBarycentric;
 
-    // this.barycentric = this.calculateBarycentric(vertices.length)
+    //       void main() {
+    //         vUv = uv;
+    //         vBarycentric = barycentric;
 
+    //         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+    //       }
+    // `,
+    //     fragmentShader: `
+    //       varying vec3 vBarycentric;
+
+    //       void main()	{
+    //         float width = 0.01;
+
+    //         float border = smoothstep(0.01, 0.0,  vBarycentric.x - width);
+    //         border = max(border, smoothstep(0.01, 0.0,  vBarycentric.y - width));
+    //         border = max(border, smoothstep(0.01, 0.0,  vBarycentric.z - width));
+
+    //         gl_FragColor = vec4(vec3(1.-border),1.);
+    //       }
+    // `
+    //   }))
+    //   const attrib = s.geometry.getIndex() || s.geometry.getAttribute('position');
+    //   const count = attrib.count / 3;
+
+    //   let bary = [];
+    //   for (let i = 0; i < count; i++) {
+    //     const even = i % 2 === 0;
+    //     const Q = false ? 1 : 0;
+    //     if (even) {
+    //       bary.push(
+    //         0, 0, 1,
+    //         0, 1, 0,
+    //         1, 0, Q
+    //       );
+    //     } else {
+    //       bary.push(
+    //         0, 1, 0,
+    //         0, 0, 1,
+    //         1, 0, Q
+    //       );
+    //     }
+    //   }
+
+    //   bary = new Float32Array(bary);
+
+    //   s.geometry.setAttribute(
+    //     "barycentric",
+    //     new BufferAttribute(bary, 3)
+    //   );
+    //   this.baby.add(s)
     if (!this.debug) {
       this.morphMeshes = []
       this.baby.traverse((node) => {
@@ -86,6 +140,7 @@ export default class Baby {
     this.map1 = this.assets.textures.magic1
     this.map2 = this.assets.textures.magic2
     this.map3 = this.assets.textures.magic3
+    this.wireframe = this.assets.textures.wireframe
 
     this.map1.wrapS = RepeatWrapping
     this.map1.wrapT = RepeatWrapping
@@ -93,21 +148,21 @@ export default class Baby {
     this.map2.wrapT = RepeatWrapping
     this.map3.wrapS = RepeatWrapping
     this.map3.wrapT = RepeatWrapping
-  }
-
-  calculateBarycentric(length) {
-    const n = length / 6
-    const barycentric = []
-    for (let i = 0; i < n; i++) barycentric.push(1, 0, 0, 0, 1, 0, 0, 0, 1)
-    return new Float32Array(barycentric)
+    this.wireframe.wrapS = RepeatWrapping
+    this.wireframe.wrapT = RepeatWrapping
   }
 
   modifyShader() {
     this.baby.children[1].material.needsUpdate = true
+    this.baby.children[1].material.metalness = 0
+    this.baby.children[1].material.roughness = 0.8
     this.baby.children[1].material.onBeforeCompile = (s) => {
       s.uniforms.map1 = { value: this.map1 }
       s.uniforms.map2 = { value: this.map2 }
       s.uniforms.map3 = { value: this.map3 }
+      s.uniforms.wireframe = { value: this.wireframe }
+
+      s.uniforms.progress = { value: 0 }
 
       s.uniforms.hairColor = { value: new Vector3(1, 0, 0) } //map1 R
       s.uniforms.eyesColor = { value: new Vector3(0, 1, 0) }  //map1 G
@@ -133,6 +188,7 @@ export default class Baby {
 
       s.vertexShader =
         `
+        precision highp float;
         uniform sampler2D map1;
         uniform sampler2D map2;
         uniform sampler2D map3;
@@ -160,6 +216,9 @@ export default class Baby {
         uniform float babyMax;
 
         varying float startProgress;
+
+        attribute vec3 barycentric;
+        // varying vec3 vbc;
 
         vec2 rotate(vec2 v, float a) {
             float s = sin(a);
@@ -201,12 +260,17 @@ export default class Baby {
       ` + s.vertexShader
 
       s.fragmentShader =
-        `uniform sampler2D map1;
+        `
+        uniform sampler2D map1;
+        uniform sampler2D wireframe;
+        // varying vec3 vbc;
       ` + s.fragmentShader
 
       s.vertexShader = s.vertexShader.replace(
         '#include <begin_vertex>',
         /*glsl*/ `
+              // vbc = barycentric;
+
               vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
               vec4 tex2 = texture2D(map2, vUv*vec2(1., -1.));
               vec4 tex3 = texture2D(map3, vUv*vec2(1., -1.));
@@ -230,11 +294,14 @@ export default class Baby {
 
       s.fragmentShader =
         `
+            precision highp float;
+
             uniform float startAnimation;
             uniform float time;
             uniform vec3 hairColor;
             uniform vec3 eyesColor;
             uniform vec3 skin;
+            uniform float progress;
 
             
 
@@ -249,19 +316,67 @@ export default class Baby {
         s.fragmentShader.replace(
           'vec4 diffuseColor = vec4( diffuse, opacity );',
           /*glsl*/ `
-               vec3 diff = diffuse;
-               vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
-               float hair = tex1.r;
-               float eye = tex1.g;
-               float skin_ = tex1.b;
-               diff = mix(diff, hairColor, hair);
-               diff = mix(diff, eyesColor, eye);
-               diff = mix(diff, skin, skin_);
+              vec3 diff = diffuse;
+              vec4 tex1 = texture2D(map1, vUv*vec2(1., -1.));
+              float hair = tex1.r;
+              float eye = tex1.g;
+              float skin_ = tex1.b;
+              diff = mix(diff, hairColor, hair);
+              diff = mix(diff, eyesColor, eye);
+              diff = mix(diff, skin, skin_);
 
-               vec4 diffuseColor = vec4(diff, 1.);
+              // float width = 0.05;
+
+              // float border = smoothstep(0.0, 0.01,  -vbc.x + width);
+              // border = max(border, smoothstep(0.0, 0.01,  -vbc.y + width));
+              // border = max(border, smoothstep(0.0, 0.01,  -vbc.z + width));
+              // border = 1. - border;
+
+              
+              vec4 diffuseColor = vec4(diff, 1.);
+
             `
         )
+
+      s.fragmentShader = s.fragmentShader.replace(
+        '#include <output_fragment>',
+        `
+        #ifdef OPAQUE
+        diffuseColor.a = 1.0;
+        #endif
+        // https://github.com/mrdoob/three.js/pull/22425
+        #ifdef USE_TRANSMISSION
+        diffuseColor.a *= transmissionAlpha + 0.1;
+        #endif
+            float w = smoothstep( 0.1, 0.3, texture2D( wireframe, vUv*vec2(1., -1.) ).x);
+            vec4 wf = vec4( w );
+
+            vec4 a = vec4(step(0.1,wf.x));
+            vec4 b = vec4(vec3(wf.xyz*0.5 + length(outgoingLight)*0.8) , diffuseColor.a );
+            vec4 c = vec4(wf.xyz*0.2 + mix(vec3(length(outgoingLight)*0.8), outgoingLight, 0.5) , diffuseColor.a );
+            vec4 d = vec4(outgoingLight , diffuseColor.a );
+
+            if(progress <= 1.){
+              gl_FragColor = mix(vec4(0.), a, progress);
+            }
+            
+            else if(progress <= 2.){
+              gl_FragColor = mix(a, b, progress - 1.);
+            }
+
+            else if(progress <= 3.){
+              gl_FragColor = mix(b, c, progress - 2.);
+            }
+            
+            else if(progress <= 4.){
+              gl_FragColor = mix(c, d, progress - 3.);
+            }
+            
+          `
+      )
+
       this.shader = s
+      console.log(this.shader.fragmentShader)
       this.appear()
     }
   }
@@ -469,6 +584,7 @@ export default class Baby {
 
       if (!this.shader) return
       this.shader.uniforms.time.value += 0.1
+      this.shader.uniforms.progress.value = this.lerp(this.shader.uniforms.progress.value, this.progress, 0.2)
     })
   }
 
@@ -482,13 +598,6 @@ export default class Baby {
 
   lerp(start, end, amt) {
     return (1 - amt) * start + amt * end
-  }
-
-  calculateBarycentric(length) {
-    const n = length / 6
-    const barycentric = []
-    for (let i = 0; i < n; i++) barycentric.push(1, 0, 0, 0, 1, 0, 0, 0, 1)
-    return new Float32Array(barycentric)
   }
 
 

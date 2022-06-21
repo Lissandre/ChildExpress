@@ -10,6 +10,10 @@ export const actions = {
     } else if (this.activeForm === 2 && !this.$nuxt.$scene.assets.needsLoad) {
       this.$nuxt.$scene.init()
     }
+    else if (this.activeForm != 2) {
+
+      this.$nuxt.$scene.world.baby.progress = 1 + this.activeForm
+    }
   },
   changeRange(id, newValue, step) {
     const range = this.ranges.find((range) => range.id === id)
@@ -95,6 +99,12 @@ export const actions = {
   toggleIsFace(newValue) {
     this.face = newValue
     this.$nuxt.$scene?.changeFocus({ face: newValue })
+    if (this.face === 'face')
+      this.$nuxt.$scene.world.baby.progress = 2
+    else if (this.face === 'middle')
+      this.$nuxt.$scene.world.baby.progress = 3
+
+
   },
   updateSubtitle(id) {
     this.subtitle = id
