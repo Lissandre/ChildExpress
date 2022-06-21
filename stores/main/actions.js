@@ -14,7 +14,7 @@ export const actions = {
   changeRange(id, newValue, step) {
     const range = this.ranges.find((range) => range.id === id)
     range.value = newValue
-    
+
     if (step != 'form1')
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
@@ -40,7 +40,7 @@ export const actions = {
     checkbox.value = newValue
 
     console.log(id)
-    if (id === 'visionary' || id ==='silent' || id ==='independant' || id ==='clean')
+    if (id === 'visionary' || id === 'silent' || id === 'independant' || id === 'clean')
       this.$nuxt.$scene.world.baby.setXtras(id, newValue)
   },
   changeCounter(id, newValue, step) {
@@ -57,9 +57,8 @@ export const actions = {
       (roundSlider) => roundSlider.id === id
     )
     roundSlider.value = newValue
-    // A DECOMMENTER LEITH
-    // if (step != 'form1')
-    //this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
+    if (step != 'form1')
+      this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeCurrentMoney(value) {
     this.currentMoney = value

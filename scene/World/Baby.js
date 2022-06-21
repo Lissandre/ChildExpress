@@ -105,7 +105,7 @@ export default class Baby {
       s.uniforms.titSize = { value: 0.5 }    //map2 R
       s.uniforms.handsSize = { value: 0.5 }  //map2 G
       s.uniforms.noseHeight = { value: 0.5 } //map2 B
-      s.uniforms.headSize = { value: 0.5 }   //map2 A
+      s.uniforms.headSize = { value: 110. }   //map2 A
 
       s.uniforms.noseSize = { value: 0.5 }   //map3 R
       s.uniforms.earsSize = { value: 0.5 }   //map3 G
@@ -203,20 +203,19 @@ export default class Baby {
               float tit = tex2.r * (titSize - 0.5);
               float hands = tex2.g * (handsSize - 0.5);
               float noiseH = tex2.b * (noseHeight - 0.5);
-              float head = tex2.a * (headSize - 0.5);
+              float head = (1. -tex2.a) * map((headSize-50.)/200., -0.02, 0.03);
 
               float nose = tex3.r * map(noseSize,-0.004, 0.02);
               float ears = tex3.g *  map(earsSize,-0.004, 0.03);
               float mouth = tex3.b * map(mouthSize,-0.004, 0.01);
               float eye = (1.-tex3.a) * map(eyeSize,-0.003, 0.005);
 
-              float transformation = tit + hands + noiseH + head + nose + ears + mouth + eye;
+              float transformation = hands + nose + ears + mouth + eye;
               float n = noise(position * 0.5) * (1. - startAnimation);
               vec3 pos = position;
-              vec3 transformed = (pos + (transformation + map(overallSize,-0.008,0.008)) * normal);
+              vec3 transformed = (pos + (transformation + map(overallSize,-0.008,0.008) + head) * normal);
             `
       )
-      console.log(s.vertexShader)
 
       s.fragmentShader =
         `
@@ -255,6 +254,7 @@ export default class Baby {
   }
 
   updateUniform = (uniform, value) => {
+    console.log(uniform, value)
     if (uniform == 'scale') {
       let v = value / 100
       v -= 0.5
