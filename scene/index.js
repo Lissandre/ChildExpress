@@ -210,22 +210,26 @@ export default class App {
       this.world.container.remove(this.world.spotlights.container)
     }, 7000)
     this.world.baby.shrinkGlasses()
-    // this.camera.camera.lookAt(this.world.box.box.position)
+    // this.camera.camera.lookAt(this.world.box.container.position)
     if (this.world.box) {
-      var tlBox = gsap.timeline({delay: 8})
-      var tlBaby = gsap.timeline({delay: 6})
+      var tlBox = gsap.timeline({ delay: 8 })
+      var tlBaby = gsap.timeline({ delay: 6 })
 
       tlBox.fromTo(
-        [this.world.box.box.position],
+        [this.world.box.container.position],
         { x: 0, y: -5, z: 0 },
         { x: 0, y: 0, z: 0, duration: 1 }
       )
       tlBox.fromTo(
-        [this.world.box.box.rotation],
+        [this.world.box.container.rotation],
         { x: Math.PI, y: 0, z: 0 },
         { x: Math.PI, y: 2 * Math.PI, z: 0, duration: 4, delay: 3 }
       )
-      tlBox.to([this.world.box.box.position], {
+      tlBox.add(() => {
+        this.camera.camera.controls.enabled = false
+        console.log(this.camera.camera.controls)
+      })
+      tlBox.to([this.world.box.container.position], {
         x: -3.5,
         y: 0,
         z: -3,
@@ -233,7 +237,7 @@ export default class App {
         delay: 3,
       })
       tlBox.fromTo(
-        [this.world.box.box.rotation],
+        [this.world.box.container.rotation],
         { x: Math.PI, y: 2 * Math.PI, z: 0 },
         {
           x: Math.PI,
@@ -291,7 +295,7 @@ export default class App {
     setTimeout(() => {
       this.world.container.remove(this.world.spotlights.container)
     }, 7000)
-    this.world.baby.shrinkGlasses({delay: 2})
+    this.world.baby.shrinkGlasses({ delay: 2 })
 
     if (this.world.bin) {
       gsap.to(this.world.baby.baby.scale, {

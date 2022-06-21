@@ -60,7 +60,7 @@ export const actions = {
       (roundSlider) => roundSlider.id === id
     )
     roundSlider.value = newValue
-    if (step != 'form1')
+    if (step != 'form1' && this.$nuxt.$scene.world)
       this.$nuxt.$scene.world.baby.updateUniform(id, newValue)
   },
   changeCurrentMoney(value) {

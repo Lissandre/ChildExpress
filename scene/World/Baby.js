@@ -103,7 +103,7 @@ export default class Baby {
 
       s.uniforms.hairColor = { value: new Vector3(1, 0, 0) } //map1 R
       s.uniforms.eyesColor = { value: new Vector3(0, 1, 0) }  //map1 G
-      s.uniforms.skin = { value: new Vector3(0, 0, 1) } //map1 B
+      s.uniforms.skin = { value: new Vector3(252 / 255, 220 / 255, 210 / 255) } //map1 B
 
       s.uniforms.titSize = { value: 0.5 }    //map2 R
       s.uniforms.handsSize = { value: 0.5 }  //map2 G

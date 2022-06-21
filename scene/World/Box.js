@@ -64,6 +64,7 @@ export default class Box {
           transparent: true,
           uniforms: {
             u_texture: { value: this.texture },
+            black: { value: 0 }
           },
           vertexShader: `
         varying vec2 vUv;
@@ -78,6 +79,7 @@ export default class Box {
         }`,
           fragmentShader: `
         varying vec2 vUv;
+        uniform float black;
 
         uniform sampler2D u_texture;
 
@@ -87,10 +89,11 @@ export default class Box {
           if(color == vec3(0., 1., 0.)) {
             discard;
           }
-          gl_FragColor = vec4(color.ggg, 1.);
+          gl_FragColor = vec4(mix(color.ggg,mix(vec3(99./255.), vec3(180./255.), vUv.x), black), 1.);
         }
         `,
         })
+        //99 --> 180
 
         this.box = this.assets.models.baby_box.scene
         //this.babyMin = this.baby.geometry.boundingBox.min.z
@@ -110,18 +113,24 @@ export default class Box {
         // this.map1 = this.assets.textures.map_box
         // this.map1.wrapS = RepeatWrapping;
         // this.map1.wrapT = RepeatWrapping;
-        this.box.scale.set(-3, -3, -3)
-        this.box.rotation.set(Math.PI, 0, 0)
+        this.container.scale.set(-3, -3, -3)
+        this.container.rotation.set(Math.PI, 0, 0)
 
-        this.box.position.set(0, -10, 0)
+        this.container.position.set(0, -10, 0)
 
         this.box.children[0].position.set(0, 0, 0)
 
-
-        console.log(this.box)
         const black = material.clone()
-        // const blackmaterial = new MeshBasicMaterial( {color: 0x000000} );
-        this.blackBox = new Mesh(this.box.geometry, black)
+        black.uniforms.black.value = 1;
+        this.blackBox = this.box.clone()
+        this.blackBox.traverse(function (child) {
+          if (child.isMesh) {
+            child.material = black
+          }
+        })
+
+        this.blackBox.children[0].position.set(0, 0, 0)
+        this.blackBox.scale.set(0.999, 0.999, 0.999)
         this.container.add(this.box, this.blackBox)
 
 
@@ -279,17 +288,17 @@ export default class Box {
   }
 
   boxAppear() {
-    this.box.scale.set(-3, -3, -3)
-    this.box.rotation.set(Math.PI, 0, 0)
+    this.container.scale.set(-3, -3, -3)
+    this.container.rotation.set(Math.PI, 0, 0)
 
-    this.box.position.set(0, -5, 0)
+    this.container.position.set(0, -5, 0)
 
-    this.box.children[0].position.set(0, 0, 0)
+    this.container.children[0].position.set(0, 0, 0)
   }
   setMovement() {
-    if (this.box)
+    if (this.container)
       this.time.on('tick', () => {
-        this.box.rotation.y += 0.001 * this.time.delta
+        this.container.rotation.y += 0.001 * this.time.delta
       })
   }
 }
