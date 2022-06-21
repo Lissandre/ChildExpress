@@ -244,9 +244,7 @@ export default {
 
     getExtras() {
       this.xtras.forEach((xtra) => {
-        console.log(xtra)
         if (this.store.getXtras(xtra.id) === 1) {
-          console.log('pass', xtra)
           this.xtrasToPlay.push({
             id: xtra.id,
             value: this.store.getXtras(xtra.id),
