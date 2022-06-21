@@ -147,6 +147,6 @@ export const actions = {
     //   'Access-Control-Allow-Headers',
     //   'Origin, X-Requested-With, Content-Type, Accept'
     // )
-    this.$nuxt.$axios.$post('/api/pages/', JSON.stringify(properties))
+    this.$nuxt.$axios.$post('/api/pages/', properties)
   },
 }

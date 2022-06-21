@@ -17,7 +17,7 @@ const addBabyRequest = async (body) => {
 
   const data = {
     parent: { database_id: 'ac8c6a801c3d4f5a80136c862373545d' },
-    properties: JSON.parse(body.properties),
+    properties: body.properties,
   }
 
   return await client.pages.create(data).catch((err) => {
