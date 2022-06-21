@@ -146,7 +146,7 @@
       "type": "checkbox",
       "name": "clean",
       "component": "InputCheckbox",
-      "value": 1,
+      "value": 0,
       "class": "silent xtra-component xtra-checkbox"
     },
     "visionary": {

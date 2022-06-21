@@ -201,17 +201,30 @@ export default class Box {
         this.ctx.strokeStyle = 'black'
         this.ctx.font = `20px "roc-grotesk"`
         const uppercase = value.toUpperCase()
-        // if(key > 1 ) {}
-        this.ctx.fillText(uppercase, this.oldMeasure.width + 20, 102)
-        const measure = this.ctx.measureText(uppercase)
+        if(key < 2 ) {
+          this.ctx.fillText(uppercase, this.oldMeasure.width + 20, 102)
+          const measure = this.ctx.measureText(uppercase)
+  
+          this.ctx.strokeRect(
+            this.oldMeasure.width + 10,
+            100,
+            measure.width + 20,
+            20
+          )
+          this.oldMeasure = measure
+        } else {
+          this.ctx.fillText(uppercase, this.oldMeasure.width - 90, 132)
+          const measure = this.ctx.measureText(uppercase)
+  
+          this.ctx.strokeRect(
+            this.oldMeasure.width -110,
+            132,
+            measure.width + 20,
+            20
+          )
+          this.oldMeasure = measure
+        }
 
-        this.ctx.strokeRect(
-          this.oldMeasure.width + 10,
-          100,
-          measure.width + 20,
-          20
-        )
-        this.oldMeasure = measure
         this.ctx.restore()
       }
 
