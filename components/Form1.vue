@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col relative h-full w-full" style="overflow: hidden">
-    <video muted loop autoplay class="rounded-sm absolute" ref="loaderVideo">
+    <video muted loop autoplay class="rounded-sm absolute loaderVideo" ref="loaderVideo">
       <source src="@/assets/images/webm/loader.webm" type="video/webm" />
     </video>
 
@@ -407,6 +407,12 @@ export default {
 }
 #form1 .hair-color label {
   flex-basis: 100%;
+}
+
+.loaderVideo {
+  width: 100%;
+  position: absolute;
+  margin: 0 auto;
 }
 </style>
 

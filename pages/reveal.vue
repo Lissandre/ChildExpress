@@ -371,8 +371,8 @@
               <li>{{ $t('reveal.childexpresser_5') }}</li>
               <li>{{ $t('reveal.childexpresser_6') }}</li>
             </ul>
-          <video muted loop autoplay class="rounded-sm pb-16 absolute bottom-[-10%] right-[10%] h-[90%]">
-            <source src="@/assets/images/landing_debut/ADN1.webm" type="video/webm" />
+          <video muted loop autoplay class="rounded-sm pb-16 absolute bottom-[-10%] right-[0%] h-[90%] adn2">
+            <source src="@/assets/images/landing_fin/ADN2.webm" type="video/webm" />
           </video>
           </div>
         </div>
@@ -551,7 +551,7 @@
             {{ $t('reveal.satisfaction_percent') }}
           </h2>
           <h3
-            class="text-3xl font-bold text-left mb-12 whitespace-pre-line max-w-[300px]"
+            class="text-3xl font-bold text-left mb-12 max-w-[300px]"
           >
             {{ $t('reveal.satisfaction_text') }}
           </h3>
@@ -1009,11 +1009,9 @@ export default {
 </script>
 
 <style scoped>
-.land {
-  background-image: url(@/assets/images/bglanddark.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
+
+.adn2 {
+  mix-blend-mode: difference; 
 }
 h1 span {
   display: inline-block;

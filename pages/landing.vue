@@ -341,7 +341,7 @@
           </div>
         </div>
         <div
-          class="w-6/12 h-full flex rounded-lg absolute right-0 top-1/4 bg-white neue"
+          class="w-6/12 h-full flex rounded-lg absolute right-0 top-1/4 bg-[#D6DDE4] neue"
           ref="DNA"
         >
           <div class="pl-20 py-16">
@@ -499,7 +499,7 @@
             {{ $t('landing.satisfaction_percent') }}
           </h2>
           <h3
-            class="text-3xl font-bold text-left mb-12 whitespace-pre-line max-w-[300px]"
+            class="text-3xl font-bold text-left mb-12 max-w-[300px]"
           >
             {{ $t('landing.satisfaction_text') }}
           </h3>
@@ -972,12 +972,6 @@ export default {
 </script>
 
 <style scoped>
-.land {
-  background-image: url(@/assets/images/bgland.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 h1 span {
   display: inline-block;
   /*transform: rotate(-2.6deg);*/

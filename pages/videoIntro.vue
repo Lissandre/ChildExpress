@@ -52,7 +52,7 @@ export default {
             this.$router.push('/en/customization')
           }
         })
-    }, 65000)
+    }, 62000)
   },
   methods: {},
 }
