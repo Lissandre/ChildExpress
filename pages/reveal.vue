@@ -279,7 +279,7 @@
             <rect x="0" y="5" width="100%" height="95%" rx="60" href="rect" />
           </svg>
           <img
-            src="@/assets/images/landing_fin/sticker_rocket.png"
+            src="@/assets/images/landing_fin/sticker_glass.png"
             alt=""
             class="green-neue"
             ref="innovation"

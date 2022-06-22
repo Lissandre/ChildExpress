@@ -296,7 +296,7 @@ export default {
 
       setTimeout(() => {
         $nuxt.$emit('updateSound', 'form4', 'text', 'box')
-      }, 9500)
+      }, 7500)
       setTimeout(() => {
         this.$helpers.updateInput('submit', 'keep', 'true')
       }, 17000)
