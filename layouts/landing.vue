@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header :class="$route.name.includes('landing') ? 'false' : 'reveal'"/>
     <Background :dark="$route.name.includes('landing') ? false : true" />
     <Nuxt />
     <Footer />

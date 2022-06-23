@@ -114,7 +114,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('landing.name_1')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe1.webm" type="video/webm" />
           </video>
         </div>
@@ -122,7 +122,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('landing.name_2')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe2.webm" type="video/webm" />
           </video>
         </div>
@@ -130,7 +130,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('landing.name_3')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe3.webm" type="video/webm" />
           </video>
         </div>
@@ -138,7 +138,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('landing.name_4')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe4.webm" type="video/webm" />
           </video>
         </div>
@@ -146,7 +146,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('landing.name_5')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe5.webm" type="video/webm" />
           </video>
           <img
@@ -271,7 +271,7 @@
           <img
             src="@/assets/images/landing_debut/sticker_innovation.png"
             alt=""
-            class="pink-neue"
+            class="pink-neue innovation"
             ref="innovation"
           />
           <div class="flex flex-col justify-center">
@@ -383,12 +383,12 @@
           <img
             src="@/assets/images/landing_debut/donutPremium.svg"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px] "
           />
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.premium') }}
           </h3>
-          <span class="text-5xl mb-16 text-center neueBit">$$$<br />$$</span>
+          <span class="text-8xl mb-16 text-center neueBit text-white leading-[62px]" >$$$<br />$$</span>
           <button
             @click="redirect"
             class="font-bold text-3xl px-8 py-4 rounded-full neue translate-y-1/2 bgo neueBit"
@@ -410,12 +410,12 @@
           <img
             src="@/assets/images/landing_debut/donutStandard.svg"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px]"
           />
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.standard') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text neueBit">$$$</span>
+          <span class="text-8xl mb-16 text-center neueBit">$$$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -431,12 +431,12 @@
           <img
             src="@/assets/images/landing_debut/donutReconditionne.svg"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px]"
           />
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.recond') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text neueBit">$$</span>
+          <span class="text-8xl mb-16 text-center neueBit">$$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -452,12 +452,12 @@
           <img
             src="@/assets/images/landing_debut/donutOccasion.svg"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px]"
           />
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.occas') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text neueBit">$</span>
+          <span class="text-8xl mb-16 text-center neueBit">$</span>
         </div>
         <div class="relative flex flex-col items-center w-full offer-item">
           <svg
@@ -473,12 +473,12 @@
           <img
             src="@/assets/images/landing_debut/donutFree.svg"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px]"
           />
           <h3 class="text-3xl font-light text-center mb-12 whitespace-pre-line">
             {{ $t('landing.unsell') }}
           </h3>
-          <span class="text-5xl mb-16 stroke-text neueBit">FREE</span>
+          <span class="text-8xl mb-16 text-center neueBit">FREE</span>
         </div>
       </div>
     </section>
@@ -831,7 +831,7 @@ export default {
           this.$refs.egalite,
           { transform: 'scale(0)' },
           {
-            transform: 'translateX(-25%) scale(1)',
+            transform: 'translateX(-25%) scale(0.8)',
             duration: 2,
             scrollTrigger: this.$refs.egalite,
             ease: Power3.easeInOut,
@@ -840,13 +840,12 @@ export default {
         .then(() => {
           this.$gsap.fromTo(
             this.$refs.egalite,
-            { transform: 'translateX(-25%) scale(1)' },
+            { transform: 'translateX(-25%) scale(0.8)' },
             {
-              transform: 'translateX(-25%) scale(1.5)',
+              transform: 'translateX(-25%) scale(1)',
               duration: 2,
               repeat: -1,
               ease: 'none',
-              stagger: 0.1,
               yoyo: true,
             }
           )
@@ -897,7 +896,6 @@ export default {
               duration: 2,
               repeat: -1,
               ease: 'none',
-              stagger: 0.1,
               yoyo: true,
             }
           )
@@ -906,24 +904,23 @@ export default {
       this.$gsap
         .fromTo(
           this.$refs.positive,
-          { transform: ' scale(0) ' },
+          { transform: 'scale(0)' },
           {
-            transform: 'translate(-25%, -25%) scale(1)',
+            transform: 'translateX(-25%) scale(0.8)',
             duration: 2,
-            scrollTrigger: this.$refs.ecologie,
+            scrollTrigger: this.$refs.egalite,
             ease: Power3.easeInOut,
           }
         )
         .then(() => {
           this.$gsap.fromTo(
             this.$refs.positive,
-            { transform: 'translate(-25%, -25%) ' },
+            { transform: 'translateX(-25%) scale(0.8)' },
             {
-              transform: 'translate(-25%, 25%)',
+              transform: 'translateX(-25%) scale(1)',
               duration: 2,
               repeat: -1,
-              ease: Power3.easeIn,
-              stagger: 0.3,
+              ease: 'none',
               yoyo: true,
             }
           )
@@ -932,9 +929,9 @@ export default {
       this.$gsap
         .fromTo(
           this.$refs.innovation,
-          { transform: ' scale(0)' },
+          { transform: 'translateX(-25%) scale(0)' },
           {
-            transform: 'translate(-25%, -10%)  scale(1)',
+            transform: 'translateX(-25%) scale(1) rotate(-20deg)',
             duration: 2,
             scrollTrigger: this.$refs.innovation,
             ease: Power3.easeInOut,
@@ -943,13 +940,12 @@ export default {
         .then(() => {
           this.$gsap.fromTo(
             this.$refs.innovation,
-            { transform: 'translate(-25%, -10%)' },
+            { transform: ' translateX(-25%) rotate(-20deg)' },
             {
-              transform: 'translate(0)',
-              duration: 1,
+              transform: ' translateX(-25%) rotate(20deg)',
+              duration: 2,
               repeat: -1,
-              ease: Power3.easeIn,
-              delay: 0.5,
+              ease: 'none',
               yoyo: true,
             }
           )
@@ -1179,6 +1175,10 @@ section {
   pointer-events: none;
   position: fixed;
   top: 0;
+}
+
+.innovation {
+  height: fit-content;
 }
 </style>
 

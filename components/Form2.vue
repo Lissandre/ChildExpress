@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col relative h-full w-full">
+    <div class="echelle"></div>
     <Focus />
     <div class="videoList" ref="videoList">
       <video muted loop autoplay class="rounded-sm">
@@ -267,5 +268,16 @@ video {
 
 div > fieldset {
   backdrop-filter: blur(20px);
+}
+
+.echelle {
+  background: no-repeat center center url('@/assets/images/echelle.png');
+  position: absolute;
+  width: 100px;
+  height: 70vh;
+  top: 10%;
+  left: 50px;
+  overflow: hidden;
+  z-index: 1;
 }
 </style>

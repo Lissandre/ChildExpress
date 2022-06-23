@@ -119,7 +119,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('reveal.name_1')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe1.webm" type="video/webm" />
           </video>
         </div>
@@ -127,7 +127,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('reveal.name_2')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe2.webm" type="video/webm" />
           </video>
         </div>
@@ -135,7 +135,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('reveal.name_3')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe3.webm" type="video/webm" />
           </video>
         </div>
@@ -143,7 +143,7 @@
           <span class="name px-4 py-2 uppercase">{{
             $t('reveal.name_4')
           }}</span>
-          <video muted loop autoplay class="rounded-sm">
+          <video muted loop autoplay class="rounded-[12px]">
             <source src="@/assets/images/webm/bebe4.webm" type="video/webm" />
           </video>
         </div>
@@ -281,7 +281,7 @@
           <img
             src="@/assets/images/landing_fin/sticker_glass.png"
             alt=""
-            class="green-neue"
+            class="green-neue innovation"
             ref="innovation"
           />
           <div class="flex flex-col justify-center">
@@ -436,7 +436,7 @@
           <img
             src="@/assets/images/landing_fin/silent.png"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px]"
           />
           <h3
             class="text-3xl font-light text-center whitespace-pre-line uppercase"
@@ -462,7 +462,7 @@
           <img
             src="@/assets/images/landing_fin/balance.png"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px]"
           />
           <h3
             class="text-3xl font-light text-center whitespace-pre-line uppercase"
@@ -488,7 +488,7 @@
           <img
             src="@/assets/images/landing_fin/eye.png"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px]"
           />
           <h3
             class="text-3xl font-light text-center whitespace-pre-line uppercase"
@@ -514,7 +514,7 @@
           <img
             src="@/assets/images/landing_fin/faces.png"
             alt=""
-            class="w-1/2 -translate-y-1/3"
+            class="w-1/2 -translate-y-1/3 backdrop-blur-[20px]"
           />
           <h3
             class="text-3xl font-light text-center whitespace-pre-line uppercase"
@@ -868,7 +868,7 @@ export default {
           this.$refs.egalite,
           { transform: 'scale(0)' },
           {
-            transform: 'translateX(-25%) scale(1)',
+            transform: 'translateX(-25%) scale(0.8)',
             duration: 2,
             scrollTrigger: this.$refs.egalite,
             ease: Power3.easeInOut,
@@ -877,13 +877,12 @@ export default {
         .then(() => {
           this.$gsap.fromTo(
             this.$refs.egalite,
-            { transform: 'translateX(-25%) scale(1)' },
+            { transform: 'translateX(-25%) scale(0.8)' },
             {
-              transform: 'translateX(-25%) scale(1.5)',
+              transform: 'translateX(-25%) scale(1)',
               duration: 2,
               repeat: -1,
               ease: 'none',
-              stagger: 0.1,
               yoyo: true,
             }
           )
@@ -934,7 +933,6 @@ export default {
               duration: 2,
               repeat: -1,
               ease: 'none',
-              stagger: 0.1,
               yoyo: true,
             }
           )
@@ -943,24 +941,23 @@ export default {
       this.$gsap
         .fromTo(
           this.$refs.positive,
-          { transform: ' scale(0) ' },
+          { transform: 'scale(0)' },
           {
-            transform: 'translate(-25%, -25%) scale(1)',
+            transform: 'translateX(-25%) scale(0.8)',
             duration: 2,
-            scrollTrigger: this.$refs.ecologie,
+            scrollTrigger: this.$refs.egalite,
             ease: Power3.easeInOut,
           }
         )
         .then(() => {
           this.$gsap.fromTo(
             this.$refs.positive,
-            { transform: 'translate(-25%, -25%) ' },
+            { transform: 'translateX(-25%) scale(0.8)' },
             {
-              transform: 'translate(-25%, 25%)',
+              transform: 'translateX(-25%) scale(1)',
               duration: 2,
               repeat: -1,
-              ease: Power3.easeIn,
-              stagger: 0.3,
+              ease: 'none',
               yoyo: true,
             }
           )
@@ -969,9 +966,9 @@ export default {
       this.$gsap
         .fromTo(
           this.$refs.innovation,
-          { transform: ' scale(0)' },
+          { transform: 'translateX(-25%) scale(0)' },
           {
-            transform: 'translate(-25%, -10%)  scale(1)',
+            transform: 'translateX(-25%) scale(1) rotate(-20deg)',
             duration: 2,
             scrollTrigger: this.$refs.innovation,
             ease: Power3.easeInOut,
@@ -980,13 +977,12 @@ export default {
         .then(() => {
           this.$gsap.fromTo(
             this.$refs.innovation,
-            { transform: 'translate(-25%, -10%)' },
+            { transform: ' translateX(-25%) rotate(-20deg)' },
             {
-              transform: 'translate(0)',
-              duration: 1,
+              transform: ' translateX(-25%) rotate(20deg)',
+              duration: 2,
               repeat: -1,
-              ease: Power3.easeIn,
-              delay: 0.5,
+              ease: 'none',
               yoyo: true,
             }
           )
@@ -1079,7 +1075,6 @@ button.neue:not(.bgo):hover {
   width: 820px;
   box-shadow: 10px 29px 40px #000000, -8px -11px 19px rgba(97, 228, 180, 0.25);
 }
-
 .client .text {
   display: flex;
   flex-wrap: wrap;
@@ -1212,9 +1207,14 @@ section {
 video {
   mix-blend-mode: color-dodge;
 }
+
+.innovation {
+  height: fit-content;
+}
 </style>
 
 <style>
+
 .typed-wrapper {
   width: 100%;
   color: transparent;

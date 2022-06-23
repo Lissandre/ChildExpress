@@ -18,11 +18,11 @@
           />
         </a>
         <nav class="flex gap-8">
-          <a href="#1">{{ $t('header.realisations') }}</a>
-          <a href="#2">{{ $t('header.values') }}</a>
-          <a href="#3">{{ $t('header.solution') }}</a>
-          <a href="#4">{{ $t('header.offers') }}</a>
-          <a href="#5">{{ $t('header.community') }}</a>
+          <a href="#1" class="nav-link">{{ $t('header.realisations') }}</a>
+          <a href="#2" class="nav-link">{{ $t('header.values') }}</a>
+          <a href="#3" class="nav-link">{{ $t('header.solution') }}</a>
+          <a href="#4" class="nav-link">{{ $t('header.offers') }}</a>
+          <a href="#5" class="nav-link">{{ $t('header.community') }}</a>
         </nav>
       </div>
       <button class="neue rounded-full px-4 py-2">
@@ -61,11 +61,6 @@ header {
   );
   backdrop-filter: blur(18px);
 }
-nav a:hover {
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
-
 .neue {
   box-shadow: -3px -5px 17px rgba(255, 255, 255, 0.87),
     9px 25.03px 30px rgba(110, 163, 242, 0.38);
@@ -76,4 +71,28 @@ nav a:hover {
   box-shadow: inset 1.82px 7.41px 12.62px rgba(15, 84, 228, 0.34),
     inset -2px -3px 6px rgba(255, 255, 255, 0.8);
 }
+
+.nav-link {
+  display: inline-block;
+}
+
+
+.nav-link:after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px black;
+  transform: scaleX(0);
+  border-radius: 10px;
+  transition: transform 250ms ease-in-out;
+  transform-origin: 100% 50%;
+}
+
+.reveal .nav-link::after {
+  border-bottom: solid 1px white;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: 0% 50%;
+  }
 </style>

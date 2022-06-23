@@ -48,6 +48,7 @@ module.exports = {
         'fade-up-in2': 'fadeUpIn2 0.5s ease forwards',
         'fade-up-in3': 'fadeUpIn3 0.5s ease forwards',
         'scale-up': 'scaleUp 6s ease forwards',
+        'opacitybullefade': 'opacityBulleFade 7s ease forwards',
       },
       keyframes: {
         bounceIn: {
@@ -262,6 +263,20 @@ module.exports = {
           },
           '100%': {
             transform: 'rotate3d(0, 0, 1, -2.6deg)',
+          },
+        },
+        opacityBulleFade: {
+          '0%': {
+            opacity: 0,
+          },
+          '10%': {
+            opacity: 1,
+          },
+          '90%': {
+            opacity: 1,
+          },
+          '100%': {
+            opacity: 0,
           },
         },
         scaleUp: {

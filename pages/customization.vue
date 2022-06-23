@@ -3,6 +3,7 @@
     <LocaleSwitcher />
     <!--<Tutorial />-->
     <!--<Focus />-->
+    <div class="littleLogo top-2 left-2"></div>
     <ProgressBar />
     <component :is="`Form${store.activeForm}`" />
     <BabyViewer />
@@ -209,5 +210,16 @@ fieldset > input[type='submit'],
 .weight .content {
   flex-direction: row !important;
   margin: 0 20px;
+}
+
+.littleLogo {
+  background: no-repeat center center url('@/assets/images/littleLogo.png');
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 10px;
+  left: 50px;
+  z-index: 1;
+
 }
 </style>

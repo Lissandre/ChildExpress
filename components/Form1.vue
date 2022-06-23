@@ -167,7 +167,7 @@ export default {
         controls.classList.add('animate-bounce-out')
       }
       setTimeout(() => {
-        this.$refs.loaderVideo.classList.add('animate-scale-up')
+        this.$refs.loaderVideo.classList.add('animate-opacitybullefade')
         $nuxt.$emit('updateSound', 'form1', 'speech', 'loading', 'speech1')
       }, 1000)
 
@@ -413,6 +413,7 @@ export default {
   width: 100%;
   position: absolute;
   margin: 0 auto;
+  opacity: 0;
 }
 </style>
 
@@ -453,7 +454,6 @@ export default {
 }
 
 video {
-  transform: scale3d(0, 0, 0);
   mix-blend-mode: screen;
   z-index: 2;
 }
